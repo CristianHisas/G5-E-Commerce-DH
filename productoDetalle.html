@@ -22,6 +22,7 @@
   <style type="text/css" id="enject"></style>
 </head>
 <body>
+  <!-- Header====================================================================== -->
   <div id="header">
     <div class="container">
       <div id="welcomeLine" class="row">
@@ -100,6 +101,7 @@
                     </tr>
                   </tbody>
                 </table>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
               </div>
             </div>
           </div>
@@ -115,7 +117,7 @@
         <div class="navbar-inner">
           <a class="brand" href="index.html"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
           <form class="form-inline navbar-search" method="post" action="products.html" >
-            <input id="srchFld" class="srchTxt" type="text" />
+            <input placeholder="Search field" class="srchTxt" type="text" />
             <select class="srchTxt">
               <option>All</option>
               <option>CLOTHES </option>
@@ -131,7 +133,7 @@
             <li class=""><a href="normal.html">Delivery</a></li>
             <li class=""><a href="contact.html">Contact</a></li>
             <li class="">
-              <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
+              <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-primary">Login</span></a>
               <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -151,7 +153,7 @@
                       </label>
                     </div>
                   </form>
-                  <button type="submit" class="btn btn-success">Sign in</button>
+                  <button type="submit" class="btn btn-primary">Sign in</button>
                   <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                 </div>
               </div>
@@ -159,6 +161,7 @@
           </ul>
         </div>
       </div>
+    <!-- Navbar End================================================== -->
     </div>
   </div>
   <!-- Header End====================================================================== -->
@@ -200,9 +203,24 @@
                 <li><a href="products.html"><i class="icon-chevron-right"></i>Khao Shong (11)</a></li>
               </ul>
             </li>
-            <li><a href="products.html">HEALTH & BEAUTY [18]</a></li>
-            <li><a href="products.html">SPORTS & LEISURE [58]</a></li>
-            <li><a href="products.html">BOOKS & ENTERTAINMENTS [14]</a></li>
+            <li class="subMenu"><a>HEALTH & BEAUTY [18]</a>
+              <ul style="display: none">
+                <li><a href="products.html"><i class="icon-chevron-right"></i>Angoves  (35)</a></li>
+
+              </ul>
+            </li>
+            <li class="subMenu"><a>SPORTS & LEISURE [58]</a>
+              <ul style="display: none">
+                <li><a href="products.html"><i class="icon-chevron-right"></i>Angoves  (35)</a></li>
+
+              </ul>
+            </li>
+            <li class="subMenu"><a>BOOKS & ENTERTAINMENTS [14]</a>
+              <ul style="display: none">
+                <li><a href="products.html"><i class="icon-chevron-right"></i>Angoves  (35)</a></li>
+
+              </ul>
+            </li>
           </ul>
           <br/>
           <div class="thumbnail">
@@ -651,6 +669,7 @@
       </div>
       <p class="pull-right">&copy; Bootshop</p>
     </div><!-- Container End -->
+  <!-- Footer End================================================================== -->
   </div>
 
   <!-- Placed at the end of the document so the pages load faster ============================================= -->
