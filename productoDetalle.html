@@ -28,13 +28,80 @@
         <div class="span6">Welcome!<strong> User</strong></div>
         <div class="span6">
           <div class="pull-right">
-            <a href="product_summary.html"><span class="">Fr</span></a>
-            <a href="product_summary.html"><span class="">Es</span></a>
-            <span class="btn btn-mini">En</span>
-            <a href="product_summary.html"><span>&pound;</span></a>
-            <span class="btn btn-mini">$155.00</span>
-            <a href="product_summary.html"><span class="">$</span></a>
-            <a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your cart </span> </a>
+            <span class="badge badge-primary">Money in your cart: $155.00</span>
+            <a href="#summary" role="button" data-toggle="modal"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your cart </span> </a>
+            <div id="summary" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="summary" aria-hidden="false" >
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              </div>
+              <div class="modal-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Description</th>
+                      <th>Quantity/Update</th>
+                      <th>Price</th>
+                      <th>Discount</th>
+                      <th>Tax</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td> <img width="60" src="themes/images/products/4.jpg" alt=""/></td>
+                      <td>MASSA AST<br/>Color : black, Material : metal</td>
+                      <td>
+                        <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text"><button class="btn" type="button"><i class="icon-minus"></i></button><button class="btn" type="button"><i class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>				</div>
+                      </td>
+                      <td>$120.00</td>
+                      <td>$25.00</td>
+                      <td>$15.00</td>
+                      <td>$110.00</td>
+                    </tr>
+                    <tr>
+                      <td> <img width="60" src="themes/images/products/8.jpg" alt=""/></td>
+                      <td>MASSA AST<br/>Color : black, Material : metal</td>
+                      <td>
+                        <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text"><button class="btn" type="button"><i class="icon-minus"></i></button><button class="btn" type="button"><i class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>				</div>
+                      </td>
+                      <td>$7.00</td>
+                      <td>--</td>
+                      <td>$1.00</td>
+                      <td>$8.00</td>
+                    </tr>
+                    <tr>
+                      <td> <img width="60" src="themes/images/products/3.jpg" alt=""/></td>
+                      <td>MASSA AST<br/>Color : black, Material : metal</td>
+                      <td>
+                        <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text"><button class="btn" type="button"><i class="icon-minus"></i></button><button class="btn" type="button"><i class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>				</div>
+                      </td>
+                      <td>$120.00</td>
+                      <td>$25.00</td>
+                      <td>$15.00</td>
+                      <td>$110.00</td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="6" style="text-align:right">Total Price:	</td>
+                      <td> $228.00</td>
+                    </tr>
+                    <tr>
+                      <td colspan="6" style="text-align:right">Total Discount:	</td>
+                      <td> $50.00</td>
+                    </tr>
+                    <tr>
+                      <td colspan="6" style="text-align:right">Total Tax:	</td>
+                      <td> $31.00</td>
+                    </tr>
+                    <tr>
+                      <td colspan="6" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
+                      <td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -138,20 +205,6 @@
             <li><a href="products.html">BOOKS & ENTERTAINMENTS [14]</a></li>
           </ul>
           <br/>
-          <div class="thumbnail">
-            <img src="themes/images/products/panasonic.jpg" alt="Bootshop panasonoc New camera"/>
-            <div class="caption">
-              <h5>Panasonic</h5>
-              <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
-            </div>
-          </div><br/>
-          <div class="thumbnail">
-            <img src="themes/images/products/kindle.png" title="Bootshop New Kindel" alt="Bootshop Kindel">
-            <div class="caption">
-              <h5>Kindle</h5>
-              <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
-            </div>
-          </div><br/>
           <div class="thumbnail">
             <img src="themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
             <div class="caption">
