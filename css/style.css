@@ -1,0 +1,170 @@
+*{
+    box-sizing: border-box;
+}
+.usuario{
+}
+.menu-left li{
+    padding: 0;
+}
+.menu-left ul li a{
+    padding: .75rem 1.25rem;
+    display: block;
+    text-decoration: none;
+}
+.menu-left ul li a:hover{
+    border-left: solid blue 4px;
+}
+.conf div ul{
+    padding: 0;
+    margin-top:5px;
+}
+.conf div ul li{
+  list-style: none;
+}
+.conf div ul li a{
+    display: block;
+    text-decoration:none;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.img-perfil{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    background-image: url("../img/48ebb2c576eaa22a2d15ae46d8c70085.jpg");
+    background-size: cover;
+    background-position-y: top;
+    border-radius: 300px;
+    border-style: solid;
+    border-color: silver;
+    
+}
+.img-perfil a{
+    background-color: rgba(0,0,0,45%);
+    color: snow;
+    
+    text-align: center;
+    position:absolute;
+    top: auto;
+    z-index: 1000;
+    text-decoration: none;
+}
+.footer-cambiado{
+    background-color: #343a40;
+    text-decoration: none;
+    color: honeydew;
+}
+
+.footer-cambiado div div a {
+    display:block;
+    text-decoration: none;
+    color: honeydew;
+    padding-left: 5px;
+}
+.footer-cambiado div div h5.social{
+    padding: 0;
+    display:block;
+}
+.footer-cambiado div div .social{
+    padding: 0;
+    color: white;
+    display:inline;
+}
+@media (max-width: 470.98px) { 
+    .container{
+        
+        margin-top: 15vh;
+    }
+    .footer-cambiado div div{
+        text-align: center;
+    }
+    .footer-cambiado div div h5{
+        display: block;
+        border-bottom:white solid 1px;
+        padding:.50rem .15rem;
+    }
+    .footer-cambiado div div h5.social{
+        display: block;
+        border-bottom: none;
+    }
+    .footer-cambiado div div a{
+        display: block;
+        padding:.20rem .5rem;
+        border-bottom: solid white 1px;
+    }
+    .footer-cambiado div div a.social{
+        display: inline;
+        border-bottom: none;
+    }
+    .footer-cambiado div div a:hover{
+        border-left: solid white 2px;
+        border-right: solid white 2px;
+    }
+    .footer-cambiado div div a.social:hover{
+        border-left:none;
+        border-right:none;
+    }
+}
+
+@media (min-width: 471px) and (max-width: 599.98px) { 
+    .container{
+        
+        margin-top: 12vh;
+    }
+    .footer-cambiado div div{
+        text-align: center;
+    }
+    .footer-cambiado div div h5{
+        display: block;
+        border-bottom:white solid 1px;
+        padding:.75rem .25rem;
+    }
+    .footer-cambiado div div h5.social{
+        display: block;
+        border-bottom: none;
+        padding:.75rem .25rem;
+    }
+    .footer-cambiado div div a{
+        display: block;
+        padding:.20rem .5rem;
+        border-bottom: solid white 1px;
+    }
+    .footer-cambiado div div a.social{
+        display: inline;
+        border-bottom: none;
+    }
+    .footer-cambiado div div a:hover{
+        border-left: solid white 2px;
+        border-right: solid white 2px;
+    }
+    .footer-cambiado div div a.social:hover{
+        border-left:none;
+        border-right: none;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767.98px) { 
+    .container{
+       
+    margin-top: 8vh;
+    } 
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .container{
+        
+        margin-top: 13vh;
+    }
+}
+
+@media (min-width: 992px)  {
+    .container{
+        
+        margin-top: 15vh;
+    }
+    
+ }

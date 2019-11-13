@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>E-commerce</title>
+</head>
+<body>
+    <!--Comienza el header-->
+    <header class="container-fluir fixed-top">
+            <!--Comienza el nav-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
+                <!--Comienza el nombre de la empresa-->
+                    <a class="navbar-brand" href="#">
+                      <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
+                      <span>E-commerce</span>
+                    </a>
+                <!--Fin el nombre de la empresa-->
+                <!--Comienza el buscador-->
+                    <form class=" d-md-inline-block form-inline mx-auto  my-2 my-md-0">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Buscar producto...." aria-label="Search" aria-describedby="basic-addon2">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <img src="img/lupa.png" width="20" height="20" class="d-inline-block align-top" alt="">
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                <!--fin el buscador-->
+                <!--Comienza del menu complimido-->
+                      <!--Comienza el icono de  complimido-->
+                    <button class="navbar-toggler col-12 col-sm-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span>Menu</span>
+                      <span class="navbar-toggler-icon"></span>
+                      
+                    </button>
+                    <!--fin el icono de  complimido-->
+                    <!--Comienza el menu descomplimido-->
+                    <div class="collapse navbar-collapse " id="navbarNav">
+                      <ul class="navbar-nav ml-md-auto">
+                        <li class="nav-item ">
+                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                                <!--Comienza el categoria-->
+                                <div class="dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          categorias
+                                        </a>
+                                        <!--Comienza el menu desplegable de categoria-->
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                          <a class="dropdown-item ml-md-auto" href="#">Action</a>
+                                          <a class="dropdown-item ml-md-auto" href="#">Another action</a>
+                                          <a class="dropdown-item ml-md-auto" href="#">Something else here</a>
+                                        </div>
+                                        <!--fin el menu desplegable de categoria-->
+                                      </div>
+                                <!--Fin categoria-->
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link btn btn-primary" href="#">ingresar</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">registrarse</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="#">ayuda</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <span>carrito</span>
+                            <img src="img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--fin el menu descomplimido-->
+                  <!--Comienza del menu complimido-->
+                  </nav>
+    </header>
+    <div class="container contenedor">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-3 col-lg-3 menu-left">
+            <ul class="list-group">
+              <li class="list-group-item "><a href="" class="">resumen</a></li>
+              <li class="list-group-item"><a href="" >compras</a></li>
+              <li class="list-group-item conf" >
+                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">configuracion</a>
+                <div class="collapse" id="collapseExample">
+                    <ul class="card card-header">
+                        <li >
+                          <a href="" class="">Mis Datos</a>
+                        </li>
+                        <li >
+                          <a href="" class="">Seguridad</a>
+                        </li>
+                        <li >
+                            <a href="" class="">Email</a>
+                        </li>
+                      </ul>
+                </div>
+                
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-sm-12 col-md-9  col-lg-9 usuario">
+            <h1>Perfil</h1>
+            <div class="d-flex flex-wrap mx-auto img-perfil ">
+                <div class="" >
+                    <!-- Button trigger modal -->
+                    <a href="" class=" fixed-bottom btn-link py-2" data-toggle="modal" data-target="#exampleModalCenter">editar</a>
+                      <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Subir Foto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 mx-auto my-2 bg-secondary">
+                        <img src="img/pngocean.com(1).png" class="img-fluid rounded mx-auto d-block" alt="..." max-width="100%"  height="auto">
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 col-lg-12 mx-auto">
+                      <form name="formulario" method="post" action="http://pagina.com/send.php"
+                              enctype="multipart/form-data" class="col-md-10 col-lg-10 mx-auto" > <!-- ¡No olvides el enctype! -->
+                      <!-- Campo de selección de archivo -->
+                      <input type="file" name="adjunto" accept=".pdf,.jpg,.png" class="examinar col-md-12 col-lg-12 mx-auto">
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+                </div>
+            </div>
+            <div class=" col-lg-8">
+                <h2>Datos:</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta nobis distinctio aliquid perspiciatis blanditiis, corrupti voluptate quisquam quaerat? Deleniti repellat possimus sed voluptate voluptatem eligendi sequi nesciunt nulla perspiciatis quae?</p>
+                <button type="button" class="btn btn-secondary ml-md-auto">Editar</button>
+                <button type="button" class="btn btn-secondary ml-md-auto">guardar</button>
+          </div>
+        </div>
+    </div>
+</div>
+      <!-- MainBody End ============================= -->
+  <!-- Footer ================================================================== -->
+      <div class="container-fluid bg-dark px-auto py-4 my-4 footer-cambiado ">
+        <div class="row d-flex justify-content-between">
+          <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+            <h5>ACCOUNT</h5>
+            <a href="login.html" class="">YOUR ACCOUNT</a>
+            <a href="login.html">PERSONAL INFORMATION</a>
+            <a href="login.html">ADDRESSES</a>
+            <a href="login.html">DISCOUNT</a>
+            <a href="login.html">ORDER HISTORY</a>
+          </div>
+          <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+            <h5>INFORMATION</h5>
+            <a href="contact.html">CONTACT</a>
+            <a href="register.html">REGISTRATION</a>
+            <a href="legal_notice.html">LEGAL NOTICE</a>
+            <a href="tac.html">TERMS AND CONDITIONS</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+          <div id="socialMedia " class="col-12 col-sm-3 col-md-3 col-lg-3 pull-right social text-center">
+            <h5 class="social">SOCIAL MEDIA </h5>
+            <a href="#" class="social"><img width="60" height="60" src="img/facebook.png" title="facebook" alt="facebook"/></a>
+            <a href="#" class="social"><img width="60" height="60" src="img/twitter.png" title="twitter" alt="twitter"/></a>
+            <a href="#" class="social"><img width="60" height="60" src="img/youtube.png" title="youtube" alt="youtube"/></a>
+          </div>
+        </div>
+        <p class="pull-right text-center my-2 py-2">Copyright &copy; Your Website 2019</p>
+      </div><!-- Container End -->
+    <!-- Footer End================================================================== -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
