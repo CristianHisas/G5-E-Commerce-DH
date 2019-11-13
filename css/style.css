@@ -77,7 +77,7 @@
 @media (max-width: 470.98px) { 
     .container{
         
-        margin-top: 15vh;
+        margin-top: 16vh;
     }
     .footer-cambiado div div{
         text-align: center;
@@ -109,11 +109,16 @@
         border-right:none;
     }
 }
-
-@media (min-width: 471px) and (max-width: 599.98px) { 
+@media (max-width: 457.8px) { 
     .container{
         
-        margin-top: 12vh;
+        margin-top: 160px;
+    }
+}
+@media (min-width: 458px) and (max-width: 599.98px) { 
+    .container{
+        
+        margin-top: 120px;
     }
     .footer-cambiado div div{
         text-align: center;
@@ -150,14 +155,14 @@
 @media (min-width: 600px) and (max-width: 767.98px) { 
     .container{
        
-    margin-top: 8vh;
-    } 
+        margin-top: 80px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) { 
     .container{
         
-        margin-top: 13vh;
+        margin-top: 70px;
     }
 }
 
