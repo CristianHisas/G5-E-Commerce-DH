@@ -1,0 +1,220 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family:monospace; 
+}
+section {   
+    background-color:rgb(248, 250, 250);
+    background-size: 100vw 100vh;
+    background-attachment:fixed;
+    margin:0;
+    /*font-family:monospace; */
+    }
+
+  /*Section con imagen
+    section {       
+        background-image: url(../roboc.jpg);
+         background-color:rgb(182, 241, 243), 230);
+         background-size: 100vw 100vh;
+         background-attachment:fixed;
+         margin:0;
+        font-family:monospace; 
+         }
+ */
+/*section{
+    width: 80%;
+    height: 400px;
+    border: 1px solid black;
+    background-color: red;
+    margin: 10px;
+}
+*/
+
+h1{
+    text-align: center;
+    color:#ffff;
+    font-size:40px;
+    background: rgba(0,0,0,0.4);
+    margin-top: 20px;
+}
+h2 {
+    
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 20px;
+   
+}
+h3{
+    color: rgb(10, 1, 1);
+}
+/*para el formulario*/
+form{
+    width: 450px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 7px;
+}
+input, textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border: none;
+    }
+
+#boton {
+    background: rgb(0, 6, 19);
+    color: #fff ;
+    padding: 20px;
+}
+#boton:hover{
+    cursor:pointer; 
+}
+
+/*
+input:hover{
+    background-color:  coral;
+
+}
+input:focus{
+    background-color: rgb(80, 150, 255);
+}
+ 
+*/
+/*
+agregado
+*/
+.footer-cambiado{
+    background-color: #343a40;
+    text-decoration: none;
+    color: honeydew;
+}
+
+.footer-cambiado div div a {
+    display:block;
+    text-decoration: none;
+    color: honeydew;
+    padding-left: 5px;
+}
+.footer-cambiado div div h5.social{
+    padding: 0;
+    display:block;
+}
+.footer-cambiado div div .social{
+    padding: 0;
+    color: white;
+    display:inline;
+}
+@media(max-width:480px){
+    form{
+    width:100%;
+    }
+}
+@media (max-width: 470.98px) { 
+    .container{
+        
+        margin-top: 16vh;
+    }
+    .footer-cambiado div div{
+        text-align: center;
+    }
+    .footer-cambiado div div h5{
+        display: block;
+        border-bottom:white solid 1px;
+        padding:.50rem .15rem;
+    }
+    .footer-cambiado div div h5.social{
+        display: block;
+        border-bottom: none;
+    }
+    .footer-cambiado div div a{
+        display: block;
+        padding:.20rem .5rem;
+        border-bottom: solid white 1px;
+    }
+    .footer-cambiado div div a.social{
+        display: inline;
+        border-bottom: none;
+    }
+    .footer-cambiado div div a:hover{
+        border-left: solid white 2px;
+        border-right: solid white 2px;
+    }
+    .footer-cambiado div div a.social:hover{
+        border-left:none;
+        border-right:none;
+    }
+}
+@media (max-width: 457.8px) { 
+    .container{
+        
+        margin-top: 160px;
+    }
+}
+@media (min-width: 458px) and (max-width: 599.98px) { 
+    .container{
+        
+        margin-top: 120px;
+    }
+    .footer-cambiado div div{
+        text-align: center;
+    }
+    .footer-cambiado div div h5{
+        display: block;
+        border-bottom:white solid 1px;
+        padding:.75rem .25rem;
+    }
+    .footer-cambiado div div h5.social{
+        display: block;
+        border-bottom: none;
+        padding:.75rem .25rem;
+    }
+    .footer-cambiado div div a{
+        display: block;
+        padding:.20rem .5rem;
+        border-bottom: solid white 1px;
+    }
+    .footer-cambiado div div a.social{
+        display: inline;
+        border-bottom: none;
+    }
+    .footer-cambiado div div a:hover{
+        border-left: solid white 2px;
+        border-right: solid white 2px;
+    }
+    .footer-cambiado div div a.social:hover{
+        border-left:none;
+        border-right: none;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767.98px) { 
+    .container{
+       
+        margin-top: 80px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .container{
+        
+        margin-top: 70px;
+    }
+}
+
+@media (min-width: 992px){
+    .pregunta{
+        margin-left:78%;
+    }
+    .container{
+        
+        margin-top: 15vh;
+    }
+    
+ }
