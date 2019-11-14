@@ -1,0 +1,127 @@
+*{
+    box-sizing: border-box;
+}
+
+aside{
+  float: left;
+}
+.footer-cambiado{
+    background-color: #343a40;
+    text-decoration: none;
+    color: honeydew;
+}
+
+.footer-cambiado div div a {
+    display:block;
+    text-decoration: none;
+    color: honeydew;
+    padding-left: 5px;
+}
+.footer-cambiado div div h5.social{
+    padding: 0;
+    display:block;
+}
+.footer-cambiado div div .social{
+    padding: 0;
+    color: white;
+    display:inline;
+}
+@media (max-width: 470.98px) {
+    .container{
+
+        margin-top: 16vh;
+    }
+    .footer-cambiado div div{
+        text-align: center;
+    }
+    .footer-cambiado div div h5{
+        display: block;
+        border-bottom:white solid 1px;
+        padding:.50rem .15rem;
+    }
+    .footer-cambiado div div h5.social{
+        display: block;
+        border-bottom: none;
+    }
+    .footer-cambiado div div a{
+        display: block;
+        padding:.20rem .5rem;
+        border-bottom: solid white 1px;
+    }
+    .footer-cambiado div div a.social{
+        display: inline;
+        border-bottom: none;
+    }
+    .footer-cambiado div div a:hover{
+        border-left: solid white 2px;
+        border-right: solid white 2px;
+    }
+    .footer-cambiado div div a.social:hover{
+        border-left:none;
+        border-right:none;
+    }
+}
+@media (max-width: 457.8px) {
+    .container{
+
+        margin-top: 160px;
+    }
+}
+@media (min-width: 458px) and (max-width: 599.98px) {
+    .container{
+
+        margin-top: 120px;
+    }
+    .footer-cambiado div div{
+        text-align: center;
+    }
+    .footer-cambiado div div h5{
+        display: block;
+        border-bottom:white solid 1px;
+        padding:.75rem .25rem;
+    }
+    .footer-cambiado div div h5.social{
+        display: block;
+        border-bottom: none;
+        padding:.75rem .25rem;
+    }
+    .footer-cambiado div div a{
+        display: block;
+        padding:.20rem .5rem;
+        border-bottom: solid white 1px;
+    }
+    .footer-cambiado div div a.social{
+        display: inline;
+        border-bottom: none;
+    }
+    .footer-cambiado div div a:hover{
+        border-left: solid white 2px;
+        border-right: solid white 2px;
+    }
+    .footer-cambiado div div a.social:hover{
+        border-left:none;
+        border-right: none;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767.98px) {
+    .container{
+
+        margin-top: 80px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .container{
+
+        margin-top: 70px;
+    }
+}
+
+@media (min-width: 992px)  {
+    .container{
+
+        margin-top: 15vh;
+    }
+
+ }
