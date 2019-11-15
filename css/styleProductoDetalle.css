@@ -2,13 +2,48 @@
     box-sizing: border-box;
 }
 
-aside{
-  float: left;
+body{
+  background-image: url(../img/background-img.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
+
+.modal-content{
+  border-radius: 25px !important;
+}
+
+/*Main*/
+.breadcrumb{
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 25px;
+}
+
+#imagenProducto img{
+  border: 1px solid #0001;
+}
+
+main #mainContainer #seccionProducto{
+  margin: 30px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+main #mainContainer #seccionInfoProducto{
+  margin: 30px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+/* Footer */
 .footer-cambiado{
     background-color: #343a40;
     text-decoration: none;
     color: honeydew;
+    margin: 0 !important;
+
 }
 
 .footer-cambiado div div a {
@@ -26,13 +61,15 @@ aside{
     color: white;
     display:inline;
 }
+
+/*Media Querys*/
 @media (max-width: 470.98px) {
     .container{
-
         margin-top: 16vh;
     }
     .footer-cambiado div div{
         text-align: center;
+        margin: 0 !important;
     }
     .footer-cambiado div div h5{
         display: block;
@@ -63,17 +100,16 @@ aside{
 }
 @media (max-width: 457.8px) {
     .container{
-
         margin-top: 160px;
     }
 }
 @media (min-width: 458px) and (max-width: 599.98px) {
     .container{
-
         margin-top: 120px;
     }
     .footer-cambiado div div{
         text-align: center;
+        margin: 0 !important;
     }
     .footer-cambiado div div h5{
         display: block;
