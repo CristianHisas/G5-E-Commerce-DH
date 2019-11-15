@@ -1,0 +1,11 @@
+main {
+  margin-top: 70px;
+  min-height: 80vh;
+}
+main .inner-main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+main .inner-main #accordionFaq .ch-datagrid.table td {
+  border: 1px solid #0004;
+}

@@ -1,288 +1,132 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="themes/css/home.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lista-productos.css">
+
+    <title>E-commerce</title>
 </head>
 <body>
-    
-    <main>
-        <div class="inner-main">
-            <aside>
-                <div class="tags">
-                    <span class="tag">
-                        <span>Nuevo</span>
-                        <i  class="material-icons">&#xe14c;</i>
-                    </span>
-                    <span class="tag">
-                        <span>Novela</span>
-                        <i class="material-icons">&#xe14c;</i>
-                    </span>
-                </div>
-                <dl>
-                    <dt>
-                        Género del libro
-                    </dt>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">Diccionarios y enciclopedias</span>
-                            <span class="filter-result-qty">(123)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">Libros de texto</span>
-                            <span class="filter-result-qty">(65)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">Literatura y ficción</span>
-                            <span class="filter-result-qty">(70)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            Ver todos
-                        </a>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>
-                        Tipo de narración
-                    </dt>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">Novela</span>
-                            <span class="filter-result-qty">(36)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">Cuento</span>
-                            <span class="filter-result-qty">(22)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">Poesía</span>
-                            <span class="filter-result-qty">(17)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            Ver todos
-                        </a>
-                    </dd>
-                </dl>
-            </aside>
-
-
-            <section>
-                <article>
-                    <div class="img-container">
-                        <img src="img/got.webp" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="img-container">
-                        <img src="img/got.webp" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                            <span class="price-symbol">$</span>
-                            <span class="price-value">948</span>
-                        </div>
-                        <div class="descripcion-text">
-                            Descripción
-                        </div>
-                        <div class="vendedor">
-                            Vendedor
-                        </div>
-                        <div class="cantidad-vendidos">
-                            206
+    <!--Comienza el header-->
+    <header class="container-fluir fixed-top">
+            <!--Comienza el nav-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
+            <!--Comienza el nombre de la empresa-->
+                <a class="navbar-brand" href="#">
+                    <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
+                    <span>E-commerce</span>
+                </a>
+            <!--Fin el nombre de la empresa-->
+            <!--Comienza el buscador-->
+                <form class=" d-md-inline-block form-inline mx-auto  my-2 my-md-0">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar producto...." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <img src="img/lupa.png" width="20" height="20" class="d-inline-block align-top" alt="">
+                        </button>
                         </div>
                     </div>
-                </article>
-
-                <article>
-                    <div class="img-container">
-                        <img src="img/got.webp" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="img-container">
-                        <img src="img/got.webp" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="img-container">
-                        <img src="img/got.webp" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-
-                <article class="destacado">
-                    <div class="img-container">
-                        <img src="img/got.webp" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-                <article class="destacado">
-                    <div class="img-container">
-                        <img src="img/got.webp" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-                <article class="destacado">
-                    <div class="img-container">
-                        <img src="img/got.webp" alt="">
-                    </div>
-                    <div class="descripcion">
-                            <div class="price">
-                            <span class="price-symbol">$</span>
-                            <span class="price-value">948</span>
-                        </div>
-                        <div class="descripcion-text">
-                            Descripción
-                        </div>
-                        <div class="vendedor">
-                            Vendedor
-                        </div>
-                        <div class="cantidad-vendidos">
-                            206
-                        </div>
-                    </div>
-                </article>
-
-                <div class="pagination-container">
-                    <ul>
-                        <li><i class='fas'>&#xf104;</i><a href=""> Anterior</a></li>
-                        <li><a href="">1</a></li> 
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">9</a></li>
-                        <li><a href="">10</a></li>
-                        <li><a href="">Siguiente <i class='fas'>&#xf105;</i></a></li>
+                    </form>
+            <!--fin el buscador-->
+            <!--Comienza del menu complimido-->
+                    <!--Comienza el icono de  complimido-->
+                <button class="navbar-toggler col-12 col-sm-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span>Menu</span>
+                    <span class="navbar-toggler-icon"></span>
+                    
+                </button>
+                <!--fin el icono de  complimido-->
+                <!--Comienza el menu descomplimido-->
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav ml-md-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                            <!--Comienza el categoria-->
+                            <div class="dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        categorias
+                                    </a>
+                                    <!--Comienza el menu desplegable de categoria-->
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item ml-md-auto" href="#">Action</a>
+                                        <a class="dropdown-item ml-md-auto" href="#">Another action</a>
+                                        <a class="dropdown-item ml-md-auto" href="#">Something else here</a>
+                                    </div>
+                                    <!--fin el menu desplegable de categoria-->
+                                    </div>
+                            <!--Fin categoria-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="#">ingresar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="#">ayuda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <span>carrito</span>
+                        <img src="img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
+                        </a>
+                    </li>
                     </ul>
                 </div>
-            </section>
-        </div>    
+                <!--fin el menu descomplimido-->
+                <!--Comienza del menu complimido-->
+                </nav>
+    </header>
+
+    <main>
+        <div class="inner-main">
+             home
+        </div>
     </main>
+    
 
 
 
-
-
-
-
-
-</body>
-</html>
-
-
-
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      <!-- MainBody End ============================= -->
+  <!-- Footer ================================================================== -->
+      <div class="container-fluid bg-dark px-auto py-4 my-4 footer-cambiado ">
+        <div class="row d-flex justify-content-between">
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+            <h5>ACCOUNT</h5>
+            <a href="login.html" class="">YOUR ACCOUNT</a>
+            <a href="login.html">PERSONAL INFORMATION</a>
+            <a href="login.html">ADDRESSES</a>
+            <a href="login.html">DISCOUNT</a>
+            <a href="login.html">ORDER HISTORY</a>
+          </div>
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+            <h5>INFORMATION</h5>
+            <a href="contact.html">CONTACT</a>
+            <a href="register.html">REGISTRATION</a>
+            <a href="legal_notice.html">LEGAL NOTICE</a>
+            <a href="tac.html">TERMS AND CONDITIONS</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+          <div id="socialMedia " class="col-12 col-sm-4 col-md-4 col-lg-4 pull-right social text-center">
+            <h5 class="social">SOCIAL MEDIA </h5>
+            <a href="#" class="social"><img width="60" height="60" src="img/facebook.png" title="facebook" alt="facebook"/></a>
+            <a href="#" class="social"><img width="60" height="60" src="img/twitter.png" title="twitter" alt="twitter"/></a>
+            <a href="#" class="social"><img width="60" height="60" src="img/youtube.png" title="youtube" alt="youtube"/></a>
+          </div>
+        </div>
+        <p class="pull-right text-center my-2 py-2">Copyright &copy; Your Website 2019</p>
+      </div><!-- Container End -->
+    <!-- Footer End================================================================== -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

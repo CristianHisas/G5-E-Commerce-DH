@@ -1,6 +1,9 @@
 *{
     box-sizing: border-box;
 }
+.mt-4, .my-4{
+    margin: 0 !important;
+}
 .usuario{
 }
 .menu-left li{
@@ -72,7 +75,7 @@
 .footer-cambiado div div .social{
     padding: 0;
     color: white;
-    display:inline;
+    /* display:inline; */
 }
 @media (max-width: 470.98px) { 
     .container{
