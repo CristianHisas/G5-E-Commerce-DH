@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
 }
+<<<<<<< HEAD
 .ubicacion{
     padding: 8px 15px;
     margin: 0 0 20px;
@@ -12,6 +13,11 @@
     display: inline;
 }
 
+=======
+.mt-4, .my-4{
+    margin: 0 !important;
+}
+>>>>>>> 90e4be60ac5463b5af0dd8b4a20b84a922139428
 .usuario{
 /*
     box-shadow:0px 6px 30px 10px dimgray inset;
@@ -128,7 +134,7 @@
 .footer-cambiado div div .social{
     padding: 0;
     color: white;
-    display:inline;
+    /* display:inline; */
 }
 @media (max-width: 470.98px) { 
     .container{

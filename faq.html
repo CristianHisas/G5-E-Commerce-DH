@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/faq.css">
+
+    <title>E-commerce</title>
+</head>
+<body>
+    <!--Comienza el header-->
+    <header class="container-fluir fixed-top">
+            <!--Comienza el nav-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
+                <!--Comienza el nombre de la empresa-->
+                    <a class="navbar-brand" href="#">
+                      <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
+                      <span>E-commerce</span>
+                    </a>
+                <!--Fin el nombre de la empresa-->
+                <!--Comienza el buscador-->
+                    <form class=" d-md-inline-block form-inline mx-auto  my-2 my-md-0">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Buscar producto...." aria-label="Search" aria-describedby="basic-addon2">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <img src="img/lupa.png" width="20" height="20" class="d-inline-block align-top" alt="">
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                <!--fin el buscador-->
+                <!--Comienza del menu complimido-->
+                      <!--Comienza el icono de  complimido-->
+                    <button class="navbar-toggler col-12 col-sm-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span>Menu</span>
+                      <span class="navbar-toggler-icon"></span>
+                      
+                    </button>
+                    <!--fin el icono de  complimido-->
+                    <!--Comienza el menu descomplimido-->
+                    <div class="collapse navbar-collapse " id="navbarNav">
+                      <ul class="navbar-nav ml-md-auto">
+                        <li class="nav-item ">
+                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                                <!--Comienza el categoria-->
+                                <div class="dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          categorias
+                                        </a>
+                                        <!--Comienza el menu desplegable de categoria-->
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                          <a class="dropdown-item ml-md-auto" href="#">Action</a>
+                                          <a class="dropdown-item ml-md-auto" href="#">Another action</a>
+                                          <a class="dropdown-item ml-md-auto" href="#">Something else here</a>
+                                        </div>
+                                        <!--fin el menu desplegable de categoria-->
+                                      </div>
+                                <!--Fin categoria-->
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link btn btn-primary" href="#">ingresar</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">registrarse</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="#">ayuda</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <span>carrito</span>
+                            <img src="img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--fin el menu descomplimido-->
+                  <!--Comienza del menu complimido-->
+                  </nav>
+    </header>
+
+    <main>
+        <div class="inner-main">
+                <h1>Preguntas frecuentes</h1>
+                <div class="accordion" id="accordionFaq">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Collapsible Group Item #1
+                            </button>
+                        </h2>
+                        </div>
+                    
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionFaq">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Cómo pagar tu compra
+                            </button>
+                        </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFaq">
+                        <div class="card-body">
+                                <div id="cxMainContent" class="cx-main--content cx-main--content__grow ui-list__shadow-wrapper"><div class="content__data"><div class="wrap-content">
+                                        <p><strong>Pagá con Mercado Pago</strong> y tu compra <a href="https://www.mercadolibre.com.ar/ayuda/Compra_Protegida_986">va a estar 100% protegida</a>, si el producto no es lo que esperabas te devolvemos el dinero.</p>
+                                        <p>Las reservas de vehículos y las contrataciones de servicios también se pagan con Mercado Pago. Así protegemos tu dinero hasta que nos confirmes que ya te entregaron el vehículo o te brindaron el servicio.</p>
+                                        <p>Elegí&nbsp;entre cualquiera de estos medios de pago:</p>
+                                        </div>
+                                        <div class="wrap-content">
+                                        <div class="responsive-table">
+                                        <div class="column-fixed">
+                                        <table class="ch-datagrid table" summary="Cómo pagar tu compra">
+                                        <tbody>
+                                        <tr>
+                                        <td class="responsive-table-listing">
+                                        <ul>
+                                        <li class="paymentmethod-visa">Visa</li>
+                                        <li class="paymentmethod-master">Mastercard</li>
+                                        <li class="paymentmethod-amex">American Express</li>
+                                        <li class="paymentmethod-mercadopago_cc">Mercado Pago + Banco Patagonia</li>
+                                        <li class="paymentmethod-naranja">Naranja</li>
+                                        <li class="paymentmethod-argencard">Argencard</li>
+                                        <li class="paymentmethod-cabal">Cabal</li>
+                                        <li class="paymentmethod-cencosud">Cencosud</li>
+                                        <li class="paymentmethod-nativa">Nativa</li>
+                                        <li class="paymentmethod-tarshop">Tarjeta Shopping</li>
+                                        <li class="paymentmethod-cordobesa">Cordobesa</li>
+                                        <li class="paymentmethod-cmr">CMR</li>
+                                        <li class="paymentmethod-cordial">Cordial</li>
+                                        </ul>
+                                        <p><strong>Tarjeta de crédito</strong>.</p>
+                                        </td>
+                                        <td class="responsive-table-exposition">Hasta <strong>12 cuotas sin interés</strong> con <a href="http://www.mercadolibre.com.ar/gz/promociones-bancos">promociones bancarias</a>
+                                        <p><a title="Conoce los bancos o tarjetas con promoción de cuotas sin interés para pagar en Mercado Libre." href="http://ayuda.mercadolibre.com.ar/ayuda/Costos-de-financiaci-n-por-pag-ml_2955" target="_blank">Costo de financiación para pagos con tarjetas de crédito</a></p>
+                                        </td>
+                                        <td class="responsive-table-exposition">Se acredita instantáneamente</td>
+                                        </tr>
+                                        <tr>
+                                        <td class="responsive-table-listing">
+                                        <ul class="payment-method-list">
+                                        <li class="paymentmethod-visa">Visa</li>
+                                        <li class="paymentmethod-maestro">Maestro</li>
+                                        <li class="paymentmethod-debcabal">Cabal</li>
+                                        </ul>
+                                        <p><strong>Tarjeta</strong> <strong>de </strong><strong>débito.</strong></p>
+                                        </td>
+                                        <td class="responsive-table-exposition">1 pago</td>
+                                        <td class="responsive-table-exposition">Se acredita instantáneamente</td>
+                                        </tr>
+                                        <tr>
+                                        <td class="responsive-table-listing">
+                                        <ul class="payment-method-list">
+                                        <li class="paymentmethod-rapipago">Rapipago</li>
+                                        <li class="paymentmethod-pagofacil">Pago Fácil</li>
+                                        <li class="paymentmethod-cargavirtual">Carga Virtual</li>
+                                        </ul>
+                                        <p><strong>En</strong> <strong>efectivo </strong>con<strong> Rapipago</strong>,<strong> Pago Fácil</strong> y<strong> Carga Virtual</strong>: te&nbsp;damos un número para pagar.</p>
+                                        </td>
+                                        <td class="responsive-table-exposition">1 pago</td>
+                                        <td class="responsive-table-exposition">Se acredita instantáneamente</td>
+                                        </tr>
+                                        <tr>
+                                        <td class="responsive-table-listing">
+                                        <ul>
+                                        <li class="paymentmethod-bapropagos">BaproPagos</li>
+                                        </ul>
+                                        <p><strong>En efectivo </strong>con<strong>&nbsp;Provincia NET</strong>:&nbsp;imprimí tu factura y acercate&nbsp;a pagar.</p>
+                                        </td>
+                                        <td class="responsive-table-exposition">1 pago.</td>
+                                        <td class="responsive-table-exposition">Pagás, y se acredita <strong>en 1 día hábil</strong></td>
+                                        </tr>
+                                        <tr>
+                                        <td class="responsive-table-listing">
+                                        <ul class="payment-method-list">
+                                        <li class="paymentmethod-account_money">Dinero en cuenta MercadoPago</li>
+                                        </ul>
+                                        <p><strong>Dinero en tu cuenta</strong>: tu dinero disponible en Mercado Pago se transfiere al instante a la cuenta del receptor.</p>
+                                        </td>
+                                        <td class="responsive-table-exposition">1 pago</td>
+                                        <td class="responsive-table-exposition">Se acredita instantáneamente</td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                        <p class="helpTip"><br>* No disponible para reventa de entradas.</p>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <p>En publicaciones de subastas también&nbsp;podés elegir acordar el pago con el vendedor. Si pagás de esta forma, te recomendamos:</p>
+                                        <ul>
+                                        <li>Evitar usar servicios de transferencia de dinero que no permitan verificar la identidad de tu contraparte.</li>
+                                        <li>Asegurarte de que el titular de la cuenta bancaria en la que vayas a depositar coincida con los datos de contacto del vendedor.</li>
+                                        <li>Guardar los comprobantes de pago.</li>
+                                        <li>No pagar una factura enviada por un vendedor. Al terminar la compra&nbsp;podés imprimir tu propia factura.</li>
+                                        </ul>
+                                        <p>&nbsp;</p>
+                                        <div>
+                                        <p><a class="ch-btn" href="https://www.mercadolibre.com.ar/ayuda/purchases">Tengo un problema con un pago</a></p>
+                                        </div></div><div class="cx-main--content__effectivitySurvey"><div class="cx-effectivity__content"><h3>¿Te ayudó la información?</h3><div class="cx-effectivity__icons"><div role="presentation" class="cx-effectivity__positive cx-effectivity__icons-circle"><div class="cx-effectivity__icons-yes"></div></div><div role="presentation" class="cx-effectivity__negative cx-effectivity__icons-circle"><div class="cx-effectivity__icons-no"></div></div></div></div></div></div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Agregar stock, pausar, eliminar y reactivar una publicación
+                            </button>
+                        </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFaq">
+                        <div class="card-body">
+                            
+                                    <div class="wrap-content">
+                                    <h2>Agregar stock</h2>
+                                    <p>Si publicás productos nuevos en Clásica, quedarán inactivas automáticamente cuando te quedes sin stock. Si querés reactivar tu publicación, podrás hacerlo de forma individual, o masivamente, desde el <a href="https:/www.mercadolibre.com.ar/publicaciones/editor-masivo/#label=paused">editor masivo.</a></p>
+                                    <p>Si, en cambio, vendés productos usados, tus publicaciones&nbsp;van a finalizar automáticamente cuando no tengas más stock. Si&nbsp;querés volver a activarlas&nbsp;tenés que crear una nueva publicación.</p>
+                                    </div>
+                                    <div class="wrap-content">
+                                    <h2>Pausar</h2>
+                                    <p>Si&nbsp;querés pausar tu publicación tené en cuenta que:</p>
+                                    <ul>
+                                    <li>El tiempo de exposición de tu publicación Gratuita seguirá corriendo, aunque no aparezca en los listados.</li>
+                                    <li>Tu producto publicado en Clásica no se&nbsp;va a ver en los listados, hasta que lo reactives nuevamente.</li>
+                                    </ul>
+                                    </div>
+                                    <div class="wrap-content">
+                                    <h2>Eliminar</h2>
+                                    <p>Podés eliminar una publicación siempre que esté inactiva. Tené en cuenta que una vez eliminada, no vas a poder recuperarla.</p>
+                                    </div>
+                                    <div class="wrap-content">
+                                    <h2>Republicar un producto</h2>
+                                    <p>Podés&nbsp;republicar sin cambios o modificar la publicación antes de hacerlo.</p>
+                                    <p>Si está inactiva y queres reactivarla, asegurate de hacerlo antes de que pasen 60 días, de esta forma vas a mantener&nbsp;las ventas, visitas y preguntas pendientes. Tené en cuenta que si editás el título lo consideraremos una publicación nueva, y&nbsp;va a perder la cantidad de ventas y visitas acumuladas.</p>
+                                    </div>
+                                    <div class="wrap-content">
+                                    <h2>Republicar en Clasificados</h2>
+                                    <p>Si republicás un vehículo, inmueble o servicio dentro de los 60 días,&nbsp;mantenés las visitas.</p>
+                                    <p>Pero además, los inmuebles se pueden republicar gratis dentro de los 30 días, aunque sin exposición en las páginas principales.</p>
+                                    <p>&nbsp;</p>
+                                    </div></div>
+        
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </main>
+    
+
+
+
+      <!-- MainBody End ============================= -->
+  <!-- Footer ================================================================== -->
+      <div class="container-fluid bg-dark px-auto py-4 my-4 footer-cambiado ">
+        <div class="row d-flex justify-content-between">
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+            <h5>ACCOUNT</h5>
+            <a href="login.html" class="">YOUR ACCOUNT</a>
+            <a href="login.html">PERSONAL INFORMATION</a>
+            <a href="login.html">ADDRESSES</a>
+            <a href="login.html">DISCOUNT</a>
+            <a href="login.html">ORDER HISTORY</a>
+          </div>
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+            <h5>INFORMATION</h5>
+            <a href="contact.html">CONTACT</a>
+            <a href="register.html">REGISTRATION</a>
+            <a href="legal_notice.html">LEGAL NOTICE</a>
+            <a href="tac.html">TERMS AND CONDITIONS</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+          <div id="socialMedia " class="col-12 col-sm-4 col-md-4 col-lg-4 pull-right social text-center">
+            <h5 class="social">SOCIAL MEDIA </h5>
+            <a href="#" class="social"><img width="60" height="60" src="img/facebook.png" title="facebook" alt="facebook"/></a>
+            <a href="#" class="social"><img width="60" height="60" src="img/twitter.png" title="twitter" alt="twitter"/></a>
+            <a href="#" class="social"><img width="60" height="60" src="img/youtube.png" title="youtube" alt="youtube"/></a>
+          </div>
+        </div>
+        <p class="pull-right text-center my-2 py-2">Copyright &copy; Your Website 2019</p>
+      </div><!-- Container End -->
+    <!-- Footer End================================================================== -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
