@@ -1,8 +1,31 @@
 *{
     box-sizing: border-box;
 }
-.usuario{
+.ubicacion{
+    padding: 8px 15px;
+    margin: 0 0 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
 }
+.ubicacion li{
+    display: inline;
+}
+
+.usuario{
+/*
+    box-shadow:0px 6px 30px 10px dimgray inset;
+    transform: rotate(7deg);*/
+}
+.menu-left ul{
+    box-shadow: 0px 6px 10px dimgray;
+    transition: all .6s;
+}
+.menu-left ul:hover{
+    position: relative;
+    bottom:5px;
+}
+
 .menu-left li{
     padding: 0;
 }
@@ -52,6 +75,39 @@
     top: auto;
     z-index: 1000;
     text-decoration: none;
+}
+.resumen div p{
+    display: block;
+    padding: 0;
+    margin:0;
+    border: #343a40 solid 1px;
+}
+.resumen div div{
+    padding: 0;
+    border: #343a40 solid 1px;
+}
+.resumen div div p{
+    display: block;
+    padding: 0;
+    margin:0;
+    border-bottom: #343a40 solid 1px;
+}
+.resumen div div ul{
+    padding: 0;
+    margin:0;
+    border: #343a40 solid 1px;
+}
+.resumen div div ul li{
+    list-style:none;
+    display:block;
+    padding: 0;
+    border-bottom: #343a40 solid 1px;
+}
+.resumen div p a{
+    display: inline-block;
+    padding:auto;
+    margin:0;
+    width: 100%;
 }
 .footer-cambiado{
     background-color: #343a40;
