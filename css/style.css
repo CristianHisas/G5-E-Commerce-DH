@@ -1,7 +1,22 @@
 *{
     box-sizing: border-box;
 }
-<<<<<<< HEAD
+.main-perfil{
+    
+    background-image: url(../img/background-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.sub-menu-categoria ul li{
+    background-color:#343a40;
+    color: white;
+    text-decoration: none;
+}
+.sub-menu-categoria .dropdown-item:focus,.sub-menu-categoria .dropdown-item:hover {
+    color:black;
+    text-decoration: none;
+    background-color:#FFFFFF;
+}
 .ubicacion{
     padding: 8px 15px;
     margin: 0 0 20px;
@@ -12,19 +27,15 @@
 .ubicacion li{
     display: inline;
 }
-
-=======
-.mt-4, .my-4{
-    margin: 0 !important;
-}
->>>>>>> 90e4be60ac5463b5af0dd8b4a20b84a922139428
 .usuario{
+    background-color: #FFFFFF;
+    border-radius: 20px;
 /*
     box-shadow:0px 6px 30px 10px dimgray inset;
     transform: rotate(7deg);*/
 }
 .menu-left ul{
-    box-shadow: 0px 6px 10px dimgray;
+    box-shadow: 0px 6px 10px #021422;
     transition: all .6s;
 }
 .menu-left ul:hover{
@@ -82,6 +93,15 @@
     z-index: 1000;
     text-decoration: none;
 }
+.boton-efecto{
+        margin-right: 0vw;
+        box-shadow: 0px 6px 10px #01070c;
+        transition: all .6s;
+}
+.boton-efecto:hover{
+    position: relative;
+    bottom: 2px;
+}
 .resumen div p{
     display: block;
     padding: 0;
@@ -134,7 +154,7 @@
 .footer-cambiado div div .social{
     padding: 0;
     color: white;
-    /* display:inline; */
+    display:inline;
 }
 @media (max-width: 470.98px) { 
     .container{
