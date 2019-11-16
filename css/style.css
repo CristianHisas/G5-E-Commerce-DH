@@ -3,7 +3,7 @@
     box-sizing: border-box;
     font-family: 'Roboto Condensed', sans-serif;
 }
-.main-perfil{
+.main-perfil, main{
     
     background-image: url(../img/bg-cambiado.png);
     background-repeat: no-repeat;
@@ -242,6 +242,7 @@
     }
 }
 
+
 @media (min-width: 600px) and (max-width: 767.98px) { 
     .container{
        
@@ -263,3 +264,6 @@
     }
     
  }
+
+ 
+
