@@ -3,11 +3,21 @@
     box-sizing: border-box;
     font-family: 'Roboto Condensed', sans-serif;
 }
-.main-perfil, main{
+.main-perfil{
     
     background-image: url(../img/bg-cambiado.png);
     background-repeat: no-repeat;
     background-size: cover;
+}
+.img-perfil div {
+    border-radius: 100%;
+    height: inherit;
+}
+.img-perfil div img {
+    height: inherit;
+    width: 100%;
+    border-radius: 100%;
+    border: 2px solid silver;
 }
 .sub-menu-categoria ul li{
     background-color:#343a40;
@@ -79,12 +89,7 @@
     width: 300px;
     height: 300px;
     position: relative;
-    background-image: url("../img/48ebb2c576eaa22a2d15ae46d8c70085.jpg");
-    background-size: cover;
-    background-position-y: top;
-    border-radius: 300px;
-    border-style: solid;
-    border-color: silver;
+    
     
 }
 .img-perfil a{
@@ -98,8 +103,8 @@
     text-decoration: none;
 }
 .boton-efecto{
-        margin-left:5vw;
-        margin-right: 10vw;
+        margin-left:4vw;
+        margin-right: 4vw;
         background-image: linear-gradient(to top,rgb(134, 131, 131,0.2),rgba(7, 5, 5, 0.637));
         box-shadow: 0px 6px 10px #01070c;
         transition: all .6s;
@@ -116,12 +121,12 @@
 }
 .carrito-resumen{
     padding: 5px;
+    height:500px;
     border: 1px solid rgba(0, 0, 0, 0.3);
+    overflow: scroll;
 }
 .resumen .factura{
-    overflow-wrap: normal;
-    overflow-x: scroll;
-    overflow-y: scroll;
+    overflow: scroll;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -137,6 +142,7 @@
     
 }
 .resumen .factura div div{
+    
     border-bottom: solid black 1px;
 }
 .factura{
@@ -154,6 +160,9 @@
     text-decoration: none;
     color: honeydew;
     padding-left: 5px;
+}
+.footer-cambiado div div a:hover,.footer-cambiado div div a:focus{
+    color: blue;
 }
 .footer-cambiado div div h5.social{
     padding: 0;
@@ -198,11 +207,61 @@
         border-left:none;
         border-right:none;
     }
+    .resumen .factura{
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        height:200px;
+        
+    }
+    .resumen .factura div{
+        padding: 5px auto;
+        border: #343a40 solid 1px;
+    }
+    .resumen .factura div div{
+        padding: 6px;
+        border-bottom: solid black 1px;
+    }
+    .resumen .factura div div p{
+        margin: 0;
+    }
+    
 }
 @media (max-width: 457.8px) { 
     .container{
         
         margin-top: 160px;
+    }
+    .resumen .factura div{
+        border: #343a40 solid 1px;
+    }
+    .resumen .factura{
+        overflow: scroll;
+        display: flex;
+        justify-content: stretch;
+        align-items: stretch;
+        flex-wrap: wrap;
+        height:240px;
+        
+    }
+    .resumen .factura div{
+        width: 300px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        border: #343a40 solid 1px;
+    }
+    .resumen .factura div div{
+        padding: 6px 0;
+        text-align: center;
+        border-bottom: solid black 1px;
+    }
+    .resumen .factura div div:last-child{
+        height: 70px;
     }
 }
 @media (min-width: 458px) and (max-width: 599.98px) { 
@@ -240,6 +299,34 @@
         border-left:none;
         border-right: none;
     }
+    .resumen .factura div{
+        border: #343a40 solid 1px;
+    }
+    .resumen .factura{
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: stretch;
+        flex-wrap: wrap;
+        height:240px;
+        
+    }
+    .resumen .factura div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        
+    }
+    .resumen .factura div div{
+        padding: 6px 0;
+        text-align: center;
+        border-bottom: solid black 1px;
+    }
+    .resumen .factura div div:last-child{
+        height: 70px;
+    }
 }
 
 
@@ -257,12 +344,17 @@
     }
 }
 
-@media (min-width: 992px)  {
+@media (min-width: 992px) and (max-width:1199.98px) {
     .container{
         
-        margin-top: 15vh;
+        margin-top: 72px;
     }
     
+ }
+ @media(min-width: 1200px){
+     .container{
+         margin-top:70px;
+     }
  }
 
  

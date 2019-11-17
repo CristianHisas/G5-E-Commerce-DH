@@ -130,6 +130,9 @@ agregado
     color: honeydew;
     padding-left: 5px;
 }
+.footer-cambiado div div a:hover,.footer-cambiado div div a:focus{
+    color: blue;
+}
 .footer-cambiado div div h5.social{
     padding: 0;
     display:block;
