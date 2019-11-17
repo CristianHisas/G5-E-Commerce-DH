@@ -1,7 +1,9 @@
 *{
     box-sizing: border-box;
 }
-.main-perfil, main{
+/* .main-perfil, 
+main{ */
+body{
     
     background-image: url(../img/background-img.png);
     background-repeat: no-repeat;
