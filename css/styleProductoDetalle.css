@@ -10,9 +10,18 @@ h1,h2,h3,h4,h5,h6{
 body{
   background-image: url(../img/background-img.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;/*cuando lo height era mas largo, que el largo de la imagen parecia el fondo blanco con esto se arregla. es lo que tenias antes  background-size:100%; */
 }
-
+.sub-menu-categoria ul li{
+    background-color:#343a40;
+    color: white;
+    text-decoration: none;
+}
+.sub-menu-categoria .dropdown-item:focus,.sub-menu-categoria .dropdown-item:hover {
+    color:black;
+    text-decoration: none;
+    background-color:#FFFFFF;
+}
 .modal-content{
   border-radius: 25px !important;
 }

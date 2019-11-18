@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="css/lista-productos.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
-<body>
+<body class="main-perfil">
         <header class="container-fluir fixed-top">
                 <!--Comienza el nav-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
                 <!--Comienza el nombre de la empresa-->
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="home.html">
                         <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
                         <span>E-commerce</span>
                     </a>
@@ -44,35 +45,41 @@
                     <div class="collapse navbar-collapse " id="navbarNav">
                         <ul class="navbar-nav ml-md-auto">
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                                 <!--Comienza el categoria-->
                                 <div class="dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            categorias
+                                        <a class="nav-link dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          Celulares
                                         </a>
                                         <!--Comienza el menu desplegable de categoria-->
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item ml-md-auto" href="#">Action</a>
-                                            <a class="dropdown-item ml-md-auto" href="#">Another action</a>
-                                            <a class="dropdown-item ml-md-auto" href="#">Something else here</a>
+                                        <div class="dropdown-menu bg-white py-0 mt-2 sub-menu-categoria" aria-labelledby="dropdownMenuLink">
+                                          <ul class="px-0">
+                                              <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 py-0 px-0 text-reset" href="#"><li class="py-2 px-2 dropdown-item  ">Motorola</li></a>
+                                              <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 text-reset" href="#"> <li class="py-2 px-2 dropdown-item  ">Samsung</li> </a>
+                                          <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 text-reset" href="#"><li class="py-2 px-2 dropdown-item   ">LG</li></a>
+                                          <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 text-reset" href="#"><li class="py-2 px-2 dropdown-item  ">Apple</li></a>
+                                          <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 text-reset" href="#"><li class="py-2 px-2 dropdown-item  ">Nokia</li></a>
+                                          </ul>
+                                          
+                                          
                                         </div>
                                         <!--fin el menu desplegable de categoria-->
-                                        </div>
+                                      </div>
                                 <!--Fin categoria-->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-primary" href="#">ingresar</a>
+                            <a class="nav-link btn btn-primary" href="login.html">ingresar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">registrarse</a>
                         </li>
                         <li class="nav-item">
-                                <a class="nav-link" href="#">ayuda</a>
+                                <a class="nav-link" href="faq.html">ayuda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
                             <span>carrito</span>
                             <img src="img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
                             </a>
@@ -83,38 +90,38 @@
                     <!--Comienza del menu complimido-->
                     </nav>
         </header>
-    <main>
+    <main class="container mb-4">
         <div class="inner-main">
             <aside>
                 <div class="tags">
                     <span class="tag">
-                        <span>Nuevo</span>
-                        <i  class="material-icons">&#xe14c;</i>
+                        <span>Nuevo ✖ </span>
+                        <!-- <i  class="material-icons">&#xe14c;</i> -->
                     </span>
                     <span class="tag">
-                        <span>Novela</span>
-                        <i class="material-icons">&#xe14c;</i>
+                        <span>Motorola ✖</span>
+                        <!-- <i class="material-icons">&#xe14c;</i> -->
                     </span>
                 </div>
                 <dl>
                     <dt>
-                        Género del libro
+                        Linea
                     </dt>
                     <dd>
                         <a href="#">
-                            <span class="filter-name">Diccionarios y enciclopedias</span>
+                            <span class="filter-name">Moto</span>
                             <span class="filter-result-qty">(123)</span>
                         </a>
                     </dd>
                     <dd>
                         <a href="#">
-                            <span class="filter-name">Libros de texto</span>
+                            <span class="filter-name">RAZR</span>
                             <span class="filter-result-qty">(65)</span>
                         </a>
                     </dd>
                     <dd>
                         <a href="#">
-                            <span class="filter-name">Literatura y ficción</span>
+                            <span class="filter-name">One</span>
                             <span class="filter-result-qty">(70)</span>
                         </a>
                     </dd>
@@ -126,23 +133,23 @@
                 </dl>
                 <dl>
                     <dt>
-                        Tipo de narración
+                        Modelo
                     </dt>
                     <dd>
                         <a href="#">
-                            <span class="filter-name">Novela</span>
+                            <span class="filter-name">IRONROCK</span>
                             <span class="filter-result-qty">(36)</span>
                         </a>
                     </dd>
                     <dd>
                         <a href="#">
-                            <span class="filter-name">Cuento</span>
+                            <span class="filter-name">i867</span>
                             <span class="filter-result-qty">(22)</span>
                         </a>
                     </dd>
                     <dd>
                         <a href="#">
-                            <span class="filter-name">Poesía</span>
+                            <span class="filter-name">G7 Power</span>
                             <span class="filter-result-qty">(17)</span>
                         </a>
                     </dd>
@@ -155,8 +162,8 @@
             </aside>
 
 
-            <section>
-                <article>
+            <section clas="productos">
+                <article onclick="location.href='productoDetalle.html'">
                     <div class="img-container">
                         <img src="img/phone.jpg" alt="">
                     </div>
@@ -176,8 +183,7 @@
                     </div>
                     </div>
                 </article>
-
-                <article>
+                <article onclick="location.href='productoDetalle.html'">
                     <div class="img-container">
                         <img src="img/phone.jpg" alt="">
                     </div>
@@ -198,7 +204,7 @@
                     </div>
                 </article>
 
-                <article>
+                <article onclick="location.href='productoDetalle.html'">
                     <div class="img-container">
                         <img src="img/phone.jpg" alt="">
                     </div>
@@ -219,7 +225,7 @@
                     </div>
                 </article>
 
-                <article>
+                <article onclick="location.href='productoDetalle.html'">
                     <div class="img-container">
                         <img src="img/phone.jpg" alt="">
                     </div>
@@ -240,7 +246,7 @@
                     </div>
                 </article>
 
-                <article>
+                <article onclick="location.href='productoDetalle.html'">
                     <div class="img-container">
                         <img src="img/phone.jpg" alt="">
                     </div>
@@ -261,7 +267,7 @@
                     </div>
                 </article>
 
-                <article class="destacado">
+                <article onclick="location.href='productoDetalle.html'">
                     <div class="img-container">
                         <img src="img/phone.jpg" alt="">
                     </div>
@@ -281,7 +287,7 @@
                     </div>
                     </div>
                 </article>
-                <article class="destacado">
+                <article onclick="location.href='productoDetalle.html'">
                     <div class="img-container">
                         <img src="img/phone.jpg" alt="">
                     </div>
@@ -301,7 +307,7 @@
                     </div>
                     </div>
                 </article>
-                <article class="destacado">
+                <article onclick="location.href='productoDetalle.html'">
                     <div class="img-container">
                         <img src="img/phone.jpg" alt="">
                     </div>
@@ -324,7 +330,7 @@
 
                 <div class="pagination-container">
                     <ul>
-                        <li><i class='fas'>&#xf104;</i><a href=""> Anterior</a></li>
+                        <li><a href=""><i class='fas'>&#xf104;</i> Anterior</a></li>
                         <li><a href="">1</a></li> 
                         <li><a href="">2</a></li>
                         <li><a href="">3</a></li>
@@ -350,7 +356,7 @@
 
       <!-- MainBody End ============================= -->
   <!-- Footer ================================================================== -->
-  <div class="container-fluid bg-dark px-auto py-4 my-4 footer-cambiado ">
+  <div class="container-fluid bg-dark px-auto py-4 footer-cambiado ">
         <div class="row d-flex justify-content-between">
           <div class="col-12 col-sm-4 col-md-4 col-lg-4">
             <h5>ACCOUNT</h5>
@@ -378,6 +384,117 @@
         <p class="pull-right text-center my-2 py-2">Copyright &copy; Your Website 2019</p>
       </div><!-- Container End -->
     <!-- Footer End================================================================== -->
+
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalScrollableTitle">Carrito</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <table class="table table-bordered">
+                <thead>
+                  <!--Fila de detalle de cada producto-->
+                  <tr>
+                    <th>Product</th>
+                    <th>Description</th>
+                    <th>Quantity/Update</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--Filas y columnas-->
+                  <tr>
+                    <td> <img width="60" src="img/phone.jpg" alt="phone.jpg"/></td>
+                    <td>MASSA AST<br/>Color : black, Material : metal</td>
+                    <td>
+                      <div class="input-append">
+                        <input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text">
+                        <button class="btn" type="button">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <button class="btn" type="button">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="btn btn-danger" type="button">
+                          <i class="far fa-times-circle"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <td>$120.00</td>
+                  </tr>
+                  <tr>
+                    <td> <img width="60" src="img/phone.jpg" alt="phone.jpg"/></td>
+                    <td>MASSA AST<br/>Color : black, Material : metal</td>
+                    <td>
+                      <div class="input-append">
+                        <input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
+                        <button class="btn" type="button">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <button class="btn" type="button">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="btn btn-danger" type="button">
+                          <i class="far fa-times-circle"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <td>$7.00</td>
+                  </tr>
+                  <tr>
+                    <td> <img width="60" src="img/phone.jpg" alt="phone.jpg"/></td>
+                    <td>MASSA AST<br/>Color : black, Material : metal</td>
+                    <td>
+                      <div class="input-append">
+                        <input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
+                        <button class="btn" type="button">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <button class="btn" type="button">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="btn btn-danger" type="button">
+                          <i class="far fa-times-circle"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <td>$120.00</td>
+                  </tr>
+                  <!--Fila que muestra el total del carrito-->
+                  <tr>
+                    <td colspan="3" style="text-align:right">Total Price:	</td>
+                    <td> $228.00</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align:right">Total Discount:	</td>
+                    <td> $50.00</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align:right">Total Tax:	</td>
+                    <td> $31.00</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
+                    <td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin modal -->
+
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

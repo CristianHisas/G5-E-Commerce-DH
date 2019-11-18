@@ -1,16 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap');
 *{
     box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
 }
-body{
-    font-family:monospace; 
+.main-login{
+    
+    background-image: url(../img/background-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-section {   
+.ubicacion{
+    padding: 8px 15px;
+    margin: 0 0 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.ubicacion li{
+    display: inline;
+}
+.main-inicio section {   
     background-color:rgb(248, 250, 250);
-    background-size: 100vw 100vh;
-    background-attachment:fixed;
-    margin:0;
-    /*font-family:monospace; */
-    }
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
 
   /*Section con imagen
     section {       
@@ -34,14 +49,13 @@ section {
 h1{
     text-align: center;
     color:#ffff;
-    font-size:40px;
     background: rgba(0,0,0,0.4);
     margin-top: 20px;
 }
 h2 {
     
     text-align: center;
-    margin: 0;
+    margin: 10px auto;
     font-size: 30px;
     margin-bottom: 20px;
    
@@ -51,13 +65,17 @@ h3{
 }
 /*para el formulario*/
 form{
-    width: 450px;
-    margin: auto;
+    margin: 20px auto;
     background: rgba(0,0,0,0.4);
     padding: 10px 20px;
     box-sizing: border-box;
-    margin-top: 20px;
     border-radius: 7px;
+    box-shadow: 0px 6px 10px #021422;
+    transition: all .6s;
+}
+form:hover{
+    position: relative;
+    bottom:5px;
 }
 input, textarea {
     width: 100%;
@@ -67,16 +85,25 @@ input, textarea {
     font-size: 17px;
     border: none;
     }
-
 #boton {
     background: rgb(0, 6, 19);
     color: #fff ;
+    width:98%;
     padding: 20px;
+    margin:0;
 }
 #boton:hover{
     cursor:pointer; 
 }
-
+.boton-efecto{
+    background-image: linear-gradient(to top,rgb(134, 131, 131,0.2),rgba(7, 5, 5, 0.637));
+    box-shadow: 0px 6px 10px #01070c;
+    transition: all .6s;
+}
+.boton-efecto:hover,.boton-efecto:focus{
+position: relative;
+bottom: 2px;
+}
 /*
 input:hover{
     background-color:  coral;
@@ -101,6 +128,9 @@ agregado
     text-decoration: none;
     color: honeydew;
     padding-left: 5px;
+}
+.footer-cambiado div div a:hover,.footer-cambiado div div a:focus{
+    color: blue;
 }
 .footer-cambiado div div h5.social{
     padding: 0;
@@ -154,7 +184,7 @@ agregado
 @media (max-width: 457.8px) { 
     .container{
         
-        margin-top: 160px;
+        margin-top: 75px;
     }
 }
 @media (min-width: 458px) and (max-width: 599.98px) { 

@@ -21,11 +21,11 @@ li{
     list-style: none;
 }
 main{
-    background-color: #eeeeee;
-    padding: 70px 0;
+    /* padding: 70px 0; */
 }
 main
 .inner-main{
+    background-color: #eeeeee;
     margin: 0 auto;
     max-width: 1184px;
     display: grid;
@@ -73,7 +73,7 @@ dd:hover{
     align-items: center;
     justify-content: space-between;
     margin: 0.2em;
-    padding-left: 0.5em;
+    padding: 0 0.5em;
 
     background-color: #fff;
     box-shadow: 0px 2px 4px #0003;
@@ -211,6 +211,11 @@ ul{
         grid-column: 1/3;
     }
 }
+@media (max-width: 620px) {
+    main{
+        /* padding-top: 120px; */
+    }
+}
 @media (max-width: 576px) {
     main
     .inner-main{
@@ -225,5 +230,15 @@ ul{
     .inner-main
     aside{
         margin-right: 0;
+    }
+}
+
+  
+@media (max-width: 480px) {
+    main{
+        /* padding-top: 160px; */
+    }
+    .categorias{
+        grid-template-columns: 150px 150px;
     }
 }
