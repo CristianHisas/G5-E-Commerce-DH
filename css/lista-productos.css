@@ -21,7 +21,7 @@ li{
     list-style: none;
 }
 main{
-    padding: 70px 0;
+    /* padding: 70px 0; */
 }
 main
 .inner-main{
@@ -213,7 +213,7 @@ ul{
 }
 @media (max-width: 620px) {
     main{
-        padding-top: 120px;
+        /* padding-top: 120px; */
     }
 }
 @media (max-width: 576px) {
@@ -236,7 +236,7 @@ ul{
   
 @media (max-width: 480px) {
     main{
-        padding-top: 160px;
+        /* padding-top: 160px; */
     }
     .categorias{
         grid-template-columns: 150px 150px;
