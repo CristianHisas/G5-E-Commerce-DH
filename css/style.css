@@ -151,6 +151,25 @@ body{
     border: black solid 1px;
     padding:0px;
 }
+.seguridad{
+    padding: 20px;
+}
+.seguridad .informacion{
+    padding: 10px 30px;
+}
+.form-clave , .form-mail{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding:12px;
+    border-radius:2px;
+    border: rgba(76, 72, 72, 0.747) solid 1px;
+}
+.form-mail .form-group span,.form-clave .form-group span{
+    margin-top: 10px;
+}
+.form-clave{
+
+}
 .footer-cambiado{
     background-color: #343a40;
     text-decoration: none;

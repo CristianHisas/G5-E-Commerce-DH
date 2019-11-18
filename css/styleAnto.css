@@ -85,18 +85,17 @@ input, textarea {
     font-size: 17px;
     border: none;
     }
-
 #boton {
     background: rgb(0, 6, 19);
     color: #fff ;
+    width:98%;
     padding: 20px;
+    margin:0;
 }
 #boton:hover{
     cursor:pointer; 
 }
 .boton-efecto{
-    margin-left:5vw;
-    margin-right: 10vw;
     background-image: linear-gradient(to top,rgb(134, 131, 131,0.2),rgba(7, 5, 5, 0.637));
     box-shadow: 0px 6px 10px #01070c;
     transition: all .6s;
@@ -185,7 +184,7 @@ agregado
 @media (max-width: 457.8px) { 
     .container{
         
-        margin-top: 160px;
+        margin-top: 75px;
     }
 }
 @media (min-width: 458px) and (max-width: 599.98px) { 
