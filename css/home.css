@@ -25,7 +25,8 @@
   text-align: center;
   color: #0000;
   background-image: linear-gradient(to top, #fdc, #ccd, #fec);
-  background-clip: text;
+  -webkit-background-clip: text;/*esto es para que funcione en Chrome y Avast Secure Browser*/
+  background-clip: text;/*con esto en Chrome y Avast Secure Browser Solo se ve un background-image sin letras*/
 }
 .categorias {
   padding: 40px 0;
