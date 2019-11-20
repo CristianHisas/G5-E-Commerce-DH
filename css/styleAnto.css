@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap');
 *{
     box-sizing: border-box;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Open Sans',sans-serif;
+    
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto', sans-serif;
 }
 .main-login{
     
@@ -108,12 +112,26 @@
 /*
 agregado
 */
+.btn-enviar{
+    transition: all .6s;
+}
+.btn-enviar:hover,.btn-enviar:focus{
+position: relative;
+bottom: 2px;
+}
 .footer-cambiado{
     background-color: #343a40;
     text-decoration: none;
     color: honeydew;
 }
+.footer-cambiado p{
+    color: honeydew;
+}
+.footer-cambiado div div h5 {
 
+    color: honeydew;
+
+}
 .footer-cambiado div div a {
     display:block;
     text-decoration: none;
@@ -125,6 +143,7 @@ agregado
 }
 .footer-cambiado div div h5.social{
     padding: 0;
+    color: honeydew;
     display:block;
 }
 .footer-cambiado div div .social{

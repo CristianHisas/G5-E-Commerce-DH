@@ -171,13 +171,113 @@
     </div>
                 </div>
             </div>
-            <div class=" col-lg-8 mb-4">
+            <div class=" col-lg-12 mb-4">
                 <h2>Datos:</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta nobis distinctio aliquid perspiciatis blanditiis, corrupti voluptate quisquam quaerat? Deleniti repellat possimus sed voluptate voluptatem eligendi sequi nesciunt nulla perspiciatis quae?</p>
-                <p class="col-12 ">
-                    <button type="button" class="btn btn-secondary ml-md-auto boton-efecto">Editar</button>
-                    <button type="button" class="btn btn-secondary ml-md-auto boton-efecto">guardar</button>
-                </p>
+                <div class="col-12">
+                  <form class="container-fluir">
+                      <div class="form-group" >
+                          <label for="usuario">Usuario</label>
+                          <input type="text" class="form-control" id="usuario" name="usuario" value="2D" readonly>
+                          
+                  </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" type="text" class="form-control" placeholder="First name" name="nombre" value="Juan" readonly required>
+                          </div>
+                          <div class="col">
+                              <label for="apellido">Apellido</label>
+                            <input id="apellido" type="text" class="form-control" placeholder="Last name" name="apellido" value="Lopez" readonly required>
+                          </div>
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="fechaNacimiento ">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="fechaNacimiento" placeholder="" name="fechaNacimiento" value="1994-03-12" readonly required>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress">Direccion</label>
+                      <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="1234 Main St"  value="1234 Main St" readonly required>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-5">
+                        <label for="inputCity">Ciudad</label>
+                        <input type="text" class="form-control" id="inputCity" value="Caseros" readonly required>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputState">Provincia</label>
+                        <select id="inputState" class="form-control" required disabled>
+                          <option value="" >Seleccionar</option>
+                          <option value="" selected>Buenos Aires</option>
+                          <option value="">Cordoba</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                          <label for="inputState">Pais</label>
+                          <select id="inputState" class="form-control" required disabled>
+                            <option value="" >Seleccionar</option>
+                            <option value="" selected>Argentina</option>
+                            <option value="">Ecuador</option>
+                          </select>
+                        </div>
+                      <div class="form-group col-md-3">
+                        <label for="inputZip">Codigo Postal</label>
+                        <input type="text" class="form-control" id="inputZip" placeholder="codigo postal" value="1245"  readonly>
+                      </div>
+                    </div>
+                    <fieldset class="form-group">
+                        <div class="row">
+                          <legend class="col-form-label col-sm-2 pt-0">Sexo </legend>
+                          <div class="col-sm-10">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked disabled>
+                              <label class="form-check-label" for="gridRadios1">
+                                Hombre
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"disabled>
+                              <label class="form-check-label" for="gridRadios2">
+                                Mujer
+                              </label>
+                            </div>
+                            <div class="form-check ">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                              <label class="form-check-label" for="gridRadios3">
+                                Otro
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                      <label for="datoDeTarjeta"><h5>Datos de Tarjeta</h5></label>
+                      <div class="form-group">
+                          <label for="NombreTarjeta">Nombre Completo del Titular</label>
+                          <input type="text" class="form-control" id="NombreTarjeta" name="NombreTarjeta"  value="Juan Lopez" readonly>
+                      </div>
+                      <div class="form-group" id="datoDeTarjeta">
+                          <label for="Numerotarjeta">Numero de tarjeta</label>
+                          <input type="number" class="form-control" id="Numerotarjeta" name="Numerotarjeta"  value="1551123512681236" maxlength="12" readonly>
+                      </div>
+                      <div class="form-group" >
+                          <label for="tarjeta">Tipo de Pago</label>
+                          <input type="text" class="form-control" id="tarjeta" name="tarjeta"  value="datos de tajeta" readonly>
+                      </div>
+                      <div class="form-group" >
+                          <label for="fechaVencimiento col-6">Fecha de Vencimiento</label>
+                          <div class="row col-11" id="fechaVencimiento">
+                              <input type="number" class="form-control col-5" id="" name="fechaVencimientoMes" value="03" maxlength="2" readonly>
+                              <span class="h3 mx-2">  /  </span>
+                              <input type="number" class="form-control col-5" id="" name="fechaVencimientoAnio" value="2030" maxlength="4" readonly>
+                          </div>
+                      </div>
+                      <div class="form-group" >
+                          <label for="csc">CSC</label>
+                          <input type="number" class="form-control" id="csc" name="csc"  value="356" maxlength="3" readonly>
+                      </div>
+                    <button type="button" class="btn btn-secondary ml-md-auto boton-efecto my-2">Editar</button>
+                    <button type="submit" class="btn btn-secondary ml-md-auto boton-efecto my-2">guardar</button>
+                  </form>
+                </div>
           </div>
         </div>
     </div>
@@ -198,8 +298,8 @@
           </div>
           <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
             <h5>INFORMATION</h5>
-            <a href="contact.html">CONTACT</a>
-            <a href="register.html">REGISTRATION</a>
+            <a href="contacto.html">CONTACT</a>
+            <a href="registro.html">REGISTRATION</a>
             <a href="legal_notice.html">LEGAL NOTICE</a>
             <a href="tac.html">TERMS AND CONDITIONS</a>
             <a href="faq.html">FAQ</a>
