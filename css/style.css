@@ -11,9 +11,31 @@ h1,h2,h3,h4,h5,h6{
 main{ */
 body{
     
-    background-image: url(../img/bg-cambiado.png);
+    background-image: url(../img/bg-cambiado3.png);
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    
+}
+.main-perfil{
+    background-size: initial;
+}
+footer{
+    width: 100vw;
+    align-self:flex-end;
+}
+.li-marca{
+    background-color: transparent;
+}
+.marca{
+    color: white;
+}
+.marca:hover,.li-marca:hover{
+    background-color: white;
+    color:#343a40;
 }
 .img-perfil .contenedor-perfil {
     border-radius: 100%;
@@ -388,9 +410,29 @@ color: inherit;
     }
     
  }
+ @media(min-height:900px){
+    body{
+        height:100vh;
+    }
+
+ }
  @media(min-width: 1200px){
+     body{
+         height:100vh;
+     }
+     .main-perfil{
+        background-size: cover;
+    }
      .container{
          margin-top:70px;
+         min-width: 80vw !important;
+        max-width: 90vw !important;
+        align-self: center;
+     }
+     main{
+        min-width: 80vw !important;
+        max-width: 90vw !important;
+        align-self: center;
      }
  }
 

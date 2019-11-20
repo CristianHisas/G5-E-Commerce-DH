@@ -19,7 +19,7 @@
 
     <title>E-commerce</title>
 </head>
-<body class="main-perfil">
+<body class="">
     <!--Comienza el header-->
     <header class="container-fluir fixed-top barra-header">
         <!--Comienza el nav-->
@@ -63,17 +63,17 @@
                                       Celulares
                                     </a>
                                     <!--Comienza el menu desplegable de categoria-->
-                                    <div class="dropdown-menu bg-white py-0 mt-2 sub-menu-categoria" aria-labelledby="dropdownMenuLink">
-                                      <ul class="px-0">
-                                          <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 py-0 px-0 text-reset" href="#"><li class="py-2 px-2 dropdown-item  ">Motorola</li></a>
-                                          <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 text-reset" href="#"> <li class="py-2 px-2 dropdown-item  ">Samsung</li> </a>
-                                      <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 text-reset" href="#"><li class="py-2 px-2 dropdown-item   ">LG</li></a>
-                                      <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 text-reset" href="#"><li class="py-2 px-2 dropdown-item  ">Apple</li></a>
-                                      <a class=" ml-md-auto text-decoration-none d-block  py-0 px-0 text-reset" href="#"><li class="py-2 px-2 dropdown-item  ">Nokia</li></a>
-                                      </ul>
-                                      
-                                      
-                                    </div>
+                                    <div class="dropdown-menu bg-dark py-0 mt-2 sub-menu-categoria" aria-labelledby="dropdownMenuLink">
+                                        <ul class="px-0">
+                                            <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="#">Motorola</a></li>
+                                            <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="#">Samsung</a></li>
+                                            <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="#">LG</a></li>
+                                            <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="#">Apple</a></li>
+                                            <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="#">Nokia</a></li>
+                                        </ul>
+                                        
+                                        
+                                      </div>
                                     <!--fin el menu desplegable de categoria-->
                                   </div>
                             <!--Fin categoria-->
@@ -210,17 +210,124 @@
             <a href="tac.html">TERMS AND CONDITIONS</a>
             <a href="faq.html">FAQ</a>
           </div>
-          <div id="socialMedia " class="col-12 col-sm-4 col-md-4 col-lg-4  social text-center">
-            <h5 class="social">SOCIAL MEDIA </h5>
-            <a href="#" class="social"><img width="60px" height="60px" src="img/facebook.png" title="facebook" alt="facebook"/></a>
-            <a href="#" class="social"><img width="60px" height="60px" src="img/twitter.png" title="twitter" alt="twitter"/></a>
-            <a href="#" class="social"><img width="60px" height="60px" src="img/youtube.png" title="youtube" alt="youtube"/></a>
-          </div>
+          <div id="" class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4 social text-center">
+              <h5 class="social">SOCIAL MEDIA </h5>
+              <a href="#" class="social"><img width="60" height="60" src="https://live.staticflickr.com/65535/49093342407_45310a774c_o.png" title="facebook" alt=""/></a>
+              <a href="#" class="social"><img width="60" height="60" src="https://live.staticflickr.com/65535/49092642883_c0782ddd4d_o.png" title="twitter" alt=""/></a>
+              <a href="#" class="social"><img width="60" height="60" src="https://live.staticflickr.com/65535/49092641488_040001d127_o.png" title="youtube" alt=""/></a>
+            </div>
         </div>
-        <p class=" text-center my-2 py-2">Copyright &copy; Your Website 2019</p>
+        <p class=" mx-auto text-center my-2 py-2">Copyright &copy; Your Website 2019</p>
       </div><!-- Container End -->
     <!-- Footer End================================================================== -->
     </footer>
+        <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">Carrito</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-bordered">
+              <thead>
+                <!--Fila de detalle de cada producto-->
+                <tr>
+                  <th>Product</th>
+                  <th>Description</th>
+                  <th>Quantity/Update</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--Filas y columnas-->
+                <tr>
+                  <td> <img width="60" src="img/phone.jpg" alt="phone.jpg"/></td>
+                  <td>MASSA AST<br/>Color : black, Material : metal</td>
+                  <td>
+                    <div class="input-append">
+                      <input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text">
+                      <button class="btn" type="button">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <button class="btn" type="button">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                      <button class="btn btn-danger" type="button">
+                        <i class="far fa-times-circle"></i>
+                      </button>
+                    </div>
+                  </td>
+                  <td>$120.00</td>
+                </tr>
+                <tr>
+                  <td> <img width="60" src="img/phone.jpg" alt="phone.jpg"/></td>
+                  <td>MASSA AST<br/>Color : black, Material : metal</td>
+                  <td>
+                    <div class="input-append">
+                      <input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
+                      <button class="btn" type="button">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <button class="btn" type="button">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                      <button class="btn btn-danger" type="button">
+                        <i class="far fa-times-circle"></i>
+                      </button>
+                    </div>
+                  </td>
+                  <td>$7.00</td>
+                </tr>
+                <tr>
+                  <td> <img width="60" src="img/phone.jpg" alt="phone.jpg"/></td>
+                  <td>MASSA AST<br/>Color : black, Material : metal</td>
+                  <td>
+                    <div class="input-append">
+                      <input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
+                      <button class="btn" type="button">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <button class="btn" type="button">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                      <button class="btn btn-danger" type="button">
+                        <i class="far fa-times-circle"></i>
+                      </button>
+                    </div>
+                  </td>
+                  <td>$120.00</td>
+                </tr>
+                <!--Fila que muestra el total del carrito-->
+                <tr>
+                  <td colspan="3" style="text-align:right">Total Price:	</td>
+                  <td> $228.00</td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="text-align:right">Total Discount:	</td>
+                  <td> $50.00</td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="text-align:right">Total Tax:	</td>
+                  <td> $31.00</td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
+                  <td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin modal -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

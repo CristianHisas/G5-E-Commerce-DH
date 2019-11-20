@@ -12,6 +12,16 @@ body{
   background-repeat: no-repeat;
   background-size: cover;/*cuando lo height era mas largo, que el largo de la imagen parecia el fondo blanco con esto se arregla. es lo que tenias antes  background-size:100%; */
 }
+.li-marca{
+    background-color: transparent;
+}
+.marca{
+    color: white;
+}
+.marca:hover,.li-marca:hover{
+    background-color: white;
+    color:#343a40;
+}
 .sub-menu-categoria ul li{
     background-color:#343a40;
     color: white;
