@@ -197,7 +197,15 @@ body{
     padding: 0;
     display:inline;
 }
+.irDescripcion{
+    text-decoration: none;
 
+color: inherit;
+}
+.irDescripcion:hover{
+    text-decoration-line: none;
+    color: inherit;
+}
 @media (max-width: 470.98px) { 
     .container{
         

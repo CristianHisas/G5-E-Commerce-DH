@@ -177,7 +177,7 @@
                   <form class="container-fluir">
                       <div class="form-group" >
                           <label for="usuario">Usuario</label>
-                          <input type="text" class="form-control" id="usuario" name="usuario" value="2D" readonly>
+                          <input type="text" class="form-control" id="usuario" name="usuario" value="2D" readonly required>
                           
                   </div>
                     <div class="form-row">
@@ -221,7 +221,7 @@
                         </div>
                       <div class="form-group col-md-3">
                         <label for="inputZip">Codigo Postal</label>
-                        <input type="text" class="form-control" id="inputZip" placeholder="codigo postal" value="1245"  readonly>
+                        <input type="text" class="form-control" id="inputZip" placeholder="codigo postal" value="1245"  readonly required>
                       </div>
                     </div>
                     <fieldset class="form-group">
@@ -229,20 +229,20 @@
                           <legend class="col-form-label col-sm-2 pt-0">Sexo </legend>
                           <div class="col-sm-10">
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked disabled>
-                              <label class="form-check-label" for="gridRadios1">
+                              <input class="form-check-input" type="radio" name="sexogridRadios" id="sexogridRadios1" value="h" checked disabled required>
+                              <label class="form-check-label" for="sexogridRadios1">
                                 Hombre
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"disabled>
-                              <label class="form-check-label" for="gridRadios2">
+                              <input class="form-check-input" type="radio" name="sexogridRadios" id="sexogridRadios2" value="m" disabled required>
+                              <label class="form-check-label" for="sexogridRadios2">
                                 Mujer
                               </label>
                             </div>
                             <div class="form-check ">
-                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                              <label class="form-check-label" for="gridRadios3">
+                              <input class="form-check-input" type="radio" name="sexogridRadios" id="sexogridRadios3" value="o" disabled required>
+                              <label class="form-check-label" for="sexogridRadios3">
                                 Otro
                               </label>
                             </div>
@@ -252,27 +252,47 @@
                       <label for="datoDeTarjeta"><h5>Datos de Tarjeta</h5></label>
                       <div class="form-group">
                           <label for="NombreTarjeta">Nombre Completo del Titular</label>
-                          <input type="text" class="form-control" id="NombreTarjeta" name="NombreTarjeta"  value="Juan Lopez" readonly>
+                          <input type="text" class="form-control" id="NombreTarjeta" name="NombreTarjeta"  value="Juan Lopez" readonly required>
                       </div>
                       <div class="form-group" id="datoDeTarjeta">
                           <label for="Numerotarjeta">Numero de tarjeta</label>
-                          <input type="number" class="form-control" id="Numerotarjeta" name="Numerotarjeta"  value="1551123512681236" maxlength="12" readonly>
+                          <input type="number" class="form-control" id="Numerotarjeta" name="Numerotarjeta"  value="5241123512685436" maxlength="12" readonly required>
                       </div>
+                      <fieldset class="form-group">
+                          <div class="row">
+                            <legend class="col-form-label col-sm-4 pt-0">Tipo de pago </legend>
+                            <div class="col-sm-10">
+                              <div class="form-check col-4 form-check-inline">
+                                <input class="form-check-input" type="radio" name="tpgridRadios" id="tpgridRadios1" value="mastercard" checked disabled required>
+                                <label class="form-check-label" for="tpgridRadios1">
+                                    <img src="img/mastercard.png" alt="mastercard" width="60">
+                                  
+                                </label>
+                              </div>
+                              <div class="form-check col-4 form-check-inline">
+                                <input class="form-check-input" type="radio" name="tpgridRadios" id="tpgridRadios2" value="visa" disabled required>
+                                <label class="form-check-label" for="tpgridRadios2">
+                                    <img src="img/visa.png" alt="visa" width="60">
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
                       <div class="form-group" >
                           <label for="tarjeta">Tipo de Pago</label>
-                          <input type="text" class="form-control" id="tarjeta" name="tarjeta"  value="datos de tajeta" readonly>
+                          <input type="text" class="form-control" id="tarjeta" name="tarjeta"  value="datos de tajeta" readonly required>
                       </div>
                       <div class="form-group" >
                           <label for="fechaVencimiento col-6">Fecha de Vencimiento</label>
                           <div class="row col-11" id="fechaVencimiento">
-                              <input type="number" class="form-control col-5" id="" name="fechaVencimientoMes" value="03" maxlength="2" readonly>
+                              <input type="number" class="form-control col-2" id="" name="fechaVencimientoMes" value="03" maxlength="2" min="1" max="12" readonly required>
                               <span class="h3 mx-2">  /  </span>
-                              <input type="number" class="form-control col-5" id="" name="fechaVencimientoAnio" value="2030" maxlength="4" readonly>
+                              <input type="number" class="form-control col-4" id="" name="fechaVencimientoAnio" value="2030" maxlength="4" readonly min="1940" required>
                           </div>
                       </div>
                       <div class="form-group" >
                           <label for="csc">CSC</label>
-                          <input type="number" class="form-control" id="csc" name="csc"  value="356" maxlength="3" readonly>
+                          <input type="number" class="form-control" id="csc" name="csc"  value="356" maxlength="3" readonly required>
                       </div>
                     <button type="button" class="btn btn-secondary ml-md-auto boton-efecto my-2">Editar</button>
                     <button type="submit" class="btn btn-secondary ml-md-auto boton-efecto my-2">guardar</button>
