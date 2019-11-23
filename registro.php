@@ -1,3 +1,65 @@
+<?php
+require_once "php/funciones.php";
+
+if($_POST /*|| true*/){
+    // $_POST["nombre"] = "test";
+    // $_POST["apellido"] = "test";
+    // $_POST["correo"] = "test";
+    // $_POST["usuario"] = "test";
+    // $_POST["clave"] ="test";
+    // $_POST["telefono"] = "test";
+
+    $nombre = $_POST["nombre"] ;
+    $apellido = $_POST["apellido"] ;
+    $correo = $_POST["correo"] ;
+    $usuario = $_POST["usuario"] ;
+    $clave = $_POST["clave"];
+    $telefono = $_POST["telefono"] ;
+
+    $requisitos = [
+        "nombre" => [
+            MINSIZE => 4,
+            MAXSIZE => 15
+        ],
+        "apellido" => [
+            MINSIZE => 4,
+            MAXSIZE => 15
+        ],
+        "correo" => [
+            CORREO
+        ],
+        "usuario" => [
+            MINSIZE => 4,
+            MAXSIZE => 15
+        ],
+        "clave" => [
+            CLAVE
+        ],
+        "telefono" => [
+            TELEFONO
+        ]
+    ];
+
+    $errores = [];
+    foreach($_POST as $key => $val){
+        // echo "<b style='color:blue'>$key: $val</b> <br>";    // Log
+        $errs = validar($val, $requisitos[$key]);
+        if($errs){
+            $errores[$key] = [];
+            foreach($errs as $err){
+                $errores[$key][] = $err;
+            }
+        }
+    }
+    if(!$errores){
+        // setcookies
+        header("Location: perfil.html");
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,23 +78,20 @@
 </head>
 
 <body class="main-login">
-        <header class="container-fluir fixed-top">
-                <!--Comienza el nav-->
+        <!-- <header class="container-fluir fixed-top">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
-                        <!--Comienza el nombre de la empresa-->
                         <a class="navbar-brand" href="home.html">
                                 <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo"
                                         alt="">
                                 <span>E-commerce</span>
                         </a>
-                        <!--Fin el nombre de la empresa-->
                         <a class="navbar-brand pregunta" href="faq.html">
                                 <img src="img/pregunta.png" width="30" height="30"
                                         class="d-inline-block align-top ml-auto logo" alt="">
                         </a>
 
                 </nav>
-        </header>
+        </header> -->
         <main class=" container mb-4 main-inicio">
                 <ul class=" ubicacion col-12">
                         <li><a href="home.html">Home</a> <span class="divider">/</span></li>
@@ -45,19 +104,31 @@
                                 <!-- <form action="registrar.php" metodo="post" class="form"> -->
                                 <h2 class="form-titulo">CREA UNA CUENTA</h2>
                                 <div class="contenedor-inputs">
-                                        <input type="text" name="nombre" placeholder="Nombre" class="input-48" required>
+                                        <input type="text" name="nombre" placeholder="Nombre" class="input-48" required value="<?=$nombre?>">
                                         <input type="text" name="apellido" placeholder="Apellido" class="input-48"
-                                                required>
+                                                required value="<?=$apellido?>">
                                         <input type="email" name="correo" placeholder="Correo" class="input-100"
-                                                required>
+                                                required value="<?=$correo?>">
                                         <input type="text" name="usuario" placeholder="Usuario" class="input-48"
-                                                required>
+                                                required value="<?=$usuario?>">
                                         <input type="password" name="clave" placeholder="Contraseña" class="input-48"
-                                                required>
+                                                required value="<?=$clave?>">
                                         <input type="text" name="telefono" placeholder="Telefono" class="input-100"
-                                                required>
+                                                required value="<?=$telefono?>">
                                         <ul class="errores col-12">
-                                                <li>Error 1</li>
+                                            <?php
+                                               if($_POST){
+                                                foreach($errores as $key => $errores){
+                                                    $coma = "";
+                                                    $return = "<li>El campo <u>$key</u> debe tener ";
+                                                    foreach($errores as $error){
+                                                        $return .= "$coma $error";
+                                                        if(!$coma) $coma = ",";
+                                                    }
+                                                    echo $return .".</li>";
+                                                }
+                                               }
+                                            ?>
                                         </ul>
                                         <input type="submit" value="Registrar" class="btn-enviar">
                                         <p class="form__link">¿Ya tienes una cuenta?<a href="login.html">Ingresa aqui</a></p>
