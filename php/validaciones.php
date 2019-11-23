@@ -92,3 +92,96 @@ function validarTelefono($value, $requisitos){
 }
 
 ?>
+
+<?php
+// define("CLAVE", 0);
+// define("CORREO", 1);
+// define("MINSIZE", 2);
+// define("MAXSIZE", 3);
+// define("SCAPE", 4);
+// define("TELEFONO", 5);
+
+// if($_POST){
+//     $nombre = $_POST["nombre"];
+//     $apellido = $_POST["apellido"];
+//     $email = $_POST["correo"];
+//     $usuario = $_POST["usuario"];
+//     $clave = $_POST["clave"];
+//     $telefono = $_POST["telefono"];
+    
+//     $requisitos = [
+//         $nombre => [
+//             MINSIZE => 4,
+//             MAXSIZE => 15
+//         ],
+//         $apellido => [
+//             MINSIZE => 4,
+//             MAXSIZE => 15
+//         ],
+//         $email => CORREO,
+//         $usuario => [
+//             MINSIZE => 4,
+//             MAXSIZE => 15
+//         ],
+//         $clave => CLAVE,
+//         $telefono => TELEFONO
+//     ]
+
+//     $errores = [];
+//     foreach($_POST as $key => $val){
+//         if($err = validar($val, $requisitos[$key])){
+//             $errores[$key] = "El campo $key $err";
+//         }
+//     }
+
+// }
+
+// function validar($value, $requisitos){
+//     $ret = [];
+//     if($requisitos[MINSIZE] || $requisitos[MAXSIZE]){
+//         $ret[] = validarSize($value, $requisitos);
+//     }
+//     if($requisitos[EMAIL]){
+//         $ret .= validarEmail($value, $requisitos);
+//     }
+//     if($requisitos[CLAVE]){
+//         $ret .= validarClave($value, $requisitos);
+//     }
+// }
+
+// function validarClave($value){
+//     $err = false;
+//     $ret = "debe contener ";
+//     if(strlen($$value) < 8){
+//         $ret .= "al menos ocho caracteres";
+//         $err = true;
+//     }
+//     if (!preg_match('`[a-z]`',$value)){
+//         $ret .= $err ? ", " : "";
+//         $ret .= "al menos una letra minúscula";
+//         $err = true;
+//      }
+//      if (!preg_match('`[A-Z]`',$value)){
+//         $ret .= $err ? ", " : "";
+//         $ret .= "al menos una letra mayúscula";
+//         $err = true;
+//      }
+//      if (!preg_match('`[0-9]`',$value)){
+//         $ret .= $err ? ", " : "";
+//         $ret .= "al menos un caracter numérico";
+//         $err = true;
+//      }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+?>

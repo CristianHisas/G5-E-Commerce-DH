@@ -57,6 +57,15 @@ if($_POST /*|| true*/){
     }
 
 }
+else{
+       
+    $nombre = " ";
+    $apellido = " ";
+    $correo = " ";
+    $usuario = " ";
+    $clave = " ";
+    $telefono = " " ; 
+}
 
 ?>
 
@@ -78,7 +87,7 @@ if($_POST /*|| true*/){
 </head>
 
 <body class="main-login">
-        <!-- <header class="container-fluir fixed-top">
+        <header class="container-fluir fixed-top">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
                         <a class="navbar-brand" href="home.html">
                                 <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo"
@@ -91,7 +100,7 @@ if($_POST /*|| true*/){
                         </a>
 
                 </nav>
-        </header> -->
+        </header>
         <main class=" container mb-4 main-inicio">
                 <ul class=" ubicacion col-12">
                         <li><a href="home.html">Home</a> <span class="divider">/</span></li>
