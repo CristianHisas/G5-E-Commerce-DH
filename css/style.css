@@ -412,13 +412,13 @@ color: inherit;
  }
  @media(min-height:900px){
     body{
-        height:100vh;
+        min-height:700vh;
     }
 
  }
  @media(min-width: 1200px){
      body{
-         height:100vh;
+         min-height:100vh;
      }
      .main-perfil{
         background-size: cover;
