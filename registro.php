@@ -41,6 +41,7 @@ if($_POST /*|| true*/){
     ];
 
     $errores = hacerValidaciones($_POST, $requisitos);
+
     if(!$errores){
         // setcookies
         header("Location: perfil.html");

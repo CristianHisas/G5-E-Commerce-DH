@@ -1,42 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap');
-*{
-    box-sizing: border-box;
-    font-family: 'Open Sans',sans-serif;
-    
-}
-h1,h2,h3,h4,h5,h6{
-    font-family: 'Roboto', sans-serif;
-}
-/* .main-perfil, 
-main{ */
-body{
-    
-    background-image: url(../img/bg-cambiado3.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    justify-content: space-between;
-    
-}
-.main-perfil{
-    background-size: initial;
-}
-footer{
-    width: 100vw;
-    align-self:flex-end;
-}
-.li-marca{
-    background-color: transparent;
-}
-.marca{
-    color: white;
-}
-.marca:hover,.li-marca:hover{
-    background-color: white;
-    color:#343a40;
-}
 .img-perfil .contenedor-perfil {
     border-radius: 100%;
     height: inherit;
@@ -47,27 +8,7 @@ footer{
     border-radius: 100%;
     border: 2px solid silver;
 }
-.sub-menu-categoria ul li{
-    background-color:#343a40;
-    color: white;
-    text-decoration: none;
-}
-.sub-menu-categoria .dropdown-item:focus,.sub-menu-categoria .dropdown-item:hover {
-    color:black;
-    text-decoration: none;
-    background-color:#FFFFFF;
-}
-.ubicacion{
-    padding: 8px 15px;
-    margin: 0 0 20px;
-    list-style: none;
-    background-color: #f5f5f5;
-    border-radius: 25px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-}
-.ubicacion li{
-    display: inline;
-}
+
 .usuario{
     background-color: #FFFFFF;
     border-radius: 20px;
@@ -117,13 +58,13 @@ footer{
     width: 300px;
     height: 300px;
     position: relative;
-    
-    
+
+
 }
 .img-perfil a{
     background-color: rgba(0,0,0,45%);
     color: snow;
-    
+
     text-align: center;
     position:absolute;
     top: auto;
@@ -160,17 +101,17 @@ footer{
     justify-content: space-around;
     flex-wrap: wrap;
     height:200px;
-    
+
 }
 .resumen .factura div{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    
+
 }
 .resumen .factura div div{
-    
+
     border-bottom: solid black 1px;
 }
 .factura{
@@ -196,41 +137,11 @@ footer{
 .form-clave{
 
 }
-.footer-cambiado{
-    background-color: #343a40;
-    text-decoration: none;
-    color: honeydew;
-}
 
-.footer-cambiado div div a {
-    display:block;
-    text-decoration: none;
-    color: honeydew;
-    padding-left: 5px;
-}
-.footer-cambiado div div a:hover,.footer-cambiado div div a:focus{
-    color: blue;
-}
-.footer-cambiado div div h5.social{
-    padding: 0;
-    display:block;
-}
-.footer-cambiado div div .social{
-    padding: 0;
-    display:inline;
-}
-.irDescripcion{
-    text-decoration: none;
 
-color: inherit;
-}
-.irDescripcion:hover{
-    text-decoration-line: none;
-    color: inherit;
-}
-@media (max-width: 470.98px) { 
+@media (max-width: 470.98px) {
     .container{
-        
+
         margin-top: 16vh;
     }
     .resumen .factura{
@@ -240,7 +151,7 @@ color: inherit;
         justify-content: space-around;
         flex-wrap: wrap;
         height:200px;
-        
+
     }
     .resumen .factura div{
         padding: 5px auto;
@@ -253,41 +164,12 @@ color: inherit;
     .resumen .factura div div p{
         margin: 0;
     }
-    .footer-cambiado div div{
-        text-align: center;
-    }
-    .footer-cambiado div div h5{
-        display: block;
-        border-bottom:white solid 1px;
-        padding:.50rem .15rem;
-    }
-    .footer-cambiado div div h5.social{
-        display: block;
-        border-bottom: none;
-    }
-    .footer-cambiado div div a{
-        display: block;
-        padding:.20rem .5rem;
-        border-bottom: solid white 1px;
-    }
-    .footer-cambiado div div a.social{
-        display: inline;
-        border-bottom: none;
-    }
-    .footer-cambiado div div a:hover{
-        border-left: solid white 2px;
-        border-right: solid white 2px;
-    }
-    .footer-cambiado div div a.social:hover{
-        border-left:none;
-        border-right:none;
-    }
 
-    
+
 }
-@media (max-width: 457.8px) { 
+@media (max-width: 457.8px) {
     .container{
-        
+
         margin-top: 160px;
     }
     .resumen .factura div{
@@ -300,7 +182,7 @@ color: inherit;
         align-items: stretch;
         flex-wrap: wrap;
         height:240px;
-        
+
     }
     .resumen .factura div{
         width: 300px;
@@ -320,9 +202,9 @@ color: inherit;
         height: 70px;
     }
 }
-@media (min-width: 458px) and (max-width: 599.98px) { 
+@media (min-width: 458px) and (max-width: 599.98px) {
     .container{
-        
+
         margin-top: 120px;
     }
     .resumen .factura div{
@@ -336,14 +218,14 @@ color: inherit;
         align-items: stretch;
         flex-wrap: wrap;
         height:240px;
-        
+
     }
     .resumen .factura div{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         flex-wrap: wrap;
-        
+
     }
     .resumen .factura div div{
         padding: 6px 0;
@@ -353,62 +235,31 @@ color: inherit;
     .resumen .factura div div:last-child{
         height: 70px;
     }
-    .footer-cambiado div div{
-        text-align: center;
-    }
-    .footer-cambiado div div h5{
-        display: block;
-        border-bottom:white solid 1px;
-        padding:.75rem .25rem;
-    }
-    .footer-cambiado div div h5.social{
-        display: block;
-        border-bottom: none;
-        padding:.75rem .25rem;
-    }
-    .footer-cambiado div div a{
-        display: block;
-        padding:.20rem .5rem;
-        border-bottom: solid white 1px;
-    }
-    .footer-cambiado div div a.social{
-        display: inline-block;
-        width: 60px;
-        height: 60px;
-        border-bottom: none;
-    }
-    .footer-cambiado div div a:hover{
-        border-left: solid white 2px;
-        border-right: solid white 2px;
-    }
-    .footer-cambiado div div a.social:hover{
-        border-left:none;
-        border-right: none;
-    }
-    
+
+
 }
 
 
-@media (min-width: 600px) and (max-width: 767.98px) { 
+@media (min-width: 600px) and (max-width: 767.98px) {
     .container{
-       
+
         margin-top: 80px;
     }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) { 
+@media (min-width: 768px) and (max-width: 991.98px) {
     .container{
-        
+
         margin-top: 70px;
     }
 }
 
 @media (min-width: 992px) and (max-width:1199.98px) {
     .container{
-        
+
         margin-top: 72px;
     }
-    
+
  }
  @media(min-height:900px){
     body{
@@ -420,9 +271,6 @@ color: inherit;
      body{
          min-height:100vh;
      }
-     .main-perfil{
-        background-size: cover;
-    }
      .container{
          margin-top:70px;
          min-width: 80vw !important;
@@ -435,6 +283,3 @@ color: inherit;
         align-self: center;
      }
  }
-
- 
-
