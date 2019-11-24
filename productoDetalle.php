@@ -6,31 +6,25 @@
 <body>
 
   <?php include_once "includes/header.php"; ?>
+  <?php include_once "includes/modal.php" ?>
 
   <!--Main-->
   <main>
         <div class="container" id="mainContainer">
-          <div class="row" id="header">
-            <div class="col-12">
-                <ul class="breadcrumb">
-                  <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-                  <li><a href="products.html">Products</a> <span class="divider">/</span></li>
-                  <li class="active">Product Details</li>
-                </ul>
-            </div>
-          </div>
+
+          <?php include_once "includes/navBar.php" ?>
 
           <hr>
 
           <div class="row" id = "seccionProducto">
 
-            <div class="col-lg-6 col-md-6 col-sm-12" id="imagenProducto">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="imagenProducto">
               <a href="img/phone.jpg" title="Phone example">
                 <img src="img/phone.jpg" style="width:100%" alt="Phone example"/>
               </a>
             </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12" id="descProducto">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="descProducto">
               <h3>Phone example</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
@@ -38,7 +32,7 @@
                 <div class="control-group">
                   <label class="control-label"><span>$222.00</span></label>
                   <div class="controls">
-                    <input type="number" class="span1" name="numero" value="1" min="1"
+                    <input class="cantidad" type="number" name="numero" value="1" min="1"
                     max="50" placeholder="Cantidad"/>
                     <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
                   </div>
@@ -116,8 +110,8 @@
   </main>
   <!--End main-->
 
-  <?php include "includes/footer.php" ?>
-  <?php include "includes/scriptBootstrap.php" ?>
+  <?php include_once "includes/footer.php" ?>
+  <?php include_once "includes/scriptBootstrap.php" ?>
 
 </body>
 </html>

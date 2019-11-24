@@ -1,10 +1,4 @@
-/*Main*/
-.breadcrumb{
-  margin-bottom: 20px;
-  width: 100%;
-  border-radius: 25px;
-}
-
+/*Detalle de producto*/
 main #mainContainer #seccionProducto{
   margin: 30px auto;
   background-color: white;
@@ -18,3 +12,8 @@ main #mainContainer #seccionInfoProducto{
   padding: 20px;
   border-radius: 25px;
 }
+
+#imagenProducto img{
+  border: 1px solid #0001;
+}
+/*Fin de detalle de producto*/
