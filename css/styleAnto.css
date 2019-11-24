@@ -280,3 +280,18 @@ bottom: 2px;
        align-self: center;
     }
 }
+
+
+*{
+    position: relative;
+}
+li{
+    list-style: "🔥";
+}
+ul.errores{
+    color: rgb(246, 53, 53);
+}
+ul.errores
+li{
+    padding-left: 0.2em;
+}
