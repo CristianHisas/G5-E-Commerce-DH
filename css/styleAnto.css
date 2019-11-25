@@ -1,17 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap');
-*{
-    box-sizing: border-box;
-    font-family: 'Open Sans',sans-serif;
-    
-}
-h1,h2,h3,h4,h5,h6{
-    font-family: 'Roboto', sans-serif;
-}
+@import "body.css";
 .main-login{
-    
-    background-image: url(../img/background-img.png);
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -21,17 +9,6 @@ h1,h2,h3,h4,h5,h6{
 footer{
     width: 100vw;
     align-self:flex-end;
-}
-.ubicacion{
-    padding: 8px 15px;
-    margin: 0 0 20px;
-    list-style: none;
-    background-color: #f5f5f5;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-}
-.ubicacion li{
-    display: inline;
 }
 .main-inicio section {   
     background-color:rgb(248, 250, 250);

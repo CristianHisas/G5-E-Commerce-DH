@@ -1,0 +1,20 @@
+.li-marca{
+    background-color: transparent;
+}
+.marca{
+    color: white;
+}
+.marca:hover,.li-marca:hover{
+    background-color: white;
+    color:#343a40;
+}
+.sub-menu-categoria ul li{
+    background-color:#343a40;
+    color: white;
+    text-decoration: none;
+}
+.sub-menu-categoria .dropdown-item:focus,.sub-menu-categoria .dropdown-item:hover {
+    color:black;
+    text-decoration: none;
+    background-color:#FFFFFF;
+}

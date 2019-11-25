@@ -8,7 +8,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 body{
-  background-image: url(../img/background-img.png);
+  background-image: url(../img/bg-cambiado3.png);
   background-repeat: no-repeat;
   background-size: cover;/*cuando lo height era mas largo, que el largo de la imagen parecia el fondo blanco con esto se arregla. es lo que tenias antes  background-size:100%; */
 }
@@ -19,6 +19,13 @@ body{
 
 .breadcrumb{
   margin-bottom: 20px;
+  
   width: 100%;
   border-radius: 25px;
+}
+.breadcrumb li{
+  list-style: none;
+}
+.breadcrumb li a{
+  text-decoration: none;
 }
