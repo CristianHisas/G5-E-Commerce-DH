@@ -13,7 +13,7 @@ main{ */
         background-size: initial;
     }
 footer{
-    width: 100vw !important;
+    width: 100% !important;
     align-self:flex-end !important;
 }
 .img-perfil .contenedor-perfil {

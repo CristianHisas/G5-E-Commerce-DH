@@ -1,4 +1,5 @@
 <?php
+$pagina="Registro";
 require_once "php/funciones.php";
 
 if($_POST /*|| true*/){
