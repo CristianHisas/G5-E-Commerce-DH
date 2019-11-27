@@ -104,4 +104,19 @@ function validarTelefono($value, $requisitos){
     return $ret;
 }
 
+function imprimirErrores($errores){
+    if($_POST){
+        echo "<ul class='errores col-12'>";
+        foreach($errores as $key => $errores){
+        $coma = "";
+        $return = "<li>El campo <u>$key</u> debe tener ";
+        foreach($errores as $error){
+                $return .= "$coma $error";
+                if(!$coma) $coma = ",";
+        }
+        echo $return .".</li>";
+        }
+        echo '</ul>';
+    }
+}
 ?>

@@ -108,7 +108,7 @@ include_once("includes/headPerfil.php");
                                                 required value="<?=$clave?>">
                                         <input type="text" name="telefono" placeholder="Telefono" class="input-100"
                                                 required value="<?=$telefono?>">
-                                        <?= imprimirErrores($errores) ?>
+                                        <?php if(isset($errores)) echo imprimirErrores($errores) ?>
                                         <input type="submit" value="Registrar" class="btn-enviar">
                                         <p class="form__link">¿Ya tienes una cuenta?<a href="login.html">Ingresa aqui</a></p>
                                 </div>
