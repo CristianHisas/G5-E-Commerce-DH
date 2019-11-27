@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 require_once "php/funciones.php";
 
@@ -59,7 +60,6 @@ else{
 
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -116,15 +116,15 @@ else{
                                                 required value="<?=$telefono?>">
                                         <ul class="errores col-12">
                                             <?php
-                                               if($_POST){
+                                                if($_POST){
                                                 foreach($errores as $key => $errores){
-                                                    $coma = "";
-                                                    $return = "<li>El campo <u>$key</u> debe tener ";
-                                                    foreach($errores as $error){
+                                                $coma = "";
+                                                $return = "<li>El campo <u>$key</u> debe tener ";
+                                                foreach($errores as $error){
                                                         $return .= "$coma $error";
                                                         if(!$coma) $coma = ",";
-                                                    }
-                                                    echo $return .".</li>";
+                                                }
+                                                echo $return .".</li>";
                                                 }
                                                }
                                             ?>
