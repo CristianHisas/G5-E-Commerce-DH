@@ -1,5 +1,54 @@
 <?php
+/*
+----------------- USO ------------------
+1) Crear arreglo asociativo $requisitos
+    a) Las claves deben ser las de la variable $_POST/GET
+    que se quieran validar.
+    b) Los valores van dentro de un arreglo.
+    EJ:
+        $requisitos = [
+            "postKey" => [
+                MINSIZE => 5,
+                CORREO
+            ]
+        ];
+------------------
+2) Enviarle $_POST/GET y $requisitos a "hacerValidaciones()" y almacenar
+el retorno en una variable.
+    EJ:
+        $errores = hacerValidaciones($_POST, $requisitos);
+-------------------
+3) Mostrar los errores enviándole los errores a la funcion "mostrarErrores()"
+    EJ:
+        <?= mostrarErrores($errores) ?>
+    
+CONSTANTES -----------
+    MINSIZE => n
+    MAXSIXE => n
+    CORREO
+    CLAVE
+    SCAPE
+---------------------
 
+-------- EJEMPLO COMPLETO ---------
+Se recibe por $_POST["name","email" y "pass"].
+$requisitos = [
+    "name" => [
+        MINSIZE => 5,
+        MAXSIZE => 20
+    ],
+    "email" => [
+        CORREO
+    ],
+    "pass" => [
+        CLAVE
+    ]
+];
+$errores = hacerValidaciones($_POST, $requisitos);
+<html>    <?= mostrarErrores($errores) ?>  </html>
+
+----------------------------------------
+*/
 define("CLAVE", 6);
 define("CORREO", 1);
 define("MINSIZE", 2);
@@ -32,9 +81,9 @@ function validar($value, $requisitos){
     if(isset($requisitos[MINSIZE]) || isset($requisitos[MAXSIZE])){
         $errs[] = validarSize($value, $requisitos);
     }
-    if(isset($requisitos[CORREO])){
-        $errs[] = validarEmail($value, $requisitos);
-    }
+    // if(isset($requisitos[CORREO])){
+    //     $errs[] = validarEmail($value, $requisitos);
+    // }
     if(in_array(CLAVE, $requisitos) || isset($requisitos[CLAVE])){
         $errs[] = validarClave($value, $requisitos);
     }
