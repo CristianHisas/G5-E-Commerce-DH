@@ -1,33 +1,33 @@
-.inner-main {
+.inner-main#home {
   padding: 70px 10px;
   min-height: 700px;
 }
-#carouselExampleIndicators {
+.inner-main#home #carouselExampleIndicators {
   background-color: white;
   margin: 0 auto;
   max-width: 600px;
 }
-.welcome {
+.inner-main#home .welcome {
   width: 100%;
   border-radius: 5px;
   padding: 5px;
 }
-.welcome .inner-welcome {
+.inner-main#home .welcome .inner-welcome {
   display: flex;
   justify-content: center;
   border-radius: 5px;
   width: 100%;
 }
-.welcome .inner-welcome .img img {
+.inner-main#home .welcome .inner-welcome .img img {
   height: 70px;
 }
-.welcome .inner-welcome .text {
+.inner-main#home .welcome .inner-welcome .text {
   text-align: center;
   color: #0000;
   background-image: linear-gradient(to top, #fdc, #ccd, #fec);
   background-clip: text;
 }
-.categorias {
+.inner-main#home .categorias {
   padding: 40px 0;
   display: grid;
   gap: 1px;
@@ -36,32 +36,32 @@
   grid-template-columns: 150px 150px 150px 150px;
   justify-content: center;
 }
-.categorias .categoria {
+.inner-main#home .categorias .categoria {
   background-image: radial-gradient(#fff, #f0efe8);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.categorias .categoria:hover {
+.inner-main#home .categorias .categoria:hover {
   background-image: none;
   filter: invert(0.9);
   cursor: pointer;
 }
-.categorias .categoria .icono {
+.inner-main#home .categorias .categoria .icono {
   margin: 0 auto;
   display: flex;
   align-content: center;
   justify-content: center;
 }
-.categorias .categoria .icono img {
+.inner-main#home .categorias .categoria .icono img {
   width: 70%;
 }
-.categorias .categoria .titulo {
+.inner-main#home .categorias .categoria .titulo {
   text-align: center;
   font-weight: bold;
 }
 @media (max-width: 620px) {
-  .inner-main {
+  .inner-main#home {
     padding-top: 120px;
   }
   .categorias {
@@ -69,7 +69,7 @@
   }
 }
 @media (max-width: 480px) {
-  .inner-main {
+  .inner-main#home {
     padding-top: 180px;
   }
   .categorias {
