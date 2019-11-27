@@ -18,6 +18,7 @@ if($_POST /*|| true*/){
     $clave = $_POST["clave"];
     $telefono = $_POST["telefono"] ;
 
+
     $requisitos = [
         "nombre" => [
             MINSIZE => 4,
@@ -46,7 +47,7 @@ if($_POST /*|| true*/){
 
     if(!$errores){
         // setcookies
-        header("Location: perfil.html");
+        header("Location: perfil.php");
     }
 
 }
@@ -64,9 +65,9 @@ else{
 <html lang="en">
 
 <head>
-		<?php
-                include_once("includes/headPerfil.php");
-        ?>
+<?php
+include_once("includes/headPerfil.php");
+?>
         <link rel="stylesheet" href="css/styleAnto.css">
         <title>registro</title>
 </head>
@@ -107,21 +108,7 @@ else{
                                                 required value="<?=$clave?>">
                                         <input type="text" name="telefono" placeholder="Telefono" class="input-100"
                                                 required value="<?=$telefono?>">
-                                        <ul class="errores col-12">
-                                            <?php
-                                                if($_POST){
-                                                foreach($errores as $key => $errores){
-                                                $coma = "";
-                                                $return = "<li>El campo <u>$key</u> debe tener ";
-                                                foreach($errores as $error){
-                                                        $return .= "$coma $error";
-                                                        if(!$coma) $coma = ",";
-                                                }
-                                                echo $return .".</li>";
-                                                }
-                                               }
-                                            ?>
-                                        </ul>
+                                        <?= imprimirErrores($errores) ?>
                                         <input type="submit" value="Registrar" class="btn-enviar">
                                         <p class="form__link">¿Ya tienes una cuenta?<a href="login.html">Ingresa aqui</a></p>
                                 </div>
