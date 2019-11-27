@@ -262,7 +262,7 @@ bottom: 2px;
 *{
     position: relative;
 }
-li{
+.errores li{
     list-style: "🔥";
 }
 ul.errores{

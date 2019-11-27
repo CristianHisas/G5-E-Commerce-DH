@@ -32,7 +32,7 @@
        flex-wrap: wrap;
        justify-content: space-between;
         }
-    input{
+    #usuario, #pass{
             margin-bottom: 15px;
             padding: 15px;
             font-size: 16px;
