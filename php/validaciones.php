@@ -1,6 +1,8 @@
 <?php
 /*
 ----------------- USO ------------------
+0) require_once "validaciones.php";
+
 1) Crear arreglo asociativo $requisitos
     a) Las claves deben ser las de la variable $_POST/GET
     que se quieran validar.
@@ -45,7 +47,7 @@ $requisitos = [
     ]
 ];
 $errores = hacerValidaciones($_POST, $requisitos);
-<html>    <?= mostrarErrores($errores) ?>  </html>
+<html>    <?php if(isset($errores)) echo mostrarErrores($errores) ?>  </html>
 
 ----------------------------------------
 */
