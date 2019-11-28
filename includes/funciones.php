@@ -1,4 +1,3 @@
 <?php
-    require_once "validaciones.php";
-
+    require_once "./includes/validaciones.php";
 ?>

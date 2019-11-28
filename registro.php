@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 $pagina="Registro";
-require_once "php/funciones.php";
+require "./includes/funciones.php";
 
 if($_POST /*|| true*/){
     // $_POST["nombre"] = "test";
@@ -16,7 +16,7 @@ if($_POST /*|| true*/){
     $correo = $_POST["correo"] ;
     $usuario = $_POST["usuario"] ;
     $clave = $_POST["clave"];
-    $telefono = $_POST["telefono"] ;
+    $telefono = $_POST["telefono"];
 
 
     $requisitos = [
@@ -39,6 +39,7 @@ if($_POST /*|| true*/){
             CLAVE
         ],
         "telefono" => [
+            MINSIZE => 8,
             TELEFONO
         ]
     ];
@@ -47,6 +48,7 @@ if($_POST /*|| true*/){
 
     if(!$errores){
         // setcookies
+        
         header("Location: perfil.php");
     }
 
