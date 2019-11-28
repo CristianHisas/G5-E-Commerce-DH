@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 $pagina="Registro";
-require "./includes/funciones.php";
+require_once "./includes/funciones.php";
 
 if($_POST /*|| true*/){
     // $_POST["nombre"] = "test";
