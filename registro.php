@@ -11,7 +11,7 @@ if($_POST /*|| true*/){
     // $_POST["clave"] ="test";
     // $_POST["telefono"] = "test";
 
-    $nombre = $_POST["nombre"] ;
+    $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"] ;
     $correo = $_POST["correo"] ;
     $usuario = $_POST["usuario"] ;
@@ -48,8 +48,21 @@ if($_POST /*|| true*/){
 
     if(!$errores){
         // setcookies
-        
-        header("Location: perfil.php");
+        if(!existsUser($correo)){
+                $user = [];
+                $user[$correo] = [
+                        "nombre" => $nombre,
+                        "apellido" => $apellido,
+                        "usuario" => $usuario,
+                        "clave" => password_hash($clave, PASSWORD_DEFAULT),
+                        "teleofono" => $telefono
+                ];
+                mergeUser($user);
+                // echo json_encode($user); exit;
+                header("Location: perfil.php");
+        }else{
+                $errores["email"] = ["... <b style='font-size: 1.2em'>LA CUENTA YA ESTÁ REGISTRADA!!!</b> <a href='#' style='color: blue'>Recuperar contraseña</a>"];
+        }
     }
 
 }

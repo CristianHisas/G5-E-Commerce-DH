@@ -12,21 +12,31 @@ function agregarToFile($path, $content, $cut = ""){
   return file_put_contents($path, $cut . $content, FILE_APPEND);
 }
 
-function getObjectFromFile($path, $likeArray = true){
+function getObjectsFromFile($path, $likeArray = true){
   $content = file_get_contents($path);
-  $json = json_decode($content, $likeArray);
-  return $json;
+  $object = json_decode($content, $likeArray);
+  return $object;
+}
+
+function getObjectFromFile($path, $key, $likeArray = true){
+  $content = file_get_contents($path);
+  $object = json_decode($content, $likeArray);
+  return $object[$key];
 }
 
 function mergeObjectToFile($path, $nuevo){
-  $todo = getObjectFromFile($path);
+  $todo = getObjectsFromFile($path);
   $todo = array_merge($todo, $nuevo);
   escribirFile($path, json_encode($todo));
 }
 
 function existsKeyOnFile($path, $key){
-  $todo = getObjectFromFile($path);
-  echo in_array($key, array_keys($todo));
+  $todo = getObjectsFromFile($path);
+  if(!$todo){
+    return false;
+  }
+  // var_dump($todo); exit;
+  return in_array($key, array_keys($todo));
 }
 
 
@@ -70,7 +80,11 @@ function existsKeyOnFile($path, $key){
 
 // echo "<br>";
 
-// echo getObjectFromFile($path)["b"];
+// echo getObjectsFromFile($path)["b"];
+
+// echo "<br>";
+
+// echo getObjectFromFile("datos.json", "a");
 
 // echo "<br>";
 
@@ -78,6 +92,6 @@ function existsKeyOnFile($path, $key){
 
 // echo leerFile($path);
 
-// END TESTING ----------------------------------------------------------------
+//  // END TESTING ----------------------------------------------------------------
 
 ?>
