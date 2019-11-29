@@ -31,11 +31,13 @@
     include_once("includes/menuIzquierdoPerfil.php");
 ?>
 <!--menu izquierdo-->
+<!--contenido derecho-->
           <div class="col-12 col-sm-12 col-md-9  col-lg-9 usuario">
             <h1>Perfil</h1>
             <div class=" col-lg-12 mb-4">
                 <h2>Datos:</h2>
                 <div class="col-12">
+                  <!--Formulario-->
                   <form class="container-fluir" method="post" action="" enctype="multipart/form-data" >
                   
 <!--imagen-->
@@ -64,8 +66,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-12 col-lg-12 mx-auto">
-                      <form name="formulario" method="post" action="http://pagina.com/send.php"
-                              enctype="multipart/form-data" class="col-md-10 col-lg-10 mx-auto" > <!-- ¡No olvides el enctype! -->
+
                       <!-- Campo de selección de archivo -->
                       <input type="file" name="adjunto" accept=".jpg,.png" class="examinar col-md-12 col-lg-12 mx-auto">
                   </div>
@@ -187,10 +188,6 @@
                           </div>
                         </fieldset>
                       <div class="form-group" >
-                          <label for="tarjeta">Tipo de Pago</label>
-                          <input type="text" class="form-control" id="tarjeta" name="tarjeta"  value="datos de tajeta" readonly required>
-                      </div>
-                      <div class="form-group" >
                           <label for="fechaVencimiento col-6">Fecha de Vencimiento</label>
                           <div class="row col-11" id="fechaVencimiento">
                               <input type="number" class="form-control col-2" id="" name="fechaVencimientoMes" value="03" maxlength="2" min="1" max="12" readonly required>
@@ -205,9 +202,11 @@
                     <button type="button" class="btn btn-secondary ml-md-auto boton-efecto my-2">Editar</button>
                     <button type="submit" class="btn btn-secondary ml-md-auto boton-efecto my-2">guardar</button>
                   </form>
+                  <!--Formulario-->
                 </div>
           </div>
         </div>
+        <!--contenido derecho-->
     </div>
 </div>
 </main>
