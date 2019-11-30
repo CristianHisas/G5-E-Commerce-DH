@@ -48,14 +48,15 @@ if($_POST /*|| true*/){
 
     if(!$errores){
         // setcookies
-        if(!existsUser($correo)){
+        if(!existsUser($user)){
                 $user = [];
                 $user[$correo] = [
+                        "email" => $email,
                         "nombre" => $nombre,
                         "apellido" => $apellido,
                         "usuario" => $usuario,
                         "clave" => password_hash($clave, PASSWORD_DEFAULT),
-                        "teleofono" => $telefono
+                        "telefono" => $telefono
                 ];
                 mergeUser($user);
                 // echo json_encode($user); exit;

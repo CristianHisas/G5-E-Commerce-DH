@@ -51,12 +51,12 @@ $errores = hacerValidaciones($_POST, $requisitos);
 
 ----------------------------------------
 */
-define("CLAVE", "d6");
-define("CORREO", "d1");
-define("MINSIZE", "d2");
-define("MAXSIZE", "d3");
-define("SCAPE", "4d");
-define("TELEFONO", "5d");
+define("CLAVE", "asdfasdfavr");
+define("CORREO", "34vq3vfvzxv");
+define("MINSIZE", "asdy6we6ar66");
+define("MAXSIZE", "asdf444322d");
+define("SCAPE", "asdf422f1fds");
+define("TELEFONO", "fddf4534ka");
 
 
 function hacerValidaciones($arr, $requisitos){

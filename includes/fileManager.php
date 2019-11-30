@@ -1,5 +1,7 @@
 <?php
 
+// creo que tira error si el archivo no tiene ningún objeto
+
 function leerFile($path){
   return file_get_contents($path);
 }
@@ -35,7 +37,6 @@ function existsKeyOnFile($path, $key){
   if(!$todo){
     return false;
   }
-  // var_dump($todo); exit;
   return in_array($key, array_keys($todo));
 }
 
@@ -43,7 +44,7 @@ function existsKeyOnFile($path, $key){
 
 
 
-// TESTING  ----------------------------------------------
+// // TESTING  ----------------------------------------------
 
 // $arr = [];
 // $arr["a"] = 1;

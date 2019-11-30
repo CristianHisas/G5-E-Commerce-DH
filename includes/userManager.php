@@ -10,13 +10,13 @@ function mergeUser($user){
   $users = mergeObjectToFile(USERS_BBDD_PATH, $user);
 }
 function existsUser($user){
-  return existsKeyOnFile(USERS_BBDD_PATH, $user);
+  return existsKeyOnFile(USERS_BBDD_PATH, $user["email"]);
 }
 function findUserByEmail($email){
   return getObjectFromFile(USERS_BBDD_PATH, $email);
 }
 function getUsers(){
-  return getObjectsFromFile(USERS_BDD_PATH);
+  return getObjectsFromFile(USERS_BBDD_PATH);
 }
 
 
