@@ -3,7 +3,7 @@
 define("USERS_BBDD_PATH", dirname(__FILE__) . "\..\data\usuarios.json");
 
 if(!file_exists(USERS_BBDD_PATH)){
-  // file_put_contents(USERS_BBDD_PATH, "{}");
+  file_put_contents(USERS_BBDD_PATH, "{}");
 }
 
 function mergeUser($user){

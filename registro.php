@@ -121,7 +121,7 @@ include_once("includes/headPerfil.php");
                                         <input type="text" name="usuario" placeholder="Usuario" class="input-48"
                                                 required value="<?=$usuario?>">
                                         <input type="password" name="clave" placeholder="Contraseña" class="input-48"
-                                                required value="<?=$clave?>">
+                                                required value="">
                                         <input type="text" name="telefono" placeholder="Telefono" class="input-100"
                                                 required value="<?=$telefono?>">
                                         <?php if(isset($errores)) echo imprimirErrores($errores) ?>
