@@ -1,11 +1,12 @@
 <?php
+  session_start();
   $pagina="Datos de Usuario";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <?php
-    include_once("includes/headPerfil.php")
+    include_once("includes/headPerfil.php");
   ?>
   <link rel="stylesheet" href="css/stylePerfilSeguridadResumen.css">
 <title>E-commerce</title>

@@ -55,7 +55,7 @@
                                 <!--Fin categoria-->
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link " href="resumen.php">UsuarioIngreso</a>
+                          <a class="nav-link " href="resumen.php"><?=(isset($_SESSION["usuario"]))?$_SESSION["usuario"]:"usuario";?></a>
                         </li>
                         <li class="nav-item">
                                 <a class="nav-link" href="faq.html">Ayuda <img src="img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>

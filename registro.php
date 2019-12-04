@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php
+session_start();
 $pagina="Registro";
 require_once "./includes/funciones.php";
-
+$errores=null;
 if($_POST /*|| true*/){
     // $_POST["nombre"] = "test";
     // $_POST["apellido"] = "test";
@@ -51,16 +52,33 @@ if($_POST /*|| true*/){
         if(!existsUser($user)){
                 $user = [];
                 $user[$correo] = [
-                        "email" => $email,
+                        "email" => $correo,
                         "nombre" => $nombre,
                         "apellido" => $apellido,
                         "usuario" => $usuario,
                         "clave" => password_hash($clave, PASSWORD_DEFAULT),
-                        "telefono" => $telefono
+                        "telefono" => $telefono,
+                        "fechaNacimiento"=>"",
+                        "direccion"=>"",
+                        "ciudad"=>"",
+                        "provincia"=>"",
+                        "pais"=>"",
+                        "codigoPostal"=>"",
+                        "sexo"=>"",
+                        "nombreTitular"=>"",
+                        "numeroTarjeta"=>"",
+                        "tipoDeTarjeta"=>"",
+                        "fechaVencimiento"=>"",
+                        "cvc"=>"",
+                        "fotoPerfil"=>""
                 ];
                 mergeUser($user);
                 // echo json_encode($user); exit;
-                header("Location: perfil.php");
+                $_SESSION["usuario"]=$usuario;
+                $_SESSION["nombre"]=$nombre;
+                $_SESSION["apellido"]=$apellido;
+                $_SESSION["email"]=$correo;
+                header("Location: perfil.php");exit;
         }else{
                 $errores["email"] = ["... <b style='font-size: 1.2em'>LA CUENTA YA ESTÁ REGISTRADA!!!</b> <a href='#' style='color: blue'>Recuperar contraseña</a>"];
         }

@@ -1,9 +1,9 @@
 <?php
-function validar_fecha_espanol($fecha){
-	$valores = explode('/', $fecha);
-	if(count($valores) == 3 && checkdate($valores[1], $valores[0], $valores[2])){
-		return true;
+function validarFeha($fecha){
+	$valores = explode('-', $fecha);
+	if(count($valores) != 3 || !checkdate($valores[2], $valores[1], $valores[0])){
+		return false;
     }
-	return false;
+	return true;
 }
 ?>
