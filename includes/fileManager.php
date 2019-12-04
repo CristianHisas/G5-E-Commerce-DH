@@ -23,7 +23,7 @@ function getObjectsFromFile($path, $likeArray = true){
 function getObjectFromFile($path, $key, $likeArray = true){
   $content = file_get_contents($path);
   $object = json_decode($content, $likeArray);
-  return $object[$key];
+  return $object[$key] ?? false;
 }
 
 function mergeObjectToFile($path, $nuevo){
