@@ -354,7 +354,9 @@ function mostrarErroresPerfil($arrayError,$nombre){
         echo"</ul>";     
     }
 }
-//agregado
+
+
+// Si se envía la clave "soloTexto" no imprime ..el campo tal bla bla bla.
 function imprimirErrores($errores){
     if($_POST){
         echo "<ul class='errores col-12'>";

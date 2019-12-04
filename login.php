@@ -1,16 +1,19 @@
 <?php
   session_start();
+  session_destroy();
   require_once "./includes/funciones.php";
 
   if(isset($_SESSION["activeUser"])){
-    header("Location: home.php");
+    header("Location: perfil.php");
   } else{
     $errores = null;
     if($_POST){
+      $user = $_POST["usuario"];
+      $pass = $_POST["pass"];
       $requisitos = [
         "usuario" => [
           MINSIZE => 4,
-          MAXSIZE => 15
+          MAXSIZE => 155
         ],
         "pass" => [
           CLAVE
@@ -23,7 +26,6 @@
         if(findUserByEmail($_POST["usuario"])){
           $_SESSION["activeUser"] = findUserByEmail($_POST["usuario"]);
           header("Location: perfil.php");exit;
-
         }else
           if(findUserByUserName($_POST["usuario"])){
             $_SESSION["activeUser"] = findUserByUserName($_POST["usuario"]);
@@ -31,7 +33,10 @@
         }else{
           $errores["soloTexto"] = ["Los datos ingresados son inválidos"];
         }
-    }
+      }
+    }else{
+      $user = "";
+      $pass = "";
     }
 
   }
