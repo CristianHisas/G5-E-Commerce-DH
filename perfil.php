@@ -1,6 +1,7 @@
 <?php
   session_start();
   $pagina="Datos de Usuario";
+  // var_dump($_SESSION["activeUser"]); exit;
 ?>
 <!DOCTYPE html>
 <html lang="en">

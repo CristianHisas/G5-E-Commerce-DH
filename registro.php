@@ -49,35 +49,35 @@ if($_POST /*|| true*/){
 
     if(!$errores){
         // setcookies
-        if(!existsUser($user)){
-                $user = [
-                        "email" => $correo,
-                        "nombre" => $nombre,
-                        "apellido" => $apellido,
-                        "usuario" => $usuario,
-                        "clave" => password_hash($clave, PASSWORD_DEFAULT),
-                        "telefono" => $telefono,
-                        "fechaNacimiento"=>"",
-                        "direccion"=>"",
-                        "ciudad"=>"",
-                        "provincia"=>"",
-                        "pais"=>"",
-                        "codigoPostal"=>"",
-                        "sexo"=>"",
-                        "nombreTitular"=>"",
-                        "numeroTarjeta"=>"",
-                        "tipoDeTarjeta"=>"",
-                        "fechaVencimiento"=>"",
-                        "cvc"=>"",
-                        "fotoPerfil"=>""
-                ];
+        $user = [
+                "email" => $correo,
+                "nombre" => $nombre,
+                "apellido" => $apellido,
+                "usuario" => $usuario,
+                "clave" => password_hash($clave, PASSWORD_DEFAULT),
+                "telefono" => $telefono,
+                "fechaNacimiento"=>"",
+                "direccion"=>"",
+                "ciudad"=>"",
+                "provincia"=>"",
+                "pais"=>"",
+                "codigoPostal"=>"",
+                "sexo"=>"",
+                "nombreTitular"=>"",
+                "numeroTarjeta"=>"",
+                "tipoDeTarjeta"=>"",
+                "fechaVencimiento"=>"",
+                "cvc"=>"",
+                "fotoPerfil"=>""
+        ];
+                                                                                                                                                        if(!existsUser($user)){
                 mergeUser($user);
                 $_SESSION["activeUser"] = $user;
                 // echo json_encode($user); exit;
-                $_SESSION["usuario"]=$usuario;
-                $_SESSION["nombre"]=$nombre;
-                $_SESSION["apellido"]=$apellido;
-                $_SESSION["email"]=$correo;
+                // $_SESSION["usuario"]=$usuario;
+                // $_SESSION["nombre"]=$nombre;
+                // $_SESSION["apellido"]=$apellido;
+                // $_SESSION["email"]=$correo;
                 header("Location: perfil.php");exit;
         }else{
                 $errores["email"] = ["... <b style='font-size: 1.2em'>LA CUENTA YA ESTÁ REGISTRADA!!!</b> <a href='#' style='color: blue'>Recuperar contraseña</a>"];
