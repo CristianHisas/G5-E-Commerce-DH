@@ -72,6 +72,7 @@ if($_POST /*|| true*/){
                         "fotoPerfil"=>""
                 ];
                 mergeUser($user);
+                $_SESSION["activeUser"] = $user;
                 // echo json_encode($user); exit;
                 $_SESSION["usuario"]=$usuario;
                 $_SESSION["nombre"]=$nombre;

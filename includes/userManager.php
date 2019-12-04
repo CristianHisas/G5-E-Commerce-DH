@@ -4,7 +4,7 @@
 COMO MODIFICAR USUARIOS:
   1) $_SESSION["activeUser"]["<atributo>"] = "<valor>";
   2) mergeUser($_SESSION["activeUser"]);
-
+  ** NO PERMITIR CAMBIOS DE EMAIL NI USERNAME
 
 
 
