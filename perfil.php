@@ -40,7 +40,7 @@
                 <div class="col-12">
                   <!--Formulario-->
                   <form class="container-fluir" method="post" action="" enctype="multipart/form-data" >
-                  
+
 <!--imagen-->
 
                   <div class="d-flex flex-wrap mx-auto img-perfil img-fluid">
@@ -87,17 +87,17 @@
 
                       <div class="form-group" >
                           <label for="usuario">Usuario</label>
-                          <input type="text" class="form-control" id="usuario" name="usuario" value="2D" readonly required>
+                          <input type="text" class="form-control" id="usuario" name="usuario" value="<?= $_SESSION["activeUser"]["usuario"];?>" readonly required>
 
                   </div>
                     <div class="form-row">
                         <div class="col">
                             <label for="nombre">Nombre</label>
-                            <input id="nombre" type="text" class="form-control" placeholder="First name" name="nombre" value="Juan" readonly required>
+                            <input id="nombre" type="text" class="form-control" placeholder="First name" name="nombre" value="<?= $_SESSION["activeUser"]["nombre"];?>" readonly required>
                           </div>
                           <div class="col">
                               <label for="apellido">Apellido</label>
-                            <input id="apellido" type="text" class="form-control" placeholder="Last name" name="apellido" value="Lopez" readonly required>
+                            <input id="apellido" type="text" class="form-control" placeholder="Last name" name="apellido" value="<?= $_SESSION["activeUser"]["apellido"];?>" readonly required>
                           </div>
                     </div>
                     <div class="form-group my-2">
@@ -217,9 +217,9 @@
   ?>
 <!-- fin footer -->
 <!-- Modal -->
-  <?php 
-    include_once("includes/modal.php");  
-  ?>                          
+  <?php
+    include_once("includes/modal.php");
+  ?>
 <!-- Fin modal -->
   <?php
     include_once("includes/scriptBootstrap.php");
