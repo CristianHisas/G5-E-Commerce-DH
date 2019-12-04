@@ -31,7 +31,7 @@ function findUserByEmail($email){
   return getObjectFromFile(USERS_BBDD_PATH, $email);
 }
 function findUserByUserName($userName){
-  return getObjectFromFile(USER_EMAIL, $userName);
+  return findUserByEmail(USERS_BBDD_PATH, getObjectFromFile(USER_EMAIL, $userName));
 }
 function getUsers(){
   return getObjectsFromFile(USERS_BBDD_PATH);

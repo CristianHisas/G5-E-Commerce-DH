@@ -20,41 +20,16 @@
 
       if(!$errores){
         // setcookies
-        if(
-          findUserByEmail($_POST["usuario"])
-          ||
-          findUserByUserName($_POST["usuario"])
-          ){
-          // $user = [];
-          // $user[$correo] = [
-          //   "email" => $correo,
-          //   "nombre" => $nombre,
-          //   "apellido" => $apellido,
-          //   "usuario" => $usuario,
-          //   "clave" => password_hash($clave, PASSWORD_DEFAULT),
-          //   "telefono" => $telefono,
-          //   "fechaNacimiento"=>"",
-          //   "direccion"=>"",
-          //   "ciudad"=>"",
-          //   "provincia"=>"",
-          //   "pais"=>"",
-          //   "codigoPostal"=>"",
-          //   "sexo"=>"",
-          //   "nombreTitular"=>"",
-          //   "numeroTarjeta"=>"",
-          //   "tipoDeTarjeta"=>"",
-          //   "fechaVencimiento"=>"",
-          //   "cvc"=>"",
-          //   "fotoPerfil"=>""
-          // ];
-          // mergeUser($user);
-          // $_SESSION["usuario"]=$usuario;
-          // $_SESSION["nombre"]=$nombre;
-          // $_SESSION["apellido"]=$apellido;
-          // $_SESSION["email"]=$correo;
+        if(findUserByEmail($_POST["usuario"])){
+          $_SESSION["activeUser"] = findUserByEmail($_POST["usuario"]);
           header("Location: perfil.php");exit;
+
+        }else
+          if(findUserByUserName($_POST["usuario"])){
+            $_SESSION["activeUser"] = findUserByUserName($_POST["usuario"]);
+            header("Location: perfil.php");exit;
         }else{
-          $errores["email"] = ["Los datos ingresados son inválidos"];
+          $errores["soloTexto"] = ["Los datos ingresados son inválidos"];
         }
     }
     }

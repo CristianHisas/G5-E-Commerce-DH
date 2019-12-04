@@ -359,13 +359,20 @@ function imprimirErrores($errores){
     if($_POST){
         echo "<ul class='errores col-12'>";
         foreach($errores as $key => $errores){
+        $soloTexto = $key == "soloTexto";
         $coma = "";
+        if(!$soloTexto)
         $return = "<li>El campo <u style='color:black'>$key</u> debe tener ";
         foreach($errores as $error){
-                $return .= "$coma $error";
-                if(!$coma) $coma = ",";
+            if($soloTexto){
+                $return = "<li>$error</li>";
+                continue;
+            }
+            $return .= "$coma $error";
+            if(!$coma) $coma = ",";
         }
-        echo $return .".</li>";
+        echo $return;
+        if(!$soloTexto) echo ".</li>";
         }
         echo '</ul>';
     }
