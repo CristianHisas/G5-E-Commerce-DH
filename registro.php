@@ -50,8 +50,7 @@ if($_POST /*|| true*/){
     if(!$errores){
         // setcookies
         if(!existsUser($user)){
-                $user = [];
-                $user[$correo] = [
+                $user = [
                         "email" => $correo,
                         "nombre" => $nombre,
                         "apellido" => $apellido,
@@ -73,6 +72,7 @@ if($_POST /*|| true*/){
                         "fotoPerfil"=>""
                 ];
                 mergeUser($user);
+                $_SESSION["activeUser"] = $user;
                 // echo json_encode($user); exit;
                 $_SESSION["usuario"]=$usuario;
                 $_SESSION["nombre"]=$nombre;

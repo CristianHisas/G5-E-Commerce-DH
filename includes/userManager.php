@@ -1,5 +1,16 @@
 <?php
 
+/*
+COMO MODIFICAR USUARIOS:
+  1) $_SESSION["activeUser"]["<atributo>"] = "<valor>";
+  2) mergeUser($_SESSION["activeUser"]);
+  ** NO PERMITIR CAMBIOS DE EMAIL NI USERNAME
+
+
+
+
+
+*/
 define("USERS_BBDD_PATH", dirname(__FILE__) . "\..\data\usuarios.json");
 define("USER_EMAIL", dirname(__FILE__) . "\..\data\user_email.json");
 
@@ -11,8 +22,10 @@ if(!file_exists(USER_EMAIL)){
 }
 
 function mergeUser($user){
-  mergeObjectToFile(USERS_BBDD_PATH, $user);
-  foreach($user as $theUser){
+  $u = [];
+  $u[$user[email]] = $user;
+  mergeObjectToFile(USERS_BBDD_PATH, $u);
+  foreach($u as $theUser){
     $userEmail[$theUser["usuario"]] = $theUser["email"];
     mergeObjectToFile(USER_EMAIL, $userEmail);
   }
@@ -31,7 +44,8 @@ function findUserByEmail($email){
   return getObjectFromFile(USERS_BBDD_PATH, $email);
 }
 function findUserByUserName($userName){
-  return findUserByEmail(USERS_BBDD_PATH, getObjectFromFile(USER_EMAIL, $userName));
+  $email = getObjectFromFile(USER_EMAIL, $userName);
+  return findUserByEmail($email);
 }
 function getUsers(){
   return getObjectsFromFile(USERS_BBDD_PATH);
