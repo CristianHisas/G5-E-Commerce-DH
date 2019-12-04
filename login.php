@@ -24,12 +24,22 @@
       if(!$errores){
         // setcookies
         if(findUserByEmail($_POST["usuario"])){
-          $_SESSION["activeUser"] = findUserByEmail($_POST["usuario"]);
-          header("Location: perfil.php");exit;
+          $activeUser = findUserByEmail($_POST["usuario"]);
+          if(password_verify($_POST["pass"], $activeUser["clave"])){
+            $_SESSION["activeUser"] = $activeUser;
+            header("Location: perfil.php");exit;
+          }else{
+            $errores["soloTexto"] = ["Los datos ingresados son inválidos"];
+          }
         }else
           if(findUserByUserName($_POST["usuario"])){
-            $_SESSION["activeUser"] = findUserByUserName($_POST["usuario"]);
-            header("Location: perfil.php");exit;
+            $activeUser = findUserByUserName($_POST["usuario"]);
+            if(password_verify($_POST["pass"], $activeUser["clave"])){
+              $_SESSION["activeUser"] = $activeUser;
+              header("Location: perfil.php");exit;
+            }else{
+              $errores["soloTexto"] = ["Los datos ingresados son inválidos"];
+            }
         }else{
           $errores["soloTexto"] = ["Los datos ingresados son inválidos"];
         }
