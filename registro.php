@@ -50,8 +50,7 @@ if($_POST /*|| true*/){
     if(!$errores){
         // setcookies
         if(!existsUser($user)){
-                $user = [];
-                $user[$correo] = [
+                $user = [
                         "email" => $correo,
                         "nombre" => $nombre,
                         "apellido" => $apellido,
