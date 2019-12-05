@@ -1,5 +1,5 @@
-            <!--Comienza el nav-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
+           <!--Comienza el nav-->
+           <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
                 <!--Comienza el nombre de la empresa-->
                     <a class="navbar-brand" href="home.html">
                       <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
@@ -54,9 +54,22 @@
                                       </div>
                                 <!--Fin categoria-->
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link " href="resumen.php"><?=(isset($_SESSION["usuario"]))?$_SESSION["usuario"]:"usuario";?></a>
-                        </li>
+                        <?php if (isset($_SESSION["activeUser"])  && $pagina!="Registro" && $pagina!="Login" ): ?>
+                          <li class="nav-item">
+                            <a class="nav-link text-primary" href="resumen.php"><?=(isset($_SESSION["activeUser"]["usuario"]))?$_SESSION["activeUser"]["usuario"]:"usuario";?></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-primary" href="logOut.php">Cerrar Seccion</a>
+                          </li>
+                        <?php else: ?>
+                          <li class="nav-item">
+                                <a class="nav-link  text-primary" href="login.php">Iniciar Secccion</a>
+                          </li>
+                          <li class="nav-item">
+                                <a class="nav-link  text-primary" href="registro.php">Registrarse</a>
+                          </li>
+                        <?php  endif ?>
+                        
                         <li class="nav-item">
                                 <a class="nav-link" href="faq.html">Ayuda <img src="img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
                         </li>

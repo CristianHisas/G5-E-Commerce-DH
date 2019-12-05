@@ -62,6 +62,7 @@ define("SEXO","8d");
 define("TIPODETARJETANUM","9d");
 define("TIPODETARJETA","10d");
 define("FECHAVENCIMIENTOTARJETA","11d");
+define("SOLONUMEROS","d12");
 
 function hacerValidaciones($arr, $requisitos){
     $errores = [];
@@ -109,6 +110,9 @@ function validar($value, $requisitos){
     }
     if(isset($requisitos[FECHAVENCIMIENTOTARJETA])|| in_array(FECHAVENCIMIENTOTARJETA, $requisitos)){
         $errs[] = validarFechaDeVencimiento($value);
+    }
+    if(isset($requisitos[SOLONUMEROS])|| in_array(SOLONUMEROS, $requisitos)){
+        $errs[] = validarSoloNumeros($value);
     }
     foreach($errs as $err){
         $ret = array_merge($ret, $err);
@@ -187,9 +191,10 @@ function validarFecha($fecha){
     $ret=[];
     $fecha=preg_replace("/[\-\/.]/","/", $fecha);
     $valores = explode('/', $fecha);
+
     if(empty($fecha)){
         $ret[]="Debe llenar este campo";
-    }elseif(count($valores) != 3 || ( !checkdate($valores[2], $valores[1], $valores[0]) && !checkdate($valores[0], $valores[1], $valores[2]) && !checkdate($valores[1], $valores[0], $valores[2]) ) ){
+    }elseif(count($valores) != 3 || !( checkdate($valores[1], $valores[2], $valores[0]) xor checkdate($valores[0], $valores[1], $valores[2]) xor checkdate($valores[1], $valores[0], $valores[2]) ) ){
         $ret[]="un formato válido";
     }
 	return $ret;
@@ -318,22 +323,42 @@ function validarArchivo($archivo){
         }
     
 
-    }else{
-        $ret[]="";
     }
     return $ret;
 }
 function guardarArchivo($file,$nombre="text"){
-    $nombreArchivo=$file["name"];
+    if($file["name"]!=""){
+        $nombreArchivo=$file["name"];
     $archivo=$file["tmp_name"];
     $ext=pathinfo($nombreArchivo,PATHINFO_EXTENSION);
     $miArchivo="img/Usuario/".$nombre;
+     //ruta actual
+    $nombre="avatar".uniqid();
     if (!file_exists($miArchivo)) {
         mkdir($miArchivo, 0777, true);
+    }
+    $directorio = opendir($miArchivo);
+    $cont=0;
+    $archivoEliminar="";
+    while ($archivoDir = readdir($directorio)) //obtenemos un archivo y luego otro sucesivamente
+    {
+        if (!is_dir($archivoDir))//verificamos si es o no un directorio
+            {
+        //var_dump ($archivoDir );
+            if(preg_match("/avatar/i" ,$archivoDir)){//encuentra un archivo que coincida con el patron
+                $cont++;
+                $archivoEliminar=$archivoDir;   
+            }
+        }
+    }
+    if($cont>1){
+        unlink($miArchivo."/".$archivoEliminar);
     }
     $miArchivo=$miArchivo."/".$nombre.".".$ext;
     move_uploaded_file($archivo,$miArchivo);
     return $miArchivo;
+    }
+    return null;
 }
 function persistirDato($arrayE, $string) {
     if(isset($arrayE[$string])) {
@@ -354,27 +379,26 @@ function mostrarErroresPerfil($arrayError,$nombre){
         echo"</ul>";     
     }
 }
-
-
+function validarSoloNumeros($value){
+    $ret = [];
+    if (preg_match('`[^0-9]`',$value)){
+        $ret[] = "sólo caracteres numéricos";
+    }
+    return $ret;
+}
+//agregado
 // Si se envía la clave "soloTexto" no imprime ..el campo tal bla bla bla.
 function imprimirErrores($errores){
     if($_POST){
         echo "<ul class='errores col-12'>";
         foreach($errores as $key => $errores){
-        $soloTexto = $key == "soloTexto";
         $coma = "";
-        if(!$soloTexto)
         $return = "<li>El campo <u style='color:black'>$key</u> debe tener ";
         foreach($errores as $error){
-            if($soloTexto){
-                $return = "<li>$error</li>";
-                continue;
-            }
-            $return .= "$coma $error";
-            if(!$coma) $coma = ",";
+                $return .= "$coma $error";
+                if(!$coma) $coma = ",";
         }
-        echo $return;
-        if(!$soloTexto) echo ".</li>";
+        echo $return .".</li>";
         }
         echo '</ul>';
     }
