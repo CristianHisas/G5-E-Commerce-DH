@@ -37,6 +37,11 @@ function mergeObjectToFile($path, $nuevo){
   escribirFile($path, json_encode($todo));
 }
 
+function removeObjectFromFile($path, $key){
+  $objects = getObjectsFromFile($path);
+  unset($objects[$key]);
+  escribirFile($path, json_encode($objects));
+}
 function existsKeyOnFile($path, $key){
   $todo = getObjectsFromFile($path);
   if(!$todo){

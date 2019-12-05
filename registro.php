@@ -70,7 +70,7 @@ if($_POST /*|| true*/){
                 "cvc"=>"",
                 "fotoPerfil"=>""
         ];
-                                                                                                                                                        if(!existsUser($user)){
+                                                                                                                if(!existsUser($user)){
                 mergeUser($user);
                 $_SESSION["activeUser"] = $user;
                 // echo json_encode($user); exit;

@@ -1,5 +1,5 @@
 <?php
-
+require_once "fileManager.php";
 /*
 COMO MODIFICAR USUARIOS:
   1) $_SESSION["activeUser"]["<atributo>"] = "<valor>";
@@ -32,14 +32,22 @@ function mergeUser($user){
 }
 
 function existsUser($user){
-  if(existsKeyOnFile(USERS_BBDD_PATH, $user["email"])
-   ||
-   existsKeyOnFile(USER_EMAIL, $user["usuario"])
-   ){
+  if(
+    existsKeyOnFile(USERS_BBDD_PATH, $user["email"])
+    || existsKeyOnFile(USER_EMAIL, $user["usuario"])
+  ){
     return true;
-   }
-   return false;
+  }
+  return false;
 }
+
+function existsUserName($userName){
+  return existsKeyOnFile(USER_EMAIL, $user["usuario"]);
+}
+function existsUserEmail($userEmail){
+  return existsKeyOnFile(USERS_BBDD_PATH, $user["email"]);
+}
+
 function findUserByEmail($email){
   return getObjectFromFile(USERS_BBDD_PATH, $email);
 }
@@ -50,9 +58,28 @@ function findUserByUserName($userName){
 function getUsers(){
   return getObjectsFromFile(USERS_BBDD_PATH);
 }
+function removeUser($user){
+  $users = getUsers();
+  removeObjectFromFile(USERS_BBDD_PATH, $user["email"]);
+  removeObjectFromFile(USER_EMAIL, $user["usuario"]);
+}
 
+function updateEmail($new, $old){
+  if(existsUserEmail($new)) return false;
+  $user = findUserByEmail($old);
+  removeUser($user);
+  $user["email"] = $new;
+  mergeUser($user);
+}
 
-
+function updateUserName($new, $old){
+  if(existsUserName($new)) return false;
+  $user = findUserByUserName($old);
+  // innecesario
+  removeUser($user);
+  $user["usuario"] = $new;
+  mergeUser($user);
+}
 
 
 

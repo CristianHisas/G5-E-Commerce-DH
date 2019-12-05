@@ -6,8 +6,8 @@
 
   if(isset($_SESSION["activeUser"])){
     header("Location: perfil.php");
-  } else{
-    $errores = null;
+  } else{ 
+    $errores = null; 
     if($_POST){
       $user = $_POST["usuario"];
       $pass = $_POST["pass"];
