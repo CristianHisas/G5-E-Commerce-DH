@@ -1,6 +1,7 @@
 <?php
   session_start();
-  // session_destroy();
+  $pagina="Login";
+  //session_destroy();
   require_once "./includes/funciones.php";
 
   if(isset($_SESSION["activeUser"])){
@@ -68,21 +69,13 @@
 </head>
 
 <body class="main-login">
-  <header class="container-fluir fixed-top">
-    <!--Comienza el nav-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
-      <!--Comienza el nombre de la empresa-->
-      <a class="navbar-brand" href="home.html">
-        <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
-        <span>E-commerce</span>
-      </a>
-      <!--Fin el nombre de la empresa-->
-      <a class="navbar-brand pregunta" href="faq.html">
-        <img src="img/pregunta.png" width="30" height="30" class="d-inline-block align-top ml-auto logo" alt="">
-      </a>
-
-    </nav>
-  </header>
+        <!--Comienza el header-->
+        <header class="container-fluir fixed-top">
+    <?php
+      include_once("includes/headerPerfil.php");
+    ?>
+    </header>
+     <!--Fin el header-->
   <main class=" container mb-4 main-inicio">
     <ul class="breadcrumb col-12">
       <li><a href="home.html">Home</a> <span class="divider">/</span></li>

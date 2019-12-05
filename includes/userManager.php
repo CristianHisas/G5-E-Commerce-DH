@@ -23,7 +23,7 @@ if(!file_exists(USER_EMAIL)){
 
 function mergeUser($user){
   $u = [];
-  $u[$user[email]] = $user;
+  $u[$user["email"]] = $user;
   mergeObjectToFile(USERS_BBDD_PATH, $u);
   foreach($u as $theUser){
     $userEmail[$theUser["usuario"]] = $theUser["email"];
