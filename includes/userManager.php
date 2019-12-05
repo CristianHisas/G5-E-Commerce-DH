@@ -67,9 +67,18 @@ function removeUser($user){
 function updateEmail($new, $old){
   if(existsUserEmail($new)) return false;
   $user = findUserByEmail($old);
+  removeUser($user);
   $user["email"] = $new;
   mergeUser($user);
+}
 
+function updateUserName($new, $old){
+  if(existsUserName($new)) return false;
+  $user = findUserByUserName($old);
+  // innecesario
+  removeUser($user);
+  $user["usuario"] = $new;
+  mergeUser($user);
 }
 
 
