@@ -191,14 +191,14 @@
                     <div class="form-group ">
                       <label for="claveNueva" class="">Nueva Clave</label>
 
-                        <input type="text" class="form-control" id="claveNueva" name="claveNueva" placeholder="Ingresa la Nueva Clave" title="Ingresa la Nueva clave " minlength="6" maxlength="20"  autocomplete="off" required>
+                        <input type="password" class="form-control" id="claveNueva" name="claveNueva" placeholder="Ingresa la Nueva Clave" title="Ingresa la Nueva clave " minlength="6" maxlength="20"  autocomplete="off" required>
                         <small class="text-muted">Su contraseña debe tener entre 8 y 20 caracteres, contener letras y números, y no debe contener espacios, caracteres especiales o emoji.</small>
                         <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"claveNueva"):""; ?></small>
                     </div>
                     <div class="form-group ">
                             <label for="claveNuevaRepetir" class="">Repetir Nueva Clave </label>
 
-                              <input type="text" class="form-control" id="claveNuevaRepetir" name="claveNuevaRepetir" placeholder="Repetir la Nueva Clave" title="Repita la Nueva clave" minlength="6" maxlength="20" autocomplete="off" required>
+                              <input type="password" class="form-control" id="claveNuevaRepetir" name="claveNuevaRepetir" placeholder="Repetir la Nueva Clave" title="Repita la Nueva clave" minlength="6" maxlength="20" autocomplete="off" required>
                               <small class="text-muted">Repita la Nueva Clave</small>
                               <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"claveNuevaRepetir"):""; ?></small> 
                           </div>
