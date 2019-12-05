@@ -120,7 +120,7 @@
     if($errorArchivo){
       $errores["archivo"]=$errorArchivo;
     }else{
-      $imagenUsuario=guardarArchivo($_FILES["adjunto"],$activeUser["email"]);
+      $imagenUsuario=guardarArchivo($_FILES["adjunto"],$activeUser["usuario"]);
       if(!is_null($imagenUsuario)){
         $usuarioTemporar["fotoPerfil"]=$imagenUsuario;
       }
