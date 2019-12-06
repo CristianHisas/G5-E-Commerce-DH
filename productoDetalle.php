@@ -1,3 +1,16 @@
+<?php
+  session_start();
+  include_once("includes/funciones.php");
+  include_once("includes/baseDeDatos.php");
+  $pagina="Descriccion de Producto";
+  //$pagina_anterior=$_SERVER['HTTP_REFERER'];//pagina anterior
+  if(isset($_SESSION["activeUser"]) && !is_null($_SESSION["activeUser"])){
+    if($_SESSION["activeUser"]["fotoPerfil"]==""){
+      $_SESSION["activeUser"]["fotoPerfil"]=(isset($imagenUsuario))?$imagenUsuario:"img/perfil.png";
+    }  
+    $activeUser=$_SESSION["activeUser"];
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +18,13 @@
 
 <body>
 
-  <?php include_once "includes/header.php"; ?>
+ <!--Comienza el header-->
+ <header class="container-fluir fixed-top">
+    <?php
+      include_once("includes/headerPerfil.php");
+    ?>
+    </header>
+     <!--Fin el header-->
   <?php include_once "includes/modal.php" ?>
 
   <!--Main-->

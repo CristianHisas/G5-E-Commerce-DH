@@ -1,4 +1,15 @@
 <?php
+  session_start();
+  include_once("includes/funciones.php");
+  include_once("includes/baseDeDatos.php");
+  if(isset($_SESSION["activeUser"]) && !is_null($_SESSION["activeUser"])){
+    if($_SESSION["activeUser"]["fotoPerfil"]==""){
+      $_SESSION["activeUser"]["fotoPerfil"]=(isset($imagenUsuario))?$imagenUsuario:"img/perfil.png";
+    }  
+    $activeUser=$_SESSION["activeUser"];
+  }else{
+    header("Location: login.php");exit;
+  }
   $pagina="Resumen";
 ?>
 <!DOCTYPE html>

@@ -59,11 +59,11 @@
                             <a class="nav-link text-primary" href="resumen.php"><?=(isset($_SESSION["activeUser"]["usuario"]))?$_SESSION["activeUser"]["usuario"]:"usuario";?></a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link text-primary" href="logOut.php">Cerrar Seccion</a>
+                            <a class="nav-link text-primary" href="logOut.php">Cerrar Sesion</a>
                           </li>
                         <?php else: ?>
                           <li class="nav-item">
-                                <a class="nav-link  text-primary" href="login.php">Iniciar Secccion</a>
+                                <a class="nav-link  text-primary" href="login.php">Iniciar Sesion</a>
                           </li>
                           <li class="nav-item">
                                 <a class="nav-link  text-primary" href="registro.php">Registrarse</a>

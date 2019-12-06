@@ -9,6 +9,8 @@
       $_SESSION["activeUser"]["fotoPerfil"]=(isset($imagenUsuario))?$imagenUsuario:"img/perfil.png";
     }  
     $activeUser=$_SESSION["activeUser"];
+  }else{
+    header("Location: login.php");exit;
   }
   $pagina="Datos de Usuario";
   $arraySexo=["Hombre","Mujer","Otro"];
@@ -120,9 +122,11 @@
     if($errorArchivo){
       $errores["archivo"]=$errorArchivo;
     }else{
-      $imagenUsuario=guardarArchivo($_FILES["adjunto"],$activeUser["email"]);
-      if(!is_null($imagenUsuario)){
+      if($_FILES["adjunto"]["name"]!=""){
+        $imagenUsuario=guardarArchivo($_FILES["adjunto"],$activeUser["usuario"]);
         $usuarioTemporar["fotoPerfil"]=$imagenUsuario;
+      }else {
+        $imagenUsuario=$usuarioTemporar["fotoPerfil"];
       }
     }
   
@@ -140,7 +144,7 @@
         if($key!="fotoPerfil" && $key!="email" && $key!="clave"){
           $_SESSION["activeUser"][$key]=($valorPersistencia=="")?$value:$valorPersistencia;
         }else{
-          if($key=="fotoPerfil"){
+          if($key=="fotoPerfil" && $_SESSION["activeUser"][$key]==""){
             $_SESSION["activeUser"][$key]=(isset($imagenUsuario))?$imagenUsuario:"img/perfil.png";
           }
           

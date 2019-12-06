@@ -263,8 +263,7 @@ function validarFechaDeVencimiento($mesYAnio){
             $diff = ( strtotime("01/".$mesYAnio) - strtotime($fecha_actual) );
             $years = floor($diff / (365*60*60*24));
             $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-            
-            if($years<=0 || $months<=0){
+            if($years<=0 && $months<=0){
                 $ret[]="La tarjeta esta vencida";
             }
             //preg_match("/^(1|2)\d\d\d[\-\/.](0[1-9]|1[012])[\-\/.](0[1-9]|[12][0-9]|3[01])$/",$mesYAnio); verifica el yyyy-mm-dd
