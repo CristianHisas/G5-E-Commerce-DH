@@ -7,6 +7,8 @@
       $_SESSION["activeUser"]["fotoPerfil"]=(isset($imagenUsuario))?$imagenUsuario:"img/perfil.png";
     }  
     $activeUser=$_SESSION["activeUser"];
+  }else{
+    header("Location: login.php");exit;
   }
   $pagina="Resumen";
 ?>

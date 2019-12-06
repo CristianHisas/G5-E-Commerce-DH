@@ -6,6 +6,8 @@
   $pagina="Seguridad";
   if(isset($_SESSION["activeUser"]) && !is_null($_SESSION["activeUser"])){ 
     $activeUser=$_SESSION["activeUser"];
+  }else{
+    header("Location: login.php");exit;
   }
   $errores=null;
   if(isset($_POST["enviarClave"])&& $_POST){

@@ -28,6 +28,11 @@
           $activeUser = findUserByEmail($_POST["usuario"]);
           if(password_verify($_POST["pass"], $activeUser["clave"])){
             $_SESSION["activeUser"] = $activeUser;
+            if($_POST["recordame"]="on"){
+              setcookie("usuario",$activeUser["usuario"],time()+60*60);
+              setcookie("clave",$activeUser["clave"],time()+60*60);
+              setcookie("email",$activeUser["email"],time()+60*60);                
+            }
             header("Location: perfil.php");exit;
           }else{
             $errores["soloTexto"] = ["Los datos ingresados son inválidos"];
@@ -37,6 +42,11 @@
             $activeUser = findUserByUserName($_POST["usuario"]);
             if(password_verify($_POST["pass"], $activeUser["clave"])){
               $_SESSION["activeUser"] = $activeUser;
+              if($_POST["recordame"]="on"){
+                setcookie("usuario",$activeUser["usuario"],time()+60*60);
+                setcookie("clave",$activeUser["clave"],time()+60*60);
+                setcookie("email",$activeUser["email"],time()+60*60);                
+              }
               header("Location: perfil.php");exit;
             }else{
               $errores["soloTexto"] = ["Los datos ingresados son inválidos"];
@@ -96,6 +106,11 @@
           <input type="password" name="pass" id="pass" value="" placeholder="clave" class="input-100" required>
           </br>
            <?php if(isset($errores)) echo imprimirErrores($errores) ?>
+           <div>
+           
+			      <label class="input-100 px-1" for="recordar"><input type="checkbox" name="recordar" class="col-ms-1 mx-1" checked>Recodar</label>
+           </div>
+           
           <input type="submit" value="Ingresar" class="btn-enviar">
         </div>
       </form>
