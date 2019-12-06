@@ -64,7 +64,7 @@ function removeUser($user){
   removeObjectFromFile(USER_EMAIL, $user["usuario"]);
 }
 
-function updateEmail($new, $old){
+function updateUserEmail($new, $old){
   if(existsUserEmail($new)) return false;
   $user = findUserByEmail($old);
   removeUser($user);

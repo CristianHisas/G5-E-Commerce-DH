@@ -3,7 +3,7 @@
   <!--Comienza el nav-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
     <!--Comienza el nombre de la empresa-->
-    <a class="navbar-brand" href="home.html">
+    <a class="navbar-brand" href="home.php">
       <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
       <span>E-commerce</span>
     </a>
@@ -31,7 +31,7 @@
     <div class="collapse navbar-collapse " id="navbarNav">
       <ul class="navbar-nav ml-md-auto">
         <li class="nav-item ">
-          <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <!--Comienza el categoria-->
@@ -56,13 +56,13 @@
           <!--Fin categoria-->
         </li>
         <li class="nav-item">
-          <a class="nav-link btn btn-primary" href="login.html">ingresar</a>
+          <a class="nav-link btn btn-primary" href="login.php">ingresar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">registrarse</a>
+          <a class="nav-link" href="registro.php">registrarse</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="faq.html">ayuda</a>
+          <a class="nav-link" href="faq.php">ayuda</a>
         </li>
         <li class="nav-item">
           <!-- Trigger modal -->
