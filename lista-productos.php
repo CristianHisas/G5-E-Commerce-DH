@@ -28,11 +28,7 @@
 
 </head>
 <body class="main-perfil">
-<<<<<<< HEAD:lista-productos.php
-<?php include_once "includes/header.php"; ?>
-<?php include_once "includes/modal.php"; ?>
 
-=======
         <!--Comienza el header-->
     <header class="container-fluir fixed-top">
     <?php
@@ -40,7 +36,6 @@
     ?>
     </header>
      <!--Fin el header-->
->>>>>>> a3772e5b6426d0203f4d6ae464586e8bcd993241:lista-productos.html
     <main class="container mb-4">
         <div class="inner-main" id="lista-productos">
             <aside>

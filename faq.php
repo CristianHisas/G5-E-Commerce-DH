@@ -26,17 +26,12 @@
 </head>
 <body class="main-perfil">
     <!--Comienza el header-->
-<<<<<<< HEAD:faq.php
-  <?php include_once "includes/header.php"; ?>
-  <?php include_once "includes/modal.php"; ?>
-=======
  <header class="container-fluir fixed-top">
     <?php
       include_once("includes/headerPerfil.php");
     ?>
     </header>
      <!--Fin el header-->
->>>>>>> a3772e5b6426d0203f4d6ae464586e8bcd993241:faq.html
 
     <main class="">
         <div class="inner-main">
