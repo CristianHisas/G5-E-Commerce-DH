@@ -1,6 +1,6 @@
 <?php
-$dsn = "";
-$user = "";
+$dsn = "mysql:host=localhost;e-Commerce=testdb";
+$user = "root";
 $pass = "";
 
 try

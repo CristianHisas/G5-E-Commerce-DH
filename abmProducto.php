@@ -1,3 +1,21 @@
+<?php
+include 'clases/Producto.php';
+include 'includes/pdo.php';
+
+    if ($_POST) {
+      $nombre = $_POST["nombre"];
+      $descripcion = $_POST["descripcion"];
+      $stock = $_POST["stock"];
+      $marca = $_POST["marca"];
+      $categoria = $_POST["categoria"];
+      $descuento = $_POST["descuento"];
+      $img = $_POST["img"];
+
+      $producto = new Producto();
+
+      $producto->altaProducto($db, $nombre, $descripcion, $stock, $marca, $categoria, $descuento, $img);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <?php include 'includes/head.php';?>
