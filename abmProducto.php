@@ -1,7 +1,8 @@
 <?php
-include 'clases/Producto.php';
-include 'includes/pdo.php';
+require_once ('includes/pdo.php');
+require_once 'clases/Producto.php';
 
+$producto = new Producto();
     if ($_POST) {
       $nombre = $_POST["nombre"];
       $descripcion = $_POST["descripcion"];
@@ -9,7 +10,7 @@ include 'includes/pdo.php';
       $marca = $_POST["marca"];
       $categoria = $_POST["categoria"];
       $descuento = $_POST["descuento"];
-      $img = $_POST["img"];
+      $img = "gdshgd";//$_POST["img"]; esto lo deje asi para que funciones pero tendria que ir la direccion
 
       $producto = new Producto();
 
