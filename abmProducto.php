@@ -5,7 +5,7 @@ require_once 'clases/Producto.php';
 $producto = new Producto();
 
 if ($_POST) {
-  if ($_POST["btnCargar"] == "cargar") {
+  if (isset($_POST["btnCargar"]) {
     $nombre = $_POST["nombre"];
     $descripcion = $_POST["descripcion"];
     $stock = $_POST["stock"];
@@ -15,7 +15,7 @@ if ($_POST) {
     $img = "gdshgd";//$_POST["img"]; esto lo deje asi para que funciones pero tendria que ir la direccion
 
     $producto->altaProducto($db, $nombre, $descripcion, $stock, $marca, $categoria, $descuento, $img);
-  }elseif ($_POST["btnBorrar"] == "borrar") {
+  }elseif (isset($_POST["btnBorrar"])) {
     $id = $_POST["id"];
 
     $producto->borrarProducto($db, $id);
