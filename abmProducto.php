@@ -112,6 +112,72 @@ $producto = new Producto();
             </div>
           </div>
         </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Lista de Productos
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <ul class="list-group">
+              <?php $variable=[
+                1=>"hola",
+                2=>"hola",
+                3=>"hola",
+                4=>"hola",
+                5=>"hola",
+                6=>"hola",
+              ]; //prueba?>
+              <?php foreach ($variable as $key => $value) { ?>
+              
+              <li class="list-group-item">
+                <div class="card-body px-0">
+                  <form class="form-inline" action="" method="post">
+                    <div class="form-group mb-1 col-1 px-1" >
+                      <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$key;?>" name="id">
+                    </div>
+                    <div class="form-group mb-2 col-1 px-1">
+                      
+                      <input type="text"  class="form-control-plaintext" id="nombre" value="celu 3" name="nombre">
+                    </div>
+                    <div class="form-group mb-2 col-2">
+                    
+                      <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="aqui">
+                    </div>
+                    <div class="form-group mb-2 col-1 px-1">
+                    
+                      <input type="text" class="form-control-plaintext" name="stock" value="12" id="stock">
+                    </div>
+                    <div class="form-group mb-2 col-1 px-1">
+    
+                      <input type="text" class="form-control-plaintext" name="marca" value="LG" id="marca">
+                    </div>
+                    <div class="form-group mb-2 col-1 px-1">
+    
+                      <input type="text" class="form-control-plaintext" name="categoria" value="celular" id="categoria">
+                    </div>
+                    <div class="form-group mb-2 col-1 px-1">
+    
+                      <input type="text" class="form-control-plaintext" name="descuento" value="0.5" id="categoria">
+                    </div>
+                    <div class="form-group mb-2 col-2">
+    
+                      <img src="img/phone.jpg" alt="" sizes="30px">
+                    </div>
+                    <div class="form-group mb-2 col-2">
+                      <button type="submit" class="btn btn-primary mx-2 mb-1 ">Modificar</button>
+                      <button type="submit" class="btn btn-primary mx-2 mb-1 ">Eliminar</button>      
+                    </div>
+                    </form>
+                </div>
+              </li>
+              
+              <?php } ?>  
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
