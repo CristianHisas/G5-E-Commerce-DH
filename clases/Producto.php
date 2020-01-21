@@ -48,7 +48,7 @@ class Producto
     try
     {
 
-      $statement = $db->prepare("DELETE * FROM productos WHERE id_producto = :id");
+      $statement = $db->prepare("DELETE FROM productos WHERE id_producto = :id");
 
       $statement->bindValue(":id", $id);
 

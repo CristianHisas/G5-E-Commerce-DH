@@ -2,21 +2,25 @@
 require_once ('includes/pdo.php');
 require_once 'clases/Producto.php';
 
-    if ($_POST) {
-      $id = $_POST["id"];
-      $nombre = $_POST["nombre"];
-      $descripcion = $_POST["descripcion"];
-      $stock = $_POST["stock"];
-      $marca = $_POST["marca"];
-      $categoria = $_POST["categoria"];
-      $descuento = $_POST["descuento"];
-      $img = "gdshgd";//$_POST["img"]; esto lo deje asi para que funciones pero tendria que ir la direccion
+$producto = new Producto();
 
-      $producto = new Producto();
+if ($_POST) {
+  if ($_POST["btnCargar"] == "cargar") {
+    $nombre = $_POST["nombre"];
+    $descripcion = $_POST["descripcion"];
+    $stock = $_POST["stock"];
+    $marca = $_POST["marca"];
+    $categoria = $_POST["categoria"];
+    $descuento = $_POST["descuento"];
+    $img = "gdshgd";//$_POST["img"]; esto lo deje asi para que funciones pero tendria que ir la direccion
 
-      $producto->altaProducto($db, $nombre, $descripcion, $stock, $marca, $categoria, $descuento, $img);
-      $producto->borrarProducto($db, $id);
-    }
+    $producto->altaProducto($db, $nombre, $descripcion, $stock, $marca, $categoria, $descuento, $img);
+  }elseif ($_POST["btnBorrar"] == "borrar") {
+    $id = $_POST["id"];
+
+    $producto->borrarProducto($db, $id);
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -72,7 +76,7 @@ require_once 'clases/Producto.php';
                 <input type="file" name="img" value="">
                 <br><br>
 
-                <button type="submit" name="btnCargar">Cargar</button>
+                <button type="submit" name="btnCargar" value="cargar">Cargar</button>
               </form>
             </div>
           </div>
@@ -108,7 +112,7 @@ require_once 'clases/Producto.php';
                 <br>
                 <input type="number" min=1 name="id" value="">
 
-                <button type="submit" name="btnBorrar">Borrar</button>
+                <button type="submit" name="btnBorrar" value="borrar">Borrar</button>
               </form>
             </div>
           </div>
@@ -133,47 +137,47 @@ require_once 'clases/Producto.php';
               ]; //prueba?>
               <?php foreach ($variable as $key => $value) { ?>
 
-              <li class="list-group-item">
-                <div class="card-body px-0">
-                  <form class="form-inline" action="" method="post">
-                    <div class="form-group mb-1 col-1 px-1" >
-                      <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$key;?>" name="id">
-                    </div>
-                    <div class="form-group mb-2 col-1 px-1">
+                <li class="list-group-item">
+                  <div class="card-body px-0">
+                    <form class="form-inline" action="" method="post">
+                      <div class="form-group mb-1 col-1 px-1" >
+                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$key;?>" name="id">
+                      </div>
+                      <div class="form-group mb-2 col-1 px-1">
 
-                      <input type="text"  class="form-control-plaintext" id="nombre" value="celu 3" name="nombre">
-                    </div>
-                    <div class="form-group mb-2 col-2">
+                        <input type="text"  class="form-control-plaintext" id="nombre" value="celu 3" name="nombre">
+                      </div>
+                      <div class="form-group mb-2 col-2">
 
-                      <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="aqui">
-                    </div>
-                    <div class="form-group mb-2 col-1 px-1">
+                        <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="aqui">
+                      </div>
+                      <div class="form-group mb-2 col-1 px-1">
 
-                      <input type="text" class="form-control-plaintext" name="stock" value="12" id="stock">
-                    </div>
-                    <div class="form-group mb-2 col-1 px-1">
+                        <input type="text" class="form-control-plaintext" name="stock" value="12" id="stock">
+                      </div>
+                      <div class="form-group mb-2 col-1 px-1">
 
-                      <input type="text" class="form-control-plaintext" name="marca" value="LG" id="marca">
-                    </div>
-                    <div class="form-group mb-2 col-1 px-1">
+                        <input type="text" class="form-control-plaintext" name="marca" value="LG" id="marca">
+                      </div>
+                      <div class="form-group mb-2 col-1 px-1">
 
-                      <input type="text" class="form-control-plaintext" name="categoria" value="celular" id="categoria">
-                    </div>
-                    <div class="form-group mb-2 col-1 px-1">
+                        <input type="text" class="form-control-plaintext" name="categoria" value="celular" id="categoria">
+                      </div>
+                      <div class="form-group mb-2 col-1 px-1">
 
-                      <input type="text" class="form-control-plaintext" name="descuento" value="0.5" id="categoria">
-                    </div>
-                    <div class="form-group mb-2 col-2">
+                        <input type="text" class="form-control-plaintext" name="descuento" value="0.5" id="categoria">
+                      </div>
+                      <div class="form-group mb-2 col-2">
 
-                      <img src="img/phone.jpg" alt="" sizes="30px">
-                    </div>
-                    <div class="form-group mb-2 col-2">
-                      <button type="submit" class="btn btn-primary mx-2 mb-1 ">Modificar</button>
-                      <button type="submit" class="btn btn-primary mx-2 mb-1 ">Eliminar</button>
-                    </div>
+                        <img src="img/phone.jpg" alt="" sizes="30px">
+                      </div>
+                      <div class="form-group mb-2 col-2">
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 ">Modificar</button>
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 ">Eliminar</button>
+                      </div>
                     </form>
-                </div>
-              </li>
+                  </div>
+                </li>
 
               <?php } ?>
             </ul>
