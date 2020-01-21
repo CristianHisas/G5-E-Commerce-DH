@@ -3,9 +3,22 @@ require_once ('includes/pdo.php');
 require_once 'clases/Producto.php';
 
 $producto = new Producto();
-
+function obtenerListaProductos($db){
+  $sql = "SELECT id_producto as id,nombre,descripcion,cantidad as stock,marca,categoria,descuento,img 
+      FROM productos as p
+        inner join categorias as c on p.id_categoria=c.id_categoria
+        inner join marcas as m on p.id_marca=m.id_marca";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+  $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  //$variable = $stmt->fetchAll(PDO::FETCH_CLASS, "Producto");
+  return $variable;
+}
+$variable=obtenerListaProductos($db);
 if ($_POST) {
-  if (isset($_POST["btnCargar"]) {
+ // var_dump($_POST);
+ // exit;
+  if (isset($_POST["btnCargar"])) {
     $nombre = $_POST["nombre"];
     $descripcion = $_POST["descripcion"];
     $stock = $_POST["stock"];
@@ -32,7 +45,7 @@ if ($_POST) {
   <?php include 'includes/headerAdm.php'; ?>
 
   <main>
-
+    
     <div class="container">
       <div id="accordion">
         <div class="card">
@@ -118,62 +131,54 @@ if ($_POST) {
           </div>
         </div>
         <div class="card">
-          <div class="card-header" id="headingTwo">
+          <div class="card-header" id="headingFour">
             <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 Lista de Productos
               </button>
             </h5>
           </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
             <ul class="list-group">
-              <?php $variable=[
-                1=>"hola",
-                2=>"hola",
-                3=>"hola",
-                4=>"hola",
-                5=>"hola",
-                6=>"hola",
-              ]; //prueba?>
               <?php foreach ($variable as $key => $value) { ?>
 
                 <li class="list-group-item">
                   <div class="card-body px-0">
                     <form class="form-inline" action="" method="post">
                       <div class="form-group mb-1 col-1 px-1" >
-                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$key;?>" name="id">
+                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$value["id"];?>" name="id">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text"  class="form-control-plaintext" id="nombre" value="celu 3" name="nombre">
+                        <input type="text"  class="form-control-plaintext" id="nombre" value="<?=$value["nombre"];?>" name="nombre">
                       </div>
                       <div class="form-group mb-2 col-2">
 
-                        <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="aqui">
+                        <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="<?=$value["descripcion"];?>">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="stock" value="12" id="stock">
+                        <input type="text" class="form-control-plaintext" name="stock" value="<?=$value["stock"];?>" id="stock">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="marca" value="LG" id="marca">
+                        <input type="text" class="form-control-plaintext" name="marca" value="<?=$value["marca"];?>" id="marca">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="categoria" value="celular" id="categoria">
+                        <input type="text" class="form-control-plaintext" name="categoria" value="<?=$value["categoria"];?>" id="categoria">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="descuento" value="0.5" id="categoria">
+                        <input type="text" class="form-control-plaintext" name="descuento" value="<?=$value["descuento"];?>" id="categoria">
                       </div>
                       <div class="form-group mb-2 col-2">
 
-                        <img src="img/phone.jpg" alt="" sizes="30px">
+                        <img src="<?=$value["img"];?>" alt="" sizes="30px">
                       </div>
                       <div class="form-group mb-2 col-2">
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 ">Modificar</button>
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 ">Eliminar</button>
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="<?=$variable[$key];?>">Modificar</button>
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$variable[$key];?>">Eliminar</button>
                       </div>
                     </form>
                   </div>
