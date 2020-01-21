@@ -17,17 +17,19 @@ class Producto
   {
     try
     {
-      $statement = $db->prepare("INSERT INTO productos (nombre, descripcion, cantidad, img, descuento, id_marca, id_categoria) VALUES (:nombre, :descripcion, :cantidad, :img,  :descuento, :idMarca, :idCategoria)");
+    $statement = $db->prepare("INSERT into productos(id_marca,id_categoria,nombre,descripcion,cantidad,img,descuento) VALUES ( :idMarca, :idCategoria,:nombre, :descripcion, :cantidad, :img,:descuento)");
 
-      $statement->bindValue(":nombre", $nombre);
-      $statement->bindValue(":descripcion", $desc);
-      $statement->bindValue(":cantidad", $stock);
-      $statement->bindValue(":img", $img);
-      $statement->bindValue(":descuento", $descuento);
-      $statement->bindValue(":idMarca", $marca);
-      $statement->bindValue(":idCategoria", $categoria);
+    $statement->bindValue(':idMarca', $marca,PDO::PARAM_INT);
+    $statement->bindValue(":idCategoria", $categoria,PDO::PARAM_INT);
+    $statement->bindValue(":nombre", $nombre,PDO::PARAM_STR);
+    $statement->bindValue(":descripcion", $desc,PDO::PARAM_STR);
+    $statement->bindValue(":cantidad", $stock,PDO::PARAM_INT);
+    $statement->bindValue(":img", $img,PDO::PARAM_STR);
+    $statement->bindValue(":descuento", $descuento,PDO::PARAM_INT);
 
-      $statement->execute();
+      if ($statement->execute()) {
+        echo "se creo un nuevo registro";
+      }
     }
     catch (\Exception $e)
     {
