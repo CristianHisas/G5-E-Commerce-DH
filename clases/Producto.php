@@ -5,8 +5,9 @@
 */
 class Producto
 {
+  private $id;
   private $nombre;
-  private $desc;
+  private $descripcion;
   private $stock;
   private $marca;
   private $categoria;
