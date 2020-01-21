@@ -28,13 +28,13 @@ class Producto
     $statement->bindValue(":descuento", $descuento,PDO::PARAM_INT);
 
       if ($statement->execute()) {
-        echo "se creo un nuevo registro";
+        echo "Se creo un nuevo registro";
       }
     }
     catch (\Exception $e)
     {
       echo "Error al cargar poducto";
-      $e->getMessage();
+      echo $e->getMessage();
     }
   }
 
@@ -52,13 +52,15 @@ class Producto
 
       $statement->bindValue(":id", $id);
 
-      $statement->execute();
+      if ($statement->execute()) {
+        echo "Se elimino el producto de id $id";
+      }
 
     }
     catch (\Exception $e)
     {
         echo "Error al borrar producto";
-        $e->getMessage();
+        echo $e->getMessage();
     }
 
   }

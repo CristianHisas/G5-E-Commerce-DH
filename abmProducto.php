@@ -2,8 +2,8 @@
 require_once ('includes/pdo.php');
 require_once 'clases/Producto.php';
 
-$producto = new Producto();
     if ($_POST) {
+      $id = $_POST["id"];
       $nombre = $_POST["nombre"];
       $descripcion = $_POST["descripcion"];
       $stock = $_POST["stock"];
@@ -15,6 +15,7 @@ $producto = new Producto();
       $producto = new Producto();
 
       $producto->altaProducto($db, $nombre, $descripcion, $stock, $marca, $categoria, $descuento, $img);
+      $producto->borrarProducto($db, $id);
     }
 ?>
 <!DOCTYPE html>
@@ -41,7 +42,7 @@ $producto = new Producto();
 
           <div id="collapseOne" class ="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-              <form class="" action="" method="post" enctype="multipart/form-data">
+              <form class="altaProducto" action="" method="post" enctype="multipart/form-data">
 
                 <label for="nombre">Nombre del producto</label>
                 <br>
@@ -86,7 +87,7 @@ $producto = new Producto();
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              <form class="" action="" method="post">
+              <form class="modificarProducto" action="" method="post">
 
               </form>
             </div>
@@ -102,7 +103,7 @@ $producto = new Producto();
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
-              <form class="" action="" method="post">
+              <form class="borrarProducto" action="" method="post">
                 <label for="id">Id del producto que se desea borrar</label>
                 <br>
                 <input type="number" min=1 name="id" value="">
@@ -131,7 +132,7 @@ $producto = new Producto();
                 6=>"hola",
               ]; //prueba?>
               <?php foreach ($variable as $key => $value) { ?>
-              
+
               <li class="list-group-item">
                 <div class="card-body px-0">
                   <form class="form-inline" action="" method="post">
@@ -139,42 +140,42 @@ $producto = new Producto();
                       <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$key;?>" name="id">
                     </div>
                     <div class="form-group mb-2 col-1 px-1">
-                      
+
                       <input type="text"  class="form-control-plaintext" id="nombre" value="celu 3" name="nombre">
                     </div>
                     <div class="form-group mb-2 col-2">
-                    
+
                       <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="aqui">
                     </div>
                     <div class="form-group mb-2 col-1 px-1">
-                    
+
                       <input type="text" class="form-control-plaintext" name="stock" value="12" id="stock">
                     </div>
                     <div class="form-group mb-2 col-1 px-1">
-    
+
                       <input type="text" class="form-control-plaintext" name="marca" value="LG" id="marca">
                     </div>
                     <div class="form-group mb-2 col-1 px-1">
-    
+
                       <input type="text" class="form-control-plaintext" name="categoria" value="celular" id="categoria">
                     </div>
                     <div class="form-group mb-2 col-1 px-1">
-    
+
                       <input type="text" class="form-control-plaintext" name="descuento" value="0.5" id="categoria">
                     </div>
                     <div class="form-group mb-2 col-2">
-    
+
                       <img src="img/phone.jpg" alt="" sizes="30px">
                     </div>
                     <div class="form-group mb-2 col-2">
                       <button type="submit" class="btn btn-primary mx-2 mb-1 ">Modificar</button>
-                      <button type="submit" class="btn btn-primary mx-2 mb-1 ">Eliminar</button>      
+                      <button type="submit" class="btn btn-primary mx-2 mb-1 ">Eliminar</button>
                     </div>
                     </form>
                 </div>
               </li>
-              
-              <?php } ?>  
+
+              <?php } ?>
             </ul>
           </div>
         </div>
