@@ -3,22 +3,12 @@ require_once ('includes/pdo.php');
 require_once 'clases/Producto.php';
 
 $producto = new Producto();
-function obtenerListaProductos($db){
-  $sql = "SELECT id_producto as id,nombre,descripcion,cantidad as stock,marca,categoria,descuento,img
-      FROM productos as p
-        inner join categorias as c on p.id_categoria=c.id_categoria
-        inner join marcas as m on p.id_marca=m.id_marca";
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
-  //$variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
-  $variable = $stmt->fetchAll(PDO::FETCH_CLASS,"Producto");//array de objeto
-  return $variable;
-}
-$variable=obtenerListaProductos($db);
+
+$variable = $producto->obtenerListaProductos($db);
 //var_dump($variable);
 if ($_POST) {
- // var_dump($_POST);
- // exit;
+  // var_dump($_POST);
+  // exit;
   if (isset($_POST["btnCargar"])) {
     $nombre = $_POST["nombre"];
     $descripcion = $_POST["descripcion"];
@@ -141,45 +131,45 @@ if ($_POST) {
           </div>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
             <ul class="list-group">
-              <?php foreach ($variable as $key => $value) { ?>
+              <?php foreach ($variable as $key) { ?>
 
                 <li class="list-group-item">
                   <div class="card-body px-0">
                     <form class="form-inline" action="" method="post">
                       <div class="form-group mb-1 col-1 px-1" >
-                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$value->getId();?>" name="id">
+                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$key["id"];?>" name="id">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text"  class="form-control-plaintext" id="nombre" value="<?=$value->getNombre();?>" name="nombre">
+                        <input type="text"  class="form-control-plaintext" id="nombre" value="<?=$key["nombre"];?>" name="nombre">
                       </div>
                       <div class="form-group mb-2 col-2">
 
-                        <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="<?=$value->getDescripcion();?>">
+                        <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="<?=$key["descripcion"];?>">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="stock" value="<?=$value->getStock();?>" id="stock">
+                        <input type="text" class="form-control-plaintext" name="stock" value="<?=$key["stock"];?>" id="stock">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="marca" value="<?=$value->getMarca();?>" id="marca">
+                        <input type="text" class="form-control-plaintext" name="marca" value="<?=$key["id_marca"];?>" id="marca">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="categoria" value="<?=$value->getCategoria();?>" id="categoria">
+                        <input type="text" class="form-control-plaintext" name="categoria" value="<?=$key["id_categoria"];?>" id="categoria">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="descuento" value="<?=$value->getDescuento();?>" id="categoria">
+                        <input type="text" class="form-control-plaintext" name="descuento" value="<?=$key["descuento"];?>" id="categoria">
                       </div>
                       <div class="form-group mb-2 col-2">
 
-                        <img src="<?=$value->getImg();?>" alt="" sizes="30px">
+                        <img src="<?=$key["img"];?>" alt="" sizes="30px">
                       </div>
                       <div class="form-group mb-2 col-2">
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="<?=$key;?>">Modificar</button>
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$key;?>">Eliminar</button>
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="modificar">Modificar</button>
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="eliminar">Eliminar</button>
                       </div>
                     </form>
                   </div>

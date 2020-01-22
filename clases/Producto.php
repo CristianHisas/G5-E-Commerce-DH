@@ -18,15 +18,15 @@ class Producto
   {
     try
     {
-    $statement = $db->prepare("INSERT into productos(id_marca,id_categoria,nombre,descripcion,cantidad,img,descuento) VALUES ( :idMarca, :idCategoria,:nombre, :descripcion, :cantidad, :img,:descuento)");
+      $statement = $db->prepare("INSERT into productos(id_marca,id_categoria,nombre,descripcion,cantidad,img,descuento) VALUES ( :idMarca, :idCategoria,:nombre, :descripcion, :cantidad, :img,:descuento)");
 
-    $statement->bindValue(':idMarca', $marca,PDO::PARAM_INT);
-    $statement->bindValue(":idCategoria", $categoria,PDO::PARAM_INT);
-    $statement->bindValue(":nombre", $nombre,PDO::PARAM_STR);
-    $statement->bindValue(":descripcion", $desc,PDO::PARAM_STR);
-    $statement->bindValue(":cantidad", $stock,PDO::PARAM_INT);
-    $statement->bindValue(":img", $img,PDO::PARAM_STR);
-    $statement->bindValue(":descuento", $descuento,PDO::PARAM_INT);
+      $statement->bindValue(':idMarca', $marca,PDO::PARAM_INT);
+      $statement->bindValue(":idCategoria", $categoria,PDO::PARAM_INT);
+      $statement->bindValue(":nombre", $nombre,PDO::PARAM_STR);
+      $statement->bindValue(":descripcion", $desc,PDO::PARAM_STR);
+      $statement->bindValue(":cantidad", $stock,PDO::PARAM_INT);
+      $statement->bindValue(":img", $img,PDO::PARAM_STR);
+      $statement->bindValue(":descuento", $descuento,PDO::PARAM_INT);
 
       if ($statement->execute()) {
         echo "Se creo un nuevo registro";
@@ -44,7 +44,7 @@ class Producto
 
   }
 
-  public function borrarProducto(PDO $db, $id)
+  public function borrarProducto(PDO $db, int $id)
   {
     try
     {
@@ -60,8 +60,8 @@ class Producto
     }
     catch (\Exception $e)
     {
-        echo "Error al borrar producto";
-        echo $e->getMessage();
+      echo "Error al borrar producto";
+      echo $e->getMessage();
     }
 
   }
@@ -135,6 +135,21 @@ class Producto
   public function getImg()
   {
     return $this->img;
+  }
+
+  public function obtenerListaProductos($db)
+  {
+    try {
+      $sql = "SELECT id_producto as id,nombre,descripcion,cantidad as stock,id_marca,id_categoria,descuento,img
+      FROM productos as p";
+      $stmt = $db->prepare($sql);
+      $stmt->execute();
+      $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
+      //$variable = $stmt->fetchAll(PDO::FETCH_CLASS,"Producto");//array de objeto
+      return $variable;
+    } catch (\Exception $e) {
+      echo $e->getMessage();
+    }
   }
 
 }
