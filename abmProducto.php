@@ -4,7 +4,7 @@ require_once 'clases/Producto.php';
 
 $producto = new Producto();
 function obtenerListaProductos($db){
-  $sql = "SELECT id_producto as id,nombre,descripcion,cantidad as stock,marca,categoria,descuento,img 
+  $sql = "SELECT id_producto as id,nombre,descripcion,cantidad as stock,marca,categoria,descuento,img
       FROM productos as p
         inner join categorias as c on p.id_categoria=c.id_categoria
         inner join marcas as m on p.id_marca=m.id_marca";
@@ -46,13 +46,13 @@ if ($_POST) {
   <?php include 'includes/headerAdm.php'; ?>
 
   <main>
-    
+
     <div class="container">
       <div id="accordion">
         <div class="card">
           <div class="card-header" id="headingOne">
             <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"  aria-expanded="false" aria-controls="collapseOne">
                 Agregar Productos
               </button>
             </h5>
