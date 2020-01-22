@@ -10,11 +10,12 @@ function obtenerListaProductos($db){
         inner join marcas as m on p.id_marca=m.id_marca";
   $stmt = $db->prepare($sql);
   $stmt->execute();
-  $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  //$variable = $stmt->fetchAll(PDO::FETCH_CLASS, "Producto");
+  //$variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
+  $variable = $stmt->fetchAll(PDO::FETCH_CLASS,"Producto");//array de objeto
   return $variable;
 }
 $variable=obtenerListaProductos($db);
+//var_dump($variable);
 if ($_POST) {
  // var_dump($_POST);
  // exit;
@@ -146,39 +147,39 @@ if ($_POST) {
                   <div class="card-body px-0">
                     <form class="form-inline" action="" method="post">
                       <div class="form-group mb-1 col-1 px-1" >
-                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$value["id"];?>" name="id">
+                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$value->getId();?>" name="id">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text"  class="form-control-plaintext" id="nombre" value="<?=$value["nombre"];?>" name="nombre">
+                        <input type="text"  class="form-control-plaintext" id="nombre" value="<?=$value->getNombre();?>" name="nombre">
                       </div>
                       <div class="form-group mb-2 col-2">
 
-                        <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="<?=$value["descripcion"];?>">
+                        <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="<?=$value->getDescripcion();?>">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="stock" value="<?=$value["stock"];?>" id="stock">
+                        <input type="text" class="form-control-plaintext" name="stock" value="<?=$value->getStock();?>" id="stock">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="marca" value="<?=$value["marca"];?>" id="marca">
+                        <input type="text" class="form-control-plaintext" name="marca" value="<?=$value->getMarca();?>" id="marca">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="categoria" value="<?=$value["categoria"];?>" id="categoria">
+                        <input type="text" class="form-control-plaintext" name="categoria" value="<?=$value->getCategoria();?>" id="categoria">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <input type="text" class="form-control-plaintext" name="descuento" value="<?=$value["descuento"];?>" id="categoria">
+                        <input type="text" class="form-control-plaintext" name="descuento" value="<?=$value->getDescuento();?>" id="categoria">
                       </div>
                       <div class="form-group mb-2 col-2">
 
-                        <img src="<?=$value["img"];?>" alt="" sizes="30px">
+                        <img src="<?=$value->getImg();?>" alt="" sizes="30px">
                       </div>
                       <div class="form-group mb-2 col-2">
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="<?=$variable[$key];?>">Modificar</button>
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$variable[$key];?>">Eliminar</button>
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="<?=$key;?>">Modificar</button>
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$key;?>">Eliminar</button>
                       </div>
                     </form>
                   </div>
