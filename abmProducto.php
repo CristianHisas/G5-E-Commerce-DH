@@ -137,37 +137,39 @@ if ($_POST) {
                   <div class="card-body px-0">
                     <form class="form-inline" action="" method="post">
                       <div class="form-group mb-1 col-1 px-1" >
-                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$key["id"];?>" name="id">
+                        <label for="id">Id</label>
+                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$key["id"];?>" name="id" readonly>
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
-
+                        <label for="nombre">Nombre del producto</label>
                         <input type="text"  class="form-control-plaintext" id="nombre" value="<?=$key["nombre"];?>" name="nombre">
                       </div>
                       <div class="form-group mb-2 col-2">
-
-                        <input type="text" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="<?=$key["descripcion"];?>">
+                        <label for="descripcion">Descripcion</label>
+                        <input type="textarea" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="<?=$key["descripcion"];?>">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
-
-                        <input type="text" class="form-control-plaintext" name="stock" value="<?=$key["stock"];?>" id="stock">
+                        <label for="stock">Stock</label>
+                        <input type="number" class="form-control-plaintext" name="stock" min=0 value="<?=$key["stock"];?>" id="stock">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
-
-                        <input type="text" class="form-control-plaintext" name="marca" value="<?=$key["id_marca"];?>" id="marca">
+                        <label for="marca">Marca</label>
+                        <input type="number" class="form-control-plaintext" name="marca" min=1 value="<?=$key["id_marca"];?>" id="marca">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
-
-                        <input type="text" class="form-control-plaintext" name="categoria" value="<?=$key["id_categoria"];?>" id="categoria">
+                        <label for="categoria">Categoria</label>
+                        <input type="number" class="form-control-plaintext" name="categoria" min=1 value="<?=$key["id_categoria"];?>" id="categoria">
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
-
-                        <input type="text" class="form-control-plaintext" name="descuento" value="<?=$key["descuento"];?>" id="categoria">
+                        <label for="descuento">Descuento</label>
+                        <input type="number" class="form-control-plaintext" name="descuento" min=0 value="<?=$key["descuento"];?>" id="categoria">
                       </div>
                       <div class="form-group mb-2 col-2">
-
+                        <label for="img">Imagen</label>
                         <img src="<?=$key["img"];?>" alt="" sizes="30px">
                       </div>
                       <div class="form-group mb-2 col-2">
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="agregar">Agregar</button>
                         <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="modificar">Modificar</button>
                         <button type="submit" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="eliminar">Eliminar</button>
                       </div>
