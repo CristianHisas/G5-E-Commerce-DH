@@ -1,5 +1,5 @@
 <?php
-    //require 'clases/Conexion.php';
+    require 'clases/Conexion.php';
     require 'clases/Categoria.php';
     $objCategoria = new Categoria;
     $chequeo = $objCategoria->agregarCategoria();
@@ -9,7 +9,7 @@
     include 'includes/headerAdm.php'; 
 ?>
 
-    <main class="container">
+    <main class="container ">
         <h1>Alta de una nueva Categoria</h1>
 <?php
         $mensaje = 'No se pudo agregar la Categoria';
@@ -23,8 +23,9 @@
         <div class="alert alert-<?= $class; ?>">
             <?= $mensaje; ?>
         </div>
-<a href="abmCategoria.php" class="btn btn-light">Volver a admin de categorias</a>
 
     </main>
 
-<?php  include 'includes/footer.php';  ?>
+<?php  include 'includes/footer.php';  
+        include 'includes/scriptBootstrap.php';
+?>

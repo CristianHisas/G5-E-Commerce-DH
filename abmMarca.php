@@ -1,13 +1,19 @@
 <?php
+    require 'clases/Conexion.php';
     require 'clases/Marca.php';
     $objMarca = new Marca;
-    $marcas = $objMarca->listarMarcas(); 
-    include 'includes/head.php';
-    include 'includes/headerAdm.php'; 
+    $marcas = $objMarca->listarMarcas();
     
+  //  include 'includes/header.html';
+  //  include 'includes/nav.php';
+  
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
+<?php include 'includes/head.php';?>
+<?php include 'includes/headerAdm.php'; ?>
+
 <title>ABM Marcas</title>
 
 <body>
@@ -17,7 +23,7 @@
 
     <a href="admin.php" class="btn btn-outline-secondary m-3">Volver a principal</a>
 
-        <table class="table table-stripped table-bordered table-hover">
+        <table class="table table-stripped table-bordered table-hover bg-white">
             <thead class="thead-dark">
             <tr>
                 <th>id</th>
@@ -35,28 +41,25 @@
 ?>
             <tr>
                 <td><?= $marca['id_marca']; ?></td>
-                <td><?= $marca['marca']; ?></td>                
+                <td><?= $marca['marca']; ?></td>
                 <td>
-                    <a href="formModificarMarca.php?id=<?php echo $marca['id_marca']; ?>" class="btn btn-outline-secondary">
-                        modificar 
+                    <a href="formModificarMarca.php" class="btn btn-outline-secondary">
+                        modificar
                     </a>
                 </td>
                 <td>
-                    <a href="eliminarMarca.php?id=<?php echo $marca['id_marca']; ?>" class="btn btn-outline-secondary">
+                    <a href="formEliminarMarca.php" class="btn btn-outline-secondary">
                         eliminar
                     </a>
                 </td>
-                
             </tr>
-            
 <?php
-            }           
+            }
 ?>
-              
             </tbody>
         </table>
 
-    <a href="admin.php" class="btn btn-outline-secondary m-3">Administracion principal</a>
+    <a href="admin.php" class="btn btn-outline-secondary m-3">Volver a principal</a>
 
     </main>
 

@@ -1,5 +1,5 @@
 <?php
-require 'clases/Conexion.php';
+
     class Marca
     {
         private $id_marca;
@@ -8,35 +8,18 @@ require 'clases/Conexion.php';
         public function listarMarcas()
         {
             $link = Conexion::conectar();
-        try{
             $sql = "SELECT id_marca, marca
                         FROM marcas";
             $stmt = $link->prepare($sql);
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $stmt->closeCursor();
             return $resultado;
-        } catch (\Exception $e) {
-            echo "Error al obtener Lista de Marcas";
-            $e->getMessage();
-          }  
-        }           
-
-        public function verMarcaPorID($id_marca)
-	{	
-        try{
-            $link = Conexion::conectar();            
-            $sql = "SELECT * FROM marcas WHERE id_marca='$id_marca'";
-            $stmt = $link->prepare($sql);           
-            $stmt->execute();
-            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);            
-            return $resultado;
-        
-        } catch (Exception $e) 
-        {
-            die($e->getMessage());
         }
-    }
+
+        public function verMarcaPorID()
+        {
+            
+        }
 
         public function agregarMarca()
         {
@@ -55,53 +38,25 @@ require 'clases/Conexion.php';
             }
             return false;
 
-        }     
-        
+
+
+        }
+
         public function modificarMarca()
         {
-            $id = $_POST['id_marca'];
-            $marca = $_POST['marca'];
-            $link = Conexion::conectar();
-            $sql = "UPDATE marcas SET marca='$marca' WHERE id_marca='$id'";
-            $stmt = $link->prepare($sql);
-           
-            if( $stmt->execute() ){
-                $this->setid_marca($link->lastInsertId());
-                $this->setmarca($marca);
-                return true;
-            }
-            return false;
-        }         
-       
-      
- 
+            
+        }
 
-        public function eliminarMarca()      
+        public function eliminarMarca()
         {
-            try
-            {
-            $id = $_REQUEST['id']; 
-            $link = Conexion::conectar();
-            $sql = "DELETE FROM marcas WHERE id_marca=?";
-            $stmt = $link->prepare($sql);
-           
-            if( $stmt->execute(array($id)) ){
-               // $this->setid_marca($link->lastInsertId());
-               // $this->setmarca($marca);
-               return true;                
-            }
-            return false;  
-           } catch (Exception $e) 
-           {
-            die($e->getMessage());
-           }
-               
-           }
-       
+
+        }
+        
+        
         /**
          * @return mixed
          */
-        public function getId_marca()
+        public function getId__marca()
         {
             return $this->id_marca;
         }
@@ -128,5 +83,8 @@ require 'clases/Conexion.php';
         public function setMarca($marca)
         {
             $this->marca = $marca;
-        }  
-    }      
+        }
+
+        
+
+    }

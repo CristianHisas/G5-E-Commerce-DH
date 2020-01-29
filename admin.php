@@ -9,7 +9,7 @@
 
   <?php include 'includes/headerAdm.php'; ?>
 
-  <main class="container">
+  <main class="container ">
     <h1>Administración</h1>
 
     <div class="list-group">

@@ -3,8 +3,7 @@ class Conexion{
     static function conectar(){
         $dsn = "mysql:host=localhost;dbname=e-commerce";
         $user = "root";
-        $pass = "root";
-       // $pass = "root";
+        $pass = "";
 
         try
         {

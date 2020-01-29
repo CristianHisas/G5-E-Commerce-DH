@@ -1,177 +1,241 @@
 <?php
-require_once ('includes/pdo.php');
+//require_once ('includes/pdo.php');
+require_once 'clases/Conexion.php';
 require_once 'clases/Producto.php';
+require_once 'clases/Marca.php';
+require_once 'clases/Categoria.php';
+include_once("includes/funciones.php");
+include_once("includes/baseDeDatos.php");
 
 $producto = new Producto();
+function obtenerListaMarcas(){
+  $db=Conexion::conectar();
+  try {
+    $sql = "SELECT id_marca,marca 
+      FROM marcas";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
+    $stmt->closeCursor();
+    return $variable;  
+  } catch (\Exception $e) {
+    echo "Error al obtener Lista de Marcas";
+    $e->getMessage();
+  }  
+}
+function obtenerListaCategorias(){
+  $db=Conexion::conectar();
 
-$variable = $producto->obtenerListaProductos($db);
+  try {
+    $sql = "SELECT id_categoria,categoria
+      FROM categorias";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
+    $stmt->closeCursor();
+    return $variable;
+  } catch (\Exception $e) {
+    echo "Error al obtener Lista de Categorias";
+    $e->getMessage();
+  }
+}
+$variable=$producto->obtenerListaProductos();
 //var_dump($variable);
 if ($_POST) {
-  // var_dump($_POST);
-  // exit;
+ // var_dump($_POST);
+ // exit;
   if (isset($_POST["btnCargar"])) {
     $nombre = $_POST["nombre"];
     $descripcion = $_POST["descripcion"];
+    $precio= $_POST["precio"];
     $stock = $_POST["stock"];
     $marca = $_POST["marca"];
     $categoria = $_POST["categoria"];
     $descuento = $_POST["descuento"];
-    $img = "gdshgd";//$_POST["img"]; esto lo deje asi para que funciones pero tendria que ir la direccion
-
-    $producto->altaProducto($db, $nombre, $descripcion, $stock, $marca, $categoria, $descuento, $img);
+    if($_FILES["img"]["name"]!="" && $_FILES){
+      $img=Producto::guardarArchivo($_FILES["img"],$_POST["nombre"]);  
+    }else{
+      $img="img/productos/phone.jpg";
+    }
+    $producto->altaProducto($img);
   }elseif (isset($_POST["btnBorrar"])) {
     $id = $_POST["id"];
 
-    $producto->borrarProducto($db, $id);
+    $producto->borrarProducto($id);
   }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <?php include 'includes/head.php';?>
-<title>ABM Productos</title>
-
+<title>Productos</title>
 <body>
 
   <?php include 'includes/headerAdm.php'; ?>
 
   <main>
-
-    <div class="container">
+    
+    <div class="container-fluir my-3">
       <div id="accordion">
         <div class="card">
-          <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"  aria-expanded="false" aria-controls="collapseOne">
-                Agregar Productos
-              </button>
-            </h5>
-          </div>
-
-          <div id="collapseOne" class ="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-              <form class="altaProducto" action="" method="post" enctype="multipart/form-data">
-
-                <label for="nombre">Nombre del producto</label>
-                <br>
-                <input type="text" name="nombre" value="">
-                <br>
-                <label for="descripcion">Descripcion</label>
-                <textarea name="descripcion" rows="8" cols="80"></textarea>
-                <br>
-                <label for="stock">Stock</label>
-                <br>
-                <input type="number" name="stock" min=0 value="">
-                <br>
-                <label for="marca">Marca</label>
-                <br>
-                <input type="number" name="marca" min=1 value="">
-                <br>
-                <label for="categoria">Categoria</label>
-                <br>
-                <input type="number" name="categoria" min=1 value="">
-                <br>
-                <label for="descuento">Descuento</label>
-                <br>
-                <input type="number" name="descuento" min=0 value="">
-                <br>
-                <label for="img">Imagen</label>
-                <br>
-                <input type="file" name="img" value="">
-                <br><br>
-
-                <button type="submit" name="btnCargar" value="cargar">Cargar</button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Modificar Productos
-              </button>
-            </h5>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-              <form class="modificarProducto" action="" method="post">
-
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Eliminar Productos
-              </button>
-            </h5>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-              <form class="borrarProducto" action="" method="post">
-                <label for="id">Id del producto que se desea borrar</label>
-                <br>
-                <input type="number" min=1 name="id" value="">
-
-                <button type="submit" name="btnBorrar" value="borrar">Borrar</button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingFour">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <div class="card-header " id="headingFour">
+            <h5 class="mb-0 d-flex justify-content-between">
+              <button class="btn btn-link mr-3 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 Lista de Productos
               </button>
+              <a href="agregarProducto.php" class="btn btn-primary ml-3 ">Agregar</a>
+              <a href="admin.php" class="btn btn-primary ml-3">Volver a principal</a>
             </h5>
           </div>
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div id="collapseFour" class="collapse carrito-resumen" aria-labelledby="headingFour" data-parent="#accordion">
             <ul class="list-group">
-              <?php foreach ($variable as $key) { ?>
+              <li class="list-group-item">
+                <div class="card-body form-inline d-flex justify-content-between px-0">
+                  <div class="form-group mb-1 col-1 px-1" >
+                      <span  class="form-control-plaintext text-center">Id</span>
+                  </div>
+                  <div class="form-group mb-1 col-2 px-1" >
+                      <span  class="form-control-plaintext text-center">Nombre</span>
+                  </div>
+                  <div class="form-group mb-1 col-1 px-1" >
+                      <span  class="form-control-plaintext text-center">Descripcion</span>
+                  </div>
+                  <div class="form-group mb-1 col-1 " >
+                      <span  class="form-control-plaintext text-center">Precio</span>
+                  </div>
+                  <div class="form-group mb-1 col-1 px-1" >
+                      <span  class="form-control-plaintext text-center">Stock</span>
+                  </div>
+                  <div class="form-group mb-1 col-2 px-1" >
+                      <span  class="form-control-plaintext text-center">Marca</span>
+                  </div>
+                  <div class="form-group mb-1 col-1 px-1" >
+                      <span  class="form-control-plaintext text-center">Categoria</span>
+                  </div>
+                  <div class="form-group mb-1 col-1 px-1" >
+                      <span  class="d-block form-control-plaintext text-center">Descuento</span>
+                  </div>
+                  <div class="form-group mb-1 col-2 px-1" >
+                      <span  class="d-block text-center form-control-plaintext text-center ">Imagen</span>
+                  </div>
+                </div>
+              </li>
+              <?php foreach ($variable as $key => $value) { ?>
 
                 <li class="list-group-item">
-                  <div class="card-body px-0">
-                    <form class="form-inline" action="" method="post">
+                  <div class="card-body  px-0">
+                    <form class="form-inline d-flex justify-content-between " action="modificarProducto.php" method="post">
                       <div class="form-group mb-1 col-1 px-1" >
-                        <label for="id">Id</label>
-                        <input type="text" readonly class="form-control-plaintext" id="id" value="<?=$key["id"];?>" name="id" readonly>
+                        <input type="text" readonly class="form-control-plaintext text-center" id="id" value="<?=$value->getId();?>" name="id">
+                      </div>
+                      <div class="form-group mb-2 col-2 px-1">
+
+                        <span  class="form-control-plaintext text-center" ><?=$value->getNombre();?></span>
+                      </div>
+                      <div class="form-group mb-2 col-1">
+
+                        <span class="form-control-plaintext text-center" >
+                          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
+                            Ver
+                          </button>
+                        </span>
+                      </div>
+                      <!--modal de descripcion -->
+                      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalCenterTitle">Descripcion</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                             <!-- <p>
+                                <pre>
+                                  <?=$value->getDescripcion();?>
+                                </pre>
+                              </p>
+                              -->
+                              <?php 
+                                  $array=explode(PHP_EOL,$value->getDescripcion());
+                                  foreach ($array as $key => $caracteristica) {?>
+                                    <ul type="circle">
+                                      <li >
+                                        <?=$caracteristica;?>
+                                      </li>
+                                    </ul>
+                                  <?php
+                                  }
+                                  ?>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--modal de descripcion -->
+                      <div class="form-group mb-2 col-1">
+
+                        <span class="form-control-plaintext text-center" >$ <?=$value->getPrecio();?></span>
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
-                        <label for="nombre">Nombre del producto</label>
-                        <input type="text"  class="form-control-plaintext" id="nombre" value="<?=$key["nombre"];?>" name="nombre">
+
+                        <span class="form-control-plaintext text-center" ><?=$value->getStock();?></span>
                       </div>
-                      <div class="form-group mb-2 col-2">
-                        <label for="descripcion">Descripcion</label>
-                        <input type="textarea" class="form-control-plaintext" name="descripcion" readonly  id="descripcion" value="<?=$key["descripcion"];?>">
-                      </div>
-                      <div class="form-group mb-2 col-1 px-1">
-                        <label for="stock">Stock</label>
-                        <input type="number" class="form-control-plaintext" name="stock" min=0 value="<?=$key["stock"];?>" id="stock">
+                      <div class="form-group mb-2 col-2 px-1">
+
+                        <span class="form-control-plaintext text-center" ><?=$value->getMarca();?></span>
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
-                        <label for="marca">Marca</label>
-                        <input type="number" class="form-control-plaintext" name="marca" min=1 value="<?=$key["id_marca"];?>" id="marca">
+
+                        <span class="form-control-plaintext text-center d-block" ><?=$value->getCategoria();?></span>
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
-                        <label for="categoria">Categoria</label>
-                        <input type="number" class="form-control-plaintext" name="categoria" min=1 value="<?=$key["id_categoria"];?>" id="categoria">
+
+                        <span class="form-control-plaintext text-center d-block" ><?=$value->getDescuento();?>%</span>
                       </div>
-                      <div class="form-group mb-2 col-1 px-1">
-                        <label for="descuento">Descuento</label>
-                        <input type="number" class="form-control-plaintext" name="descuento" min=0 value="<?=$key["descuento"];?>" id="categoria">
+                      <div class="form-group mb-2 col-2 text-center">
+
+                        <img src="<?=$value->getImg();?>" alt="" sizes="" width="80%" class="zoom">
                       </div>
-                      <div class="form-group mb-2 col-2">
-                        <label for="img">Imagen</label>
-                        <img src="<?=$key["img"];?>" alt="" sizes="30px">
-                      </div>
-                      <div class="form-group mb-2 col-2">
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="agregar">Agregar</button>
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="modificar">Modificar</button>
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="eliminar">Eliminar</button>
+                      <div class="form-group mb-2 col-12 text-center">
+                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="<?=$value->getId();?>">Modificar</button>
+                        
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$value->getId();?>" data-toggle="modal" data-target="#eliminar<?=$value->getId();?>Modal">
+                            Eliminar
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="eliminar<?=$value->getId();?>Modal" tabindex="-1" role="dialog" aria-labelledby="eliminar<?=$value->getId();?>ModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content text-center">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="eliminar<?=$value->getId();?>ModalLabel">Desea eliminar este producto?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body d-flex align-items-center justify-content-center flex-wrap">
+                                <div class="form-group mb-2 col-10 px-1 ">
+                                  <span  class="form-control-plaintext " ><?=$value->getNombre();?></span>
+                                </div>
+                                <div class="form-group mb-2 col-5 text-center">
+
+                                  <img src="<?=$value->getImg();?>" alt="" sizes="" width="80%" class="">
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary mx-2 mb-1 " name="btnBorrar" value="<?=$value->getId();?>">Eliminar</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
                       </div>
                     </form>
                   </div>
