@@ -1,4 +1,5 @@
 <?php
+require_once 'clases/Conexion.php';
     require 'clases/Marca.php';
     include 'includes/head.php';
     include 'includes/headerAdm.php'; 

@@ -17,18 +17,7 @@ if (isset($_POST["btnBorrar"])) {
 
     $administrador->borrarAdministrador($id);
   }
-  if (isset($_POST["modificar_id"])) {
-    $id=2;//de alguna manera le tiene que llegar un id 
-    $nombre = $_POST["nombre"];
-    $descripcion = $_POST["descripcion"];
-    $precio= $_POST["precio"];
-    $stock = $_POST["stock"];
-    $marca = $_POST["marca"];
-    $categoria = $_POST["categoria"];
-    $descuento = $_POST["descuento"];
-    $img = "img/administradors/phone.jpg";
-    //$administrador->modificaradministrador($id,$nombre, $descripcion,$precio, $stock, $marca, $categoria, $descuento, $img);
-  }
+
 }
 ?>
 <!DOCTYPE html>

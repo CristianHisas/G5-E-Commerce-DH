@@ -1,11 +1,15 @@
 <?php
 require_once 'clases/Conexion.php';
+require_once 'clases/Marca.php';
+require_once 'clases/Categoria.php';
 require_once 'clases/Producto.php';
 include_once("includes/funciones.php");
 include_once("includes/baseDeDatos.php");
 $producto = new Producto();
+$marca=new Marca();
+$categoria=new Categoria();
 session_start();
-$smj=null;
+$msj=false;
 if(isset($_POST["id"]) && isset($_POST["modificar_l"])){
     $id=(int)$_POST["modificar_l"];
     $unProducto=$producto->buscarPorId($id);
@@ -22,37 +26,7 @@ if(isset($_POST["id"]) && isset($_POST["modificar_l"])){
 *echo "</pre>"; 
  */
 
-function obtenerListaMarcas(){
-  $db=Conexion::conectar();
-  try {
-    $sql = "SELECT id_marca,marca 
-      FROM marcas";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
-    $stmt->closeCursor();
-    return $variable;  
-  } catch (\Exception $e) {
-    echo "Error al obtener Lista de Marcas";
-    $e->getMessage();
-  }  
-}
-function obtenerListaCategorias(){
-  $db=Conexion::conectar();
 
-  try {
-    $sql = "SELECT id_categoria,categoria
-      FROM categorias";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
-    $stmt->closeCursor();
-    return $variable;
-  } catch (\Exception $e) {
-    echo "Error al obtener Lista de Categorias";
-    $e->getMessage();
-  }
-}
 
 if (isset($_POST["modificar_id"])&& $_POST ){
 
@@ -64,7 +38,7 @@ if (isset($_POST["modificar_id"])&& $_POST ){
     }
     
     $producto->modificarProducto($id,$img);
-    $msj="alert alert-success";
+    $msj="success";
     $unProducto=$producto->buscarPorId($id);
 }
 ?>
@@ -93,7 +67,7 @@ if (isset($_POST["modificar_id"])&& $_POST ){
             </h5>
           </div>
           <div id="collapseFour" class="collapse carrito-resumen" aria-labelledby="headingFour" data-parent="#accordion">
-          <div class="card-body <?=($msj)?"alert alert-success":"";?>" role="alert">
+          <div class="card-body alert alert-<?=($msj)?"success":"";?>" role="alert">
               <form class="modificarProducto" action="" method="post" enctype="multipart/form-data">
               <input type="number" class="form-control" id="id" name="idM" value="<?=$unProducto->getId();?>" readonly hidden>
                 <div class="form-group">
@@ -124,7 +98,7 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                   <label for="marca">Marca</label>
                   <select class="form-control" id="marca" name="marca">
                     <?php 
-                      $marcas=obtenerListaMarcas();
+                      $marcas=$marca->listarMarcas();
                       foreach ($marcas as $key => $value) { 
                     ?>
                     <?php
@@ -144,7 +118,7 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                   <label for="categoria">Categoria</label>
                   <select class="form-control" id="categoria" name="categoria">
                   <?php 
-                      $categorias=obtenerListaCategorias();
+                      $categorias=$categoria->listarcategorias();
                       foreach ($categorias as $key => $value) { 
                     ?>
                     <?php 

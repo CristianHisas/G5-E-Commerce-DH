@@ -1,44 +1,14 @@
 <?php
 //require_once ('includes/pdo.php');
 require_once 'clases/Conexion.php';
-require_once 'clases/Producto.php';
 require_once 'clases/Marca.php';
 require_once 'clases/Categoria.php';
+require_once 'clases/Producto.php';
 include_once("includes/funciones.php");
 include_once("includes/baseDeDatos.php");
 
 $producto = new Producto();
-function obtenerListaMarcas(){
-  $db=Conexion::conectar();
-  try {
-    $sql = "SELECT id_marca,marca 
-      FROM marcas";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
-    $stmt->closeCursor();
-    return $variable;  
-  } catch (\Exception $e) {
-    echo "Error al obtener Lista de Marcas";
-    $e->getMessage();
-  }  
-}
-function obtenerListaCategorias(){
-  $db=Conexion::conectar();
 
-  try {
-    $sql = "SELECT id_categoria,categoria
-      FROM categorias";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
-    $stmt->closeCursor();
-    return $variable;
-  } catch (\Exception $e) {
-    echo "Error al obtener Lista de Categorias";
-    $e->getMessage();
-  }
-}
 $variable=$producto->obtenerListaProductos();
 //var_dump($variable);
 if ($_POST) {
@@ -97,7 +67,7 @@ if ($_POST) {
                   <div class="form-group mb-1 col-2 px-1" >
                       <span  class="form-control-plaintext text-center">Nombre</span>
                   </div>
-                  <div class="form-group mb-1 col-1 px-1" >
+                  <div class="form-group mb-1 col-1 px-0" >
                       <span  class="form-control-plaintext text-center">Descripcion</span>
                   </div>
                   <div class="form-group mb-1 col-1 " >

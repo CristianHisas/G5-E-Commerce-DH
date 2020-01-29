@@ -1,43 +1,16 @@
 <?php
-require_once ('includes/pdo.php');
+//require_once ('includes/pdo.php');
+
 require_once 'clases/Conexion.php';
+require_once 'clases/Marca.php';
+require_once 'clases/Categoria.php';
 require_once 'clases/Producto.php';
 include_once("includes/funciones.php");
 include_once("includes/baseDeDatos.php");
 $producto = new Producto();
-
-function obtenerListaMarcas(){
-  $db=Conexion::conectar();
-  try {
-    $sql = "SELECT id_marca,marca 
-      FROM marcas";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
-    $stmt->closeCursor();
-    return $variable;  
-  } catch (\Exception $e) {
-    echo "Error al obtener Lista de Marcas";
-    $e->getMessage();
-  }  
-}
-
-function obtenerListaCategorias(){
-  $db=Conexion::conectar();
-
-  try {
-    $sql = "SELECT id_categoria,categoria
-      FROM categorias";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
-    $stmt->closeCursor();
-    return $variable;
-  } catch (\Exception $e) {
-    echo "Error al obtener Lista de Categorias";
-    $e->getMessage();
-  }
-}
+$marca=new Marca();
+$categoria=new Categoria();
+$msj=null;
 
 if (isset($_POST["btnCargar"])&& $_POST ){
     var_dump($_POST);
@@ -55,6 +28,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
     }
 
     $producto->altaProducto($img);
+    $msj="success";
 }
 ?>
 <!DOCTYPE html>
@@ -80,7 +54,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
             </h5>
           </div>
           <div id="collapseFour" class="collapse carrito-resumen" aria-labelledby="headingFour" data-parent="#accordion">
-          <div class="card-body ">
+          <div class="card-body alert alert-<?=($msj)?"success":"";?>" role="alert">
               <form class="altaProducto" action="" method="post" enctype="multipart/form-data">
 
               <div class="form-group">
@@ -107,7 +81,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
                   <label for="marca">Marca</label>
                   <select class="form-control" id="marca" name="marca">
                     <?php 
-                      $marcas=obtenerListaMarcas($db);
+                      $marcas=$marca->listarMarcas();
                       foreach ($marcas as $key => $value) { 
                     ?>
                       <option value="<?=$value["id_marca"];?>"><?=$value["marca"];?></option>
@@ -121,8 +95,8 @@ if (isset($_POST["btnCargar"])&& $_POST ){
                   <label for="categoria">Categoria</label>
                   <select class="form-control" id="categoria" name="categoria">
                   <?php 
-                      $marcas=obtenerListaCategorias($db);
-                      foreach ($marcas as $key => $value) { 
+                      $categorias=$categoria->listarcategorias();
+                      foreach ($categorias as $key => $value) { 
                     ?>
                       <option value="<?=$value["id_categoria"];?>"><?=$value["categoria"];?></option>
                     <?php 
