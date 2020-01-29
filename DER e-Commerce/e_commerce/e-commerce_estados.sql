@@ -18,31 +18,28 @@ USE `e-commerce`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `direcciones`
+-- Table structure for table `estados`
 --
 
-DROP TABLE IF EXISTS `direcciones`;
+DROP TABLE IF EXISTS `estados`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `direcciones` (
-  `id_direccion` int(11) NOT NULL AUTO_INCREMENT,
-  `pais` varchar(45) NOT NULL DEFAULT 'Argentina',
-  `provincia` varchar(45) NOT NULL,
-  `ciudad` varchar(45) NOT NULL,
-  `direccion` varchar(45) NOT NULL,
-  `cod_postal` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_direccion`),
-  UNIQUE KEY `id_direccion_UNIQUE` (`id_direccion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `estados` (
+  `id_estado` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_estado`),
+  UNIQUE KEY `id_estados_UNIQUE` (`id_estado`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `direcciones`
+-- Dumping data for table `estados`
 --
 
-LOCK TABLES `direcciones` WRITE;
-/*!40000 ALTER TABLE `direcciones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `direcciones` ENABLE KEYS */;
+LOCK TABLES `estados` WRITE;
+/*!40000 ALTER TABLE `estados` DISABLE KEYS */;
+INSERT INTO `estados` VALUES (1,'Activo'),(2,'Creado'),(3,'Suspendido'),(4,'Eliminado');
+/*!40000 ALTER TABLE `estados` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

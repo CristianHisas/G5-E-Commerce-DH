@@ -28,10 +28,12 @@ CREATE TABLE `tarjetas` (
   `id_tarjeta` int(11) NOT NULL AUTO_INCREMENT,
   `id_tipo_tarjeta` int(11) NOT NULL,
   `nombre_titular` varchar(45) NOT NULL,
-  `fecha_vencimiento` date NOT NULL,
+  `numeroTarjeta` tinyint(4) NOT NULL,
   `cvc` int(11) NOT NULL,
+  `fecha_vencimiento` date NOT NULL,
   PRIMARY KEY (`id_tarjeta`),
   UNIQUE KEY `id_tarjeta_UNIQUE` (`id_tarjeta`),
+  UNIQUE KEY `numeroTarjeta_UNIQUE` (`numeroTarjeta`),
   KEY `id_tipo_tarjeta_idx` (`id_tipo_tarjeta`),
   CONSTRAINT `id_tipo_tarjeta` FOREIGN KEY (`id_tipo_tarjeta`) REFERENCES `tipo_tarjeta` (`id_tipo_tarjeta`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -55,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-29 11:26:56
+-- Dump completed on 2020-01-29 20:49:59

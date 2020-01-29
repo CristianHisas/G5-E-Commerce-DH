@@ -39,7 +39,7 @@ CREATE TABLE `marcas` (
 
 LOCK TABLES `marcas` WRITE;
 /*!40000 ALTER TABLE `marcas` DISABLE KEYS */;
-INSERT INTO `marcas` VALUES (3,'Apple'),(2,'LG'),(4,'Motorola'),(1,'Nokia'),(5,'Samsung');
+INSERT INTO `marcas` VALUES (1,'Apple'),(2,'LG'),(3,'Motorola'),(4,'Nokia'),(5,'Samsung');
 /*!40000 ALTER TABLE `marcas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-29 11:26:56
+-- Dump completed on 2020-01-29 20:49:59

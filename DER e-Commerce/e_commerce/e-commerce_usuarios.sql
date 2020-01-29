@@ -29,16 +29,16 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
   `user` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `img` varchar(45) NOT NULL DEFAULT 'defaul.png',
+  `contrasenia` varchar(1000) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `img` varchar(10000) NOT NULL DEFAULT 'img/defaul.png',
   `id_tipo_de_usuario` int(11) NOT NULL,
-  `id_sexo` int(11) NOT NULL,
-  `id_direccion` int(11) NOT NULL,
-  `id_tarjeta` int(11) NOT NULL,
-  `id_carrito` int(11) NOT NULL,
+  `id_sexo` int(11) DEFAULT NULL,
+  `id_direccion` int(11) DEFAULT NULL,
+  `id_tarjeta` int(11) DEFAULT NULL,
+  `id_carrito` int(11) DEFAULT NULL,
   `id_estado` int(11) NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `id_usuario_UNIQUE` (`id_usuario`),
   UNIQUE KEY `user_UNIQUE` (`user`),
@@ -51,7 +51,7 @@ CREATE TABLE `usuarios` (
   KEY `id_estado_idx` (`id_estado`),
   CONSTRAINT `id_carrito` FOREIGN KEY (`id_carrito`) REFERENCES `carritos` (`id_carrito`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_direccion` FOREIGN KEY (`id_direccion`) REFERENCES `direcciones` (`id_direccion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `id_estado` FOREIGN KEY (`id_estado`) REFERENCES `estados` (`id_estados`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `id_estado` FOREIGN KEY (`id_estado`) REFERENCES `estados` (`id_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_sexo` FOREIGN KEY (`id_sexo`) REFERENCES `sexos` (`id_sexo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_tarjeta` FOREIGN KEY (`id_tarjeta`) REFERENCES `tarjetas` (`id_tarjeta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_tipo_de_usuario` FOREIGN KEY (`id_tipo_de_usuario`) REFERENCES `tipo_usuario` (`id_tipo_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -76,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-29 11:26:55
+-- Dump completed on 2020-01-29 20:49:58
