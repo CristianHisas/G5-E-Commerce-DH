@@ -14,27 +14,14 @@ $variable=$producto->obtenerListaProductos();
 if ($_POST) {
  // var_dump($_POST);
  // exit;
-  if (isset($_POST["btnCargar"])) {
-    $nombre = $_POST["nombre"];
-    $descripcion = $_POST["descripcion"];
-    $precio= $_POST["precio"];
-    $stock = $_POST["stock"];
-    $marca = $_POST["marca"];
-    $categoria = $_POST["categoria"];
-    $descuento = $_POST["descuento"];
-    if($_FILES["img"]["name"]!="" && $_FILES){
-      $img=Producto::guardarArchivo($_FILES["img"],$_POST["nombre"]);  
-    }else{
-      $img="img/productos/phone.jpg";
-    }
-    $producto->altaProducto($img);
-  }elseif (isset($_POST["btnBorrar"])) {
+if (isset($_POST["btnBorrar"])) {
     $id =$_POST["btnBorrar"];
 
     $producto->borrarProducto($id);
     $archivoActual = $_SERVER['PHP_SELF'];
     header("refresh:1;url=$archivoActual");
-	exit;
+      exit;
+
   }
 }
 ?>
