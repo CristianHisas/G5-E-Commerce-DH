@@ -29,9 +29,11 @@ if ($_POST) {
     }
     $producto->altaProducto($img);
   }elseif (isset($_POST["btnBorrar"])) {
-    $id = $_POST["id"];
+    $id =$_POST["btnBorrar"];
 
     $producto->borrarProducto($id);
+    $archivoActual = $_SERVER['PHP_SELF'];
+    header("refresh:1;url=$archivoActual");
   }
 }
 ?>
@@ -177,7 +179,8 @@ if ($_POST) {
                         <button type="button" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$value->getId();?>" data-toggle="modal" data-target="#eliminar<?=$value->getId();?>Modal">
                             Eliminar
                         </button>
-
+                      </form>
+                      <form class="form-inline d-flex justify-content-between " action="" method="post">              
                         <!-- Modal -->
                         <div class="modal fade" id="eliminar<?=$value->getId();?>Modal" tabindex="-1" role="dialog" aria-labelledby="eliminar<?=$value->getId();?>ModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
@@ -205,9 +208,9 @@ if ($_POST) {
                           </div>
                         </div>
 
-
+                        </form>            
                       </div>
-                    </form>
+                    
                   </div>
                 </li>
 
