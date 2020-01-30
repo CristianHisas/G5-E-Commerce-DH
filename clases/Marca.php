@@ -1,4 +1,5 @@
 <?php
+
     class Marca
     {
         private $id_marca;
@@ -8,7 +9,7 @@
         {
             $link = Conexion::conectar();
         try{
-            $sql = "SELECT id_marca,marca
+            $sql = "SELECT id_marca, marca
                         FROM marcas";
             $stmt = $link->prepare($sql);
             $stmt->execute();
@@ -30,7 +31,7 @@
             $stmt->execute();
             $resultado = $stmt->fetch(PDO::FETCH_ASSOC);            
             return $resultado;
-        
+
         } catch (Exception $e) 
         {
             die($e->getMessage());
@@ -55,7 +56,7 @@
             return false;
 
         }     
-        
+
         public function modificarMarca()
         {
             $id = $_POST['id_marca'];
@@ -63,7 +64,7 @@
             $link = Conexion::conectar();
             $sql = "UPDATE marcas SET marca='$marca' WHERE id_marca='$id'";
             $stmt = $link->prepare($sql);
-           
+
             if( $stmt->execute() ){
                 $this->setid_marca($link->lastInsertId());
                 $this->setmarca($marca);
@@ -71,9 +72,9 @@
             }
             return false;
         }         
-       
-      
- 
+
+
+
 
         public function eliminarMarca()      
         {
@@ -83,20 +84,29 @@
             $link = Conexion::conectar();
             $sql = "DELETE FROM marcas WHERE id_marca=?";
             $stmt = $link->prepare($sql);
-           
+
             if( $stmt->execute(array($id)) ){
                // $this->setid_marca($link->lastInsertId());
                // $this->setmarca($marca);
-               return true;                
+                              
             }
-            return false;  
-           } catch (Exception $e) 
+            
+           } 
+           catch(\PDOException $e){
+            return False;
+           }
+           catch(\PDOStatement $e){
+                return False;
+           }
+           catch (\Exception $e) 
            {
+             
             die($e->getMessage());
+            return false; 
            }
-               
+           return true; 
            }
-       
+
         /**
          * @return mixed
          */

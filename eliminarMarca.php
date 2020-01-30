@@ -4,9 +4,10 @@ require_once 'clases/Conexion.php';
     include 'includes/head.php';
     include 'includes/headerAdm.php'; 
     $objMarca = new Marca;   
-    isset($_REQUEST['id']);    
+    isset($_REQUEST['id']);
+      
     $chequeo =  $objMarca->eliminarMarca();  
-    
+    var_dump($chequeo);
 ?>
 
     <main class="container">
@@ -15,12 +16,18 @@ require_once 'clases/Conexion.php';
        $mensaje='';
        // $mensaje = 'No se pudo eliminar la Marca';
         $class = 'danger';
-        if( $chequeo=true){
+        if( $chequeo){
            // $mensaje = 'Marca: '.$objMarca->getMarca();
             $mensaje .= '<br>La marca con ID: '.$_REQUEST['id'];//La idea era mostrar el nombre de la marca 
             ///eliminada
             $mensaje .= ' fue eliminada con exito!.';
             $class = 'success';
+        }else{
+            // $mensaje = 'Marca: '.$objMarca->getMarca();
+            $mensaje .= '<br>La marca con ID: '.$_REQUEST['id'];//La idea era mostrar el nombre de la marca 
+            ///eliminada
+            $mensaje .= ' no se puede eliminar!.';
+            $class = 'danger';
         }
 ?>
        <div class="alert alert-<?= $class; ?>">
@@ -30,7 +37,3 @@ require_once 'clases/Conexion.php';
     </main>
 
 <?php  include 'includes/footer.php';  ?>
-
-
-
-
