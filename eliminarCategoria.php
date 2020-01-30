@@ -15,12 +15,17 @@ require_once 'clases/Conexion.php';
        $mensaje='';
        // $mensaje = 'No se pudo eliminar la Categoria';
         $class = 'danger';
-        if( $chequeo=true){
+        if( $chequeo){
            // $mensaje = 'Categoria: '.$objCategoria->getCategoria();
             $mensaje .= '<br>La categoria con ID: '.$_REQUEST['id'];//La idea era mostrar el nombre de la categoria 
             ///eliminada
             $mensaje .= ' fue eliminada con exito!';
             $class = 'success';
+        }else{
+            // $mensaje = 'Marca: '.$objMarca->getMarca();
+            $mensaje .= '<br>La categoria con ID: '.$_REQUEST['id'];//La idea era mostrar el nombre de la marca 
+            ///eliminada
+            $mensaje .= ' no se puede eliminar!.';
         }
 ?>
        <div class="alert alert-<?= $class; ?>">
