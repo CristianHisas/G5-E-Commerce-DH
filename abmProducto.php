@@ -34,6 +34,7 @@ if ($_POST) {
     $producto->borrarProducto($id);
     $archivoActual = $_SERVER['PHP_SELF'];
     header("refresh:1;url=$archivoActual");
+	exit;
   }
 }
 ?>
