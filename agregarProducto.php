@@ -161,7 +161,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
                 </div>
                 <div class="form-group">
                   <label for="descripcion">Descripcion</label>
-                  <textarea class="form-control" id="descripcion" rows="8" cols="80" name="descripcion" value=""><?=( isset($valorPersistencia["descripcion"]))?$valorPersistencia["descripcion"]:"" ;?></textarea>
+                  <textarea class="form-control" id="descripcion" rows="8" cols="80" name="descripcion" ><?=( isset($valorPersistencia["descripcion"]))?$valorPersistencia["descripcion"]:"" ;?></textarea>
                   <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"descripcion"):""; ?></small>
                 </div>
                 <div class="form-group">

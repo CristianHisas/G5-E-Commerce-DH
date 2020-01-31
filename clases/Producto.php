@@ -352,7 +352,7 @@ class Producto
    */ 
   public function setDescuento($descuento)
   {
-    $this->descuento = $descuento;
+    $this->descuento =(float)$descuento;
 
     return $this;
   }
@@ -392,7 +392,7 @@ class Producto
    */ 
   public function setPrecio($precio)
   {
-    $this->precio = $precio;
+    $this->precio =(float) $precio;
 
     return $this;
   }

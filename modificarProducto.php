@@ -119,7 +119,9 @@ if (isset($_POST["modificar_id"])&& $_POST ){
    * 
    */
   if(!$errores){
-    $producto->altaProducto($img,$datos);
+    $producto->modificarProducto($datos["id"],$img,$datos);
+    $unProducto=new Producto();
+    $unProducto=$producto->buscarPorId($datos["id"]);
     $msj="success";
   }else{
     $datos["img"]=$img;
@@ -127,6 +129,16 @@ if (isset($_POST["modificar_id"])&& $_POST ){
     foreach ($datos as $key => $value) {
       $valorPersistencia[$key]=persistirDatoGeneral($errores,$key,$datos);
     }
+    $unProducto=new Producto();
+    $unProducto->setId($valorPersistencia["id"]);
+    $unProducto->setNombre($valorPersistencia["nombre"]);
+    $unProducto->setDescripcion($valorPersistencia["descripcion"]);
+    $unProducto->setPrecio($valorPersistencia["precio"]);
+    $unProducto->setStock($valorPersistencia["stock"]);
+    $unProducto->setMarca($valorPersistencia["marca"]);
+    $unProducto->setCategoria($valorPersistencia["categoria"]);
+    $unProducto->setDescuento($valorPersistencia["descuento"]);
+    $unProducto->setImg($valorPersistencia["img"]);
     //var_dump($valorPersistencia);
     $msj="danger";
   }
@@ -139,9 +151,9 @@ if (isset($_POST["modificar_id"])&& $_POST ){
 
     $id= ((int)$_POST["id"]);//de alguna manera le tiene que llegar un id 
     
-    $producto->modificarProducto($id,$img,$datos);
-    $msj="success";
-    $unProducto=$producto->buscarPorId($id);
+    //$producto->modificarProducto($id,$img,$datos);
+    //$msj="success";
+    //$unProducto=$producto->buscarPorId($id);
 }
 ?>
 <!DOCTYPE html>
@@ -190,26 +202,24 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                 <div class="form-group">
                   <label for="nombre">Nombre</label>
                   <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$unProducto->getNombre();?>">
-                  <small class="text-danger"></small>
+                  <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"nombre"):""; ?></small>
                 </div>
                 <div class="form-group">
                   <label for="descripcion">Descripcion</label>
                   <pre>
-                  <textarea class="form-control" id="descripcion" rows="8" cols="80" name="descripcion" value="">
-                                  <?=$unProducto->getDescripcion();
-                                  ?>
-                  </textarea>
+                  <textarea class="form-control" id="descripcion" rows="8" cols="80" name="descripcion" ><?=$unProducto->getDescripcion();?></textarea>
                   </pre>
-                  <small class="text-danger"></small>
+                  <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"descripcion"):""; ?></small>
                 </div>
                 <div class="form-group">
                   <label for="precio">Precio:</label>
-                  <input type="number" class="form-control" id="precio" name="precio" min="0" value="<?=$unProducto->getPrecio();?>">
-                  <small class="text-danger"></small>
+                  <input type="text" class="form-control" id="precio" name="precio"  value="<?=$unProducto->getPrecio();?>">
+                  <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"precio"):""; ?></small>                
                 </div>
                 <div class="form-group">
                   <label for="stock">stock</label>
-                  <input type="number" class="form-control" id="stock" name="stock" min="0" value="<?=$unProducto->getStock();?>">
+                  <input type="number" class="form-control" id="stock" name="stock" min="1" value="<?=$unProducto->getStock();?>">
+                  <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"stock"):""; ?></small>
                 </div>
                 <div class="form-group">
                   <label for="marca">Marca</label>
@@ -229,7 +239,7 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                       } 
                     ?>
                   </select>
-                  <small class="text-danger"></small>
+                  <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"marca"):""; ?></small>
                 </div>
                 <div class="form-group">
                   <label for="categoria">Categoria</label>
@@ -252,12 +262,12 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                       } 
                     ?>
                   </select>
-                  <small class="text-danger"></small>
+                  <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"categoria"):""; ?></small>
                 </div>
                 <div class="form-group">
                   <label for="descuento">descuento</label>
-                  <input type="number" class="form-control" id="descuento" name="descuento" min="0" max="100" value="<?=$unProducto->getDescuento();?>">
-                  <small class="text-danger"></small>
+                  <input type="text" class="form-control" id="descuento" name="descuento" min="1" max="100" value="<?=$unProducto->getDescuento();?>">
+                  <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"descuento"):""; ?></small>
                 </div>
                 <div class="form-group text-center">
                   <label for="img" class="col-12">Imagen</label>
@@ -265,7 +275,7 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                   <input type="text" name="imagenActual" value="<?=$unProducto->getImg();?>" readonly hidden>
                   <label for="img" class="text-left col-12">Cambiar</label>
                   <input type="file" class="form-control-file" id="img" name="img" class="">
-                  <small class="text-danger"></small>
+                  <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"img"):""; ?></small>
                 </div>
                 <button type="submit" class="btn btn-primary mb-2" name="modificar_id" value="">Modificar</button>
               </form>

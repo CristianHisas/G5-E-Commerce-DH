@@ -101,13 +101,18 @@ if (isset($_POST["btnBorrar"])) {
                   </div>
                 </div>
               </li>
-              <?php foreach ($variable as $key => $value) { ?>
+              <?php 
+              $i=0;
+              foreach ($variable as $key => $value) { 
+                $i+=1;
+                ?>
 
                 <li class="list-group-item">
                   <div class="card-body  px-0">
                     <form class="form-inline d-flex justify-content-between " action="modificarProducto.php" method="post">
                       <div class="form-group mb-1 col-1 px-1" >
-                        <input type="text" readonly class="form-control-plaintext text-center" id="id" value="<?=$value->getId();?>" name="id">
+                        <input type="text" readonly class="form-control-plaintext text-center" id="idF" value="<?=$i;?>" name="idF" >
+                        <input type="text" readonly class="form-control-plaintext text-center" id="id" value="<?=$value->getId();?>" name="id" readonly hidden>
                       </div>
                       <div class="form-group mb-2 col-2 px-1">
 
