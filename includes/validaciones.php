@@ -68,6 +68,7 @@ define("Categoria","d14");
 define("Positivo","d15");
 define("PositivoFloat","d16");
 define("Descuento","d17");
+define("PRODUCTO","d18");
 function hacerValidaciones($arr, $requisitos){
     $errores = [];
     foreach($arr as $key => $val){
@@ -132,6 +133,9 @@ function validar($value, $requisitos){
     }
     if(isset($requisitos[Descuento])|| in_array(Descuento, $requisitos)){
         $errs[] = validarDescuento($value);
+    }
+    if(isset($requisitos[PRODUCTO])|| in_array(PRODUCTO, $requisitos)){
+        $errs[] = validarProducto($value);
     }
     foreach($errs as $err){
         $ret = array_merge($ret, $err);
@@ -504,6 +508,25 @@ function validarCategoria($value){
         }
     }else{
         $ret[] = "Debe eligir una Categoria Existente";
+    }
+    return $ret;
+}
+/**
+ * 
+ */
+function validarProducto($value){
+    $ret=[];
+    $producto=new Producto();
+    if(is_digit($value) && $value!="0" &&strlen($value)==1){
+        if(is_null($producto->buscarPorId($value))){
+            $ret[] = "Debe eligir una Producto ";
+        }
+    }elseif (preg_match("/^0$|^[-]?[1-9][0-9]*$/",$value) && strlen($value)>1) {
+        if(!$producto->buscarPorId($value)){
+            $ret[] = "Debe eligir una Producto ";
+        }
+    }else{
+        $ret[] = "Debe eligir una Producto Existente";
     }
     return $ret;
 }

@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+$_SESSION["msj"]="";
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <?php include 'includes/head.php';?>

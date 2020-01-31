@@ -9,6 +9,7 @@ include_once("includes/baseDeDatos.php");
 session_start();
 $producto = new Producto();
 $msj="";
+
 $variable=$producto->obtenerListaProductos();
 //var_dump($variable);
 if ($_POST) {
@@ -43,7 +44,8 @@ if (isset($_POST["btnBorrar"])) {
     
     <div class="container-fluir my-3">
       <?php
-        if($_SESSION["msj"]!="" && isset($_SESSION["msj"])){
+        //if(isset($_SESSION["msj"])){
+        if($_SESSION["msj"]!=""){
       ?>
       
       <div class="alert alert-success">
@@ -52,7 +54,8 @@ if (isset($_POST["btnBorrar"])) {
       </div>
       <?php
         $_SESSION["msj"]="";  
-      }
+      //}
+    }
       ?>
       <div id="accordion">
         <div class="card">

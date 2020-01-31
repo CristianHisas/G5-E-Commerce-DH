@@ -164,11 +164,16 @@ class Producto
       $seleccionado->bindValue(":id", $id,PDO::PARAM_INT);
       $seleccionado->execute();
       $variable = $seleccionado->fetchObject("Producto");//objeto
-      return $variable;
-    } catch (\Exception $e) {
+      
+    }catch(\PDOException $e){
+      die($e->getMessage());
+      return null;
+    } 
+    catch (\Exception $e) {
       $e->getMessage();
-      return false;
+      return null;
     }
+    return $variable;
   }
   public function obtenerListaProductos(){
     $db=Conexion::conectar();

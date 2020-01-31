@@ -9,11 +9,14 @@ $producto = new Producto();
 $marca=new Marca();
 $categoria=new Categoria();
 session_start();
-$msj=false;
+$msj="";
 if(isset($_POST["id"]) && isset($_POST["modificar_l"])){
     $id=(int)$_POST["modificar_l"];
     $unProducto=$producto->buscarPorId($id);
     $_SESSION["unProducto"]=$unProducto;
+    if(!$unProducto){
+      $msj="warning";
+    }
 }
 /**
  *echo "<pre>";
@@ -29,15 +32,114 @@ var_dump($_SESSION["unProducto"]);
 
 
 if (isset($_POST["modificar_id"])&& $_POST ){
-
-    $id= ((int)$_POST["idM"]);//de alguna manera le tiene que llegar un id 
+    /**
+   * 
+   */
+  $datos=[
+    "id"=>trim($_POST["id"]),
+    "nombre" =>trim($_POST["nombre"]),
+    "descripcion" =>trim($_POST["descripcion"]),
+    "precio" =>trim($_POST["precio"]),
+    "stock" =>trim($_POST["stock"]),
+    "marca" =>trim($_POST["marca"]),
+    "categoria" =>trim($_POST["categoria"]),
+    "descuento" =>trim($_POST["descuento"])
+  ];
+  /***
+   * 
+   */
+  $requisitos = [
+    "id"=>[
+      MINSIZE=>1,
+      SOLONUMEROS,
+      Positivo,
+      PRODUCTO
+    ],
+    "nombre"=>[
+      MINSIZE=>2,
+      MAXSIZE => 30
+    ],
+    "descripcion" => [
+        MAXSIZE => 10000
+    ],
+    "precio" => [
+        MINSIZE => 1,
+        PositivoFloat
+    ],
+    "stock" => [
+      MINSIZE => 1,
+      SOLONUMEROS,
+      Positivo,
+    ],
+    "marca" => [
+      MINSIZE => 1,
+      SOLONUMEROS,
+      Positivo,
+      Marca
+    ],
+    "categoria" => [
+      MINSIZE => 1,
+      SOLONUMEROS,
+      Positivo,
+      Categoria
+    ],
+    "descuento" => [
+      MINSIZE => 1,
+      Descuento
+    ]
+];
+  /**
+   * 
+   * 
+   */
+  
+  if($_FILES){
+    $errorArchivo=( validarArchivo($_FILES["img"]) );
+  }
+  /**
+   * 
+   */
+  $errores = hacerValidaciones($datos, $requisitos);
+  if($errorArchivo){
+    $errores["img"]=$errorArchivo;
+  }else{
+    
     if($_FILES["img"]["name"]!="" && $_FILES){
       $img=Producto::guardarArchivo($_FILES["img"],$_POST["nombre"]);  
     }else{
       $img=$_POST["imagenActual"];
     }
+  }
+  /**
+   * 
+   */
+  //var_dump($_POST);
+  //var_dump($_FILES);
+    /**
+   * 
+   */
+  if(!$errores){
+    $producto->altaProducto($img,$datos);
+    $msj="success";
+  }else{
+    $datos["img"]=$img;
+    //var_dump($datos);
+    foreach ($datos as $key => $value) {
+      $valorPersistencia[$key]=persistirDatoGeneral($errores,$key,$datos);
+    }
+    //var_dump($valorPersistencia);
+    $msj="danger";
+  }
+  /**
+   * 
+   */
+  /**
+   * esta aqui nuevo
+   */
+
+    $id= ((int)$_POST["id"]);//de alguna manera le tiene que llegar un id 
     
-    $producto->modificarProducto($id,$img);
+    $producto->modificarProducto($id,$img,$datos);
     $msj="success";
     $unProducto=$producto->buscarPorId($id);
 }
@@ -69,7 +171,10 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                     echo("Producto se agregada correctamente.");
                   } 
                   if($msj=="danger"){
-                    echo("No se pudo agregar el Producto");
+                    echo("No se pudo modificar el Producto");
+                  }
+                  if($msj=="warning"){
+                    echo("No se encuentra el Producto a Eliminar");
                   }
                 ?>
               </p>
@@ -81,7 +186,7 @@ if (isset($_POST["modificar_id"])&& $_POST ){
 
               <form class="modificarProducto" action="" method="post" enctype="multipart/form-data">
 
-              <input type="number" class="form-control" id="id" name="idM" value="<?=$unProducto->getId();?>" readonly hidden>
+              <input type="number" class="form-control" id="id" name="id" value="<?=$unProducto->getId();?>" readonly hidden>
                 <div class="form-group">
                   <label for="nombre">Nombre</label>
                   <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$unProducto->getNombre();?>">
