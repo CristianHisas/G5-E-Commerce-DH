@@ -1,14 +1,13 @@
 <?php
-    require 'clases/Marca.php';
     require 'clases/Conexion.php';
-    
+    require 'clases/Marca.php';
     $objMarca = new Marca;
-    if(isset($_REQUEST['id_marca'])){
+    if(isset($_REQUEST['id_marca'])){     
       $chequeo =  $objMarca->modificarMarca();
-    }
+    }    
     include 'includes/head.php';
-    include 'includes/headerAdm.php';
-
+    include 'includes/headerAdm.php'; 
+    
 ?>
 
     <main class="container">

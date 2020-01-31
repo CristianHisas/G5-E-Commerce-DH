@@ -1,14 +1,13 @@
 <?php
+    require_once('clases/Conexion.php');
     require 'clases/Categoria.php';
-    require 'clases/Conexion.php';
-    
     $objCategoria= new Categoria;
-    if(isset($_REQUEST['id_categoria'])){
+    if(isset($_REQUEST['id_categoria'])){     
       $chequeo =  $objCategoria->modificarCategoria();
-    }
+    }    
     include 'includes/head.php';
-    include 'includes/headerAdm.php';
-
+    include 'includes/headerAdm.php'; 
+    
 ?>
 
     <main class="container">
