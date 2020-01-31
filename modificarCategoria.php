@@ -1,12 +1,14 @@
 <?php
     require 'clases/Categoria.php';
-    $objCategoria= new Categoria;
-    if(isset($_REQUEST['id_categoria'])){     
-      $chequeo =  $objCategoria->modificarCategoria();
-    }    
-    include 'includes/head.php';
-    include 'includes/headerAdm.php'; 
+    require 'clases/Conexion.php';
     
+    $objCategoria= new Categoria;
+    if(isset($_REQUEST['id_categoria'])){
+      $chequeo =  $objCategoria->modificarCategoria();
+    }
+    include 'includes/head.php';
+    include 'includes/headerAdm.php';
+
 ?>
 
     <main class="container">

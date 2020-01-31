@@ -15,7 +15,7 @@ $errores=null;
 
 if (isset($_POST["btnCargar"])&& $_POST ){
   /**
-   * 
+   *
    */
   $datos=[
     "nombre" =>trim($_POST["nombre"]),
@@ -27,7 +27,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
     "descuento" =>trim($_POST["descuento"])
   ];
   /***
-   * 
+   *
    */
   $requisitos = [
     "nombre"=>[
@@ -64,35 +64,35 @@ if (isset($_POST["btnCargar"])&& $_POST ){
     ]
 ];
   /**
-   * 
-   * 
+   *
+   *
    */
-  
+
   if($_FILES){
     $errorArchivo=( validarArchivo($_FILES["img"]) );
   }
   /**
-   * 
+   *
    */
   $errores = hacerValidaciones($datos, $requisitos);
   if($errorArchivo){
     $errores["img"]=$errorArchivo;
   }else{
-    
+
     if($_FILES["img"]["name"]!="" && $_FILES){
-      $img=Producto::guardarArchivo($_FILES["img"],$_POST["nombre"]);  
+      $img=Producto::guardarArchivo($_FILES["img"],$_POST["nombre"]);
     }else{
       $img=$_POST["imagenActual"];
     }
   }
   /**
-   * 
+   *
    */
   //var_dump($_POST);
   //var_dump($_FILES);
-  
+
   /**
-   * 
+   *
    */
   if(!$errores){
     $producto->altaProducto($img,$datos);
@@ -107,7 +107,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
     $msj="danger";
   }
   /**
-   * 
+   *
    */
     $nombre = $_POST["nombre"];
     $descripcion = $_POST["descripcion"];
@@ -128,7 +128,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
   <?php include 'includes/headerAdm.php'; ?>
 
   <main>
-    
+
     <div class="container-fluir my-3">
       <div id="accordion">
         <div class="card">
@@ -138,10 +138,10 @@ if (isset($_POST["btnCargar"])&& $_POST ){
               Agregar Producto
               </button>
               <p class="btn alert alert-<?=$msj;?>" role="alert">
-                <?php 
+                <?php
                   if($msj=="success"){
                     echo("Producto se agregada correctamente.");
-                  } 
+                  }
                   if($msj=="danger"){
                     echo("No se pudo agregar el Producto");
                   }
@@ -166,7 +166,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
                 </div>
                 <div class="form-group">
                   <label for="precio">Precio:</label>
-                  <input type="text" class="form-control " id="precio" name="precio" min="0" value="<?=(isset($valorPersistencia["precio"]))?$valorPersistencia["precio"]:"0" ;?>" require >
+                  <input type="text" class="form-control " id="precio" name="precio" min=1 value="<?=(isset($valorPersistencia["precio"]))?$valorPersistencia["precio"]:"0" ;?>" require >
                   <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"precio"):""; ?></small>
                 </div>
                 <div class="form-group">
@@ -187,17 +187,17 @@ if (isset($_POST["btnCargar"])&& $_POST ){
                       foreach ($marcas as $key => $value) {
                         if($value["id_marca"]==$marcaElegida){ ?>
                         <option value="<?=$value["id_marca"];?>" selected><?=$value["marca"];?></option>
-                    <?php 
+                    <?php
                         }else{
                     ?>
                         <option value="<?=$value["id_marca"];?>"><?=$value["marca"];?></option>
                     <?php
-                      } 
+                      }
                     ?>
 
-                      
-                    <?php 
-                      } 
+
+                    <?php
+                      }
                     ?>
 
 
@@ -215,18 +215,18 @@ if (isset($_POST["btnCargar"])&& $_POST ){
                       $categorias=$categoria->listarcategorias();
                       $categoriaElegida=(isset($valorPersistencia["categoria"]))?$valorPersistencia["categoria"]:"" ;
                       foreach ($categorias as $key => $value) {
-                        if($value["id_categoria"]==$categoriaElegida){ 
+                        if($value["id_categoria"]==$categoriaElegida){
                   ?>
                       <option value="<?=$value["id_categoria"];?>" selected><?=$value["categoria"];?></option>
-                    <?php 
+                    <?php
                         }else{
                     ?>
                         <option value="<?=$value["id_categoria"];?>"><?=$value["categoria"];?></option>
                     <?php
-                      } 
+                      }
                     ?>
-                  <?php 
-                      } 
+                  <?php
+                      }
                   ?>
 
 
@@ -249,7 +249,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
 
 
                 <button type="submit" class="btn btn-primary mb-2" name="btnCargar" value="cargar">Cargar</button>
-                
+
               </form>
             </div>
           </div>

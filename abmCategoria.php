@@ -4,18 +4,18 @@ require_once 'clases/Conexion.php';
     $objCategoria = new Categoria;
     $categorias = $objCategoria->listarCategorias();
     include 'includes/head.php';
-    include 'includes/headerAdm.php';    
-  
+    include 'includes/headerAdm.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <title>ABM Categorias</title>
 <body>
-<! -- include 'includes/headerAdm.php'; -->
+<!-- include 'includes/headerAdm.php'; -->
 <main class="container">
     <h1>Administracion de Categorias</h1>
-    <a href="admin.php" class="btn btn-outline-secondary m-3">Administracion principal</a>  
-    
+    <a href="admin.php" class="btn btn-outline-secondary m-3">Administracion principal</a>
+
         <table class="table table-stripped table-bordered table-hover bg-white">
             <thead class="thead-dark">
             <tr>
@@ -63,7 +63,7 @@ require_once 'clases/Conexion.php';
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a href="eliminarMarca.php?id=<?php echo $categoria["id_categoria"]; ?>" class="btn btn-outline-secondary">
+                                <a href="eliminarCategoria.php?id=<?php echo $categoria["id_categoria"]; ?>" class="btn btn-outline-secondary">
                         eliminar
                     </a>
                               </div>
@@ -78,7 +78,7 @@ require_once 'clases/Conexion.php';
             </tbody>
         </table>
 
-        <a href="admin.php" class="btn btn-outline-secondary m-3">Administracion principal</a>   
+        <a href="admin.php" class="btn btn-outline-secondary m-3">Administracion principal</a>
     </main>
 
     <?php

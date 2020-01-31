@@ -44,14 +44,14 @@ class Producto
     }catch (\Exception $e)
       {
         echo "Error al cargar poducto";
-        $e->getMessage();
+        echo $e->getMessage();
       }
-    
- 
+
+
   }
 
   public function modificarProducto(int $id,string $img,$array=null)
-  { 
+  {
     if(is_null($array)){
       $array=$_POST;
     }
@@ -76,7 +76,7 @@ class Producto
       $statement->bindValue(':id', $id,PDO::PARAM_INT);
       $statement->execute();
 
-      
+
   }
 
   public function borrarProducto($id)
@@ -99,11 +99,11 @@ class Producto
 
       return False;
  }
- catch (\Exception $e) 
+ catch (\Exception $e)
  {
-   
+
   die($e->getMessage());
-  return false; 
+  return false;
  }
  return true;
 
@@ -130,7 +130,7 @@ class Producto
         //var_dump ($archivoDir );
             if(preg_match("/phone/i" ,$archivoDir)){//encuentra un archivo que coincida con el patron
                 $cont++;
-                $archivoEliminar=$archivoDir;   
+                $archivoEliminar=$archivoDir;
             }
         }
     }
@@ -146,10 +146,10 @@ class Producto
   public function buscarPorId(int $id){
     $db=Conexion::conectar();
     if(isset($_POST["id"])){
-      $id=(int)$_POST["id"];  
+      $id=(int)$_POST["id"];
     }
     try {
-      $sql = "SELECT id_producto as id,nombre,descripcion,precio,cantidad as stock,marca,categoria,descuento,img 
+      $sql = "SELECT id_producto as id,nombre,descripcion,precio,cantidad as stock,marca,categoria,descuento,img
         FROM productos as p
           inner join categorias as c on p.id_categoria=c.id_categoria
           inner join marcas as m on p.id_marca=m.id_marca WHERE id_producto= :id";
@@ -166,7 +166,7 @@ class Producto
   public function obtenerListaProductos(){
     $db=Conexion::conectar();
     try {
-      $sql = "SELECT id_producto as id,nombre,descripcion,precio,cantidad as stock,marca,categoria,descuento,img 
+      $sql = "SELECT id_producto as id,nombre,descripcion,precio,cantidad as stock,marca,categoria,descuento,img
         FROM productos as p
           inner join categorias as c on p.id_categoria=c.id_categoria
           inner join marcas as m on p.id_marca=m.id_marca";
@@ -175,31 +175,31 @@ class Producto
       //$variable = $stmt->fetchAll(PDO::FETCH_ASSOC);//array asociado
       $variable = $stmt->fetchAll(PDO::FETCH_CLASS,"Producto");//objeto
       $stmt->closeCursor();
-      return $variable;  
+      return $variable;
     } catch (\Exception $e) {
       echo "Error al obtener Lista de Productos";
       $e->getMessage();
       return false;
     }
-    
+
   }
 
   function buscarMarca(PDO $db) {
     $nombre="%".$_GET["buscador"]."%";
           try
       {
-  
+
         $statement = $db->prepare("SELECT nombre FROM marcas WHERE nombre LIKE :nombre");
-  
+
         $statement->bindValue(":nombre",$nombre);
-  
+
         $statement->execute();
         $variable=$statement->fetchAll(PDO::FETCH_ASSOC);
-        return $variable; 
+        return $variable;
       }
       catch (\Exception $e)
       {
-          
+
           $e->getMessage();
         return false;
       }
@@ -207,7 +207,7 @@ class Producto
 
   /**
    * Get the value of id
-   */ 
+   */
   public function getId():int
   {
     return $this->id;
@@ -217,7 +217,7 @@ class Producto
    * Set the value of id
    *
    * @return  self
-   */ 
+   */
   public function setId($id)
   {
     $this->id = $id;
@@ -227,7 +227,7 @@ class Producto
 
   /**
    * Get the value of nombre
-   */ 
+   */
   public function getNombre():string
   {
     return $this->nombre;
@@ -237,7 +237,7 @@ class Producto
    * Set the value of nombre
    *
    * @return  self
-   */ 
+   */
   public function setNombre($nombre)
   {
     $this->nombre = $nombre;
@@ -247,7 +247,7 @@ class Producto
 
   /**
    * Get the value of descripcion
-   */ 
+   */
   public function getDescripcion():string
   {
     return $this->descripcion;
@@ -257,7 +257,7 @@ class Producto
    * Set the value of descripcion
    *
    * @return  self
-   */ 
+   */
   public function setDescripcion($descripcion)
   {
     $this->descripcion = $descripcion;
@@ -267,7 +267,7 @@ class Producto
 
   /**
    * Get the value of stock
-   */ 
+   */
   public function getStock():int
   {
     return $this->stock;
@@ -277,7 +277,7 @@ class Producto
    * Set the value of stock
    *
    * @return  self
-   */ 
+   */
   public function setStock($stock)
   {
     $this->stock = $stock;
@@ -287,7 +287,7 @@ class Producto
 
   /**
    * Get the value of marca
-   */ 
+   */
   public function getMarca():string
   {
     return $this->marca;
@@ -297,7 +297,7 @@ class Producto
    * Set the value of marca
    *
    * @return  self
-   */ 
+   */
   public function setMarca($marca)
   {
     $this->marca = $marca;
@@ -307,7 +307,7 @@ class Producto
 
   /**
    * Get the value of categoria
-   */ 
+   */
   public function getCategoria():string
   {
     return $this->categoria;
@@ -317,7 +317,7 @@ class Producto
    * Set the value of categoria
    *
    * @return  self
-   */ 
+   */
   public function setCategoria($categoria)
   {
     $this->categoria = $categoria;
@@ -327,7 +327,7 @@ class Producto
 
   /**
    * Get the value of descuento
-   */ 
+   */
   public function getDescuento():float
   {
     return $this->descuento;
@@ -337,7 +337,7 @@ class Producto
    * Set the value of descuento
    *
    * @return  self
-   */ 
+   */
   public function setDescuento($descuento)
   {
     $this->descuento = $descuento;
@@ -347,7 +347,7 @@ class Producto
 
   /**
    * Get the value of img
-   */ 
+   */
   public function getImg():string
   {
     return $this->img;
@@ -357,7 +357,7 @@ class Producto
    * Set the value of img
    *
    * @return  self
-   */ 
+   */
   public function setImg($img)
   {
     $this->img = $img;
@@ -367,7 +367,7 @@ class Producto
 
   /**
    * Get the value of precio
-   */ 
+   */
   public function getPrecio():float
   {
     return $this->precio;
@@ -377,7 +377,7 @@ class Producto
    * Set the value of precio
    *
    * @return  self
-   */ 
+   */
   public function setPrecio($precio)
   {
     $this->precio = $precio;

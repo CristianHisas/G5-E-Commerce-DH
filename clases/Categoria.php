@@ -7,8 +7,8 @@
 
         public function listarcategorias()
         {
-        $link = Conexion::conectar();      
-        try {           
+        $link = Conexion::conectar();
+        try {
             $sql = "SELECT id_categoria, categoria
                         FROM categorias";
             $stmt = $link->prepare($sql);
@@ -23,13 +23,13 @@
         }
 
         public function verCategoriaPorID($id_categoria)
-        {            	
+        {
         try{
-            $link = Conexion::conectar();            
+            $link = Conexion::conectar();
             $sql = "SELECT * FROM categorias WHERE id_categoria='$id_categoria'";
-            $stmt = $link->prepare($sql);           
+            $stmt = $link->prepare($sql);
             $stmt->execute();
-            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);            
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
             return $resultado;
 
         } catch(\PDOException $e){
@@ -38,11 +38,11 @@
            catch(\PDOStatement $e){
                 return null;
            }
-           catch (\Exception $e) 
+           catch (\Exception $e)
            {
-             
+
             die($e->getMessage());
-            return null; 
+            return null;
            }
 
         }
@@ -87,14 +87,14 @@
         {
             try
             {
-            $id = $_REQUEST['id']; 
+            $id = $_REQUEST['id'];
             $link = Conexion::conectar();
-            $sql = "DELETE FROM Categorias WHERE id_Categoria=?";
+            $sql = "DELETE FROM categorias WHERE id_Categoria=?";
             $stmt = $link->prepare($sql);
 
             if( $stmt->execute(array($id)) ){
                // $this->setid_Categoria($link->lastInsertId());
-               // $this->setCategoria($Categoria);                
+               // $this->setCategoria($Categoria);
             }
            }catch(\PDOException $e){
                 return False;
@@ -103,11 +103,11 @@
 
                 return False;
            }
-           catch (\Exception $e) 
+           catch (\Exception $e)
            {
-             
+
             die($e->getMessage());
-            return false; 
+            return false;
            }
            return true;
 
