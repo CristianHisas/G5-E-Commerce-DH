@@ -23,20 +23,20 @@ if(isset($_POST["id"]) && isset($_POST["modificar_l"])){
 *var_dump($_SESSION);
 *echo"producto";
 *var_dump($unProducto);
-*echo "</pre>"; 
+*echo "</pre>";
  */
 
 
 
 if (isset($_POST["modificar_id"])&& $_POST ){
 
-    $id= ((int)$_POST["idM"]);//de alguna manera le tiene que llegar un id 
+    $id= ((int)$_POST["idM"]);//de alguna manera le tiene que llegar un id
     if($_FILES["img"]["name"]!="" && $_FILES){
-      $img=Producto::guardarArchivo($_FILES["img"],$_POST["nombre"]);  
+      $img=Producto::guardarArchivo($_FILES["img"],$_POST["nombre"]);
     }else{
       $img=$_POST["imagenActual"];
     }
-    
+
     $producto->modificarProducto($id,$img);
     $msj="success";
     $unProducto=$producto->buscarPorId($id);
@@ -51,10 +51,10 @@ if (isset($_POST["modificar_id"])&& $_POST ){
 
   <?php include 'includes/headerAdm.php'; ?>
 
- 
+
 
   <main>
-    
+
     <div class="container-fluir my-3">
       <div id="accordion">
         <div class="card">
@@ -97,19 +97,19 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                 <div class="form-group">
                   <label for="marca">Marca</label>
                   <select class="form-control" id="marca" name="marca">
-                    <?php 
+                    <?php
                       $marcas=$marca->listarMarcas();
-                      foreach ($marcas as $key => $value) { 
+                      foreach ($marcas as $key => $value) {
                     ?>
                     <?php
                       if ($unProducto->getMarca()==$value["marca"]) {?>
-                        <option value="<?=$value["id_marca"];?>" selected><?=$value["marca"];?></option>  
+                        <option value="<?=$value["id_marca"];?>" selected><?=$value["marca"];?></option>
                       <?php }else{?>
-                    
+
                         <option value="<?=$value["id_marca"];?>"><?=$value["marca"];?></option>
                       <?php } ?>
-                    <?php 
-                      } 
+                    <?php
+                      }
                     ?>
                   </select>
                   <small class="text-danger"></small>
@@ -117,11 +117,11 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                 <div class="form-group">
                   <label for="categoria">Categoria</label>
                   <select class="form-control" id="categoria" name="categoria">
-                  <?php 
+                  <?php
                       $categorias=$categoria->listarcategorias();
-                      foreach ($categorias as $key => $value) { 
+                      foreach ($categorias as $key => $value) {
                     ?>
-                    <?php 
+                    <?php
                       if($unProducto->getCategoria()==$value["categoria"]){
                     ?>
                         <option value="<?=$value["id_categoria"];?>" selected><?=$value["categoria"];?></option>
@@ -130,9 +130,9 @@ if (isset($_POST["modificar_id"])&& $_POST ){
                     <?php
                       }
                     ?>
-                      
-                    <?php 
-                      } 
+
+                    <?php
+                      }
                     ?>
                   </select>
                   <small class="text-danger"></small>
@@ -163,7 +163,7 @@ if (isset($_POST["modificar_id"])&& $_POST ){
 
 
 
-  
+
 
   <?php
   include 'includes/footer.php';
