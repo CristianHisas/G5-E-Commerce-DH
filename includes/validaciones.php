@@ -430,7 +430,7 @@ function descuentoVerficar($val) {
     $val=str_replace(" ","",trim($val));
     //$prueba=str_replace(".","",$val);
     //return preg_match("/^([0-9])+([\.|,]([0-9])*)?$/",$val);//original
-    return preg_match("/(^0?|^[1-9]{1}+[0-9]{1})+([\.]([0-9]){2})?$/",$val);//prueba
+    return preg_match("/(^0?|^[1-9]{1}+[0-9]{1})+([\.]([0-9]){1,2})?$/",$val);//prueba
 }
 /**
  * 

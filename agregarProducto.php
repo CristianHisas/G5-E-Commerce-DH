@@ -68,9 +68,6 @@ if (isset($_POST["btnCargar"])&& $_POST ){
    * 
    */
   
-    var_dump($img);
-    var_dump($_FILES);
-  
   if($_FILES){
     $errorArchivo=( validarArchivo($_FILES["img"]) );
   }
@@ -154,7 +151,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
             </h5>
           </div>
           <div id="collapseFour" class="collapse carrito-resumen" aria-labelledby="headingFour" data-parent="#accordion">
-          <div class="card-body alert alert-<?=$msj;?>" role="alert">
+          <div class="card-body ">
               <form class="altaProducto" action="" method="post" enctype="multipart/form-data">
 
               <div class="form-group">
@@ -164,7 +161,7 @@ if (isset($_POST["btnCargar"])&& $_POST ){
                 </div>
                 <div class="form-group">
                   <label for="descripcion">Descripcion</label>
-                  <textarea class="form-control" id="descripcion" rows="8" cols="80" name="descripcion" value=""></textarea>
+                  <textarea class="form-control" id="descripcion" rows="8" cols="80" name="descripcion" value=""><?=( isset($valorPersistencia["descripcion"]))?$valorPersistencia["descripcion"]:"" ;?></textarea>
                   <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"descripcion"):""; ?></small>
                 </div>
                 <div class="form-group">
@@ -238,11 +235,11 @@ if (isset($_POST["btnCargar"])&& $_POST ){
                 </div>
                 <div class="form-group">
                   <label for="descuento">descuento</label>
-                  <input type="text" class="form-control" id="descuento" name="descuento" min="0" max="100" pattern="(^0?|^[1-9]{1}+[0-9]{1})+([\.]([0-9]){2})?$"  value="<?=( isset($valorPersistencia["descuento"]))?$valorPersistencia["descuento"]:"0" ;?>" >
+                  <input type="text" class="form-control" id="descuento" name="descuento"  pattern="(^0?|^[1-9]{1}+[0-9]{1})+([\.]([0-9]){1,2})?$"  value="<?=( isset($valorPersistencia["descuento"]))?$valorPersistencia["descuento"]:"0" ;?>" >
                   <small class="text-danger"><?=(isset($errores))?mostrarErroresPerfil($errores,"descuento"):""; ?></small>
                 </div>
                 <div class="form-group text-center">
-                  <label for="img" class="col-12">Imagen</label>
+                  <label for="" class="col-12">Imagen</label>
                   <input type="text" name="imagenActual" value="<?=(isset($valorPersistencia["img"]))?$valorPersistencia["img"]:"img/Productos/phone.png";?>" readonly hidden>
                   <img src="<?=(isset($valorPersistencia["img"]))?$valorPersistencia["img"]:"img/Productos/phone.png" ;?>" alt="" sizes="" width="" class="" height="300px">
                   <label for="img" class="text-left col-12">Cambiar</label>

@@ -92,11 +92,21 @@ class Producto
       $statement->execute();
 
     }
-    catch (\Exception $e)
-    {
-        echo "Error al borrar producto";
-        $e->getMessage();
-    }
+    catch(\PDOException $e){
+      return False;
+ }
+ catch(\PDOStatement $e){
+
+      return False;
+ }
+ catch (\Exception $e) 
+ {
+   
+  die($e->getMessage());
+  return false; 
+ }
+ return true;
+
 
   }
   static function guardarArchivo($file,$nombre="text"){

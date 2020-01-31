@@ -6,9 +6,8 @@ require_once 'clases/Categoria.php';
 require_once 'clases/Producto.php';
 include_once("includes/funciones.php");
 include_once("includes/baseDeDatos.php");
-
+session_start();
 $producto = new Producto();
-
 $variable=$producto->obtenerListaProductos();
 //var_dump($variable);
 if ($_POST) {
@@ -18,6 +17,12 @@ if (isset($_POST["btnBorrar"])) {
     $id =$_POST["btnBorrar"];
 
     $producto->borrarProducto($id);
+    if($producto){
+      $_SESSION["msj"]="Eliminado Producto de ID: $id";
+    }else {
+      $_SESSION["msj"]="Error en eliminado Producto de ID: $id";
+    }
+    
     $archivoActual = $_SERVER['PHP_SELF'];
     header("refresh:1;url=$archivoActual");
       exit;
@@ -36,6 +41,18 @@ if (isset($_POST["btnBorrar"])) {
   <main>
     
     <div class="container-fluir my-3">
+      <?php
+        if($_SESSION["msj"]!=""){
+      ?>
+      
+      <div class="alert alert-success">
+          
+      <h5><?=$_SESSION["msj"];?></h5>
+      </div>
+      <?php
+        $_SESSION["msj"]="";  
+      }
+      ?>
       <div id="accordion">
         <div class="card">
           <div class="card-header " id="headingFour">
