@@ -63,7 +63,11 @@ define("TIPODETARJETANUM","9d");
 define("TIPODETARJETA","10d");
 define("FECHAVENCIMIENTOTARJETA","11d");
 define("SOLONUMEROS","d12");
-
+define("Marca","d13");
+define("Categoria","d14");
+define("Positivo","d15");
+define("PositivoFloat","d16");
+define("Descuento","d17");
 function hacerValidaciones($arr, $requisitos){
     $errores = [];
     foreach($arr as $key => $val){
@@ -113,6 +117,21 @@ function validar($value, $requisitos){
     }
     if(isset($requisitos[SOLONUMEROS])|| in_array(SOLONUMEROS, $requisitos)){
         $errs[] = validarSoloNumeros($value);
+    }
+    if(isset($requisitos[Positivo])|| in_array(Positivo, $requisitos)){
+        $errs[] = validarPositivo($value);
+    }
+    if(isset($requisitos[PositivoFloat])|| in_array(PositivoFloat, $requisitos)){
+        $errs[] = validarPositivoFloat($value);
+    }
+    if(isset($requisitos[Marca])|| in_array(Marca, $requisitos)){
+        $errs[] = validarMarca($value);
+    }
+    if(isset($requisitos[Categoria])|| in_array(Categoria, $requisitos)){
+        $errs[] = validarCategoria($value);
+    }
+    if(isset($requisitos[Descuento])|| in_array(Descuento, $requisitos)){
+        $errs[] = validarDescuento($value);
     }
     foreach($errs as $err){
         $ret = array_merge($ret, $err);
@@ -380,11 +399,130 @@ function mostrarErroresPerfil($arrayError,$nombre){
 }
 function validarSoloNumeros($value){
     $ret = [];
-    if (preg_match('`[^0-9]`',$value)){
+
+   //if(preg_match("/^0$|^[-]?[1-9][0-9]*$/",$value)){//prueba
+    if (preg_match('`[^0-9]`',$value)){//original
         $ret[] = "sólo caracteres numéricos";
+    }
+    
+    return $ret;
+}
+/**
+ * 
+ */
+function is_digit($digit) {
+    if(is_int($digit)) {
+        return true;
+    } elseif(is_string($digit)) {
+        return ctype_digit($digit);
+    } else {
+        // booleans, floats and others
+        return false;
+    }
+}
+function new_is_unsigned_float($val) {
+    $val=str_replace(" ","",trim($val));
+    //$prueba=str_replace(".","",$val);
+    //return preg_match("/^([0-9])+([\.|,]([0-9])*)?$/",$val);//original
+    return preg_match("/(^0?|^[1-9]+[0-9]*)+([\.]([0-9])*)?$/",$val);//prueba
+}
+function descuentoVerficar($val) {
+    $val=str_replace(" ","",trim($val));
+    //$prueba=str_replace(".","",$val);
+    //return preg_match("/^([0-9])+([\.|,]([0-9])*)?$/",$val);//original
+    return preg_match("/(^0?|^[1-9]{1}+[0-9]{1})+([\.]([0-9]){2})?$/",$val);//prueba
+}
+/**
+ * 
+ */
+function validarDescuento($value){
+    $ret=[];
+    if(preg_match('`[^0-9]`',$value) && strlen($value)==1){
+        $ret[] = "sólo caracteres numéricos 0 al 9";
+    }elseif (!descuentoVerficar($value) && strlen($value)>1) {
+        $ret[] = "sólo caracteres numéricos positivos decimales con punto";
     }
     return $ret;
 }
+/**
+ * 
+ */
+function validarPositivoFloat($value){
+    $ret=[];
+    if(preg_match('`[^0-9]`',$value) && strlen($value)==1){
+        $ret[] = "sólo caracteres numéricos 0 al 9";
+    }elseif (!new_is_unsigned_float($value) && strlen($value)>1) {
+        $ret[] = "sólo caracteres numéricos positivos decimales con punto";
+    }
+    return $ret;
+}
+/**
+ * 
+ */
+function validarPositivo($value){
+
+    $ret=[];
+    if(!is_digit($value) && strlen($value)==1){
+        $ret[] = "sólo caracteres numéricos 0 al 9";
+    }elseif (!preg_match("/^0$|^[-]?[1-9][0-9]*$/",$value) && strlen($value)>1) {
+        $ret[] = "sólo caracteres numéricos positivos sin ceros a la izquierda";
+    }
+    return $ret;
+}
+/***
+ * 
+ */
+function validarMarca($value){
+    $ret=[];
+    $marca=new Marca();
+    if(is_digit($value) && $value!="0" &&strlen($value)==1){
+        if(is_null($marca->verMarcaPorID($value))){
+            $ret[] = "Debe eligir una Marca";
+        }
+    }elseif (preg_match("/^0$|^[-]?[1-9][0-9]*$/",$value) && strlen($value)>1) {
+        if(!$marca->verMarcaPorID($value)){
+            $ret[] = "Debe eligir una Marca";
+        }
+    }else{
+        $ret[] = "Debe eligir una Marca Existente";
+    }
+    return $ret;
+}
+/**
+ * 
+ */
+function validarCategoria($value){
+    $ret=[];
+    $categoria=new Categoria();
+    if(is_digit($value) && $value!="0" &&strlen($value)==1){
+        if(is_null($categoria->verCategoriaPorID($value))){
+            $ret[] = "Debe eligir una Categoria ";
+        }
+    }elseif (preg_match("/^0$|^[-]?[1-9][0-9]*$/",$value) && strlen($value)>1) {
+        if(!$categoria->verCategoriaPorID($value)){
+            $ret[] = "Debe eligir una Categoria ";
+        }
+    }else{
+        $ret[] = "Debe eligir una Categoria Existente";
+    }
+    return $ret;
+}
+/**
+ * 
+ */
+function persistirDatoGeneral($arrayErrores, $campo,$verificar) {
+    if(isset($arrayErrores[$campo])) {
+        return "";
+    } else {
+        if(isset($verificar[$campo])) {
+            return $verificar[$campo];
+        }
+    }
+    return "";
+}
+/**
+ * 
+ */
 //agregado
 // Si se envía la clave "soloTexto" no imprime ..el campo tal bla bla bla.
 function imprimirErrores($errores){

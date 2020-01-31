@@ -32,10 +32,18 @@
             $resultado = $stmt->fetch(PDO::FETCH_ASSOC);            
             return $resultado;
 
-        } catch (Exception $e) 
-        {
+        } catch(\PDOException $e){
+            return null;
+           }
+           catch(\PDOStatement $e){
+                return null;
+           }
+           catch (\Exception $e) 
+           {
+             
             die($e->getMessage());
-        }
+            return null; 
+           }
 
         }
 

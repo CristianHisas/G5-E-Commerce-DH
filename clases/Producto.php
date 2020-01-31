@@ -14,16 +14,19 @@ class Producto
   private $descuento;
   private $img;
 
-  public function altaProducto(string $img)
+  public function altaProducto(string $img,$array=null)
   {
+    if(is_null($array)){
+      $array=$_POST;
+    }
     $db=Conexion::conectar();
-    $nombre = $_POST["nombre"];
-    $desc = $_POST["descripcion"];
-    $precio= $_POST["precio"];
-    $stock = $_POST["stock"];
-    $marca = $_POST["marca"];
-    $categoria = $_POST["categoria"];
-    $descuento = $_POST["descuento"];
+    $nombre = $array["nombre"];
+    $desc = $array["descripcion"];
+    $precio= $array["precio"];
+    $stock = $array["stock"];
+    $marca = $array["marca"];
+    $categoria = $array["categoria"];
+    $descuento = $array["descuento"];
     try{
     $statement = $db->prepare("INSERT into productos(id_marca,id_categoria,nombre,descripcion,precio,cantidad,img,descuento) VALUES ( :idMarca, :idCategoria,:nombre, :descripcion, :precio, :cantidad, :img,:descuento)");
 
@@ -47,16 +50,19 @@ class Producto
  
   }
 
-  public function modificarProducto(int $id,string $img)
-  {
+  public function modificarProducto(int $id,string $img,$array=null)
+  { 
+    if(is_null($array)){
+      $array=$_POST;
+    }
     $db=Conexion::conectar();
-    $nombre = $_POST["nombre"];
-    $desc = $_POST["descripcion"];
-    $precio= $_POST["precio"];
-    $stock = $_POST["stock"];
-    $marca = $_POST["marca"];
-    $categoria = $_POST["categoria"];
-    $descuento = $_POST["descuento"];
+    $nombre = $array["nombre"];
+    $desc = $array["descripcion"];
+    $precio= $array["precio"];
+    $stock = $array["stock"];
+    $marca = $array["marca"];
+    $categoria = $array["categoria"];
+    $descuento = $array["descuento"];
       $sql="UPDATE productos SET nombre=:nombre, descripcion=:descripcion, precio=:precio, cantidad=:cantidad, img=:img, descuento=:descuento, id_marca=:idMarca, id_categoria=:idCategoria WHERE id_producto =:id";
       $statement = $db->prepare($sql);
       $statement->bindValue(":nombre", $nombre,PDO::PARAM_STR);
