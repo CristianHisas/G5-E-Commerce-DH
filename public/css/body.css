@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Roboto', sans-serif;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+li{
+  list-style: none;
+}
+
+body{
+  background-image: url(../img/bg-cambiado3.png);
+  background-repeat: no-repeat;
+  background-size: cover;/*cuando lo height era mas largo, que el largo de la imagen parecia el fondo blanco con esto se arregla. es lo que tenias antes  background-size:100%; */
+}
+
+.modal-content{
+  border-radius: 25px !important;
+}
+
+.breadcrumb{
+  margin-bottom: 20px;
+  
+  width: 100%;
+  border-radius: 25px;
+}
+.breadcrumb li{
+  list-style: none;
+}
+.breadcrumb li a{
+  text-decoration: none;
+}
+main{
+  margin: 0 auto;
+}
+.inner-main{
+  max-width: 1200px;
+}

@@ -1,0 +1,119 @@
+.main-perfil{
+    background-size: initial;
+}
+.inner-main {
+  padding: 70px 10px;
+  min-height: 700px;
+}
+#carouselExampleIndicators {
+  background-color: white;
+  margin: 0 auto;
+  max-width: 600px;
+}
+.welcome {
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+}
+.welcome .inner-welcome {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  width: 100%;
+}
+.welcome .inner-welcome .img img {
+  height: 70px;
+}
+.welcome .inner-welcome .text {
+  text-align: center;
+  color: #0000;
+  background-image: linear-gradient(to top, #fdc, #ccd, #fec);
+  -webkit-background-clip: text;/*esto es para que funcione en Chrome y Avast Secure Browser*/
+  background-clip: text;/*con esto en Chrome y Avast Secure Browser Solo se ve un background-image sin letras*/
+}
+.categorias {
+  padding: 40px 0;
+  display: grid;
+  gap: 1px;
+  width: 50%;
+  margin: 0 auto;
+  grid-template-columns: 150px 150px 150px 150px;
+  justify-content: center;
+}
+.categorias .categoria {
+  background-image: radial-gradient(#fff, #f0efe8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.categorias .categoria:hover {
+  background-image: none;
+  filter: invert(0.9);
+  cursor: pointer;
+}
+.categorias .categoria .icono {
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.categorias .categoria .icono img {
+  width: 70%;
+}
+.categorias .categoria .titulo {
+  text-align: center;
+  font-weight: bold;
+}
+
+.li-marca{
+    background-color: transparent;
+}
+.marca{
+    color: white;
+}
+.marca:hover,.li-marca:hover{
+    background-color: white;
+    color:#343a40;
+}
+.sub-menu-categoria ul li{
+    background-color:#343a40;
+    color: white;
+    text-decoration: none;
+}
+.sub-menu-categoria .dropdown-item:focus,.sub-menu-categoria .dropdown-item:hover {
+    color:black;
+    text-decoration: none;
+    background-color:#FFFFFF;
+}
+.irDescripcion{
+    text-decoration: none;
+
+color: inherit;
+}
+.irDescripcion:hover{
+    text-decoration-line: none;
+    color: inherit;
+}
+
+@media (max-width: 620px) {
+  .inner-main {
+    padding-top: 120px;
+  }
+  .categorias {
+    grid-template-columns: 150px 150px 150px;
+  }
+}
+@media (max-width: 480px) {
+  .inner-main {
+    padding-top: 180px;
+  }
+  .categorias {
+    grid-template-columns: 150px 150px;
+  }
+}
+
+@media(min-width: 1200px){
+    .main-perfil{
+       background-size: cover;
+   }
+}

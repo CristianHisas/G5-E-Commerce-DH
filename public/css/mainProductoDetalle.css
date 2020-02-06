@@ -1,0 +1,19 @@
+/*Detalle de producto*/
+main #mainContainer #seccionProducto{
+  margin: 30px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+main #mainContainer #seccionInfoProducto{
+  margin: 30px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+#imagenProducto img{
+  border: 1px solid #0001;
+}
+/*Fin de detalle de producto*/
