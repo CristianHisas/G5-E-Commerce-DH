@@ -44,22 +44,22 @@ Route::get('/contacto', function(){
   return view('contacto');
 });
 
-Route::get('/perfil', function(){
+Route::get('/cuenta/perfil', function(){
   return view('perfil');
 });
 
-Route::get('/resumen', function(){
+Route::get('/cuenta/resumen', function(){
   return view('resumen');
 });
 
-Route::get('/seguridad', function(){
+Route::get('/cuenta/seguridad', function(){
   return view('seguridad');
 });
 
-Route::get('/admin', function(){
+Route::get('/cuenta/admin', function(){
   return view('admin');
 });
 
-Route::get('/abmMarca', "MarcaController@index");
+Route::get('/cuenta/admin/abmMarca', "MarcaController@index");
 
-Route::get('/abmCategoria', "CategoriaController@index");
+Route::get('/cuenta/admin/abmCategoria', "CategoriaController@index");
