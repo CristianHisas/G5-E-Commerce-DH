@@ -1,19 +1,15 @@
-<?php
-require_once 'clases/Conexion.php';
-    require 'clases/Marca.php';
-    $objMarca = new Marca;
-    $chequeo = $objMarca->agregarMarca();
-    include 'includes/head.php';
-    include 'includes/headerAdm.php';
-?>
+
+    @include('inc.head')
+    @include('inc.headerAdm')
+
 
     <main class="container">
         <h1>Alta de una nueva marca</h1>
 <?php
         $mensaje = 'No se pudo agregar la Marca';
         $class = 'danger';
-        if( $chequeo ){
-            $mensaje = 'Marca '.$objMarca->getMarca();
+        if($Marca->marca){
+            $mensaje = 'Marca '.$Marca->marca;
             $mensaje .= ' agregada correctamente.';
             $class = 'success';
         }
@@ -21,7 +17,7 @@ require_once 'clases/Conexion.php';
         <div class="alert alert-<?= $class; ?>">
             <?= $mensaje; ?>
         </div>
- <a href="abmMarca.php" class="btn btn-light">Volver a admin de marcas</a>
+ <a href="abmMarca" class="btn btn-light">Volver a admin de marcas</a>
     </main>
 
-<?php  include 'includes/footer.php';  ?>
+ @include('inc.footer')

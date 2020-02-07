@@ -1,8 +1,4 @@
 <?php
-require_once 'clases/Conexion.php';
-    include 'includes/head.php';
-    include 'includes/headerAdm.php';
-    require 'clases/Marca.php';
     if(isset($_REQUEST['id']))
     {
         $objMarca = new Marca;
@@ -11,6 +7,9 @@ require_once 'clases/Conexion.php';
          //var_dump($marca);
     }
 ?>
+
+@include('inc.head')
+@include('inc.headerAdm')
 
     <main class="container">
         <h1> Actualizacion de una marca</h1>
@@ -28,4 +27,4 @@ require_once 'clases/Conexion.php';
 
     </main>
 
-<?php  include 'includes/footer.php';  ?>
+@include('inc.footer')

@@ -60,6 +60,11 @@ Route::get('/admin', function(){
   return view('admin');
 });
 
+#---------------CRUD Marcas------------------------#
 Route::get('/abmMarca', "MarcaController@index");
+
+Route::get('/formAgregarMarca', "MarcaController@create");
+
+Route::post('/agregarMarca', "MarcaController@store");
 
 Route::get('/abmCategoria', "CategoriaController@index");

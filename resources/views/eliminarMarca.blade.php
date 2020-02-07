@@ -1,14 +1,13 @@
 <?php
-require_once 'clases/Conexion.php';
-    require 'clases/Marca.php';
-    include 'includes/head.php';
-    include 'includes/headerAdm.php';
     $objMarca = new Marca;
     isset($_REQUEST['id']);
 
     $chequeo =  $objMarca->eliminarMarca();
     var_dump($chequeo);
 ?>
+
+@include('inc.head')
+@include('inc.headerAdm')
 
     <main class="container">
         <h1>Dar de baja una Marca</h1>
@@ -36,4 +35,4 @@ require_once 'clases/Conexion.php';
         <a href="abmMarca.php" class="btn btn-light">Volver a admin de marcas</a>
     </main>
 
-<?php  include 'includes/footer.php';  ?>
+  @include('inc.footer') 

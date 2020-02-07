@@ -25,7 +25,7 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
+        return view('formAgregarMarca');
     }
 
     /**
@@ -36,7 +36,11 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Marca = New Marca;
+        $Marca->marca = $request->marca;
+        $Marca->save();
+
+        return view("/agregarMarca", compact('Marca'));
     }
 
     /**
