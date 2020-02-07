@@ -1,7 +1,10 @@
 <?php
 $pagina=$_SERVER["REQUEST_URI"];
-$pagina=str_replace("/","",$pagina);
-$pagina=ucfirst($pagina);
+$pagina=str_replace('/'," ",$pagina);
+$pagina=explode(" ",$pagina);
+foreach ($pagina as $key => $value) {
+  $pagina[$key]=ucfirst($value);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,11 +16,11 @@ $pagina=ucfirst($pagina);
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600|Roboto:500,700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico"/>
 <!--Iconos de pestania-->
-<link rel="apple-touch-icon" sizes="180x180" href="img/pestania-ico/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/pestania-ico/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/pestania-ico/favicon-16x16.png">
-<link rel="manifest" href="img/pestania-ico/site.webmanifest">
-<link rel="mask-icon" href="img/pestania-ico/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/pestania-ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/pestania-ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/pestania-ico/favicon-16x16.png">
+<link rel="manifest" href="/img/pestania-ico/site.webmanifest">
+<link rel="mask-icon" href="/img/pestania-ico/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <!--Iconos de pestania-->
 <!--cambia la barra de pestaña de moviles de androi-->
@@ -25,7 +28,7 @@ $pagina=ucfirst($pagina);
 <!--cambia la barra de pestaña de moviles de androi-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="css/stylePerfilSeguridadResumen.css">
+  <link rel="stylesheet" href="/css/stylePerfilSeguridadResumen.css">
 <title>E-commerce</title>
 </head>
 <body class="main-perfil">
@@ -37,7 +40,7 @@ $pagina=ucfirst($pagina);
            <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
                 <!--Comienza el nombre de la empresa-->
                     <a class="navbar-brand" href="home.php">
-                      <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
+                      <img src="/img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
                       <span>E-commerce</span>
                     </a>
                 <!--Fin el nombre de la empresa-->
@@ -47,7 +50,7 @@ $pagina=ucfirst($pagina);
                           <input type="text" class="form-control" placeholder="Buscar producto...." aria-label="Search" aria-describedby="basic-addon2">
                           <div class="input-group-append">
                             <button class="btn btn-primary" type="button">
-                                <img src="img/lupa.png" width="20" height="20" class="d-inline-block align-top" alt="">
+                                <img src="/img/lupa.png" width="20" height="20" class="d-inline-block align-top" alt="">
                             </button>
                           </div>
                         </div>
@@ -106,12 +109,12 @@ $pagina=ucfirst($pagina);
                         <?php  endif ?>
                         
                         <li class="nav-item">
-                                <a class="nav-link" href="faq.php">Ayuda <img src="img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
+                                <a class="nav-link" href="faq.php">Ayuda <img src="/img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
                             <span>Carrito</span>
-                            <img src="img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
+                            <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
                           </a>
                         </li>
                       </ul>
@@ -128,9 +131,14 @@ $pagina=ucfirst($pagina);
         <div class="row">
 <!--ubicacion-->
 <ul class="breadcrumb  col-12">
-    <li><a href="home.html">Home</a><span class="divider">/</span></li>
-    <li>Cuenta<span class="divider">/</span></li>
-    <li class="active"><?=$pagina; ?></li>
+    <li><a href="/home">Home</a></li>
+    <?php 
+    for ($i=1; $i <count($pagina) ; $i++) { 
+    ?>
+      <li class="active"><span class="divider">/</span><?=$pagina[$i]; ?></li>
+    <?php  
+  }
+    ?>
 </ul>
 <!--ubicacion-->
 <!--menu izquierdo-->
@@ -167,19 +175,19 @@ $pagina=ucfirst($pagina);
         <div class="row d-flex justify-content-between">
           <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
             <h5>ACCOUNT</h5>
-            <a href="login.php" class="">YOUR ACCOUNT</a>
-            <a href="login.php">PERSONAL INFORMATION</a>
-            <a href="login.php">ADDRESSES</a>
-            <a href="login.php">DISCOUNT</a>
-            <a href="login.php">ORDER HISTORY</a>
+            <a href="/cuenta/perfil" class="">YOUR ACCOUNT</a>
+            <a href="/cuenta/perfil">PERSONAL INFORMATION</a>
+            <a href="/cuenta/perfil">ADDRESSES</a>
+            <a href="/cuenta/">DISCOUNT</a>
+            <a href="/cuenta/resumen">ORDER HISTORY</a>
           </div>
           <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
             <h5>INFORMATION</h5>
-            <a href="contacto.php">CONTACT</a>
-            <a href="registro.php">REGISTRATION</a>
-            <a href="legal_notice.html">LEGAL NOTICE</a>
-            <a href="tac.html">TERMS AND CONDITIONS</a>
-            <a href="faq.php">FAQ</a>
+            <a href="/contacto">CONTACT</a>
+            <a href="/registro">REGISTRATION</a>
+            <a href="/legal_notice.html">LEGAL NOTICE</a>
+            <a href="/tac.html">TERMS AND CONDITIONS</a>
+            <a href="/faq">FAQ</a>
           </div>
           <div id="" class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4 social text-center">
               <h5 class="social">SOCIAL MEDIA </h5>
