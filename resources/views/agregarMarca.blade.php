@@ -8,7 +8,7 @@
 <?php
         $mensaje = 'No se pudo agregar la Marca';
         $class = 'danger';
-        if($Marca->marca){
+        if($Marca->marca != NULL){
             $mensaje = 'Marca '.$Marca->marca;
             $mensaje .= ' agregada correctamente.';
             $class = 'success';

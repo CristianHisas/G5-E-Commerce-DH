@@ -36,6 +36,17 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
+        $reglas = [
+          "marca" => "min:2|unique:marcas"
+        ];
+
+        $msj = [
+          "min" => "El campo debe tener un minimo de :min caracteres",
+          "unique" => "No se puede agregar marcas que ya estan en la base de datos"
+        ];
+
+        $this->validate($request, $reglas, $msj);
+
         $Marca = New Marca;
         $Marca->marca = $request->marca;
         $Marca->save();
@@ -62,7 +73,9 @@ class MarcaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Marca = Marca::find($id);
+
+        return view("/formModificarMarca", compact('Marca'));
     }
 
     /**
@@ -72,9 +85,26 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+      $reglas = [
+        "marca" => "min:2|unique:marcas"
+      ];
+
+      $msj = [
+        "min" => "El campo debe tener un minimo de :min caracteres",
+        "unique" => "No se puede agregar marcas que ya estan en la base de datos"
+      ];
+
+      $this->validate($request, $reglas, $msj);
+
+      $Marca = Marca::find($request->id_marca);
+
+      $Marca->marca = $request->marca;
+
+      $Marca->save();
+
+      return view("modificarMarca", compact('Marca'));
     }
 
     /**
@@ -85,6 +115,11 @@ class MarcaController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $Marca = Marca::find($id);
+
+        $Marca->delete();
+
+        return redirect('/abmMarca');;
     }
 }

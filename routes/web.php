@@ -56,15 +56,24 @@ Route::get('/cuenta/seguridad', function(){
   return view('seguridad');
 });
 
-Route::get('/cuenta/admin', function(){
+Route::get('/admin', function(){
   return view('admin');
 });
 
 #---------------CRUD Marcas------------------------#
+
 Route::get('/abmMarca', "MarcaController@index");
 
 Route::get('/formAgregarMarca', "MarcaController@create");
 
 Route::post('/agregarMarca', "MarcaController@store");
+
+Route::get('/formModificarMarca/{id}', "MarcaController@edit");
+
+Route::post('/modificarMarca', "MarcaController@update");
+
+Route::get('/abmMarca/{id}', "MarcaController@destroy");
+
+#------------Fin CRUD Marcas------------------------#
 
 Route::get('/abmCategoria', "CategoriaController@index");
