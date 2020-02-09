@@ -75,7 +75,7 @@ class MarcaController extends Controller
     {
         $Marca = Marca::find($id);
 
-        return view("/formModificarMarca", compact('Marca'));
+        return view("formModificarMarca", compact('Marca'));
     }
 
     /**
@@ -120,6 +120,6 @@ class MarcaController extends Controller
 
         $Marca->delete();
 
-        return redirect('/abmMarca');;
+        return redirect('/abmMarca');
     }
 }

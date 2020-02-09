@@ -76,4 +76,18 @@ Route::get('/abmMarca/{id}', "MarcaController@destroy");
 
 #------------Fin CRUD Marcas------------------------#
 
+#---------------CRUD Categorias------------------------#
+
 Route::get('/abmCategoria', "CategoriaController@index");
+
+Route::get('/formAgregarCategoria', "CategoriaController@create");
+
+Route::post('/agregarCategoria', "CategoriaController@store");
+
+Route::get('/formModificarCategoria/{id}', "CategoriaController@edit");
+
+Route::post('/modificarCategoria', "CategoriaController@update");
+
+Route::get('/abmMarca/{id}', "CategoriaController@destroy");
+
+#------------Fin CRUD Categorias------------------------#

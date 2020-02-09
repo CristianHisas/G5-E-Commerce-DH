@@ -25,7 +25,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('formAgregarCategoria');
     }
 
     /**
@@ -36,7 +36,22 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $reglas = [
+        "categoria" => "min:2|unique:categorias"
+      ];
+
+      $msj = [
+        "min" => "El campo debe tener un minimo de :min caracteres",
+        "unique" => "No se puede agregar categorias que ya estan en la base de datos"
+      ];
+
+      $this->validate($request, $reglas, $msj);
+
+      $Categoria = New Categoria;
+      $Categoria->categoria = $request->categoria;
+      $Categoria->save();
+
+      return view("/agregarCategoria", compact('Categoria'));
     }
 
     /**
@@ -58,7 +73,9 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        //
+      $Categoria = Categoria::find($id);
+
+      return view("formModificarCategoria", compact('Categoria'));
     }
 
     /**
@@ -68,9 +85,26 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+      $reglas = [
+        "categoria" => "min:2|unique:categorias"
+      ];
+
+      $msj = [
+        "min" => "El campo debe tener un minimo de :min caracteres",
+        "unique" => "No se puede agregar categorias que ya estan en la base de datos"
+      ];
+
+      $this->validate($request, $reglas, $msj);
+
+      $Categoria = Categoria::find($request->id_categoria);
+
+      $Categoria->categoria = $request->categoria;
+
+      $Categoria->save();
+
+      return view("modificarCategoria", compact('Categoria'));
     }
 
     /**
@@ -81,6 +115,10 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $Categoria = Categoria::find($id);
+
+      $Categoria->delete();
+
+      return redirect('/abmCategoria');
     }
 }

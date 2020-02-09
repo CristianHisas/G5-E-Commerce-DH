@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
      <!--Comienza el nombre de la empresa-->
          <a class="navbar-brand" href="home">
-           <img src="img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
+           <img src="{{asset('img/e-com1.png')}}" width="30" height="30" class="d-inline-block align-top logo" alt="">
            <span>E-commerce</span>
          </a>
      <!--Fin el nombre de la empresa-->
@@ -12,7 +12,7 @@
                <input type="text" class="form-control" placeholder="Buscar producto...." aria-label="Search" aria-describedby="basic-addon2">
                <div class="input-group-append">
                  <button class="btn btn-primary" type="button">
-                     <img src="img/lupa.png" width="20" height="20" class="d-inline-block align-top" alt="">
+                     <img src="{{asset('img/lupa.png')}}" width="20" height="20" class="d-inline-block align-top" alt="">
                  </button>
                </div>
              </div>
@@ -49,7 +49,7 @@
              <?php  endif ?>
 
              <li class="nav-item">
-                     <a class="nav-link" href="faq">Ayuda <img src="img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
+                     <a class="nav-link" href="faq">Ayuda <img src="{{asset('img/pregunta.png')}}" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
              </li>
            </ul>
          </div>
