@@ -1,169 +1,11 @@
-<?php
-require_once 'clases/Conexion.php';
-require_once 'clases/Marca.php';
-require_once 'clases/Categoria.php';
-require_once 'clases/Producto.php';
-include_once("includes/funciones.php");
-include_once("includes/baseDeDatos.php");
-$producto = new Producto();
-$marca=new Marca();
-$categoria=new Categoria();
-session_start();
-$msj="";
-if(isset($_POST["id"]) && isset($_POST["modificar_l"])){
-    $id=(int)$_POST["modificar_l"];
-    $unProducto=$producto->buscarPorId($id);
-    $_SESSION["unProducto"]=$unProducto;
-    if(!$unProducto){
-      $msj="warning";
-    }
-}
-/**
- *echo "<pre>";
-*echo"post";
-*var_dump($_POST);
-*echo"secion";
-*var_dump($_SESSION);
-*echo"producto";
-*var_dump($unProducto);
-*echo "</pre>";
- */
-var_dump($_SESSION["unProducto"]);
-
-
-if (isset($_POST["modificar_id"])&& $_POST ){
-    /**
-   *
-   */
-  $datos=[
-    "id"=>trim($_POST["id"]),
-    "nombre" =>trim($_POST["nombre"]),
-    "descripcion" =>trim($_POST["descripcion"]),
-    "precio" =>trim($_POST["precio"]),
-    "stock" =>trim($_POST["stock"]),
-    "marca" =>trim($_POST["marca"]),
-    "categoria" =>trim($_POST["categoria"]),
-    "descuento" =>trim($_POST["descuento"])
-  ];
-  /***
-   *
-   */
-  $requisitos = [
-    "id"=>[
-      MINSIZE=>1,
-      SOLONUMEROS,
-      Positivo,
-      PRODUCTO
-    ],
-    "nombre"=>[
-      MINSIZE=>2,
-      MAXSIZE => 30
-    ],
-    "descripcion" => [
-        MAXSIZE => 10000
-    ],
-    "precio" => [
-        MINSIZE => 1,
-        PositivoFloat
-    ],
-    "stock" => [
-      MINSIZE => 1,
-      SOLONUMEROS,
-      Positivo,
-    ],
-    "marca" => [
-      MINSIZE => 1,
-      SOLONUMEROS,
-      Positivo,
-      Marca
-    ],
-    "categoria" => [
-      MINSIZE => 1,
-      SOLONUMEROS,
-      Positivo,
-      Categoria
-    ],
-    "descuento" => [
-      MINSIZE => 1,
-      Descuento
-    ]
-];
-  /**
-   *
-   *
-   */
-
-  if($_FILES){
-    $errorArchivo=( validarArchivo($_FILES["img"]) );
-  }
-  /**
-   *
-   */
-  $errores = hacerValidaciones($datos, $requisitos);
-  if($errorArchivo){
-    $errores["img"]=$errorArchivo;
-  }else{
-
-    if($_FILES["img"]["name"]!="" && $_FILES){
-      $img=Producto::guardarArchivo($_FILES["img"],$_POST["nombre"]);
-    }else{
-      $img=$_POST["imagenActual"];
-    }
-  }
-  /**
-   *
-   */
-  //var_dump($_POST);
-  //var_dump($_FILES);
-    /**
-   *
-   */
-  if(!$errores){
-    $producto->modificarProducto($datos["id"],$img,$datos);
-    $unProducto=new Producto();
-    $unProducto=$producto->buscarPorId($datos["id"]);
-    $msj="success";
-  }else{
-    $datos["img"]=$img;
-    //var_dump($datos);
-    foreach ($datos as $key => $value) {
-      $valorPersistencia[$key]=persistirDatoGeneral($errores,$key,$datos);
-    }
-    $unProducto=new Producto();
-    $unProducto->setId($valorPersistencia["id"]);
-    $unProducto->setNombre($valorPersistencia["nombre"]);
-    $unProducto->setDescripcion($valorPersistencia["descripcion"]);
-    $unProducto->setPrecio($valorPersistencia["precio"]);
-    $unProducto->setStock($valorPersistencia["stock"]);
-    $unProducto->setMarca($valorPersistencia["marca"]);
-    $unProducto->setCategoria($valorPersistencia["categoria"]);
-    $unProducto->setDescuento($valorPersistencia["descuento"]);
-    $unProducto->setImg($valorPersistencia["img"]);
-    //var_dump($valorPersistencia);
-    $msj="danger";
-  }
-  /**
-   *
-   */
-  /**
-   * esta aqui nuevo
-   */
-
-    $id= ((int)$_POST["id"]);//de alguna manera le tiene que llegar un id
-
-    //$producto->modificarProducto($id,$img,$datos);
-    //$msj="success";
-    //$unProducto=$producto->buscarPorId($id);
-}
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<?php include 'includes/head.php';?>
-<title>ABM Productos</title>
+  @include('inc.head')
+<title>Modificar Productos</title>
 
 <body>
 
-  <?php include 'includes/headerAdm.php'; ?>
+  @include('inc.headerPerfil')
 
 
 
@@ -177,18 +19,8 @@ if (isset($_POST["modificar_id"])&& $_POST ){
               <button class="btn btn-link mr-3 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
               Modificar Producto
               </button>
-              <p class="btn alert alert-<?=$msj;?>" role="alert">
-                <?php
-                  if($msj=="success"){
-                    echo("Producto se agregada correctamente.");
-                  }
-                  if($msj=="danger"){
-                    echo("No se pudo modificar el Producto");
-                  }
-                  if($msj=="warning"){
-                    echo("No se encuentra el Producto a Eliminar");
-                  }
-                ?>
+              <p class="btn alert alert-" role="alert">
+
               </p>
               <a href="abmProducto.php" class=" btn btn-primary ml-3 ">Volver a principal</a>
             </h5>
@@ -292,10 +124,7 @@ if (isset($_POST["modificar_id"])&& $_POST ){
 
 
 
-  <?php
-  include 'includes/footer.php';
-  include 'includes/scriptBootstrap.php';
-  ?>
+  @include('inc.footer')
 
 </body>
 </html>

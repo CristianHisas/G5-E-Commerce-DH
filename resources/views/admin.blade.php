@@ -18,16 +18,16 @@ $_SESSION["msj"]="";
     <h1>Administración</h1>
 
     <div class="list-group">
-        <a class="list-group-item list-group-item-action" href="abmMarca">
+        <a class="list-group-item list-group-item-action" href="/cuenta/admin/abmMarca">
             Panel de administración de Marcas
         </a>
-        <a class="list-group-item list-group-item-action" href="abmCategoria">
+        <a class="list-group-item list-group-item-action" href="/cuenta/admin/abmCategoria">
             Panel de administración de Categorías
         </a>
-        <a class="list-group-item list-group-item-action" href="abmProducto">
+        <a class="list-group-item list-group-item-action" href="/cuenta/admin/producto/lista">
             Panel de administración de Productos
         </a>
-        <a class="list-group-item list-group-item-action" href="adminUsuario">
+        <a class="list-group-item list-group-item-action" href="/cuenta/admin/adminUsuario">
             Panel de administración de Usuarios
         </a>
     </div>

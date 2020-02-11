@@ -1,74 +1,27 @@
-<?php
-//require_once ('includes/pdo.php');
-//require_once 'clases/Conexion.php';
-//require_once 'clases/Marca.php';
-//require_once 'clases/Categoria.php';
-//require_once 'clases/Producto.php';
-#include_once("includes/funciones.php");
-#include_once("includes/baseDeDatos.php");
-#session_start();
-#$producto = new Producto();
-#$msj="";
 
-#variable=$producto->obtenerListaProductos();
-//var_dump($variable);
-if ($_POST) {
- // var_dump($_POST);
- // exit;
-if (isset($_POST["btnBorrar"])) {
-    $id =$_POST["btnBorrar"];
-
-    $producto->borrarProducto($id);
-    if($producto){
-      $_SESSION["msj"]="Eliminado Producto de ID: $id";
-    }else {
-      $_SESSION["msj"]="Error en eliminado Producto de ID: $id";
-    }
-
-    $archivoActual = $_SERVER['PHP_SELF'];
-    header("refresh:1;url=$archivoActual");
-      exit;
-
-  }
-}
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 @include('inc.head')
 <title>Productos</title>
 <body>
 
-  @include('inc.headerAdm')
+  @include('inc.headerPerfil')
 
   <main>
 
     <div class="container-fluir my-3">
-      <?php
-        //if(isset($_SESSION["msj"])){
-        if($_SESSION["msj"]!=""){
-      ?>
-
-      <div class="alert alert-success">
-
-      <h5><?=$_SESSION["msj"];?></h5>
-      </div>
-      <?php
-        $_SESSION["msj"]="";
-      //}
-    }
-      ?>
       <div id="accordion">
         <div class="card">
           <div class="card-header " id="headingFour">
             <h5 class="mb-0 d-flex justify-content-between">
-              <button class="btn btn-link mr-3 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="btn btn-link mr-3" >
                 Lista de Productos
               </button>
-              <a href="agregarProducto.php" class="btn btn-primary ml-3 ">Agregar</a>
+              <a href="/cuenta/admin/producto/agrega" class="btn btn-primary ml-3 ">Agregar</a>
               <a href="admin.php" class="btn btn-primary ml-3">Volver a principal</a>
             </h5>
           </div>
-          <div id="collapseFour" class="collapse carrito-resumen" aria-labelledby="headingFour" data-parent="#accordion">
+          <div id="collapseFour" class=" carrito-resumen" >
             <ul class="list-group">
               <li class="list-group-item">
                 <div class="card-body form-inline d-flex justify-content-between px-0">
@@ -102,21 +55,21 @@ if (isset($_POST["btnBorrar"])) {
                 </div>
               </li>
               <?php
-              $i=0;
-              foreach ($variable as $key => $value) {
-                $i+=1;
+
+              foreach ($productos as $key => $value) {
+                
                 ?>
 
                 <li class="list-group-item">
                   <div class="card-body  px-0">
-                    <form class="form-inline d-flex justify-content-between " action="modificarProducto.php" method="post">
+                    <form class="form-inline d-flex justify-content-between " action="/cuenta/admin/Producto/modificar/{{$value->id_producto}}" method="get">
                       <div class="form-group mb-1 col-1 px-1" >
-                        <input type="text" readonly class="form-control-plaintext text-center" id="idF" value="<?=$i;?>" name="idF" >
-                        <input type="text" readonly class="form-control-plaintext text-center" id="id" value="<?=$value->getId();?>" name="id" readonly hidden>
+                        <span  class="form-control-plaintext text-center" ><?=$value->id_producto;?></span>
+                        <input type="text" readonly class="form-control-plaintext text-center" id="id" value="<?=$value->id_producto;?>" name="id" readonly hidden>
                       </div>
                       <div class="form-group mb-2 col-2 px-1">
 
-                        <span  class="form-control-plaintext text-center" ><?=$value->getNombre();?></span>
+                        <span  class="form-control-plaintext text-center" ><?=$value->nombre;?></span>
                       </div>
                       <div class="form-group mb-2 col-1">
 
@@ -137,14 +90,8 @@ if (isset($_POST["btnBorrar"])) {
                               </button>
                             </div>
                             <div class="modal-body">
-                             <!-- <p>
-                                <pre>
-                                  <?=$value->getDescripcion();?>
-                                </pre>
-                              </p>
-                              -->
                               <?php
-                                  $array=explode(PHP_EOL,$value->getDescripcion());
+                                  $array=explode(PHP_EOL,$value->descripcion);
                                   foreach ($array as $key => $caracteristica) {?>
                                     <ul type="circle">
                                       <li >
@@ -164,65 +111,65 @@ if (isset($_POST["btnBorrar"])) {
                       <!--modal de descripcion -->
                       <div class="form-group mb-2 col-1">
 
-                        <span class="form-control-plaintext text-center" >$ <?=$value->getPrecio();?></span>
+                        <span class="form-control-plaintext text-center" >$ <?=$value->precio;?></span>
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <span class="form-control-plaintext text-center" ><?=$value->getStock();?></span>
+                        <span class="form-control-plaintext text-center" ><?=$value->cantidad;?></span>
                       </div>
                       <div class="form-group mb-2 col-2 px-1">
 
-                        <span class="form-control-plaintext text-center" ><?=$value->getMarca();?></span>
+                        <span class="form-control-plaintext text-center" ><?=$value->getMarca->marca;?></span>
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <span class="form-control-plaintext text-center d-block" ><?=$value->getCategoria();?></span>
+                        <span class="form-control-plaintext text-center d-block" ><?=$value->getCategoria->categoria;?></span>
                       </div>
                       <div class="form-group mb-2 col-1 px-1">
 
-                        <span class="form-control-plaintext text-center d-block" ><?=$value->getDescuento();?>%</span>
+                        <span class="form-control-plaintext text-center d-block" ><?=$value->descuento;?>%</span>
                       </div>
                       <div class="form-group mb-2 col-2 text-center">
 
-                        <img src="<?=$value->getImg();?>" alt="" sizes="" width="80%" class="zoom">
+                        <img src="<?=$value->img;?>" alt="" sizes="" width="80%" class="zoom">
                       </div>
                       <div class="form-group mb-2 col-12 text-center">
-                        <button type="submit" class="btn btn-primary mx-2 mb-1 " name="modificar_l" value="<?=$value->getId();?>">Modificar</button>
+                        <a class="btn btn-primary mx-2 mb-1 "  href="/cuenta/admin/Producto/modificar/{{$value->id_producto}}">Modificar</a>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$value->getId();?>" data-toggle="modal" data-target="#eliminar<?=$value->getId();?>Modal">
+                        <button type="button" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$value->id_producto;?>" data-toggle="modal" data-target="#eliminar<?=$value->id_producto;?>Modal">
                             Eliminar
                         </button>
                       </form>
-                      <form class="form-inline d-flex justify-content-between " action="" method="post">
+                      <div class="form-inline d-flex justify-content-between " action="" method="post">
                         <!-- Modal -->
-                        <div class="modal fade" id="eliminar<?=$value->getId();?>Modal" tabindex="-1" role="dialog" aria-labelledby="eliminar<?=$value->getId();?>ModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="eliminar<?=$value->id_producto;?>Modal" tabindex="-1" role="dialog" aria-labelledby="eliminar<?=$value->id_producto;?>ModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content text-center">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="eliminar<?=$value->getId();?>ModalLabel">Desea eliminar este producto?</h5>
+                                <h5 class="modal-title" id="eliminar<?=$value->id_producto;?>ModalLabel">Desea eliminar este producto?</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
                               <div class="modal-body d-flex align-items-center justify-content-center flex-wrap">
                                 <div class="form-group mb-2 col-10 px-1 ">
-                                  <span  class="form-control-plaintext " ><?=$value->getNombre();?></span>
+                                  <span  class="form-control-plaintext " ><?=$value->nombre;?></span>
                                 </div>
                                 <div class="form-group mb-2 col-5 text-center">
-
-                                  <img src="<?=$value->getImg();?>" alt="" sizes="" width="80%" class="">
+                                  
+                                  <img src="{{asset($value->img)}}" alt="Foto Celular" sizes="" width="80%" class="">
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary mx-2 mb-1 " name="btnBorrar" value="<?=$value->getId();?>">Eliminar</button>
+                                <a class="btn btn-primary mx-2 mb-1 "  href="/cuenta/admin/Producto/eliminar/{{$value->id_producto}}">Eliminar</a>
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        </form>
+                      </div>
                       </div>
 
                   </div>
@@ -234,9 +181,10 @@ if (isset($_POST["btnBorrar"])) {
         </div>
       </div>
     </div>
-
+    <span class="form-control-plaintext mx-auto d-linea">{{$productos->links()}}</span>
+    
   </main>
-  @include('footer')
+  @include('inc.footer')
 
 </body>
 </html>

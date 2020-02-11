@@ -47,6 +47,7 @@ Route::get('/contacto', function(){
 Route::get('/cuenta/perfil', function(){
   return view('perfil');
 });
+Route::post("/cuenta/modificarUsuario",'UsuarioController@store');
 
 Route::get('/cuenta/resumen', function(){
   return view('resumen');
@@ -63,3 +64,9 @@ Route::get('/cuenta/admin', function(){
 Route::get('/cuenta/admin/abmMarca', "MarcaController@index");
 
 Route::get('/cuenta/admin/abmCategoria', "CategoriaController@index");
+Route::get("/cuenta/admin/producto/lista","ProductoController@index");
+Route::get("/cuenta/admin/producto/agrega","ProductoController@create");
+Route::post("/cuenta/admin/producto/formagrega","ProductoController@store");
+Route::get("/cuenta/admin/producto/modificar/{id}","ProductoController@edit");
+Route::post("/cuenta/admin/producto/modificar/{id}","ProductoController@update");
+Route::get("/cuenta/admin/producto/eliminar/{id}","ProductoController@destroy");

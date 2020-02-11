@@ -10,4 +10,7 @@ class Marca extends Model
     public $pk = "id_marca";
     public $timestamps = false;
     public $guarded = [];
+    public function getProductos(){
+        return $this->hasMany("App\Producto","id_marca","id_marca");
+    }
 }

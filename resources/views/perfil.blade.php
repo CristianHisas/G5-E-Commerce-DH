@@ -11,7 +11,7 @@
                 <h2>Datos:</h2>
                 <div class="col-12">
                   <!--Formulario-->
-                  <form class="container-fluir" method="post" action="/agregarUsuario" name="datosUsuario" enctype="multipart/form-data" autocomplete="on" >
+                  <form class="container-fluir" method="post" action="/cuenta/modificarUsuario" name="datosUsuario" enctype="multipart/form-data" autocomplete="on" >
                   {{ csrf_field() }}
                   <!--imagen-->
 
