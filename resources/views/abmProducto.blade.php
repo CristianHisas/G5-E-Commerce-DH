@@ -13,12 +13,12 @@
       <div id="accordion">
         <div class="card">
           <div class="card-header " id="headingFour">
-            <h5 class="mb-0 d-flex justify-content-between">
+            <h5 class="mb-0 d-flex justify-content-between ">
               <button class="btn btn-link mr-3" >
                 Lista de Productos
               </button>
               <a href="/cuenta/admin/producto/agrega" class="btn btn-primary ml-3 ">Agregar</a>
-              <a href="admin.php" class="btn btn-primary ml-3">Volver a principal</a>
+              <a href="/cuenta/admin" class="btn btn-primary ml-3">Volver a principal</a>
             </h5>
           </div>
           <div id="collapseFour" class=" carrito-resumen" >
@@ -134,7 +134,7 @@
                         <img src="<?=$value->img;?>" alt="" sizes="" width="80%" class="zoom">
                       </div>
                       <div class="form-group mb-2 col-12 text-center">
-                        <a class="btn btn-primary mx-2 mb-1 "  href="/cuenta/admin/Producto/modificar/{{$value->id_producto}}">Modificar</a>
+                        <a class="btn btn-primary mx-2 mb-1 "  href="/cuenta/admin/producto/modificar/{{$value->id_producto}}">Modificar</a>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$value->id_producto;?>" data-toggle="modal" data-target="#eliminar<?=$value->id_producto;?>Modal">
@@ -163,7 +163,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a class="btn btn-primary mx-2 mb-1 "  href="/cuenta/admin/Producto/eliminar/{{$value->id_producto}}">Eliminar</a>
+                                <a class="btn btn-primary mx-2 mb-1 "  href="/cuenta/admin/producto/eliminar/{{$value->id_producto}}">Eliminar</a>
                               </div>
                             </div>
                           </div>

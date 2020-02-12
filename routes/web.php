@@ -61,12 +61,41 @@ Route::get('/cuenta/admin', function(){
   return view('admin');
 });
 
-Route::get('/cuenta/admin/abmMarca', "MarcaController@index");
+#---------------CRUD Marcas------------------------#
 
-Route::get('/cuenta/admin/abmCategoria', "CategoriaController@index");
+Route::get('/abmMarca', "MarcaController@index");
+
+Route::get('/formAgregarMarca', "MarcaController@create");
+
+Route::post('/agregarMarca', "MarcaController@store");
+
+Route::get('/formModificarMarca/{id}', "MarcaController@edit");
+
+Route::post('/modificarMarca', "MarcaController@update");
+
+Route::get('/abmMarca/{id}', "MarcaController@destroy");
+
+#------------Fin CRUD Marcas------------------------#
+
+#---------------CRUD Categorias------------------------#
+
+Route::get('/abmCategoria', "CategoriaController@index");
+
+Route::get('/formAgregarCategoria', "CategoriaController@create");
+
+Route::post('/agregarCategoria', "CategoriaController@store");
+
+Route::get('/formModificarCategoria/{id}', "CategoriaController@edit");
+
+Route::post('/modificarCategoria', "CategoriaController@update");
+
+Route::get('/abmMarca/{id}', "CategoriaController@destroy");
+
+#------------Fin CRUD Categorias------------------------#
+
 Route::get("/cuenta/admin/producto/lista","ProductoController@index");
 Route::get("/cuenta/admin/producto/agrega","ProductoController@create");
 Route::post("/cuenta/admin/producto/formagrega","ProductoController@store");
 Route::get("/cuenta/admin/producto/modificar/{id}","ProductoController@edit");
-Route::post("/cuenta/admin/producto/modificar/{id}","ProductoController@update");
+Route::patch("/cuenta/admin/producto/formmodificar/{id}","ProductoController@update");
 Route::get("/cuenta/admin/producto/eliminar/{id}","ProductoController@destroy");

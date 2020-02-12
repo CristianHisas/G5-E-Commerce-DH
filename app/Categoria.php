@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
   public $table = "categorias";
-  public $pk = "id_categoria";
+  public $primaryKey = "id_categoria";
   public $timestamps = false;
   public $guarded = [];
   public function getProductos(){

@@ -16,7 +16,7 @@
                 <th>id</th>
                 <th>Categoria</th>
                 <th colspan="2">
-                    <a href="formAgregarCategoria.php" class="btn btn-dark">
+                    <a href="formAgregarCategoria" class="btn btn-dark">
                         agregar
                     </a>
                 </th>
@@ -27,10 +27,10 @@
             foreach ( $categorias as $categoria  ){
 ?>
             <tr>
-                <td><?= $categoria['id_categoria']; ?></td>
+                <td>{{$categoria->id_categoria}}</td>
                 <td><?= $categoria['categoria']; ?></td>
                 <td>
-                    <a href="formModificarCategoria.php?id=<?php echo $categoria['id_categoria']; ?>" class="btn btn-outline-secondary">
+                    <a href="/formModificarCategoria/{{$categoria->id_categoria}}" class="btn btn-outline-secondary">
                         modificar
                     </a>
                 </td>
@@ -57,7 +57,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a href="eliminarCategoria.php?id=<?php echo $categoria["id_categoria"]; ?>" class="btn btn-outline-secondary">
+                                <a href="/abmMarca/{{$categoria->id_categoria}}" class="btn btn-outline-secondary">
                         eliminar
                     </a>
                               </div>

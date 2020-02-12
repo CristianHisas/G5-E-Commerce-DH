@@ -28,10 +28,10 @@
             foreach ( $marcas as $marca  ){
 ?>
             <tr>
-                <td><?= $marca['id_marca']; ?></td>
+                <td>{{$marca->id_marca}}</td>
                 <td><?= $marca['marca']; ?></td>
                 <td>
-                    <a href="formModificarMarca.php?id=<?php echo $marca['id_marca']; ?>" class="btn btn-outline-secondary">
+                    <a href="/formModificarMarca/{{$marca->id_marca}}" class="btn btn-outline-secondary">
                         modificar
                     </a>
                 </td>
@@ -58,7 +58,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a href="eliminarMarca.php?id=<?php echo $marca['id_marca']; ?>" class="btn btn-outline-secondary">
+                                <a href="/abmMarca/{{$marca->id_marca}}" class="btn btn-outline-secondary">
                         eliminar
                     </a>
                               </div>
