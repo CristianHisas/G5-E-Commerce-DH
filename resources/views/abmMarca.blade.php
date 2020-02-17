@@ -9,7 +9,7 @@
 <main class="container">
     <h1>Administracion de Marcas</h1>
 
-    <a href="admin" class="btn btn-outline-secondary m-3">Volver a principal</a>
+    <a href="{{url('/cuenta/admin')}}" class="btn btn-outline-secondary m-3">Volver a principal</a>
 
         <table class="table table-stripped table-bordered table-hover bg-white">
             <thead class="thead-dark">
@@ -31,7 +31,7 @@
                 <td>{{$marca->id_marca}}</td>
                 <td><?= $marca['marca']; ?></td>
                 <td>
-                    <a href="/formModificarMarca/{{$marca->id_marca}}" class="btn btn-outline-secondary">
+                    <a href="formModificarMarca/{{$marca->id_marca}}" class="btn btn-outline-secondary">
                         modificar
                     </a>
                 </td>
@@ -58,7 +58,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a href="/abmMarca/{{$marca->id_marca}}" class="btn btn-outline-secondary">
+                                <a href="abmMarca/{{$marca->id_marca}}" class="btn btn-outline-secondary">
                         eliminar
                     </a>
                               </div>
@@ -76,7 +76,7 @@
             </tbody>
         </table>
 
-    <a href="admin" class="btn btn-outline-secondary m-3">Administracion principal</a>
+    <a href="{{url('/cuenta/admin')}}" class="btn btn-outline-secondary m-3">Administracion principal</a>
 
     </main>
 

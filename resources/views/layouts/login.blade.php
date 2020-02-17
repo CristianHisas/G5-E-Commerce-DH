@@ -39,7 +39,7 @@ foreach ($pagina as $key => $value) {
            <!--Comienza el nav-->
            <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
                 <!--Comienza el nombre de la empresa-->
-                    <a class="navbar-brand" href="home.php">
+                    <a class="navbar-brand" href="{{url('home')}}">
                       <img src="/img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
                       <span>E-commerce</span>
                     </a>
@@ -68,7 +68,7 @@ foreach ($pagina as $key => $value) {
                     <div class="collapse navbar-collapse " id="navbarNav">
                       <ul class="navbar-nav ml-md-auto">
                         <li class="nav-item ">
-                          <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="{{url('home')}}">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                                 <!--Comienza el categoria-->
@@ -94,22 +94,22 @@ foreach ($pagina as $key => $value) {
                         </li>
                         <?php if (isset($_SESSION["activeUser"])  && $pagina ?? ''!="Registro" && $pagina ?? ''!="Login" ): ?>
                           <li class="nav-item">
-                            <a class="nav-link text-primary" href="resumen.php"><?=(isset($_SESSION["activeUser"]["usuario"]))?$_SESSION["activeUser"]["usuario"]:"usuario";?></a>
+                            <a class="nav-link text-primary" href="{{url('resumen')}}"><?=(isset($_SESSION["activeUser"]["usuario"]))?$_SESSION["activeUser"]["usuario"]:"usuario";?></a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link text-primary" href="logOut.php">Cerrar Sesion</a>
+                            <a class="nav-link text-primary" href="{{url('logOut')}}">Cerrar Sesion</a>
                           </li>
                         <?php else: ?>
                           <li class="nav-item">
-                                <a class="nav-link  text-primary" href="login.php">Iniciar Sesion</a>
+                                <a class="nav-link  text-primary" href="{{url('login')}}">Iniciar Sesion</a>
                           </li>
                           <li class="nav-item">
-                                <a class="nav-link  text-primary" href="registro.php">Registrarse</a>
+                                <a class="nav-link  text-primary" href="{{url('registro')}}">Registrarse</a>
                           </li>
                         <?php  endif ?>
-                        
+
                         <li class="nav-item">
-                                <a class="nav-link" href="faq.php">Ayuda <img src="/img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
+                                <a class="nav-link" href="{{url('faq')}}">Ayuda <img src="/img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
@@ -131,12 +131,12 @@ foreach ($pagina as $key => $value) {
         <div class="row">
 <!--ubicacion-->
 <ul class="breadcrumb  col-12">
-    <li><a href="/home">Home</a></li>
-    <?php 
-    for ($i=1; $i <count($pagina) ; $i++) { 
+    <li><a href="{{url('home')}}">Home</a></li>
+    <?php
+    for ($i=1; $i <count($pagina) ; $i++) {
     ?>
       <li class="active"><span class="divider">/</span><?=$pagina[$i]; ?></li>
-    <?php  
+    <?php
   }
     ?>
 </ul>
@@ -144,16 +144,16 @@ foreach ($pagina as $key => $value) {
 <!--menu izquierdo-->
 <div class="col-12 col-sm-12 col-md-3 col-lg-3 mb-4 menu-left">
     <ul class="list-group">
-        <li class="list-group-item "><a href="resumen.php" class="">Resumen</a></li>
+        <li class="list-group-item "><a href="{{url('resumen')}}" class="">Resumen</a></li>
         <li class="list-group-item conf" >
             <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Configuracion</a>
             <div class="collapse" id="collapseExample">
                 <ul class="card card-header">
                     <li >
-                        <a href="perfil.php" class="">Mis Datos</a>
+                        <a href="{{url('perfil')}}" class="">Mis Datos</a>
                     </li>
                     <li >
-                        <a href="seguridad.php" class="">Seguridad</a>
+                        <a href="{{url('seguridad')}}" class="">Seguridad</a>
                     </li>
                 </ul>
             </div>
@@ -171,15 +171,15 @@ foreach ($pagina as $key => $value) {
 <!-- footer -->
 <footer class="container-fluid bg-dark px-auto py-4  footer-cambiado ">
   <!-- Footer ================================================================== -->
-    
+
         <div class="row d-flex justify-content-between">
           <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
             <h5>ACCOUNT</h5>
-            <a href="/cuenta/perfil" class="">YOUR ACCOUNT</a>
-            <a href="/cuenta/perfil">PERSONAL INFORMATION</a>
-            <a href="/cuenta/perfil">ADDRESSES</a>
-            <a href="/cuenta/">DISCOUNT</a>
-            <a href="/cuenta/resumen">ORDER HISTORY</a>
+            <a href="{{url('/cuenta/perfil')}}" class="">YOUR ACCOUNT</a>
+            <a href="{{url('/cuenta/perfil')}}">PERSONAL INFORMATION</a>
+            <a href="{{url('/cuenta/perfil')}}">ADDRESSES</a>
+            <a href="{{url('/cuenta')}}">DISCOUNT</a>
+            <a href="{{url('/cuenta/resumen')}}">ORDER HISTORY</a>
           </div>
           <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
             <h5>INFORMATION</h5>
@@ -309,7 +309,7 @@ foreach ($pagina as $key => $value) {
   </div>
 </div>
 <!-- Fin modal -->
-                        
+
 <!-- Fin modal -->
 <!-- Scripts ============================================= -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

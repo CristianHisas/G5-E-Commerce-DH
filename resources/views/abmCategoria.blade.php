@@ -8,7 +8,7 @@
 <!-- include 'includes/headerAdm.php'; -->
 <main class="container">
     <h1>Administracion de Categorias</h1>
-    <a href="admin" class="btn btn-outline-secondary m-3">Administracion principal</a>
+    <a href="{{url('cuenta/admin')}}" class="btn btn-outline-secondary m-3">Administracion principal</a>
 
         <table class="table table-stripped table-bordered table-hover bg-white">
             <thead class="thead-dark">
@@ -30,7 +30,7 @@
                 <td>{{$categoria->id_categoria}}</td>
                 <td><?= $categoria['categoria']; ?></td>
                 <td>
-                    <a href="/formModificarCategoria/{{$categoria->id_categoria}}" class="btn btn-outline-secondary">
+                    <a href="formModificarCategoria/{{$categoria->id_categoria}}" class="btn btn-outline-secondary">
                         modificar
                     </a>
                 </td>
@@ -57,7 +57,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a href="/abmMarca/{{$categoria->id_categoria}}" class="btn btn-outline-secondary">
+                                <a href="abmCategoria/{{$categoria->id_categoria}}" class="btn btn-outline-secondary">
                         eliminar
                     </a>
                               </div>
@@ -72,7 +72,7 @@
             </tbody>
         </table>
 
-        <a href="admin" class="btn btn-outline-secondary m-3">Administracion principal</a>
+        <a href="{{url('cuenta/admin')}}" class="btn btn-outline-secondary m-3">Administracion principal</a>
     </main>
 
 

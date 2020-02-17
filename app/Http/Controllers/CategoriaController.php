@@ -119,6 +119,6 @@ class CategoriaController extends Controller
 
       $Categoria->delete();
 
-      return redirect('/abmCategoria');
+      return redirect('cuenta/admin/abmCategoria');
     }
 }

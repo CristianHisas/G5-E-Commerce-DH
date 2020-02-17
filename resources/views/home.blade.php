@@ -81,7 +81,7 @@ if(isset($_SESSION["activeUser"]) && !is_null($_SESSION["activeUser"])){
                         Vehículos
                     </div>
                 </div>
-                <a href="listaProductos" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
+                <a href="{{url('listaProductos')}}" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/tel.png" alt="">

@@ -6,7 +6,7 @@
 
 @section('contenido_login')
 
-<!-----Resumen-------------------------------->
+<!---Resumen-------------------------------->
 <div class="col-12 col-sm-12 col-md-9  col-lg-9 mb-4 resumen">
   <h1 class="d-block">Resumen</h1>
 <!--comienzo del carrito actual--->
@@ -142,7 +142,7 @@
             <p>$15215.25</p>
         </div>
         <div class=" col-sm-12 col-md-2 col-lg-2">
-            <a href="factura/factura-ejemplo.pdf" download="factura-ejemplo.pdf" class="d-block"><p><img src="img/pdf.png" alt=""></p></a>
+            <a href="{{url('factura/factura-ejemplo.pdf')}}" download="factura-ejemplo.pdf" class="d-block"><p><img src="img/pdf.png" alt=""></p></a>
         </div>
     </div>
   <!--fin Fila -->
@@ -161,7 +161,7 @@
           <p>$15215.25</p>
       </div>
       <div class=" col-sm-12 col-md-2 col-lg-2">
-          <a href="descargar.html" class="d-block"><p><img src="img/pdf.png" alt=""></p></a>
+          <a href="{{url('descargar.html')}}" class="d-block"><p><img src="img/pdf.png" alt=""></p></a>
       </div>
   </div>
 <!--fin Fila -->
@@ -180,13 +180,13 @@
       <p>$15215.25</p>
   </div>
   <div class=" col-sm-12 col-md-2 col-lg-2">
-      <a href="descargar.html" class="d-block"><p><img src="img/pdf.png" alt=""></p></a>
+      <a href="{{url('descargar.html')}}" class="d-block"><p><img src="img/pdf.png" alt=""></p></a>
   </div>
 </div>
 <!--fin Fila -->
   </div>
-<!--fin Facturas------------------------------- -->
+<!--fin Facturas- -->
 </div>
-<!-----Fin Resumen-------------------------------->
+<!---Fin Resumen-------------------------------->
 
 @endsection

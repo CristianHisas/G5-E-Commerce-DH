@@ -4,7 +4,7 @@
     <main class="container">
         <h1> Actualizacion de una marca</h1>
 
-        <form action="/modificarMarca" method="post">
+        <form action="{{url('cuenta/admin/modificarMarca')}}" method="post">
         @csrf
             Marca:
             <input type="hidden" name="id_marca" value= {{$Marca->id_marca}}>
@@ -19,7 +19,7 @@
             </ul>
             <br>
             <input type="submit" value="Modificar Marca" class="btn btn-secondary">
-            <a href="/abmMarca" class="btn btn-light">Volver a admin de marcas</a>
+            <a href="{{url('cuenta/admin/abmMarca')}}" class="btn btn-light">Volver a admin de marcas</a>
 
         </form>
 
