@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('E-commerce', 'E-commerce'),
 
     /*
     |--------------------------------------------------------------------------
@@ -225,7 +225,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'CreditCard'=> 'Inacho\CreditCard',
     ],
 
 ];

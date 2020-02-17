@@ -1,8 +1,8 @@
-
-    @include('inc.head')
-    @include('inc.headerAdm')
-
-
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
     <main class="container">
         <h1>Alta de una nueva Categoria</h1>
 <?php
@@ -20,5 +20,5 @@
 <a href="abmCategoria" class="btn btn-light">Volver a admin de categorias</a>
 
     </main>
+    @endsection
 
-@include('inc.footer')

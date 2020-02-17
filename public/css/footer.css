@@ -34,7 +34,7 @@
 /*Media Querys*/
 @media (max-width: 470.98px) {
     .container{
-        margin-top: 16vh;
+       /* margin-top: 16vh;*/
     }
     .footer-cambiado div div{
         text-align: center;
@@ -69,12 +69,12 @@
 }
 @media (max-width: 457.8px) {
     .container{
-        margin-top: 160px;
+        /*margin-top: 160px;*/
     }
 }
 @media (min-width: 458px) and (max-width: 599.98px) {
     .container{
-        margin-top: 120px;
+        /*margin-top: 120px;*/
     }
     .footer-cambiado div div{
         text-align: center;

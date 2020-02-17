@@ -1,33 +1,12 @@
 <?php
-  session_start();
-  //include_once("../includes/funciones.php");
-  //include_once("../includes/baseDeDatos.php");
   $pagina="Descriccion de Producto";
-  //$pagina_anterior=$_SERVER['HTTP_REFERER'];//pagina anterior
-  if(isset($_SESSION["activeUser"]) && !is_null($_SESSION["activeUser"])){
-    if($_SESSION["activeUser"]["fotoPerfil"]==""){
-      $_SESSION["activeUser"]["fotoPerfil"]=(isset($imagenUsuario))?$imagenUsuario:"img/perfil.png";
-    }
-    $activeUser=$_SESSION["activeUser"];
-  }
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-@include('inc.head')
-
-<body>
-
- <!--Comienza el header-->
- <header class="container-fluir fixed-top">
-
-      @include('inc.headerPerfil')
-
-    </header>
-     <!--Fin el header-->
-  @include('inc.modal')
-
-  <!--Main-->
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
   <main>
         <div class="container" id="mainContainer">
 
@@ -129,7 +108,5 @@
   </main>
   <!--End main-->
 
-  @include('inc.footer')
+  @endsection
 
-</body>
-</html>

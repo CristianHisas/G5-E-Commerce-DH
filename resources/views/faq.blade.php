@@ -11,23 +11,11 @@
     $activeUser=$_SESSION["activeUser"];
   }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-  @include('inc.head')
-
-
-<title>E-commerce</title>
-
-<body class="main-perfil">
-    <!--Comienza el header-->
- <header class="container-fluir fixed-top">
-
-      @include('inc.headerPerfil')
-
-    </header>
-     <!--Fin el header-->
-
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
     <main class="">
         <div class="inner-main">
          @include("inc.navBar")
@@ -253,21 +241,5 @@
                 </div>
         </div>
     </main>
+    @endsection
 
-
-
-
-<!-- footer -->
-
-    @include('inc.footer')
-
-<!-- fin footer -->
-<!-- Modal -->
-
-    @include('inc.modal')
-
-<!-- Fin modal -->
-
-    <script src="https://kit.fontawesome.com/67f61afa3e.js" crossorigin="anonymous"></script>
-</body>
-</html>

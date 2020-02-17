@@ -1,12 +1,9 @@
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-@include('inc.head')
-<title>Productos borrar</title>
-<body>
-
-  @include('inc.headerPerfil')
-
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
   <main>
   <div class="alert alert-{{$msj[0]}} my-3">
           
@@ -19,7 +16,4 @@
           </div>
     </div>
   </main>
-  @include('inc.footer')
-
-</body>
-</html>
+  @endsection

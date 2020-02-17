@@ -1,10 +1,8 @@
-@include('inc.head')
-@include('inc.headerAdm')
-
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<title>ABM Categorias</title>
-<body>
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
 <!-- include 'includes/headerAdm.php'; -->
 <main class="container">
     <h1>Administracion de Categorias</h1>
@@ -74,10 +72,6 @@
 
         <a href="admin" class="btn btn-outline-secondary m-3">Administracion principal</a>
     </main>
-
-
-  @include('inc.footer')
-
-
+    @endsection
 </body>
 </html>

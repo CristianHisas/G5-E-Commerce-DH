@@ -1,12 +1,8 @@
-
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-@include('inc.head')
-<title>Productos</title>
-<body>
-
-  @include('inc.headerPerfil')
-
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
   <main>
 
     <div class="container-fluir my-3">
@@ -184,7 +180,4 @@
     <span class="form-control-plaintext mx-auto d-linea">{{$productos->links()}}</span>
     
   </main>
-  @include('inc.footer')
-
-</body>
-</html>
+  @endsection

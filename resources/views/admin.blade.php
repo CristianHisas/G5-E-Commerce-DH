@@ -2,18 +2,11 @@
 session_start();
 $_SESSION["msj"]="";
 ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-@include('inc.head')
-
-<title>ABM Productos</title>
-
-
-<!-- body -->
-
-  @include('inc.headerAdm')
-
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
   <main class="container ">
     <h1>Administración</h1>
 
@@ -32,12 +25,5 @@ $_SESSION["msj"]="";
         </a>
     </div>
 </main>
+@endsection
 
-
-
-  @include('inc.footer')
-
-<!-- /body -->
-
-
-</html>

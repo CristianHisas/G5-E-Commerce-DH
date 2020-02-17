@@ -12,21 +12,11 @@
   }
   $pagina="Contacto";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-@include('inc.head')
-
-<title>Contacto</title>
-
-<body class="main-login">
-    <!--Comienza el header-->
-    <header class="container-fluir fixed-top">
-
-          @include('inc.headerPerfil')
-
-        </header>
-         <!--Fin el header-->
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
     <main class=" container mb-4 main-inicio">
         <ul class="breadcrumb col-12">
             <li><a href="home">Home</a> <span class="divider">/</span></li>
@@ -50,14 +40,4 @@
             </form>
         </section>
     </main>
-
- <!-- footer -->
-    @include('inc.footer')
-<!-- fin footer -->
-<!-- Modal -->
-    @include('inc.modal')
-<!-- Fin modal -->
-    <script src="https://kit.fontawesome.com/67f61afa3e.js" crossorigin="anonymous"></script>
-</body>
-
-</html>
+    @endsection

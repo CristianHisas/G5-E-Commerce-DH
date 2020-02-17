@@ -12,20 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/home', function(){
   return view('home');
 });
+Route::get('/index', function(){
+  return view('index');
+});
 
-Route::get('/listaProductos', function(){
-  return view('listaProductos');
+Route::get('/listaProductos{marca?}', function($marca=""){
+
+  return view('listaProductos')->with("marca",$marca);
 }
 );
 
-Route::get('/productoDetalle', function(){
-    return view('productoDetalle');
+Route::get('/productoDetalle{id?}', function($id=""){
+    return view('productoDetalle')->with("id",$id);
 });
 
 Route::get('/login', function(){
@@ -44,18 +48,10 @@ Route::get('/contacto', function(){
   return view('contacto');
 });
 
-Route::get('/cuenta/perfil', function(){
-  return view('perfil');
-});
+
 Route::post("/cuenta/modificarUsuario",'UsuarioController@store');
 
-Route::get('/cuenta/resumen', function(){
-  return view('resumen');
-});
 
-Route::get('/cuenta/seguridad', function(){
-  return view('seguridad');
-});
 
 Route::get('/cuenta/admin', function(){
   return view('admin');
@@ -92,10 +88,28 @@ Route::post('/modificarCategoria', "CategoriaController@update");
 Route::get('/abmMarca/{id}', "CategoriaController@destroy");
 
 #------------Fin CRUD Categorias------------------------#
+#------------ CRUD Producto------------------------#
+Route::get("/cuenta/admin/producto/lista","ProductoController@index")->middleware('auth');
+Route::get("/cuenta/admin/producto/agrega","ProductoController@create")->middleware('auth');
+Route::post("/cuenta/admin/producto/formagrega","ProductoController@store")->middleware('auth');
+Route::get("/cuenta/admin/producto/modificar/{id}","ProductoController@edit")->middleware('auth');
+Route::patch("/cuenta/admin/producto/formmodificar/{id}","ProductoController@update")->middleware('auth');
+Route::get("/cuenta/admin/producto/eliminar/{id}","ProductoController@destroy")->middleware('auth');
+#------------Fin CRUD Producto------------------------#
+#------------ CRUD cuenta comun------------------------#
 
-Route::get("/cuenta/admin/producto/lista","ProductoController@index");
-Route::get("/cuenta/admin/producto/agrega","ProductoController@create");
-Route::post("/cuenta/admin/producto/formagrega","ProductoController@store");
-Route::get("/cuenta/admin/producto/modificar/{id}","ProductoController@edit");
-Route::patch("/cuenta/admin/producto/formmodificar/{id}","ProductoController@update");
-Route::get("/cuenta/admin/producto/eliminar/{id}","ProductoController@destroy");
+Route::get('/cuenta/perfil', "UsuarioController@show")->middleware('auth');
+Route::get('/cuenta/perfil/guardar/{id?}', "UsuarioController@edit")->middleware('auth');
+Route::post('/cuenta/perfil/guardar/{id?}', "UsuarioController@update")->middleware('auth');
+Route::get('/cuenta/resumen', function(){
+  return view('resumen');
+})->middleware('auth');
+
+Route::get('/cuenta/seguridad', function(){
+  return view('seguridad');
+})->middleware('auth');
+#------------ CRUD cuenta comun fin------------------------#
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

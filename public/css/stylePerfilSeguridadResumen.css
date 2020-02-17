@@ -196,7 +196,7 @@ color: inherit;
 @media (max-width: 470.98px) { 
     .container{
         
-        margin-top: 16vh;
+        
     }
     .resumen .factura{
         overflow: scroll;
@@ -224,7 +224,7 @@ color: inherit;
 @media (max-width: 457.8px) { 
     .container{
         
-        margin-top: 160px;
+        
     }
     .resumen .factura div{
         border: #343a40 solid 1px;
@@ -259,7 +259,7 @@ color: inherit;
 @media (min-width: 458px) and (max-width: 599.98px) { 
     .container{
         
-        margin-top: 158px;
+        
     }
     .resumen .factura div{
         border: #343a40 solid 1px;
@@ -296,21 +296,21 @@ color: inherit;
 @media (min-width: 600px) and (max-width: 767.98px) { 
     .container{
        
-        margin-top: 119px;
+        
     }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) { 
     .container{
         
-        margin-top: 70px;
+        
     }
 }
 
 @media (min-width: 992px) and (max-width:1199.98px) {
     .container{
         
-        margin-top: 72px;
+        
     }
     
  }
@@ -328,7 +328,7 @@ color: inherit;
         background-size: cover;
     }
      .container{
-         margin-top:70px;
+       
          min-width: 70vw !important;
         max-width: 80vw !important;
         align-self: center;

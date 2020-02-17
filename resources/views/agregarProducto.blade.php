@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  @include('inc.head')
-<title>ABM Productos</title>
-
-<body>
-
-  @include('inc.headerPerfil')
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
 
   <main>
 
@@ -182,8 +179,8 @@
                 </div>
                 <div class="form-group text-center">
                   <label for="" class="col-12">Imagen</label>
-                  <input type="text" name="imagenActual" value="{{old("img","/img/Productos/phone.png")}}" readonly hidden>
-                  <img src="{{old("img","/img/Productos/phone.png")}}" alt="" sizes="" width="" class="" height="300px">
+                  <input type="text" name="imagenActual" value="{{old("img","/img/Productos/phone.jpg")}}" readonly hidden>
+                  <img src="{{old("img","/img/Productos/phone.jpg")}}" alt="" sizes="" width="" class="" height="300px">
                   <label for="img" class="text-left col-12">Cambiar</label>
                   <input type="file" class="form-control-file" id="img" name="img" class="">
                                     <small class="text-danger">
@@ -209,7 +206,4 @@
 
   </main>
 
-  @include('inc.footer')
-
-</body>
-</html>
+  @endsection

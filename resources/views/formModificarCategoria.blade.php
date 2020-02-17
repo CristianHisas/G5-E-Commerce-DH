@@ -1,9 +1,8 @@
-
-
-    @include('inc.head')
-    @include('inc.headerAdm')
-
-
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
     <main class="container">
         <h1> Actualizacion de una Categoria</h1>
         <form action="/modificarCategoria" method="post">
@@ -27,4 +26,5 @@
 
     </main>
 
-@include('inc.footer')
+    @endsection
+

@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  @include('inc.head')
-<title>Modificar Productos</title>
-
-<body>
-
-  @include('inc.headerPerfil')
-
-
-
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
   <main>
     @php
   // dd($producto);
@@ -211,13 +205,4 @@
     </div>
 
   </main>
-
-
-
-
-
-
-  @include('inc.footer')
-
-</body>
-</html>
+  @endsection

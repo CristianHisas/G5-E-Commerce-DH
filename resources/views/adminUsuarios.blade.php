@@ -20,15 +20,11 @@ if (isset($_POST["btnBorrar"])) {
 
 }
 ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-@include('inc.head')
-<title>ABM administradors</title>
-
-<body>
-
-  @include('inc.headerAdm')
-
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
   <main>
 
     <div class="container-fluir my-3">
@@ -163,10 +159,5 @@ if (isset($_POST["btnBorrar"])) {
     </div>
 
   </main>
+  @endsection
 
-
-  @include('inc.footer')
-
-
-</body>
-</html>

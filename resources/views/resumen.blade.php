@@ -1,4 +1,4 @@
-@extends('layouts.login');
+@extends('layouts.login')
 
 
 
@@ -26,7 +26,7 @@
 <tbody>
 <!--Filas y columnas-->
 <tr>
-<td> <img width="60" src="img/phone.jpg" alt="phone.jpg"/></td>
+<td> <img width="60" src="/img/phone.jpg" alt="phone.jpg"/></td>
 <td>MASSA AST<br/>Color : black, Material : metal</td>
 <td>
   <div class="input-append">
@@ -45,7 +45,7 @@
 <td>$120.00</td>
 </tr>
 <tr>
-<td> <img width="60" src="img/phone.jpg" alt="phone.jpg"/></td>
+<td> <img width="60" src="/img/phone.jpg" alt="phone.jpg"/></td>
 <td>MASSA AST<br/>Color : black, Material : metal</td>
 <td>
   <div class="input-append">
@@ -64,7 +64,7 @@
 <td>$7.00</td>
 </tr>
 <tr>
-<td> <img width="60" src="img/phone.jpg" alt="phone.jpg"/></td>
+<td> <img width="60" src="/img/phone.jpg" alt="phone.jpg"/></td>
 <td>MASSA AST<br/>Color : black, Material : metal</td>
 <td>
   <div class="input-append">
@@ -142,7 +142,7 @@
             <p>$15215.25</p>
         </div>
         <div class=" col-sm-12 col-md-2 col-lg-2">
-            <a href="factura/factura-ejemplo.pdf" download="factura-ejemplo.pdf" class="d-block"><p><img src="img/pdf.png" alt=""></p></a>
+            <a href="/factura/factura-ejemplo.pdf" download="factura-ejemplo.pdf" class="d-block"><p><img src="/img/pdf.png" alt=""></p></a>
         </div>
     </div>
   <!--fin Fila -->
@@ -161,7 +161,7 @@
           <p>$15215.25</p>
       </div>
       <div class=" col-sm-12 col-md-2 col-lg-2">
-          <a href="descargar.html" class="d-block"><p><img src="img/pdf.png" alt=""></p></a>
+          <a href="descargar.html" class="d-block"><p><img src="/img/pdf.png" alt=""></p></a>
       </div>
   </div>
 <!--fin Fila -->
@@ -180,7 +180,7 @@
       <p>$15215.25</p>
   </div>
   <div class=" col-sm-12 col-md-2 col-lg-2">
-      <a href="descargar.html" class="d-block"><p><img src="img/pdf.png" alt=""></p></a>
+      <a href="descargar.html" class="d-block"><p><img src="/img/pdf.png" alt=""></p></a>
   </div>
 </div>
 <!--fin Fila -->

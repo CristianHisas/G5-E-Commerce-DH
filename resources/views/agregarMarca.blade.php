@@ -1,8 +1,8 @@
-
-    @include('inc.head')
-    @include('inc.headerAdm')
-
-
+@extends('layouts.app')
+@section('csspersonal')
+"{{ asset('/css/styles.css') }}"
+@endsection
+@section('content')
     <main class="container">
         <h1>Alta de una nueva marca</h1>
 <?php
@@ -19,5 +19,4 @@
         </div>
  <a href="abmMarca" class="btn btn-light">Volver a admin de marcas</a>
     </main>
-
- @include('inc.footer')
+    @endsection
