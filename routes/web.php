@@ -117,4 +117,4 @@ Route::get('/cuenta/seguridad', function(){
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get("/listaProductos","HomeController@lista");
+Route::get("/listaProductos","ProductoController@lista");

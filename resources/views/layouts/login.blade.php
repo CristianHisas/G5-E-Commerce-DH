@@ -128,7 +128,7 @@ foreach ($pagina as $key => $value) {
                           </li>
                       @endguest
                       <li class="nav-item">
-                          <a class="nav-link" href="faq">Ayuda <img src="/img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
+                          <a class="nav-link" href="/faq">Ayuda <img src="/img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
