@@ -18,11 +18,12 @@ Route::get('/', function () {
 Route::get('/home', function(){
   return view('home');
 });
-
+/*
 Route::get('/listaProductos', function(){
   return view('listaProductos');
 }
 );
+*/
 
 Route::get('/productoDetalle', function(){
     return view('productoDetalle');
@@ -99,3 +100,7 @@ Route::post("/cuenta/admin/producto/formagrega","ProductoController@store");
 Route::get("/cuenta/admin/producto/modificar/{id}","ProductoController@edit");
 Route::patch("/cuenta/admin/producto/formmodificar/{id}","ProductoController@update");
 Route::get("/cuenta/admin/producto/eliminar/{id}","ProductoController@destroy");
+
+
+#------------------------------------home----------------------------------#
+Route::get("/listaProductos","HomeController@index");

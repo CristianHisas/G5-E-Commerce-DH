@@ -99,182 +99,40 @@
 
 
             <section clas="productos">
-                <a href="productoDetalle" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
+            <?php
+              foreach ($productos as $key => $value) {                
+            ?>
+                <a href="productoDetalle?c=<?=$value->id_categoria;?>" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
                 <article >
                     <div class="img-container">
-                        <img src="img/phone.jpg" alt="">
+                     <!--   <img src="img/phone.jpg" alt=""> -->
+                        <img src="<?=$value->img;?>" alt="" sizes="" width="80%" class="zoom">
                     </div>
                     <div class="descripcion">
                         <div class="price">
                         <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
+                        <span class="price-value"><?=$value->precio;?></span>
+                    </div>
+                    <div class="descuento">
+                    <?=$value->descuento;?>%OFF
                     </div>
                     <div class="descripcion-text">
-                        Descripción
+                    <?=$value->nombre;?>
                     </div>
-                    <div class="vendedor">
+                   <!-- <div class="vendedor">
                         Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
+                    </div> -->
+                    <div >stock: 
+                    <?=$value->cantidad;?>
+                    </div> 
+                    
                     </div>
                 </article>
             </a>
-            <a href="productoDetalle" class="irDescripcion">
-                <article >
-                    <div class="img-container">
-                        <img src="img/phone.jpg" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                            <span class="price-symbol">$</span>
-                            <span class="price-value">948</span>
-                        </div>
-                        <div class="descripcion-text">
-                            Descripción
-                        </div>
-                        <div class="vendedor">
-                            Vendedor
-                        </div>
-                        <div class="cantidad-vendidos">
-                            206
-                        </div>
-                    </div>
-                </article>
-            </a>
-                <a href="productoDetalle" class="irDescripcion">
-                <article >
-                    <div class="img-container">
-                        <img src="img/phone.jpg" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-            </a>
-                <a href="productoDetalle" class="irDescripcion">
-                <article >
-                    <div class="img-container">
-                        <img src="img/phone.jpg" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-            </a>
-                <a href="productoDetalle" class="irDescripcion">
-                <article >
-                    <div class="img-container">
-                        <img src="img/phone.jpg" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-            </a>
-                <a href="productoDetalle" class="irDescripcion">
-                <article >
-                    <div class="img-container">
-                        <img src="img/phone.jpg" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-            </a>
-                <a href="productoDetalle" class="irDescripcion">
-                <article >
-                    <div class="img-container">
-                        <img src="img/phone.jpg" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <div class="price">
-                        <span class="price-symbol">$</span>
-                        <span class="price-value">948</span>
-                    </div>
-                    <div class="descripcion-text">
-                        Descripción
-                    </div>
-                    <div class="vendedor">
-                        Vendedor
-                    </div>
-                    <div class="cantidad-vendidos">
-                        206
-                    </div>
-                    </div>
-                </article>
-                </a>
-                <a href="productoDetalle" class="irDescripcion">
-                <article >
-                    <div class="img-container">
-                        <img src="img/phone.jpg" alt="">
-                    </div>
-                    <div class="descripcion">
-                            <div class="price">
-                            <span class="price-symbol">$</span>
-                            <span class="price-value">948</span>
-                        </div>
-                        <div class="descripcion-text">
-                            Descripción
-                        </div>
-                        <div class="vendedor">
-                            Vendedor
-                        </div>
-                        <div class="cantidad-vendidos">
-                            206
-                        </div>
-                    </div>
-                </article>
-                </a>
+            <?php
+              }             
+            ?>
+            
                 <div class="pagination-container">
                     <ul>
                         <li><a href=""><i class='fas'>&#xf104;</i> Anterior</a></li>
