@@ -1,7 +1,7 @@
 <!--Comienza el nav-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark  barra">
      <!--Comienza el nombre de la empresa-->
-         <a class="navbar-brand" href="home">
+         <a class="navbar-brand" href="{{url('home')}}">
            <img src="/img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
            <span>E-commerce</span>
          </a>
@@ -30,7 +30,7 @@
          <div class="collapse navbar-collapse " id="navbarNav">
            <ul class="navbar-nav ml-md-auto">
              <li class="nav-item ">
-               <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+               <a class="nav-link" href="{{url('home')}}">Home <span class="sr-only">(current)</span></a>
              </li>
              <li class="nav-item">
                      <!--Comienza el categoria-->
@@ -56,22 +56,22 @@
              </li>
              <?php if (isset($_SESSION["activeUser"])  && $pagina!="Registro" && $pagina!="Login" ): ?>
                <li class="nav-item">
-                 <a class="nav-link text-primary" href="resumen"><?=(isset($_SESSION["activeUser"]["usuario"]))?$_SESSION["activeUser"]["usuario"]:"usuario";?></a>
+                 <a class="nav-link text-primary" href="{{url('resumen')}}"><?=(isset($_SESSION["activeUser"]["usuario"]))?$_SESSION["activeUser"]["usuario"]:"usuario";?></a>
                </li>
                <li class="nav-item">
-                 <a class="nav-link text-primary" href="logOut">Cerrar Sesion</a>
+                 <a class="nav-link text-primary" href="{{url('logOut')}}">Cerrar Sesion</a>
                </li>
              <?php else: ?>
                <li class="nav-item">
-                     <a class="nav-link  text-primary" href="login">Iniciar Sesion</a>
+                     <a class="nav-link  text-primary" href="{{url('login')}}">Iniciar Sesion</a>
                </li>
                <li class="nav-item">
-                     <a class="nav-link  text-primary" href="registro">Registrarse</a>
+                     <a class="nav-link  text-primary" href="{{url('registro')}}">Registrarse</a>
                </li>
              <?php  endif ?>
 
              <li class="nav-item">
-                     <a class="nav-link" href="faq">Ayuda <img src="/img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
+                     <a class="nav-link" href="{{url('faq')}}">Ayuda <img src="/img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
              </li>
              <li class="nav-item">
                <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">

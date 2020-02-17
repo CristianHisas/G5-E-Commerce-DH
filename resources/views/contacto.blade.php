@@ -19,7 +19,7 @@
 @section('content')
     <main class=" container mb-4 main-inicio">
         <ul class="breadcrumb col-12">
-            <li><a href="home">Home</a> <span class="divider">/</span></li>
+            <li><a href="{{url('home')}}">Home</a> <span class="divider">/</span></li>
             <li>Informacion<span class="divider">/</span></li>
             <li class="active">Contacto</li>
         </ul>

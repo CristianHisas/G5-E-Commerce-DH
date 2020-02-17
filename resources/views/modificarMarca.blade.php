@@ -17,7 +17,7 @@
         <div class="alert alert-<?= $class; ?>">
             <?= $mensaje; ?>
         </div>
-        <a href="/abmMarca" class="btn btn-light">Volver a admin de marcas</a>
+        <a href="{{url('cuenta/admin/abmMarca')}}" class="btn btn-light">Volver a admin de marcas</a>
     </main>
 
     @endsection

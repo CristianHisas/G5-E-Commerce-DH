@@ -137,7 +137,7 @@ else{
                                                 required value="<?=$telefono?>">
                                         <?php if(isset($errores)) echo imprimirErrores($errores) ?>
                                         <input type="submit" value="Registrar" class="btn-enviar">
-                                        <p class="form__link">¿Ya tienes una cuenta?<a href="login">Ingresa aqui</a></p>
+                                        <p class="form__link">¿Ya tienes una cuenta?<a href="{{url('login')}}">Ingresa aqui</a></p>
                                 </div>
 
                         </form>

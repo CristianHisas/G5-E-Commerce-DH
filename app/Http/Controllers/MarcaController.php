@@ -51,7 +51,7 @@ class MarcaController extends Controller
         $Marca->marca = $request->marca;
         $Marca->save();
 
-        return view("/agregarMarca", compact('Marca'));
+        return view("agregarMarca", compact('Marca'));
     }
 
     /**
@@ -120,6 +120,6 @@ class MarcaController extends Controller
 
         $Marca->delete();
 
-        return redirect('/abmMarca');
+        return redirect('cuenta/admin/abmMarca');
     }
 }

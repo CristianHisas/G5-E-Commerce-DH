@@ -6,7 +6,7 @@
 
 @section('contenido_login')
 
-<!-----Resumen-------------------------------->
+<!---Resumen-------------------------------->
 <div class="col-12 col-sm-12 col-md-9  col-lg-9 mb-4 resumen">
   <h1 class="d-block">Resumen</h1>
 <!--comienzo del carrito actual--->
@@ -185,8 +185,8 @@
 </div>
 <!--fin Fila -->
   </div>
-<!--fin Facturas------------------------------- -->
+<!--fin Facturas- -->
 </div>
-<!-----Fin Resumen-------------------------------->
+<!---Fin Resumen-------------------------------->
 
 @endsection
