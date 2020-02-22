@@ -1,5 +1,5 @@
 <?php
-  $pagina="Descriccion de Producto";
+  $pagina="Descripcion de Producto";
 
 ?>
 @extends('layouts.app')
@@ -46,6 +46,7 @@
                   <label class="control-label" name= "precio" ><span>Precio: <strong>$<?=$producto->precio;?></strong></span></label>
                   <input type="hidden" name="id_producto" value="{{$producto->id_producto}}">
                   <label class="control-label" name= "precio" ><span>Stock: <strong><?=$producto->cantidad;?></strong></span></label>
+                  <label class="control-label" name= "precio" ><span>Descuento: <strong><?=$producto->descuento;?></strong> %</span></label>
                   <div class="controls">
                   <input class="cantidad" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
                     max="{{$producto->cantidad}}" placeholder="0" title="cantidad a comprar"/>
@@ -67,6 +68,7 @@
                   </div>
                 </div>
               </form>
+              <button type="submit" class="btn btn-large btn-primary pull-right my-4"> Comprar <i class="fas fa-shopping-bag"></i></button>
 
               <br>
 
