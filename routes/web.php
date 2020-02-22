@@ -33,9 +33,8 @@ Route::get('/listaProductos', function(){
   return view('listaProductos');
 */
 
-Route::get('/productoDetalle{id?}', function($id=""){
-    return view('productoDetalle')->with("id",$id);
-});
+Route::get('/productoDetalle/{id}', "ProductoController@showDetails");
+Route::post('/productoDetalle', "CarritoController@store");
 
 Route::get('/login', function(){
   return view('login');
@@ -60,61 +59,69 @@ Route::post("/cuenta/modificarUsuario",'UsuarioController@store');
 
 Route::get('/cuenta/admin', function(){
   return view('admin');
-});
+})->middleware('auth')->middleware('adminControl');
 
 #---------------CRUD Marcas------------------------#
 
-Route::get('/cuenta/admin/abmMarca', "MarcaController@index");
+Route::get('/cuenta/admin/abmMarca', "MarcaController@index")->middleware('auth')->middleware('adminControl');
 
-Route::get('/cuenta/admin/formAgregarMarca', "MarcaController@create");
+Route::get('/cuenta/admin/formAgregarMarca', "MarcaController@create")->middleware('auth')->middleware('adminControl');
 
-Route::post('/cuenta/admin/agregarMarca', "MarcaController@store");
+Route::post('/cuenta/admin/agregarMarca', "MarcaController@store")->middleware('auth')->middleware('adminControl');
 
-Route::get('/cuenta/admin/formModificarMarca/{id}', "MarcaController@edit");
+Route::get('/cuenta/admin/formModificarMarca/{id}', "MarcaController@edit")->middleware('auth')->middleware('adminControl');
 
-Route::post('/cuenta/admin/modificarMarca', "MarcaController@update");
+Route::post('/cuenta/admin/modificarMarca', "MarcaController@update")->middleware('auth')->middleware('adminControl');
 
-Route::get('cuenta/admin/abmMarca/{id}', "MarcaController@destroy");
+Route::get('cuenta/admin/abmMarca/{id}', "MarcaController@destroy")->middleware('auth')->middleware('adminControl');
 
 #------------Fin CRUD Marcas------------------------#
 
 #---------------CRUD Categorias------------------------#
 
-Route::get('/cuenta/admin/abmCategoria', "CategoriaController@index");
+Route::get('/cuenta/admin/abmCategoria', "CategoriaController@index")->middleware('auth')->middleware('adminControl');
 
-Route::get('/cuenta/admin/formAgregarCategoria', "CategoriaController@create");
+Route::get('/cuenta/admin/formAgregarCategoria', "CategoriaController@create")->middleware('auth')->middleware('adminControl');
 
-Route::post('/cuenta/admin/agregarCategoria', "CategoriaController@store");
+Route::post('/cuenta/admin/agregarCategoria', "CategoriaController@store")->middleware('auth')->middleware('adminControl');
 
-Route::get('/cuenta/admin/formModificarCategoria/{id}', "CategoriaController@edit");
+Route::get('/cuenta/admin/formModificarCategoria/{id}', "CategoriaController@edit")->middleware('auth')->middleware('adminControl');
 
-Route::post('/cuenta/admin/modificarCategoria', "CategoriaController@update");
+Route::post('/cuenta/admin/modificarCategoria', "CategoriaController@update")->middleware('auth')->middleware('adminControl');
 
-Route::get('/cuenta/admin/abmCategoria/{id}', "CategoriaController@destroy");
+Route::get('/cuenta/admin/abmCategoria/{id}', "CategoriaController@destroy")->middleware('auth')->middleware('adminControl');
 
 #------------Fin CRUD Categorias------------------------#
 #------------ CRUD Producto------------------------#
-Route::get("/cuenta/admin/producto/lista","ProductoController@index")->middleware('auth');
-Route::get("/cuenta/admin/producto/agrega","ProductoController@create")->middleware('auth');
-Route::post("/cuenta/admin/producto/formagrega","ProductoController@store")->middleware('auth');
-Route::get("/cuenta/admin/producto/modificar/{id}","ProductoController@edit")->middleware('auth');
-Route::patch("/cuenta/admin/producto/formmodificar/{id}","ProductoController@update")->middleware('auth');
-Route::get("/cuenta/admin/producto/eliminar/{id}","ProductoController@destroy")->middleware('auth');
+Route::get("/cuenta/admin/producto/lista","ProductoController@index")->middleware('auth')->middleware('adminControl');
+Route::get("/cuenta/admin/producto/agrega","ProductoController@create")->middleware('auth')->middleware('adminControl');
+Route::post("/cuenta/admin/producto/formagrega","ProductoController@store")->middleware('auth')->middleware('adminControl');
+Route::get("/cuenta/admin/producto/modificar/{id}","ProductoController@edit")->middleware('auth')->middleware('adminControl');
+Route::patch("/cuenta/admin/producto/formmodificar/{id}","ProductoController@update")->middleware('auth')->middleware('adminControl');
+Route::get("/cuenta/admin/producto/eliminar/{id}","ProductoController@destroy")->middleware('auth')->middleware('adminControl');
 #------------Fin CRUD Producto------------------------#
 #------------ CRUD cuenta comun------------------------#
 
-Route::get('/cuenta/perfil', "UsuarioController@show")->middleware('auth');
+Route::get('/cuenta/perfil', "UsuarioController@show")->middleware('auth')->middleware('verified');
 Route::get('/cuenta/perfil/guardar/{id?}', "UsuarioController@edit")->middleware('auth');
 Route::post('/cuenta/perfil/guardar/{id?}', "UsuarioController@update")->middleware('auth');
 Route::get('/cuenta/resumen', function(){
   return view('resumen');
 })->middleware('auth');
+Route::get("/cuenta/resumen/vaciar/{id}","CarritoController@destroy")->middleware('auth');
 
 Route::get('/cuenta/seguridad', function(){
   return view('seguridad');
 })->middleware('auth');
+Route::post('/cuenta/seguridad/pass',"UsuarioController@updatePassword")->middleware('auth');
 #------------ CRUD cuenta comun fin------------------------#
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get("/listaProductos","ProductoController@lista");
+Route::get("/listaProductos/{cat?}","ProductoController@lista");
+#------------------Prueba-----------------#
+Route::get('respuesta6', function(){
+	return response()->view("error.error")
+		->header('status', 404);
+		//->header('Refresh', '5; url=/');
+});

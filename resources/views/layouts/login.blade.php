@@ -15,13 +15,13 @@ foreach ($pagina as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
         <title>{{ config('app.name', 'E-commerce') }}</title>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600|Roboto:500,700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
 <!--Iconos de pestania-->
 <link rel="apple-touch-icon" sizes="180x180" href="/img/pestania-ico/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/pestania-ico/favicon-32x32.png">
@@ -91,8 +91,8 @@ foreach ($pagina as $key => $value) {
                                                 <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosApple">Apple</a></li>
                                                 <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosNokia">Nokia</a></li>
                                             </ul>
-           
-           
+
+
                                           </div>
                                         <!--fin el menu desplegable de categoria-->
                                       </div>
@@ -130,12 +130,29 @@ foreach ($pagina as $key => $value) {
                       <li class="nav-item">
                           <a class="nav-link" href="/faq">Ayuda <img src="/img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
-                      <span>Carrito</span>
-                      <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
-                    </a>
-                  </li>
+                     @guest
+                    <li class="nav-item">
+                      <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
+                        <span>Carrito</span>
+                        <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
+                      </a>
+                    </li> 
+                    @else
+                    @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
+                     <li class="nav-item">
+                      <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
+                        <span>Carrito</span>
+                        <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
+                      </a>
+                    </li>                     
+                     @else
+                    <li class="nav-item">
+                      <a class="nav-link" href="/cuenta/admin" >
+                        <span>Panel Administrar</span>
+                      </a>
+                    </li>              
+                    @endif
+                    @endguest
                   </ul>
               </div>
           </div>
@@ -147,12 +164,12 @@ foreach ($pagina as $key => $value) {
               <div class="row">
       <!--ubicacion-->
       <ul class="breadcrumb  col-12">
-          <li><a href="/home">Home</a></li>
-          <?php 
-          for ($i=1; $i <count($pagina) ; $i++) { 
+          <li><a href="/">Home</a></li>
+          <?php
+          for ($i=1; $i <count($pagina) ; $i++) {
           ?>
             <li class="active"><span class="divider">/</span><?=$pagina[$i]; ?></li>
-          <?php  
+          <?php
         }
           ?>
       </ul>
@@ -178,7 +195,7 @@ foreach ($pagina as $key => $value) {
     </div>
       <!--menu izquierdo-->
       <!--contenido derecho-->
-      
+
       @yield("contenido_login")
       <!--contenido derecho-->
           </div>
@@ -189,7 +206,7 @@ foreach ($pagina as $key => $value) {
 <!-- footer -->
 <footer class="container-fluid bg-dark px-auto py-4  footer-cambiado ">
 <!-- Footer ================================================================== -->
-  
+
       <div class="row d-flex justify-content-between">
         <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
           <h5>ACCOUNT</h5>
@@ -230,94 +247,65 @@ foreach ($pagina as $key => $value) {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body carrito-resumen">
         <table class="table table-bordered">
+            @guest
+
+                {{"Debe entrar en su cuenta o registrarse"}}
+            @else
+           
+            @if (Auth::user()->id_carrito!=null)
+            @php
+                //$carrito=Auth::user()->getCarrito;
+                $carrito=(Auth::user()->getUsuario->getCarrito);
+                $carritodDetalle=$carrito->getDetalle;
+                $carritoProducto=$carrito->getProductos;
+            @endphp
           <thead>
             <!--Fila de detalle de cada producto-->
             <tr>
               <th>Product</th>
               <th>Description</th>
               <th>Quantity/Update</th>
-              <th>Price</th>
+              <th>Unity-price</th>
+              <th>Price * Quantity</th>
+              <th>Price * Discount</th>
             </tr>
           </thead>
+          @foreach ($carritodDetalle as $key => $item)
+          <thead>
+            <!--Fila de detalle de cada producto-->
+            <tr>
+              <th class="text-center"><img src="{{$carritoProducto[$key]->img}}" alt="{{$carritoProducto[$key]->id_producto}}" sizes="" height="5%" srcset=""></th>
+              <th class="text-center">{{$carritoProducto[$key]->nombre}}</th>
+              <th class="text-center">{{$item->cantidad}}</th>
+              <th class="text-center">{{$carritoProducto[$key]->precio}}</th>
+              <th class="text-center">{{(($item->cantidad)*($carritoProducto[$key]->precio))}}</th>
+              @if ($carritoProducto[$key]->descuento > 0)
+                <th class="text-center">{{($item->cantidad)*(($carritoProducto[$key]->precio) * (1-($carritoProducto[$key]->descuento/100)))}}</th>
+              @else
+                <th class="text-center">{{$carritoProducto[$key]->precio}}</th>
+              @endif
+            </tr>
+          </thead>
+          @endforeach
           <tbody>
             <!--Filas y columnas-->
             <tr>
-              <td> <img width="60" src="/img/productos/phone.jpg" alt="phone.jpg"/></td>
-              <td>MASSA AST<br/>Color : black, Material : metal</td>
-              <td>
-                <div class="input-append">
-                  <input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text">
-                  <button class="btn" type="button">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button class="btn" type="button">
-                    <i class="fas fa-plus"></i>
-                  </button>
-                  <button class="btn btn-danger" type="button">
-                    <i class="far fa-times-circle"></i>
-                  </button>
-                </div>
-              </td>
-              <td>$120.00</td>
-            </tr>
-            <tr>
-              <td> <img width="60" src="/img/productos/phone.jpg" alt="phone.jpg"/></td>
-              <td>MASSA AST<br/>Color : black, Material : metal</td>
-              <td>
-                <div class="input-append">
-                  <input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
-                  <button class="btn" type="button">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button class="btn" type="button">
-                    <i class="fas fa-plus"></i>
-                  </button>
-                  <button class="btn btn-danger" type="button">
-                    <i class="far fa-times-circle"></i>
-                  </button>
-                </div>
-              </td>
-              <td>$7.00</td>
-            </tr>
-            <tr>
-              <td> <img width="60" src="/img/productos/phone.jpg" alt="phone.jpg"/></td>
-              <td>MASSA AST<br/>Color : black, Material : metal</td>
-              <td>
-                <div class="input-append">
-                  <input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
-                  <button class="btn" type="button">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button class="btn" type="button">
-                    <i class="fas fa-plus"></i>
-                  </button>
-                  <button class="btn btn-danger" type="button">
-                    <i class="far fa-times-circle"></i>
-                  </button>
-                </div>
-              </td>
-              <td>$120.00</td>
+              <td colspan="5" style="text-align:right">Total Tax:	</td>
+              <td> Para pensar </td>
             </tr>
             <!--Fila que muestra el total del carrito-->
             <tr>
-              <td colspan="3" style="text-align:right">Total Price:	</td>
-              <td> $228.00</td>
-            </tr>
-            <tr>
-              <td colspan="3" style="text-align:right">Total Discount:	</td>
-              <td> $50.00</td>
-            </tr>
-            <tr>
-              <td colspan="3" style="text-align:right">Total Tax:	</td>
-              <td> $31.00</td>
-            </tr>
-            <tr>
-              <td colspan="3" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
-              <td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
+              <td colspan="5" style="text-align:right">Total Carrito Price:	</td>
+              <td> $ {{$carrito->total}}</td>
             </tr>
           </tbody>
+        @else
+          {{"Actualmente no tenes ningun producto agregado al carrito"}}
+        @endif
+
+          @endguest
         </table>
       </div>
       <div class="modal-footer">

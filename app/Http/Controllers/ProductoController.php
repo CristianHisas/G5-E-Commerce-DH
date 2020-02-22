@@ -253,9 +253,9 @@ class ProductoController extends Controller
     /**
      * puca
      */
-    public function lista()
+    public function lista($cat=1)
     {        
-         $productos=Producto::all();
+         $productos=Producto::where("id_categoria","=",$cat)->paginate(8);
 /*        No deviera traer todos sino segun categoria seleccionada
           $producto =Producto::find($id_categoria);
           $productos=Producto::all()->where("categoria","<>",$producto->categoria);*/
@@ -269,9 +269,15 @@ class ProductoController extends Controller
      */
 
     //public function show($id)
-    public function showDetails()
-    {   
-        $productos=Producto::all();               
-        return view("productoDetalle")->with("productos",$productos);         
+    public function showDetails($id)
+    {   	    
+       $producto=Producto::find($id);
+       if($producto){
+          $marcas = Marca::find($producto->id_marca);
+          $categorias = Categoria::find($producto->id_categoria);
+      return view("productoDetalle")->with("producto",$producto)->with("marcas",$marcas)->with("categorias",$categorias);
+      }
+
+      return abort(404);
     }
 }

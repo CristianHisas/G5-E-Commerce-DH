@@ -57,6 +57,7 @@
             </div>
 
             <div class="categorias">
+                <a href="/listaProductos/9" class="irDescripcion">
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/autopng.png" alt="">
@@ -65,7 +66,8 @@
                         Vehículos
                     </div>
                 </div>
-                <a href="listaProductos" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
+                </a>
+                <a href="/listaProductos" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/tel.png" alt="">
@@ -75,6 +77,7 @@
                     </div>
                 </div>
                 </a>
+                <a href="/listaProductos/8" class="irDescripcion">
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/casa.png" alt="">
@@ -83,6 +86,8 @@
                         Hogar
                     </div>
                 </div>
+                </a>
+                <a href="/listaProductos/2" class="irDescripcion">
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/ropa.png" alt="">
@@ -91,6 +96,8 @@
                         Ropa
                     </div>
                 </div>
+                </a>
+                <a href="/listaProductos/7" class="irDescripcion">
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/guitarra.png" alt="">
@@ -99,6 +106,8 @@
                         Música
                     </div>
                 </div>
+                </a>
+                <a href="/listaProductos/6" class="irDescripcion">
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/pc.png" alt="">
@@ -107,6 +116,8 @@
                         Computación
                     </div>
                 </div>
+                </a>
+                <a href="/listaProductos" class="irDescripcion">
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/servicios.png" alt="">
@@ -115,6 +126,8 @@
                         Servicios
                     </div>
                 </div>
+                </a>
+                <a href="/listaProductos/4" class="irDescripcion">
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/mas.png" alt="">
@@ -123,6 +136,7 @@
                         Otras categorías
                     </div>
                 </div>
+                </a>
             </div>
 
         </div>

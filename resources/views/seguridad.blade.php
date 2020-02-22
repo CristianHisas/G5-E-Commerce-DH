@@ -17,6 +17,7 @@
       Se le enviara un correo de confirmacion.</p>
   </div>
 <form class="my-3 px-4 col-10 form-mail" name="formCambioMail" method="post" action="">
+        @csrf
       <div class="form-group" >
               <label for="viejoMail">Email </label>
               <input type="email" class="form-control" id="viejoMail" name="viejoMail" aria-describedby="emailHelp" value="" readonly>
@@ -46,30 +47,73 @@
   <h2 class="col-12 text-left my-4">Cambio de Clave</h2>
   <div class="informacion">
       <h5 class="">Recomendaciones de seguridad</h5>
-      <p class="">Ingresá entre 6 y 20 caracteres.<br>
+      <p class="">Ingresá entre 8 y 20 caracteres.<br>
       No usés la misma clave de otro sitio.</p>
   </div>
-  <form class="my-3 px-4 col-10 form-clave" name="formCambioClave" method="post" action="">
+  @if ($errors->all() && isset($errors))
+              @php
+                  $msj[0]="danger";
+                  $msj[1]="No se pudo modificar la Clave";
+              @endphp
+@endif
+@isset($msj)
+            
+              @if ($msj[0]=="success")
+              <p class="btn alert alert-{{$msj[0]}} col-12" role="alert">
+              {{$msj[1]}}
+              @endif
+              @if ($msj[0]=="danger")
+              <p class="btn alert alert-{{$msj[0]}} col-12" role="alert">
+              {{$msj[1]}}
+              @endif
+              </p>                  
+@endisset
+  <form class="my-3 px-4 col-10 form-clave" name="formCambioClave" method="post" action="/cuenta/seguridad/pass">
+                @csrf
           <div class="form-group">
                   <label for="claveActual" class="col-form-label">Clave Actual</label>
 
                     <input type="password" class="form-control" id="claveActual" name="claveActual" placeholder="Clave Actual" title="Ingresa la clave actual" minlength="6" maxlength="20" autocomplete="off" required>
                     <small class="text-muted">Ingrese la Clave Actual para Cambiar la Clave</small>
-                    <small class="text-danger"></small>
+                                      <small class="text-danger">
+                    @if ($errors->has("claveActual"))
+                        <ul class='text-decoration-none'>
+                        @foreach ($errors->get("claveActual") as $mensaje)
+                        <li>{{$mensaje}}</li>
+                        @endforeach
+                        </ul>
+                    @endif
+                    </small>
           </div>
           <div class="form-group ">
             <label for="claveNueva" class="">Nueva Clave</label>
 
               <input type="password" class="form-control" id="claveNueva" name="claveNueva" placeholder="Ingresa la Nueva Clave" title="Ingresa la Nueva clave " minlength="6" maxlength="20"  autocomplete="off" required>
               <small class="text-muted">Su contraseña debe tener entre 8 y 20 caracteres, contener letras y números, y no debe contener espacios, caracteres especiales o emoji.</small>
-              <small class="text-danger"></small>
+                                <small class="text-danger">
+                    @if ($errors->has("claveNueva"))
+                        <ul class='text-decoration-none'>
+                        @foreach ($errors->get("claveNueva") as $mensaje)
+                        <li>{{$mensaje}}</li>
+                        @endforeach
+                        </ul>
+                    @endif
+                    </small>
           </div>
           <div class="form-group ">
                   <label for="claveNuevaRepetir" class="">Repetir Nueva Clave </label>
 
                     <input type="password" class="form-control" id="claveNuevaRepetir" name="claveNuevaRepetir" placeholder="Repetir la Nueva Clave" title="Repita la Nueva clave" minlength="6" maxlength="20" autocomplete="off" required>
                     <small class="text-muted">Repita la Nueva Clave</small>
-                    <small class="text-danger"></small>
+                                      <small class="text-danger">
+                    @if ($errors->has("claveNuevaRepetir"))
+                        <ul class='text-decoration-none'>
+                        @foreach ($errors->get("claveNuevaRepetir") as $mensaje)
+                        <li>{{$mensaje}}</li>
+                        @endforeach
+                        </ul>
+                    @endif
+                    </small>
                 </div>
 
           <button type="submit" class="btn btn-secondary ml-md-auto boton-efecto" name="enviarClave">Guardar Cambios</button>

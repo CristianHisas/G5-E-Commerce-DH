@@ -15,8 +15,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        <p class="col-12">You are logged in!</p>
-                        <a href="/cuenta/perfil" class="btn btn-primary mb-2 col-12">continuar</a>
+						<p class="col-12">Ya has iniciado sesión!</p>
+						@if(Auth::user()->hasRole('admin'))
+							<div>Acceso como administrador</div>
+							<a href="/cuenta/admin" class="btn btn-primary mb-2 col-12">continuar</a>
+						@else
+							<div>Acceso usuario</div>
+							<a href="/cuenta/perfil" class="btn btn-primary mb-2 col-12">continuar</a>
+						@endif
+                        
+                        
                 </div>
                 
                     

@@ -14,94 +14,65 @@
 <div class="carrito-resumen" >
 
 <table class="table table-bordered">
-<thead>
-<!--Fila de detalle de cada producto-->
-<tr>
-<th>Product</th>
-<th>Description</th>
-<th>Quantity/Update</th>
-<th>Price</th>
-</tr>
-</thead>
-<tbody>
-<!--Filas y columnas-->
-<tr>
-<td> <img width="60" src="/img/phone.jpg" alt="phone.jpg"/></td>
-<td>MASSA AST<br/>Color : black, Material : metal</td>
-<td>
-  <div class="input-append">
-    <input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text">
-    <button class="btn" type="button">
-      <i class="fas fa-minus"></i>
-    </button>
-    <button class="btn" type="button">
-      <i class="fas fa-plus"></i>
-    </button>
-    <button class="btn btn-danger" type="button">
-      <i class="far fa-times-circle"></i>
-    </button>
-  </div>
-</td>
-<td>$120.00</td>
-</tr>
-<tr>
-<td> <img width="60" src="/img/phone.jpg" alt="phone.jpg"/></td>
-<td>MASSA AST<br/>Color : black, Material : metal</td>
-<td>
-  <div class="input-append">
-    <input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
-    <button class="btn" type="button">
-      <i class="fas fa-minus"></i>
-    </button>
-    <button class="btn" type="button">
-      <i class="fas fa-plus"></i>
-    </button>
-    <button class="btn btn-danger" type="button">
-      <i class="far fa-times-circle"></i>
-    </button>
-  </div>
-</td>
-<td>$7.00</td>
-</tr>
-<tr>
-<td> <img width="60" src="/img/phone.jpg" alt="phone.jpg"/></td>
-<td>MASSA AST<br/>Color : black, Material : metal</td>
-<td>
-  <div class="input-append">
-    <input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text">
-    <button class="btn" type="button">
-      <i class="fas fa-minus"></i>
-    </button>
-    <button class="btn" type="button">
-      <i class="fas fa-plus"></i>
-    </button>
-    <button class="btn btn-danger" type="button">
-      <i class="far fa-times-circle"></i>
-    </button>
-  </div>
-</td>
-<td>$120.00</td>
-</tr>
-<!--Fila que muestra el total del carrito-->
-<tr>
-<td colspan="3" style="text-align:right">Total Price:	</td>
-<td> $228.00</td>
-</tr>
-<tr>
-<td colspan="3" style="text-align:right">Total Discount:	</td>
-<td> $50.00</td>
-</tr>
-<tr>
-<td colspan="3" style="text-align:right">Total Tax:	</td>
-<td> $31.00</td>
-</tr>
-<tr>
-<td colspan="3" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
-<td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
-</tr>
-</tbody>
-</table>
-<p><button  type="button" class="btn btn-secondary ml-md-auto boton-efecto">Vaciar Carrito</button><button type="button" class="btn btn-secondary ml-md-auto boton-efecto">Comprar</button></p>
+            @guest
+
+                {{"Debe entrar en su cuenta o registrarse"}}
+            @else
+           
+            @if (Auth::user()->id_carrito!=null)
+            @php
+                //$carrito=Auth::user()->getCarrito;
+                $carrito=(Auth::user()->getUsuario->getCarrito);
+                $carritodDetalle=$carrito->getDetalle;
+                $carritoProducto=$carrito->getProductos;
+            @endphp
+            <thead>
+            <!--Fila de detalle de cada producto-->
+            <tr>
+              <th>Product</th>
+              <th>Description</th>
+              <th>Quantity/Update</th>
+              <th>Unity-price</th>
+              <th>Price * Quantity</th>
+              <th>Price * Discount</th>
+            </tr>
+          </thead>
+          @foreach ($carritodDetalle as $key => $item)
+          <thead>
+            <!--Fila de detalle de cada producto-->
+            <tr>
+              <th><img src="{{$carritoProducto[$key]->img}}" alt="{{$carritoProducto[$key]->id_producto}}" sizes="" height="5%" srcset=""></th>
+              <th>{{$carritoProducto[$key]->nombre}}</th>
+              <th>{{$item->cantidad}}</th>
+              <th>{{$carritoProducto[$key]->precio}}</th>
+              <th>{{(($item->cantidad)*($carritoProducto[$key]->precio))}}</th>
+              @if ($carritoProducto[$key]->descuento > 0)
+                <th>{{($item->cantidad)*(($carritoProducto[$key]->precio) * (1-($carritoProducto[$key]->descuento/100)))}}</th>
+              @else
+                <th>{{$carritoProducto[$key]->precio}}</th>
+              @endif
+            </tr>
+          </thead>
+          @endforeach
+          <tbody>
+            <!--Filas y columnas-->
+            <tr>
+              <td colspan="5" style="text-align:right">Total Tax: </td>
+              <td> Para pensar </td>
+            </tr>
+            <!--Fila que muestra el total del carrito-->
+            <tr>
+              <td colspan="5" style="text-align:right">Total Carrito Price: </td>
+              <td> $ {{$carrito->total}}</td>
+            </tr>
+          </tbody>
+        @else
+          {{"Actualmente no tenes ningun producto agregado al carrito"}}
+        @endif
+
+          @endguest
+        </table>
+<p><a  href="/cuenta/resumen/vaciar/{{Auth::user()->id_carrito}}" class="btn btn-secondary ml-md-auto boton-efecto">Vaciar Carrito</a><button type="button" class="btn btn-secondary ml-md-auto boton-efecto">Comprar</button></p>
 </div>
 
 <!-- Fin modal -->

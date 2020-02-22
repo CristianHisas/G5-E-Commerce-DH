@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Carrito;
 use App\Direccion;
+use App\Rules\PassRule;
 use App\Rules\TarjetaCvcRule;
 use App\Rules\TarjetaFechaRule;
 use App\Rules\TarjetaRule;
@@ -14,6 +15,7 @@ use App\Tipo_tarjeta;
 use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Inacho\CreditCard;
 
 class UsuarioController extends Controller
@@ -246,5 +248,34 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function updatePassword(Request $request){
+        
+        $reglas=[
+            'claveActual' => ['required', 'min:8'],
+            'claveNueva' => ['required', new PassRule(), 'min:8'],
+            'claveNuevaRepetir' => ['required', new PassRule(), 'min:8']
+        ];
+        $this->validate($request,$reglas);
+        $usuario=Usuario::find(Auth::user()->id);
+        
+        if($request->claveNueva==$request->claveNuevaRepetir){
+            //dd(Hash::check(Hash::make()$request->claveNueva,$usuario->password));
+            if(Hash::check($request->claveActual,$usuario->password)){
+                $usuario->password=Hash::make($request->claveNueva);
+                $usuario->save();
+                $msj[0]="success";
+                $msj[1]="Se pudo modificar la Clave";
+                return view("seguridad")->with("msj",$msj);
+            }else{
+                $msj[0]="danger";
+                $msj[1]="No se pudo modificar la Clave";
+                return view("seguridad")->with("msj",$msj);
+            }
+        }else{
+            $msj[0]="danger";
+            $msj[1]="No se pudo modificar la Clave";
+        }
+        return view("seguridad")->with("msj",$msj);
     }
 }
