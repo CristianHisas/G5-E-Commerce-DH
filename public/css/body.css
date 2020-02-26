@@ -45,3 +45,31 @@ main{
 .inner-main{
   max-width: 1200px;
 }
+.btn-facebook{
+  background-color: #3b5998;
+  color: white;
+  border:#3b5ba0;
+}
+.btn-facebook:hover{
+  color: white;
+ }
+ .btn-facebook:active{
+  color: white;
+ }
+ .btn-facebook:focus{
+ color: white;
+}
+.btn-google{
+ background-color: #ea4335;
+ color: white;
+ border:#d83d2f;
+}
+.btn-google:hover{
+  color: white;
+ }
+ .btn-google:active{
+  color: white;
+ }
+ .btn-google:focus{
+ color: white;
+}

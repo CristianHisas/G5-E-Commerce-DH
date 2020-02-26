@@ -31,30 +31,53 @@
 
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                    <img class="d-block w-100" src="img/carousel/2.png" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                    <img class="d-block w-100" src="img/carousel/3.png" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                    <img class="d-block w-100" src="img/carousel/1.png" alt="Third slide">
-                    </div>
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="img/carousel/vehiculo.jpg" alt="vehiculo">
+                  </div>
+                  <div class="carousel-item">
+                    <a href="{{route('listaPorDescuento', ['cat' => 1])}}">
+                      <img class="d-block w-100" src="img/carousel/smartphone.jpg" alt="smartphone">
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="img/carousel/hogar.jpg" alt="hogar">
+                  </div>
+                  <div class="carousel-item">
+                    <a href="{{route('listaPorDescuento', ['cat' => 2])}}">
+                      <img class="d-block w-100" src="img/carousel/ropa.jpg" alt="ropa">
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="img/carousel/musica.jpg" alt="musica">
+                  </div>
+                  <div class="carousel-item">
+                    <a href="{{route('listaPorDescuento', ['cat' => 6])}}">
+                      <img class="d-block w-100" src="img/carousel/computacion.jpg" alt="computacion">
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="img/carousel/servicio.jpg" alt="servicio">
+                  </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
                 </a>
                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
                 </a>
-            </div>
+              </div>
+        
 
             <div class="categorias">
                 <a href="/listaProductos/9" class="irDescripcion">
@@ -67,7 +90,7 @@
                     </div>
                 </div>
                 </a>
-                <a href="/listaProductos" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
+                <a href="/listaProductos/1" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
                 <div class="categoria">
                     <div class="icono">
                         <img src="img/categorias/tel.png" alt="">

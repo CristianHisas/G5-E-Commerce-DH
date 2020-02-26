@@ -24,6 +24,15 @@ class Usuario extends Model
     {
         return $this->belongsTo('App\Carrito','id_carrito', 'id_carrito' );
     }
+    /**
+     * factura
+     */
+    public function getFactura(){
+        return $this->hasMany("App\Factura","id_usuarif");
+    }
+    /**
+     * 
+     */
 	public function roles()
 	{
     return $this

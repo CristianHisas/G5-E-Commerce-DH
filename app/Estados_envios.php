@@ -10,4 +10,8 @@ class Estados_envios extends Model
     public $primaryKey = "id_estado_de_envio";
     public $timestamps = false;
     public $guarded = [];
+
+    public function getEnvios(){
+        return $this->hasMany("App\Envio","id_estado_de_envio");
+    }
 }

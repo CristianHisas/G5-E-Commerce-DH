@@ -253,13 +253,26 @@ class ProductoController extends Controller
     /**
      * puca
      */
-    public function lista($cat=1)
-    {        
-         $productos=Producto::where("id_categoria","=",$cat)->paginate(8);
-/*        No deviera traer todos sino segun categoria seleccionada
-          $producto =Producto::find($id_categoria);
-          $productos=Producto::all()->where("categoria","<>",$producto->categoria);*/
-        return view("listaProductos")->with("productos",$productos);
+    public function lista($cat)
+    {
+      $productos=Producto::where("id_categoria","=",$cat)->paginate(8);
+      /*        No deviera traer todos sino segun categoria seleccionada
+      $producto =Producto::find($id_categoria);
+      $productos=Producto::all()->where("categoria","<>",$producto->categoria);*/
+      return view("listaProductos")->with("productos",$productos);
+    }
+  
+    public function listaPorDescuento($cat)
+    {
+      $productos=Producto::where("id_categoria","=",$cat)
+      ->where(function($query){
+        $query->where("descuento", ">", 0);
+      })
+      ->paginate(8);
+      /*        No deviera traer todos sino segun categoria seleccionada
+      $producto =Producto::find($id_categoria);
+      $productos=Producto::all()->where("categoria","<>",$producto->categoria);*/
+      return view("listaProductos")->with("productos",$productos);
     }
 
     /**

@@ -10,4 +10,7 @@ class Tipo_envios extends Model
     public $primaryKey = "id_tipo_envio";
     public $timestamps = false;
     public $guarded = [];
+    public function  getEnvio(){
+        return $this->hasMany("App\Envio","id_tipo_envio");
+    }
 }

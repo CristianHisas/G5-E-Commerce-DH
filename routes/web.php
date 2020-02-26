@@ -102,7 +102,7 @@ Route::get("/cuenta/admin/producto/eliminar/{id}","ProductoController@destroy")-
 #------------Fin CRUD Producto------------------------#
 #------------ CRUD cuenta comun------------------------#
 
-Route::get('/cuenta/perfil', "UsuarioController@show")->middleware('auth')->middleware('verified');
+Route::get('/cuenta/perfil', "UsuarioController@show")->middleware('auth')->middleware('verified')->name('perfil');
 Route::get('/cuenta/perfil/guardar/{id?}', "UsuarioController@edit")->middleware('auth');
 Route::post('/cuenta/perfil/guardar/{id?}', "UsuarioController@update")->middleware('auth');
 Route::get('/cuenta/resumen', function(){
@@ -118,10 +118,14 @@ Route::post('/cuenta/seguridad/pass',"UsuarioController@updatePassword")->middle
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get("/listaProductos/{cat?}","ProductoController@lista");
+Route::get("/listaProductos/{cat?}","ProductoController@lista")->name('lista');
+Route::get("/listaProductos/descuentos/{cat?}","ProductoController@listaPorDescuento")->name('listaPorDescuento');
 #------------------Prueba-----------------#
 Route::get('respuesta6', function(){
 	return response()->view("error.error")
 		->header('status', 404);
 		//->header('Refresh', '5; url=/');
 });
+
+Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
+Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');

@@ -10,4 +10,8 @@ class Detalle_productos_comprado extends Model
     public $primaryKey = "id_detalle_de_producto";
     public $timestamps = false;
     public $guarded = [];
+    public function getCarritos(){
+       
+        return $this->belongsTo("App/Factura","id_factura");
+    }
 }

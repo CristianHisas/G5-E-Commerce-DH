@@ -11,9 +11,12 @@
         "php": "^7.1.3",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.5",
+        "inacho/php-credit-card-validator": "1.*",
         "laravel/framework": "5.8.*",
+        "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
-        "inacho/php-credit-card-validator": "1.*"
+        "socialiteproviders/facebook": "^1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

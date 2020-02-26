@@ -10,4 +10,7 @@ class Direccion extends Model
     public $primaryKey = "id_direccion";
     public $timestamps = false;
     public $guarded = [];
+    public function  getFacturas(){
+        return $this->hasMany("App\Factura","id_tipo_factura");
+    }
 }
