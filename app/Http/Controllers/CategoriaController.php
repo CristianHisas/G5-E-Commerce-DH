@@ -37,7 +37,8 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
       $reglas = [
-        "categoria" => "min:2|unique:categorias"
+        "categoria" => "min:2|unique:categorias",
+        "img"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000",
       ];
 
       $msj = [
@@ -47,8 +48,25 @@ class CategoriaController extends Controller
 
       $this->validate($request, $reglas, $msj);
 
+      $imagenNombre="";
+    if($request->file("img")){
+      $file=$request->file("img");
+      $imagenNombre="/img/categorias/";
+      $imagenNombre.=$request->categoria."/";
+      $imagenNombre.=$request->categoria;
+      $imagenNombre.=".";
+      $imagenNombre.=$file->getClientOriginalExtension();
+      $request->img->move(public_path("img/categorias/$request->categoria/"),$imagenNombre);
+    }else{
+      $imagenNombre="/img/categorias/pc.png";
+    }
+
+
       $Categoria = New Categoria;
       $Categoria->categoria = $request->categoria;
+
+      $Categoria->img = $imagenNombre;
+      
       $Categoria->save();
 
       return view("/agregarCategoria", compact('Categoria'));
@@ -121,4 +139,6 @@ class CategoriaController extends Controller
 
       return redirect('cuenta/admin/abmCategoria');
     }
+
+    
 }

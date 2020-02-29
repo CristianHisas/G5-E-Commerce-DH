@@ -18,9 +18,9 @@ Route::get('/', function () {
 Route::get('/home', function(){
   return view('home');
 });
-Route::get('/index', function(){
-  return view('index');
-});
+//Route::get('/index', function(){
+// return view('index');
+//});
 /*john
 Route::get('/listaProductos{marca?}', function($marca=""){
 
@@ -118,13 +118,16 @@ Route::post('/cuenta/seguridad/pass',"UsuarioController@updatePassword")->middle
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get("/listaProductos/{cat?}","ProductoController@lista")->name('lista');
+/////////////////////////////////////////////////////////////////////////////
+Route::get('/', 'ProductoController@listaCategorias');/*Lista de categorias en index*/
+Route::get("/listaProductos/{cat?}/{marca?}","ProductoController@lista")->name('lista');
+/////////////////////////////////////////////////////////////////////////////
 Route::get("/listaProductos/descuentos/{cat?}","ProductoController@listaPorDescuento")->name('listaPorDescuento');
 #------------------Prueba-----------------#
 Route::get('respuesta6', function(){
-	return response()->view("error.error")
-		->header('status', 404);
-		//->header('Refresh', '5; url=/');
+  return response()->view("error.error")
+  ->header('status', 404);
+  //->header('Refresh', '5; url=/');
 });
 
 Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
