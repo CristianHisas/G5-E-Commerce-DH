@@ -10,7 +10,7 @@
     }
     $activeUser=$_SESSION["activeUser"];
   }
-  $pagina="Datos de Usuario"; 
+  $pagina="Datos de Usuario";
 
 ?>
 @extends('layouts.app')
@@ -24,52 +24,52 @@
               <!--  <div class="tags">
                     <span class="tag">
                         <span>Nuevo ✖ </span>
-                         <i  class="material-icons">&#xe14c;</i> 
+                         <i  class="material-icons">&#xe14c;</i>
                     </span>
                     <span class="tag">
                         <span>Motorola ✖</span>
-                         <i class="material-icons">&#xe14c;</i> 
+                         <i class="material-icons">&#xe14c;</i>
                     </span>
                 </div>
                 -->
                 <dl>
                     <dt>
                         Categoria
-                    </dt> 
+                    </dt>
 
-                    <?php       
-                        foreach ($categorias as $key => $value) {                                 
-                    ?>   
+                    <?php
+                        foreach ($categorias as $key => $value) {
+                    ?>
                            <dd>
                                <a href="/listaProductos/{{$value->id_categoria}}">
                                   <span class="filter-name"><?=$value->categoria;?></span>
                                   <span class="filter-result-qty">({{$value->get_productos_count}})</span>
                                </a>
-                           </dd> 
+                           </dd>
                     <?php
                      }
-                    ?>                        
-                            
+                    ?>
+
                 </dl>
                 <dl>
                     <dt>
                         Marca
                     </dt>
-                    <?php       
-                        foreach ($marcas as $key => $value) 
-                        {       
-                                                                                 
-                    ?>   
+                    <?php
+                        foreach ($marcas as $key => $value)
+                        {
+
+                    ?>
                            <dd>
                                <a href="/listaProductos/{{$cat=0}}/{{$value->id_marca}}">
-                               
+
                                   <span class="filter-name"><?=$value->marca;?></span>
                                   <span class="filter-result-qty">({{$value->get_productos_count}})</span>
                               </a>
-                           </dd> 
+                           </dd>
                     <?php
                      }
-                    ?>   
+                    ?>
                     <!--
 
                      -->
@@ -79,9 +79,9 @@
 
             <section clas="productos">
             <?php
-              foreach ($productos as $key => $value) {                
+              foreach ($productos as $key => $value) {
             ?>
-            <a href="/productoDetalle/{{$value->id_producto}}" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->                
+            <a href="/productoDetalle/{{$value->id_producto}}" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
                 <article >
                     <div class="img-container">
                      <!--   <img src="img/phone.jpg" alt=""> -->
@@ -90,7 +90,7 @@
                     <div class="descripcion">
                         <div class="price">
                         <span class="price-symbol">$</span>
-                        <span class="price-value"><?=$value->precio;?></span>                        
+                        <span class="price-value"><?=$value->precio;?></span>
                     </div>
                     <div class="descuento">
                     <?=$value->descuento;?>%OFF
@@ -101,17 +101,17 @@
                    <!-- <div class="vendedor">
                         Vendedor
                     </div> -->
-                    <div >stock: 
+                    <div >stock:
                     <?=$value->cantidad;?>
-                    </div> 
-                    
+                    </div>
+
                     </div>
                 </article>
             </a>
             <?php
-              }             
+              }
             ?>
-            
+
             <span class="form-control-plaintext mx-auto d-linea">{{$productos->links()}}</span>
             </section>
         </div>

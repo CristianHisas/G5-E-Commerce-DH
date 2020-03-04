@@ -18,7 +18,7 @@
     @endphp
     @endif
     @isset($msj)
-  
+
     @if ($msj[0]=="success")
     <p class="btn alert alert-{{$msj[0]}} col-12" role="alert">
     {{$msj[1]}}
@@ -27,17 +27,25 @@
     <p class="btn alert alert-{{$msj[0]}} col-12" role="alert">
     {{$msj[1]}}
     @endif
-    </p>                  
+    </p>
     @endisset
     <div class="row" id = "seccionProducto">
 
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="imagenProducto">
-        <a href="img/phone.jpg" title="Phone example">
-          <img src="{{$producto->img}}"  width="80%" alt="Phone example" class=""/>
-              </a>
-            </div>
+      <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12" id="thumbnailProducto">
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="descProducto">
+          <img src="{{$producto->img}}" class="rounded" alt="Phone example 1">
+
+          <img src="{{$producto->img}}" class="rounded" alt="Phone example 2">
+
+          <img src="{{$producto->img}}" class="rounded" alt="Phone example 3">
+
+      </div>
+
+      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12" id="imagenProducto">
+          <img src="{{$producto->img}}"  width="80%" alt="Phone example" class=""/>
+      </div>
+
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12" id="descProducto">
               <h3><?=$producto->nombre;?></h3>
 
               <form action="/productoDetalle" class="form-horizontal qtyFrm" method="post" enctype="multipart/form-data">
@@ -48,34 +56,25 @@
                   <label class="control-label" name= "precio" ><span>Stock: <strong><?=$producto->cantidad;?></strong></span></label>
                   <label class="control-label" name= "precio" ><span>Descuento: <strong><?=$producto->descuento;?></strong> %</span></label>
                   <div class="controls">
+                  @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
                   <input class="cantidad" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
                     max="{{$producto->cantidad}}" placeholder="0" title="cantidad a comprar"/>
+
                     <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
+                  @endif
                   </div>
                 </div>
               </form>
 
-              <form class="form-horizontal qtyFrm pull-right">
-                <div class="control-group">
-                  <label class="control-label"><span>Color</span></label>
-                  <div class="controls">
-                    <select>
-                      <option>Black</option>
-                      <option>Red</option>
-                      <option>Blue</option>
-                      <option>Brown</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
+              @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
               <button type="submit" class="btn btn-large btn-primary pull-right my-4"> Comprar <i class="fas fa-shopping-bag"></i></button>
-
+              @endif
               <br>
 
               <h4>Métodos de pago</h4>
               <img src="{{asset('img/payment_methods.png')}}" alt="payment_methods.png">
             </div>
-          </div>
+        </div>
 
           <hr>
 
@@ -98,7 +97,7 @@
                   foreach ($array as $key => $caracteristica) {?>
                     <ul type="circle">
                       <li >
-                        <?=$caracteristica;?>                        
+                        <?=$caracteristica;?>
                       </li>
                     </ul>
                   <?php
@@ -112,4 +111,3 @@
   <!--End main-->
 
   @endsection
-

@@ -253,51 +253,52 @@ class ProductoController extends Controller
   /**
   * puca
   */
-  /*   Central:  
+  /*   Central:
         * Lista los productos segun la categoria seleccionada.
        Lado hizquierdo:
         * Lista categorias distinto al producto actual
-        * Lista  todas las marcas 
+        * Lista  todas las marcas
         * Lista los productos segun la marca      seleccionada.
-         
+
          */
 
   public function lista($cat,$marca=0)
-  {    
+  {
     if($marca>0)  {
-       $productos=Producto::where("id_marca","=",$marca)->paginate(8); 
+       $productos=Producto::where("id_marca","=",$marca)->paginate(8);
     }
-    elseif($marca==0) {   
-       $productos=Producto::where("id_categoria","=",$cat)->paginate(8); 
+    elseif($marca==0) {
+       $productos=Producto::where("id_categoria","=",$cat)->paginate(8);
     }
        $categorias=Categoria::withCount(['getProductos'])
-       ->where("id_categoria","<>",$cat)     
-       ->get();       
+       ->where("id_categoria","<>",$cat)
+       ->get();
        $marcas = Marca::withCount(['getProductos'])
-       ->get();   
-    return view("listaProductos")->with("productos",$productos)->with("categorias",$categorias)->with("marcas",$marcas);    
+       ->get();
+    return view("listaProductos")->with("productos",$productos)->with("categorias",$categorias)->with("marcas",$marcas);
   }
 
   public function listaCategorias()
   {
-        $categorias = Categoria::all();    
+        $categorias = Categoria::all();
         return view("index")->with("categorias",$categorias);
-  }     
+  }
 
   public function listaPorDescuento($cat)
   {
-        $productos=Producto::where("id_categoria","=",$cat)
-        ->where(function($query){
-        $query->where("descuento", ">", 0);
-        })
-        ->paginate(8);
+       $productos=Producto::where("id_categoria","=",$cat)
+                            ->where(function($query){
+                              $query->where("descuento", ">", 0);
+                              })
+                            ->paginate(8);
 
-        $categorias=Categoria::withCount(['getProductos'])
-        ->where("id_categoria","<>",$cat)     
-        ->get();   
-        $marcas = Marca::withCount(['getProductos'])
-        ->get();      
-        return view("listaProductos")->with("productos",$productos)->with("categorias",$categorias)->with     ("marcas",$marcas);
+       $categorias=Categoria::withCount(['getProductos'])
+       ->where("id_categoria","<>",$cat)
+       ->get();
+       $marcas = Marca::withCount(['getProductos'])
+       ->get();
+
+    return view("listaProductos")->with("productos",$productos)->with("categorias",$categorias)->with("marcas",$marcas);
   }
 
   /**

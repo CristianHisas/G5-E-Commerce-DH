@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -46,7 +46,7 @@ class LoginController extends Controller
       return property_exists($this, 'user') ? $this->user : 'email';
     }
     /**
-     * 
+     *
      */
      /**
     * Redirect the user to the GitHub authentication page.

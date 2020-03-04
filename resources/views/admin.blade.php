@@ -20,10 +20,6 @@ $_SESSION["msj"]="";
         <a class="list-group-item list-group-item-action" href="/cuenta/admin/producto/lista">
             Panel de administración de Productos
         </a>
-        <a class="list-group-item list-group-item-action" href="/cuenta/admin/adminUsuario">
-            Panel de administración de Usuarios
-        </a>
     </div>
 </main>
 @endsection
-

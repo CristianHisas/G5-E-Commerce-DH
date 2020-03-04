@@ -120,7 +120,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 /////////////////////////////////////////////////////////////////////////////
 Route::get('/', 'ProductoController@listaCategorias');/*Lista de categorias en index*/
-Route::get("/listaProductos/{cat?}/{marca?}","ProductoController@lista")->name('lista');
+Route::get("/listaProductos/{cat?}","ProductoController@lista")->name('lista');
 /////////////////////////////////////////////////////////////////////////////
 Route::get("/listaProductos/descuentos/{cat?}","ProductoController@listaPorDescuento")->name('listaPorDescuento');
 #------------------Prueba-----------------#

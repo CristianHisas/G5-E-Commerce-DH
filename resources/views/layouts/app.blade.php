@@ -6,8 +6,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
-    <title>{{ config('app.name', 'E-commerce') }}</title>
+
+    <title>{{ config('app.name', 'Order66') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -33,7 +33,7 @@
 
     <!-- Styles -->
     <!--<link rel="stylesheet" href="/css/styles.css">-->
-    
+
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -44,7 +44,7 @@
      <!--Comienza el nombre de la empresa-->
      <a class="navbar-brand" href="/">
         <img src="/img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
-        <span>E-commerce</span>
+        <span>Order66</span>
       </a>
   <!--Fin el nombre de la empresa-->
        <!--Comienza el buscador-->
@@ -78,19 +78,22 @@
                                   <!--Comienza el categoria-->
                                   <div class="dropdown">
                                           <a class="nav-link dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Celulares
+                                            Categorias
                                           </a>
                                           <!--Comienza el menu desplegable de categoria-->
                                           <div class="dropdown-menu bg-dark py-0 mt-2 sub-menu-categoria" aria-labelledby="dropdownMenuLink">
                                               <ul class="px-0">
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosMotorola">Motorola</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosSamsung">Samsung</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosLG">LG</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosApple">Apple</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosNokia">Nokia</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 1])}}">Celulares</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 2])}}">Ropa</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 4])}}">Servicios</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 5])}}">Computacion</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 6])}}">Musica</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 7])}}">Hogar</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 8])}}">Vehiculos</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 9])}}">Otras Categorias</a></li>
                                               </ul>
-             
-             
+
+
                                             </div>
                                           <!--fin el menu desplegable de categoria-->
                                         </div>
@@ -119,7 +122,7 @@
                                     </a>
                                     @else
                                     <a class="dropdown-item" href="/cuenta/admin" >
-                                      <span>Panel Administrar</span>
+                                      <span>Panel de Administrador</span>
                                     </a>
                                     @endif
 
@@ -145,7 +148,7 @@
                         <span>Carrito</span>
                         <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
                       </a>
-                    </li> 
+                    </li>
                     @else
                     @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
                      <li class="nav-item">
@@ -153,13 +156,13 @@
                         <span>Carrito</span>
                         <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
                       </a>
-                    </li>                     
+                    </li>
                      @else
                     <li class="nav-item">
                       <a class="nav-link" href="/cuenta/admin" >
-                        <span>Panel Administrar</span>
+                        <span>Panel de Administrador</span>
                       </a>
-                    </li>              
+                    </li>
                     @endif
                     @endguest
                     </ul>
@@ -174,7 +177,7 @@
 <!-- footer -->
 <footer class="container-fluid bg-dark px-auto py-4  footer-cambiado ">
   <!-- Footer ================================================================== -->
-    
+
         <div class="row d-flex justify-content-between">
           <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
             <h5>ACCOUNT</h5>
@@ -187,7 +190,7 @@
           <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
             <h5>INFORMATION</h5>
             <a href="/contacto">CONTACT</a>
-            <a href="/registro">REGISTRATION</a>
+            <a href="{{url('register')}}">REGISTRATION</a>
             <a href="/legal_notice.html">LEGAL NOTICE</a>
             <a href="/tac.html">TERMS AND CONDITIONS</a>
             <a href="/faq">FAQ</a>
@@ -221,7 +224,7 @@
 
                 {{"Debe entrar en su cuenta o registrarse"}}
             @else
-           
+
             @if (Auth::user()->id_carrito!=null)
             @php
                 //$carrito=Auth::user()->getCarrito;

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('E-commerce', 'E-commerce'),
+    'name' => env('Order66', 'Order66'),
 
     /*
     |--------------------------------------------------------------------------
@@ -175,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         /**
-         * 
+         *
          */
         \SocialiteProviders\Manager\ServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
