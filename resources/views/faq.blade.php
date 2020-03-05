@@ -18,7 +18,6 @@
 @section('content')
     <main class="">
         <div class="inner-main">
-         @include("inc.navBar")
                 <h1 class="faq-h1">Preguntas frecuentes</h1>
                 <div class="accordion" id="accordionFaq">
                     <div class="card">
@@ -242,4 +241,3 @@
         </div>
     </main>
     @endsection
-

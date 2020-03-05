@@ -22,7 +22,6 @@ main #mainContainer #seccionInfoProducto{
   flex-grow: 1;
 }
 #imagenProducto img{
- 
   border: 1px solid #0001;
 }
 #thumbnailProducto

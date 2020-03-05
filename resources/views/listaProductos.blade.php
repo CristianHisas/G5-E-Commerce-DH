@@ -11,6 +11,7 @@
     $activeUser=$_SESSION["activeUser"];
   }
   $pagina="Datos de Usuario";
+
 ?>
 @extends('layouts.app')
 @section('csspersonal')
@@ -64,9 +65,9 @@
 
             <section clas="productos">
             <?php
-              foreach ($productos as $key => $value) {                
+              foreach ($productos as $key => $value) {
             ?>
-            <a href="/productoDetalle/{{$value->id_producto}}" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->                
+            <a href="/productoDetalle/{{$value->id_producto}}" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
                 <article >
                     <div class="img-container">
                      <!--   <img src="img/phone.jpg" alt=""> -->
@@ -86,17 +87,17 @@
                    <!-- <div class="vendedor">
                         Vendedor
                     </div> -->
-                    <div >stock: 
+                    <div >stock:
                     <?=$value->cantidad;?>
-                    </div> 
-                    
+                    </div>
+
                     </div>
                 </article>
             </a>
             <?php
-              }             
+              }
             ?>
-            
+
             <span class="form-control-plaintext mx-auto d-linea">{{$productos->links()}}</span>
             </section>
         </div>

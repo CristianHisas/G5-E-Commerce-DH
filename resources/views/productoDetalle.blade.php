@@ -18,7 +18,7 @@
     @endphp
     @endif
     @isset($msj)
-  
+
     @if ($msj[0]=="success")
     <p class="btn alert alert-{{$msj[0]}} col-12" role="alert">
     {{$msj[1]}}
@@ -27,7 +27,7 @@
     <p class="btn alert alert-{{$msj[0]}} col-12" role="alert">
     {{$msj[1]}}
     @endif
-    </p>                  
+    </p>
     @endisset
     <div class="row" id = "seccionProducto">
 
@@ -45,7 +45,7 @@
         <img src="{{$producto->img}}"  width="80%" alt="Phone example" class=""/>
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="descProducto">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12" id="descProducto">
               <h3><?=$producto->nombre;?></h3>
 
               <form action="/productoDetalle" class="form-horizontal qtyFrm" method="post" enctype="multipart/form-data">
@@ -96,7 +96,7 @@
               <h4>Métodos de pago</h4>
               <img src="{{asset('img/payment_methods.png')}}" alt="payment_methods.png">
             </div>
-          </div>
+        </div>
 
           <hr>
 
@@ -119,7 +119,7 @@
                   foreach ($array as $key => $caracteristica) {?>
                     <ul type="circle">
                       <li >
-                        <?=$caracteristica;?>                        
+                        <?=$caracteristica;?>
                       </li>
                     </ul>
                   <?php
@@ -133,4 +133,3 @@
   <!--End main-->
 
   @endsection
-

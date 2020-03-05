@@ -136,4 +136,6 @@ class CategoriaController extends Controller
 
       return redirect('cuenta/admin/abmCategoria');
     }
+
+    
 }

@@ -33,7 +33,7 @@
 
     <!-- Styles -->
     <!--<link rel="stylesheet" href="/css/styles.css">-->
-    
+
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -92,8 +92,8 @@
                                                 <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 8])}}">Vehiculos</a></li>
                                                 <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 9])}}">Otras Categorias</a></li>
                                               </ul>
-             
-             
+
+
                                             </div>
                                           <!--fin el menu desplegable de categoria-->
                                         </div>
@@ -148,7 +148,7 @@
                         <span>Carrito</span>
                         <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
                       </a>
-                    </li> 
+                    </li>
                     @else
                     @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
                      <li class="nav-item">
@@ -156,13 +156,13 @@
                         <span>Carrito</span>
                         <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
                       </a>
-                    </li>                     
+                    </li>
                      @else
                     <li class="nav-item">
                       <a class="nav-link" href="/cuenta/admin" >
-                        <span>Panel Administrar</span>
+                        <span>Panel de Administrador</span>
                       </a>
-                    </li>              
+                    </li>
                     @endif
                     @endguest
                     </ul>
@@ -177,7 +177,7 @@
 <!-- footer -->
 <footer class="container-fluid bg-dark px-auto py-4  footer-cambiado ">
   <!-- Footer ================================================================== -->
-    
+
         <div class="row d-flex justify-content-between">
           <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
             <h5>ACCOUNT</h5>
@@ -224,7 +224,7 @@
 
                 {{"Debe entrar en su cuenta o registrarse"}}
             @else
-           
+
             @if (Auth::user()->id_carrito!=null)
             @php
                 //$carrito=Auth::user()->getCarrito;

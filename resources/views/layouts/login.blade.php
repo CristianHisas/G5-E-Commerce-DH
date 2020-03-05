@@ -95,11 +95,11 @@ foreach ($pagina as $key => $value) {
                                             </ul>
 
 
-                                          </div>
-                                        <!--fin el menu desplegable de categoria-->
-                                      </div>
-                                <!--Fin categoria-->
-                        </li>
+                                            </div>
+                                          <!--fin el menu desplegable de categoria-->
+                                        </div>
+                                  <!--Fin categoria-->
+                          </li>
                       <!-- Authentication Links -->
                       @guest
                           <li class="nav-item">
@@ -117,9 +117,6 @@ foreach ($pagina as $key => $value) {
                               </a>
 
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('perfil') }}">
-                                  {{ __('Perfil') }}
-                                </a>
 
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                      onclick="event.preventDefault();
@@ -142,7 +139,7 @@ foreach ($pagina as $key => $value) {
                         <span>Carrito</span>
                         <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
                       </a>
-                    </li> 
+                    </li>
                     @else
                     @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
                      <li class="nav-item">
@@ -150,13 +147,13 @@ foreach ($pagina as $key => $value) {
                         <span>Carrito</span>
                         <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
                       </a>
-                    </li>                     
+                    </li>
                      @else
                     <li class="nav-item">
                       <a class="nav-link" href="/cuenta/admin" >
                         <span>Panel de Administrador</span>
                       </a>
-                    </li>              
+                    </li>
                     @endif
                     @endguest
                   </ul>
@@ -259,7 +256,7 @@ foreach ($pagina as $key => $value) {
 
                 {{"Debe entrar en su cuenta o registrarse"}}
             @else
-           
+
             @if (Auth::user()->id_carrito!=null)
             @php
                 //$carrito=Auth::user()->getCarrito;

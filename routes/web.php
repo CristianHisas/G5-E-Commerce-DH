@@ -16,9 +16,9 @@ Route::get('/', 'ProductoController@listaCategorias');/*Lista de categorias en i
 Route::get('/home', function(){
   return view('home');
 });
-Route::get('/index', function(){
-  return view('index');
-});
+//Route::get('/index', function(){
+// return view('index');
+//});
 /*john
 Route::get('/listaProductos{marca?}', function($marca=""){
 
