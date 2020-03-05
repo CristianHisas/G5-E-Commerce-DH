@@ -30,22 +30,34 @@
     </p>
     @endisset
     <div class="row" id = "seccionProducto">
+<!---------------------------------------------------------->
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="imagenProducto">
+  <!---------------------------------------------------------->
+        <div class="d-flex flex-row flex-sm-column justify-content-between">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 d-flex flex-column flex-sm-row align-items-stretch order-sm-1">
+            <ul class="col-12 d-flex flex-column  flex-sm-row justify-content-between">
+              <li class="row col-sm-4  cuadro-mini">
+                <img src="{{$producto->img}}" class="" width="100%" alt="Phone example 1">
+              </li>
+              <li class="row  col-sm-4 cuadro-mini">
+                <img src="{{$producto->img}}" class="" width="100%" alt="Phone example 1">
+              </li>
+              <li class="row col-sm-4 cuadro-mini">
+                <img src="{{$producto->img}}" class="" width="100%" alt="Phone example 1">
+              </li>
+            </ul>
+          </div>
+          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 order-sm-0 mb-sm-2 ">  
+            <a href="img/phone.jpg" title="Phone example" class="cuadro-max">
+              <img src="{{$producto->img}}"  width="100%" alt="Phone example" class=""/>
+            </a>
+          </div>
+        </div>
 
-      <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12" id="thumbnailProducto">
-
-        <img src="{{$producto->img}}" class="rounded" alt="Phone example 1">
-
-        <img src="{{$producto->img}}" class="rounded" alt="Phone example 2">
-
-        <img src="{{$producto->img}}" class="rounded" alt="Phone example 3">
-
-    </div>
-
-    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12" id="imagenProducto">
-        <img src="{{$producto->img}}"  width="80%" alt="Phone example" class=""/>
-            </div>
-
-            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12" id="descProducto">
+<!---------------------------------------------------------->
+      </div>
+<!---------------------------------------------------------->
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 " id="descProducto">
               <h3><?=$producto->nombre;?></h3>
 
               <form action="/productoDetalle" class="form-horizontal qtyFrm" method="post" enctype="multipart/form-data">
@@ -55,16 +67,16 @@
                   <input type="hidden" name="id_producto" value="{{$producto->id_producto}}">
                   <label class="control-label" name= "precio" ><span>Stock: <strong><?=$producto->cantidad;?></strong></span></label>
                   <label class="control-label" name= "precio" ><span>Descuento: <strong><?=$producto->descuento;?></strong> %</span></label>
-                  <div class="controls">
+                  <div class="control-group mb-1">
                     @guest
-                    <input class="cantidad" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
+                    <input class="cantidad px-0 col-5 mx-1" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
                       max="{{$producto->cantidad}}" placeholder="0" title="cantidad a comprar"/>
-                      <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
+                      <button type="submit" class="btn btn-large btn-primary pull-right col-6"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
                     @else
                     @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
-                    <input class="cantidad" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
+                    <input class="cantidad px-0 col-5" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
                       max="{{$producto->cantidad}}" placeholder="0" title="cantidad a comprar"/>
-                      <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
+                      <button type="submit" class="btn btn-large btn-primary pull-right col-6"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
                       @endif
                     @endguest
                   </div>
@@ -72,9 +84,9 @@
               </form>
 
               <form class="form-horizontal qtyFrm pull-right">
-                <div class="control-group">
-                  <label class="control-label"><span>Color</span></label>
-                  <div class="controls">
+                <div class="control-group row">
+                  <label class="control-label col-5"><span>Color</span></label>
+                  <div class="controls col-5">
                     <select>
                       <option>Black</option>
                       <option>Red</option>
@@ -85,16 +97,16 @@
                 </div>
               </form>
               @guest
-              <button type="submit" class="btn btn-large btn-primary pull-right my-4"> Comprar <i class="fas fa-shopping-bag"></i></button>    
+              <button type="submit" class="btn btn-large btn-primary pull-right my-2"> Comprar <i class="fas fa-shopping-bag"></i></button>    
               @else
               @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
-              <button type="submit" class="btn btn-large btn-primary pull-right my-4"> Comprar <i class="fas fa-shopping-bag"></i></button>
+              <button type="submit" class="btn btn-large btn-primary pull-right my-2"> Comprar <i class="fas fa-shopping-bag"></i></button>
               @endif
               @endguest
               <br>
 
               <h4>Métodos de pago</h4>
-              <img src="{{asset('img/payment_methods.png')}}" alt="payment_methods.png">
+              <img src="{{asset('img/payment_methods.png')}}" alt="payment_methods.png" class="">
             </div>
         </div>
 
