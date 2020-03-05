@@ -123,7 +123,7 @@ class ProductoController extends Controller
         return view("modificarProducto")->with("producto",$producto)->with("marcas",$marcas)->with("categorias",$categorias);    
         }
         
-        return abort(404);    
+        return view("/error");    
         
         
         
@@ -253,26 +253,44 @@ class ProductoController extends Controller
     /**
      * puca
      */
-    public function lista($cat)
-    {
-      $productos=Producto::where("id_categoria","=",$cat)->paginate(8);
-      /*        No deviera traer todos sino segun categoria seleccionada
-      $producto =Producto::find($id_categoria);
-      $productos=Producto::all()->where("categoria","<>",$producto->categoria);*/
-      return view("listaProductos")->with("productos",$productos);
+    public function lista($cat,$marca=0)
+    {    
+      if($marca>0)  {
+         $productos=Producto::where("id_marca","=",$marca)->paginate(8); 
+      }
+      elseif($marca==0) {   
+         $productos=Producto::where("id_categoria","=",$cat)->paginate(8); 
+      }
+         $categorias=Categoria::withCount(['getProductos'])
+         ->where("id_categoria","<>",$cat)     
+         ->get();       
+         $marcas = Marca::withCount(['getProductos'])
+         ->get();   
+      return view("listaProductos")->with("productos",$productos)->with("categorias",$categorias)->with("marcas",$marcas);    
     }
-  
-    public function listaPorDescuento($cat)
+
+    public function listaCategorias()
     {
-      $productos=Producto::where("id_categoria","=",$cat)
-      ->where(function($query){
-        $query->where("descuento", ">", 0);
-      })
-      ->paginate(8);
-      /*        No deviera traer todos sino segun categoria seleccionada
-      $producto =Producto::find($id_categoria);
-      $productos=Producto::all()->where("categoria","<>",$producto->categoria);*/
-      return view("listaProductos")->with("productos",$productos);
+          $categorias = Categoria::all();    
+          return view("index")->with("categorias",$categorias);
+    }
+     
+    public function listaPorDescuento($cat)
+    {    
+          $productos=Producto::where("id_categoria","=",$cat)
+          ->where(function($query){
+          $query->where("descuento", ">", 0);
+          })
+          ->paginate(8);
+  
+          $categorias=Categoria::withCount(['getProductos'=> function ($query) {
+            $query->where('descuento', '>', 0);
+        }])
+          ->where("id_categoria","<>",$cat)     
+          ->get();   
+          $marcas = Marca::withCount(['getProductos'])
+          ->get();      
+          return view("listaProductos")->with("productos",$productos)->with("categorias",$categorias)->with("marcas",$marcas);
     }
 
     /**
@@ -291,6 +309,6 @@ class ProductoController extends Controller
       return view("productoDetalle")->with("producto",$producto)->with("marcas",$marcas)->with("categorias",$categorias);
       }
 
-      return abort(404);
+      return view("/error");
     }
 }

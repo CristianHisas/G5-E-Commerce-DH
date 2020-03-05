@@ -31,10 +31,18 @@
     @endisset
     <div class="row" id = "seccionProducto">
 
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="imagenProducto">
-        <a href="img/phone.jpg" title="Phone example">
-          <img src="{{$producto->img}}"  width="80%" alt="Phone example" class=""/>
-              </a>
+      <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12" id="thumbnailProducto">
+
+        <img src="{{$producto->img}}" class="rounded" alt="Phone example 1">
+
+        <img src="{{$producto->img}}" class="rounded" alt="Phone example 2">
+
+        <img src="{{$producto->img}}" class="rounded" alt="Phone example 3">
+
+    </div>
+
+    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12" id="imagenProducto">
+        <img src="{{$producto->img}}"  width="80%" alt="Phone example" class=""/>
             </div>
 
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="descProducto">
@@ -48,9 +56,17 @@
                   <label class="control-label" name= "precio" ><span>Stock: <strong><?=$producto->cantidad;?></strong></span></label>
                   <label class="control-label" name= "precio" ><span>Descuento: <strong><?=$producto->descuento;?></strong> %</span></label>
                   <div class="controls">
-                  <input class="cantidad" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
-                    max="{{$producto->cantidad}}" placeholder="0" title="cantidad a comprar"/>
-                    <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
+                    @guest
+                    <input class="cantidad" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
+                      max="{{$producto->cantidad}}" placeholder="0" title="cantidad a comprar"/>
+                      <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
+                    @else
+                    @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
+                    <input class="cantidad" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
+                      max="{{$producto->cantidad}}" placeholder="0" title="cantidad a comprar"/>
+                      <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
+                      @endif
+                    @endguest
                   </div>
                 </div>
               </form>
@@ -68,8 +84,13 @@
                   </div>
                 </div>
               </form>
+              @guest
+              <button type="submit" class="btn btn-large btn-primary pull-right my-4"> Comprar <i class="fas fa-shopping-bag"></i></button>    
+              @else
+              @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
               <button type="submit" class="btn btn-large btn-primary pull-right my-4"> Comprar <i class="fas fa-shopping-bag"></i></button>
-
+              @endif
+              @endguest
               <br>
 
               <h4>Métodos de pago</h4>

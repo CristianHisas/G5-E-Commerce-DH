@@ -20,7 +20,7 @@
         @csrf
       <div class="form-group" >
               <label for="viejoMail">Email </label>
-              <input type="email" class="form-control" id="viejoMail" name="viejoMail" aria-describedby="emailHelp" value="" readonly>
+              <input type="email" class="form-control" id="viejoMail" name="viejoMail" aria-describedby="emailHelp" value="{{Auth::user()->email}}" readonly>
               <small class="text-muted">E-mail Actual</small>
 
       </div>

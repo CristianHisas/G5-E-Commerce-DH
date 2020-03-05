@@ -20,71 +20,44 @@
     <main class="container mb-4">
         <div class="inner-main" id="lista-productos">
             <aside>
-                <div class="tags">
-                    <span class="tag">
-                        <span>Nuevo ✖ </span>
-                        <!-- <i  class="material-icons">&#xe14c;</i> -->
-                    </span>
-                    <span class="tag">
-                        <span>Motorola ✖</span>
-                        <!-- <i class="material-icons">&#xe14c;</i> -->
-                    </span>
-                </div>
                 <dl>
                     <dt>
-                        Linea
-                    </dt>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">Moto</span>
-                            <span class="filter-result-qty">(123)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">RAZR</span>
-                            <span class="filter-result-qty">(65)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">One</span>
-                            <span class="filter-result-qty">(70)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            Ver todos
-                        </a>
-                    </dd>
+                        Categoria
+                    </dt> 
+
+                    <?php       
+                        foreach ($categorias as $key => $value) {                                 
+                    ?>   
+                           <dd>
+                               <a href="/listaProductos/{{$value->id_categoria}}">
+                                  <span class="filter-name"><?=$value->categoria;?></span>
+                                  <span class="filter-result-qty">({{$value->get_productos_count}})</span>
+                               </a>
+                           </dd> 
+                    <?php
+                     }
+                    ?>                        
+
                 </dl>
                 <dl>
                     <dt>
-                        Modelo
+                        Marca
                     </dt>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">IRONROCK</span>
-                            <span class="filter-result-qty">(36)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">i867</span>
-                            <span class="filter-result-qty">(22)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            <span class="filter-name">G7 Power</span>
-                            <span class="filter-result-qty">(17)</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="#">
-                            Ver todos
-                        </a>
-                    </dd>
+                    <?php       
+                        foreach ($marcas as $key => $value) 
+                        {       
+                                                                                 
+                    ?>   
+                           <dd>
+                               <a href="/listaProductos/{{$cat=0}}/{{$value->id_marca}}">
+
+                                  <span class="filter-name"><?=$value->marca;?></span>
+                                  <span class="filter-result-qty">({{$value->get_productos_count}})</span>
+                              </a>
+                           </dd> 
+                    <?php
+                     }
+                    ?>   
                 </dl>
             </aside>
 

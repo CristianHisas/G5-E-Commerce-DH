@@ -16,7 +16,7 @@ foreach ($pagina as $key => $value) {
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'E-commerce') }}</title>
+        <title>{{ config('app.name', 'Order66') }}</title>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -37,7 +37,6 @@ foreach ($pagina as $key => $value) {
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="/css/stylePerfilSeguridadResumen.css">
 
-<title>E-commerce</title>
 </head>
 <body class="main-perfil">
   <div id="app">
@@ -46,7 +45,7 @@ foreach ($pagina as $key => $value) {
    <!--Comienza el nombre de la empresa-->
    <a class="navbar-brand" href="/">
       <img src="/img/e-com1.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
-      <span>E-commerce</span>
+      <span>Order66</span>
     </a>
 <!--Fin el nombre de la empresa-->
      <!--Comienza el buscador-->
@@ -80,16 +79,19 @@ foreach ($pagina as $key => $value) {
                                 <!--Comienza el categoria-->
                                 <div class="dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Celulares
-                                        </a>
-                                        <!--Comienza el menu desplegable de categoria-->
-                                        <div class="dropdown-menu bg-dark py-0 mt-2 sub-menu-categoria" aria-labelledby="dropdownMenuLink">
-                                            <ul class="px-0">
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosMotorola">Motorola</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosSamsung">Samsung</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosLG">LG</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosApple">Apple</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="/listaProductosNokia">Nokia</a></li>
+                                          Categorias
+                                          </a>
+                                          <!--Comienza el menu desplegable de categoria-->
+                                          <div class="dropdown-menu bg-dark py-0 mt-2 sub-menu-categoria" aria-labelledby="dropdownMenuLink">
+                                              <ul class="px-0">
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 1])}}">Celulares</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 2])}}">Ropa</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 4])}}">Servicios</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 5])}}">Computacion</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 6])}}">Musica</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 7])}}">Hogar</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 8])}}">Vehiculos</a></li>
+                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 9])}}">Otras Categorias</a></li>
                                             </ul>
 
 
@@ -111,7 +113,7 @@ foreach ($pagina as $key => $value) {
                       @else
                           <li class="nav-item dropdown">
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  {{ Auth::user()->name }} <span class="caret"></span>
+                                  {{ Auth::user()->user }} <span class="caret"></span>
                               </a>
 
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -152,7 +154,7 @@ foreach ($pagina as $key => $value) {
                      @else
                     <li class="nav-item">
                       <a class="nav-link" href="/cuenta/admin" >
-                        <span>Panel Administrar</span>
+                        <span>Panel de Administrador</span>
                       </a>
                     </li>              
                     @endif
@@ -223,7 +225,7 @@ foreach ($pagina as $key => $value) {
         <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xd-4">
           <h5>INFORMATION</h5>
           <a href="/contacto">CONTACT</a>
-          <a href="/registro">REGISTRATION</a>
+          <a href="{{url('register')}}">REGISTRATION</a>
           <a href="/legal_notice.html">LEGAL NOTICE</a>
           <a href="/tac.html">TERMS AND CONDITIONS</a>
           <a href="/faq">FAQ</a>

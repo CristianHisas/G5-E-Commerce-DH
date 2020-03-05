@@ -74,7 +74,7 @@
                 </div>
                 <div class="card-footer text-center">
                     <a href="{{ route('social.auth', 'facebook') }}" class="btn btn-facebook "><i class="fab fa-facebook-f"></i> Entra con Facebook</a>
-                    <a href="#" class="btn btn-google"><i class="fab fa-google"></i> Entra con Google</a>
+                    <a href="{{ route('social.auth', 'google') }}" class="btn btn-google"><i class="fab fa-google"></i> Entra con Google</a>
                 </div>
             </div>
         </div>

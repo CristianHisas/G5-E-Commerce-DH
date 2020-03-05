@@ -19,7 +19,7 @@
                     </div>
                     <div class="text">
                         <h1>
-                            ¡Bienvenid@ a E-commerce!
+                            ¡Bienvenid@ a Order66!
                         </h1>
                         <p>
                             El lugar donde encontrarás todo lo que buscas y al mejor precio.
@@ -79,89 +79,27 @@
               </div>
         
 
-            <div class="categorias">
-                <a href="/listaProductos/9" class="irDescripcion">
-                <div class="categoria">
-                    <div class="icono">
-                        <img src="img/categorias/autopng.png" alt="">
-                    </div>
-                    <div class="titulo">
-                        Vehículos
-                    </div>
-                </div>
-                </a>
-                <a href="/listaProductos/1" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
-                <div class="categoria">
-                    <div class="icono">
-                        <img src="img/categorias/tel.png" alt="">
-                    </div>
-                    <div class="titulo">
-                        Smarthphones
-                    </div>
-                </div>
-                </a>
-                <a href="/listaProductos/8" class="irDescripcion">
-                <div class="categoria">
-                    <div class="icono">
-                        <img src="img/categorias/casa.png" alt="">
-                    </div>
-                    <div class="titulo">
-                        Hogar
-                    </div>
-                </div>
-                </a>
-                <a href="/listaProductos/2" class="irDescripcion">
-                <div class="categoria">
-                    <div class="icono">
-                        <img src="img/categorias/ropa.png" alt="">
-                    </div>
-                    <div class="titulo">
-                        Ropa
-                    </div>
-                </div>
-                </a>
-                <a href="/listaProductos/7" class="irDescripcion">
-                <div class="categoria">
-                    <div class="icono">
-                        <img src="img/categorias/guitarra.png" alt="">
-                    </div>
-                    <div class="titulo">
-                        Música
-                    </div>
-                </div>
-                </a>
-                <a href="/listaProductos/6" class="irDescripcion">
-                <div class="categoria">
-                    <div class="icono">
-                        <img src="img/categorias/pc.png" alt="">
-                    </div>
-                    <div class="titulo">
-                        Computación
-                    </div>
-                </div>
-                </a>
-                <a href="/listaProductos" class="irDescripcion">
-                <div class="categoria">
-                    <div class="icono">
-                        <img src="img/categorias/servicios.png" alt="">
-                    </div>
-                    <div class="titulo">
-                        Servicios
-                    </div>
-                </div>
-                </a>
-                <a href="/listaProductos/4" class="irDescripcion">
-                <div class="categoria">
-                    <div class="icono">
-                        <img src="img/categorias/mas.png" alt="">
-                    </div>
-                    <div class="titulo">
-                        Otras categorías
-                    </div>
-                </div>
-                </a>
-            </div>
+              <div class="categorias">
 
-        </div>
-    </main>
+                <?php       
+                   foreach ($categorias as $key => $value) {                
+                ?>            
+                   <a href="/listaProductos/{{$value->id_categoria}}" class="irDescripcion">
+                     <div class="categoria">
+                       <div class="icono">
+                           <img src="<?=$value->img;?>" alt="" sizes="" width="50%" class="zoom">             
+                       </div>
+                       <div class="titulo">                 
+                          <?=$value->categoria;?>
+                       </div>
+                     </div>
+                   </a>
+                <?php
+                }
+                ?>
+               
+             </div>
+            
+           </div>
+         </main>
     @endsection

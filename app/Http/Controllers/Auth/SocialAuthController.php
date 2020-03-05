@@ -22,24 +22,37 @@ class SocialAuthController extends Controller
     public function handleProviderCallback($provider)
     {
         // Obtenemos los datos del usuario
-        $social_user = Socialite::driver($provider)->user(); 
+        if(isset($_GET['error']) ){
+            if(($_GET['error']=="access_denied")){
+
+
+            return redirect('/');
+            }
+        }
+        dd(Socialite::driver($provider));
+        $social_user = Socialite::driver($provider)->user();
+        //dd($social_user);
         // Comprobamos si el usuario ya existe
         if ($user = User::where('email', $social_user->email)->first()) { 
             return $this->authAndRedirect($user); // Login y redirección
         } else {
         	
             // En caso de que no exista creamos un nuevo usuario con sus datos.
-            $user = User::create([
-                'name' => $social_user->name,
+            $nombreUser=explode("@",$social_user->email);
+            $nombreCompleto=explode(" ",$social_user->name);
+            $user = user::create([
+                'name' => $nombreCompleto[0],
                 'email' => $social_user->email,
-                'apellido'=>$social_user->name,
-                'user'=>$social_user->email,
-                "img"=>$social_user->avatar_original,
+                'apellido'=>$nombreCompleto[1],
+                'user'=>$nombreUser[0],
                 'password' => Hash::make($social_user->email),
             ]);
             $user
 	        ->roles()
 	        ->attach(Role::where('name', 'user')->first());
+            $usuario=$user->getUsuario;
+            $usuario->img=$social_user->avatar_original;
+            $usuario->save();
 
             return $this->authAndRedirect($user); // Login y redirección
         }
