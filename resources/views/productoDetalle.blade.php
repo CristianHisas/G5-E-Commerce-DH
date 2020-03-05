@@ -33,23 +33,23 @@
 <!---------------------------------------------------------->
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="imagenProducto">
   <!---------------------------------------------------------->
-        <div class="d-flex flex-row flex-sm-column justify-content-between">
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 d-flex flex-column flex-sm-row align-items-stretch order-sm-1">
-            <ul class="col-12 d-flex flex-column  flex-sm-row justify-content-between">
-              <li class="row col-sm-4  cuadro-mini">
+        <div class="d-flex flex-row  justify-content-between cuadro-contenedor">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 d-flex flex-column  align-items-stretch segundo-j">
+            <ul class="col-12 d-flex flex-column justify-content-between">
+              <li class="row   cuadro-mini">
                 <img src="{{$producto->img}}" class="" width="100%" alt="Phone example 1">
               </li>
-              <li class="row  col-sm-4 cuadro-mini">
+              <li class="row  cuadro-mini">
                 <img src="{{$producto->img}}" class="" width="100%" alt="Phone example 1">
               </li>
-              <li class="row col-sm-4 cuadro-mini">
+              <li class="row   cuadro-mini">
                 <img src="{{$producto->img}}" class="" width="100%" alt="Phone example 1">
               </li>
             </ul>
           </div>
-          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 order-sm-0 mb-sm-2 ">  
+          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12   primero-j">  
             <a href="img/phone.jpg" title="Phone example" class="cuadro-max">
-              <img src="{{$producto->img}}"  width="100%" alt="Phone example" class=""/>
+              <img src="{{$producto->img}}"  width="100%" alt="Phone example" class="img-telefono"/>
             </a>
           </div>
         </div>
@@ -58,7 +58,7 @@
       </div>
 <!---------------------------------------------------------->
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 " id="descProducto">
-              <h3><?=$producto->nombre;?></h3>
+              <h2><?=$producto->nombre;?></h2>
 
               <form action="/productoDetalle" class="form-horizontal qtyFrm" method="post" enctype="multipart/form-data">
                 @csrf

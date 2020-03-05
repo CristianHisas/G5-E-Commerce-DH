@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Categoria;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -26,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
+        view()->share('categoriaTodoGlobal',Categoria::all());
     }
 }
