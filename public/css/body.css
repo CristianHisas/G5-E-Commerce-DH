@@ -45,18 +45,18 @@ main{
 .inner-main{
   max-width: 1200px;
 }
-.btn-facebook{
+.btn-faceboo{
   background-color: #3b5998;
   color: white;
   border:#3b5ba0;
 }
-.btn-facebook:hover{
+.btn-faceboo:hover{
   color: white;
  }
- .btn-facebook:active{
+ .btn-faceboo:active{
   color: white;
  }
- .btn-facebook:focus{
+ .btn-faceboo:focus{
  color: white;
 }
 .btn-google{

@@ -29,7 +29,7 @@ class SocialAuthController extends Controller
             return redirect('/');
             }
         }
-        dd(Socialite::driver($provider));
+        //dd(Socialite::driver($provider));
         $social_user = Socialite::driver($provider)->user();
         //dd($social_user);
         // Comprobamos si el usuario ya existe
