@@ -34,14 +34,6 @@ Route::get('/listaProductos', function(){
 Route::get('/productoDetalle/{id}', "ProductoController@showDetails")->where('id', '[0-9]+');
 Route::post('/productoDetalle', "CarritoController@store");
 
-Route::get('/login', function(){
-  return view('login');
-});
-
-Route::get('/registro', function(){
-  return view('registro');
-});
-
 Route::get('/faq', function(){
   return view('faq');
 });
@@ -51,7 +43,7 @@ Route::get('/contacto', function(){
 });
 
 
-Route::post("/cuenta/modificarUsuario",'UsuarioController@store');
+Route::post("/cuenta/modificarUsuario",'UsuarioController@store')->middleware("role:user");
 
 
 
@@ -100,18 +92,18 @@ Route::get("/cuenta/admin/producto/eliminar/{id}","ProductoController@destroy")-
 #------------Fin CRUD Producto------------------------#
 #------------ CRUD cuenta comun------------------------#
 
-Route::get('/cuenta/perfil', "UsuarioController@show")->middleware('auth')->middleware('verified')->middleware('verified')->name('perfil');
-Route::get('/cuenta/perfil/guardar/{id?}', "UsuarioController@edit")->where('id', '[0-9]+')->middleware('auth')->middleware('verified');
-Route::post('/cuenta/perfil/guardar/{id?}', "UsuarioController@update")->where('id', '[0-9]+')->middleware('auth')->middleware('verified');
+Route::get('/cuenta/perfil', "UsuarioController@show")->middleware('auth')->middleware('verified')->middleware('verified')->middleware("role:user")->name('perfil');
+Route::get('/cuenta/perfil/guardar/{id?}', "UsuarioController@edit")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware("role:user");
+Route::post('/cuenta/perfil/guardar/{id?}', "UsuarioController@update")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware("role:user");
 Route::get('/cuenta/resumen', function(){
   return view('resumen');
-})->middleware('auth')->middleware('verified');
-Route::get("/cuenta/resumen/vaciar/{id}","CarritoController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified');
+})->middleware('auth')->middleware('verified')->middleware("role:user");
+Route::get("/cuenta/resumen/vaciar/{id}","CarritoController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware("role:user");
 
 Route::get('/cuenta/seguridad', function(){
   return view('seguridad');
-})->middleware('auth')->middleware('verified');
-Route::post('/cuenta/seguridad/pass',"UsuarioController@updatePassword")->middleware('auth')->middleware('verified');
+})->middleware('auth')->middleware('verified')->middleware("role:user");
+Route::post('/cuenta/seguridad/pass',"UsuarioController@updatePassword")->middleware('auth')->middleware('verified')->middleware("role:user");
 #------------ CRUD cuenta comun fin------------------------#
 
 Auth::routes(['verify' => true]);
