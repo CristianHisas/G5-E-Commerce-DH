@@ -36,21 +36,22 @@
         <div class="d-flex flex-row  justify-content-between cuadro-contenedor">
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 d-flex flex-column  align-items-stretch segundo-j">
             <ul class="col-12 d-flex flex-column justify-content-between">
-              <li class="row   cuadro-mini">
-                <img src="{{$producto->img}}" class="" width="100%" alt="Phone example 1">
+              <li class="row">
+                <img src="/img/prueba/img1.jpg" class="cuadro-mini" width="100%" alt="Phone example 1">
               </li>
-              <li class="row  cuadro-mini">
-                <img src="{{$producto->img}}" class="" width="100%" alt="Phone example 1">
+              <li class="row">
+                <img src="/img/prueba/img2.jpg" class="cuadro-mini" width="100%" alt="Phone example 1">
               </li>
-              <li class="row   cuadro-mini">
-                <img src="{{$producto->img}}" class="" width="100%" alt="Phone example 1">
+              <li class="row">
+                <img src="/img/prueba/img3.jpg" class="cuadro-mini" width="100%" alt="Phone example 1">
               </li>
             </ul>
           </div>
-          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12   primero-j">  
+          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12   primero-j img-zoom-container">
             <a href="img/phone.jpg" title="Phone example" class="cuadro-max">
-              <img src="{{$producto->img}}"  width="100%" alt="Phone example" class="img-telefono"/>
+              <img src="{{$producto->img}}"  width="100%" alt="Phone example" class="img-telefono" id="imgPrincipal"/>
             </a>
+            <div id="myresult" class="img-zoom-result"></div>
           </div>
         </div>
 
@@ -83,21 +84,8 @@
                 </div>
               </form>
 
-              <form class="form-horizontal qtyFrm pull-right">
-                <div class="control-group row">
-                  <label class="control-label col-5"><span>Color</span></label>
-                  <div class="controls col-5">
-                    <select>
-                      <option>Black</option>
-                      <option>Red</option>
-                      <option>Blue</option>
-                      <option>Brown</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
               @guest
-              <button type="submit" class="btn btn-large btn-primary pull-right my-2"> Comprar <i class="fas fa-shopping-bag"></i></button>    
+              <button type="submit" class="btn btn-large btn-primary pull-right my-2"> Comprar <i class="fas fa-shopping-bag"></i></button>
               @else
               @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
               <button type="submit" class="btn btn-large btn-primary pull-right my-2"> Comprar <i class="fas fa-shopping-bag"></i></button>
@@ -106,7 +94,7 @@
               <br>
 
               <h4>Métodos de pago</h4>
-              <img src="{{asset('img/payment_methods.png')}}" alt="payment_methods.png" class="">
+              <img src="{{asset('img/payment_methods.png')}}" alt="payment_methods.png" class="" id="payment_methods">
             </div>
         </div>
 
@@ -143,5 +131,6 @@
         </div>
   </main>
   <!--End main-->
-
+<script type="text/javascript" src="/js/productoDetalle.js">
+</script>
   @endsection
