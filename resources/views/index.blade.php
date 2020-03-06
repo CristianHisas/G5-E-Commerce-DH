@@ -29,46 +29,36 @@ $pagina="Home";
             </div>
         </div>
 
-
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+
             <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+              @foreach ($catDesc as $value)
+                @if ($value->get_productos_count > 0)
+                  <li data-target="#carouselExampleIndicators" data-slide-to="{{$value->id_categoria}}" class="active"></li>
+                @endif
+              @endforeach
             </ol>
+
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="img/carousel/vehiculo.jpg" alt="vehiculo">
-              </div>
-              <div class="carousel-item">
-                <a href="{{route('listaPorDescuento', ['cat' => 1])}}">
-                  <img class="d-block w-100" src="img/carousel/smartphone.jpg" alt="smartphone">
-                </a>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="img/carousel/hogar.jpg" alt="hogar">
-              </div>
-              <div class="carousel-item">
-                <a href="{{route('listaPorDescuento', ['cat' => 2])}}">
-                  <img class="d-block w-100" src="img/carousel/ropa.jpg" alt="ropa">
-                </a>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="img/carousel/musica.jpg" alt="musica">
-              </div>
-              <div class="carousel-item">
-                <a href="{{route('listaPorDescuento', ['cat' => 6])}}">
-                  <img class="d-block w-100" src="img/carousel/computacion.jpg" alt="computacion">
-                </a>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="img/carousel/servicio.jpg" alt="servicio">
-              </div>
-            </div>
+              @foreach ($catDesc as $key => $value)
+                @if ($value->get_productos_count > 0)
+                  @if ($key == 0)
+                    <div class="carousel-item active">
+                      <a href="{{route('listaPorDescuento', ['cat' => $value->id_categoria])}}">
+                        <img class="d-block w-100" src="img/carousel/{{$value->categoria}}.jpg" alt="{{$value->categoria}}">
+                      </a>
+                    </div>
+                  @else
+                  <div class="carousel-item">
+                    <a href="{{route('listaPorDescuento', ['cat' => $value->id_categoria])}}">
+                      <img class="d-block w-100" src="img/carousel/{{$value->categoria}}.jpg" alt="{{$value->categoria}}">
+                    </a>
+                  </div>
+                  @endif
+                @endif
+              @endforeach
+
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
@@ -78,19 +68,20 @@ $pagina="Home";
               <span class="sr-only">Next</span>
             </a>
           </div>
-    
+        </div>
+
 
           <div class="categorias">
 
-            <?php       
-               foreach ($categorias as $key => $value) {                
-            ?>            
+            <?php
+               foreach ($categorias as $key => $value) {
+            ?>
                <a href="/listaProductos/{{$value->id_categoria}}" class="irDescripcion">
                  <div class="categoria">
                    <div class="icono">
-                       <img src="<?=$value->img;?>" alt="" sizes="" width="50%" class="zoom">             
+                       <img src="<?=$value->img;?>" alt="" sizes="" width="50%" class="zoom">
                    </div>
-                   <div class="titulo">                 
+                   <div class="titulo">
                       <?=$value->categoria;?>
                    </div>
                  </div>
@@ -98,9 +89,9 @@ $pagina="Home";
             <?php
             }
             ?>
-           
-         </div>
-        
+
+       </div>
+
        </div>
      </main>
     @endsection

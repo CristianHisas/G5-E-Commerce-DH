@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <title>{{ config('app.name', 'Order66') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -83,14 +83,9 @@
                                           <!--Comienza el menu desplegable de categoria-->
                                           <div class="dropdown-menu bg-dark py-0 mt-2 sub-menu-categoria" aria-labelledby="dropdownMenuLink">
                                               <ul class="px-0">
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 1])}}">Celulares</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 2])}}">Ropa</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 4])}}">Servicios</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 5])}}">Computacion</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 6])}}">Musica</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 7])}}">Hogar</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 8])}}">Vehiculos</a></li>
-                                                <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => 9])}}">Otras Categorias</a></li>
+                                                @foreach ($categoriaGlobal as $cat)
+                                                  <li class="py-0 px-0  dropdown-item li-marca "><a class=" ml-md-auto text-decoration-none d-block  py-2 px-2  marca" href="{{route('lista', ['cat' => $cat->id_categoria])}}">{{$cat->categoria}}</a></li>
+                                                @endforeach
                                               </ul>
 
 
