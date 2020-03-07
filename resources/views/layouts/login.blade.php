@@ -19,7 +19,8 @@ foreach ($pagina as $key => $value) {
         <title>{{ config('app.name', 'Order66') }}</title>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-
+        <script type="text/javascript" src="/js/cargador.js">
+        </script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600|Roboto:500,700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.ico"/>
 <!--Iconos de pestania-->
@@ -39,6 +40,9 @@ foreach ($pagina as $key => $value) {
 
 </head>
 <body class="main-perfil">
+    <div id="contenedor_carga">
+        <div id="carga"></div>
+    </div>
   <div id="app">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark   shadow-sm">
           <div class="container">

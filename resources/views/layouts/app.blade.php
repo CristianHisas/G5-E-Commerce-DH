@@ -6,11 +6,11 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
     <title>{{ config('app.name', 'Order66') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script type="text/javascript" src="/js/cargador.js">
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600|Roboto:500,700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.ico"/>
 <!--Iconos de pestania-->
@@ -38,6 +38,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    <div id="contenedor_carga">
+        <div id="carga"></div>
+    </div>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark   shadow-sm">
             <div class="container">
@@ -207,7 +210,6 @@
     <!-- Footer End================================================================== -->
   </footer>
 <!-- fin footer -->
-        <!-- Scripts ============================================= -->
       <!-- Modal -->
 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
