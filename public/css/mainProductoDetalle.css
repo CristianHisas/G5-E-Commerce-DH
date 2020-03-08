@@ -42,22 +42,30 @@ main #mainContainer #seccionInfoProducto{
 }
 
 .img-zoom-container {
-  position: relative;
 }
 
 .img-zoom-lens {
+  z-index:1000;
+  visibility: hidden;
   position: absolute;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #3f3a3a;
   /*set the size of the lens:*/
   width: 40px;
   height: 40px;
 }
 
 .img-zoom-result {
+  visibility: hidden;
+  z-index:1000;
   border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
   width: 300px;
   height: 300px;
+  top:0;
+  bottom: 0;
+  left:0;
+  right: 0;
+  position: absolute;
 }
 
 @media (min-width:576px) and (max-width:767.99px)

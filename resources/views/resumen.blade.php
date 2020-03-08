@@ -18,7 +18,7 @@
 
                 {{"Debe entrar en su cuenta o registrarse"}}
             @else
-           
+
             @if (Auth::user()->id_carrito!=null)
             @php
                 //$carrito=Auth::user()->getCarrito;
@@ -41,7 +41,7 @@
           <thead>
             <!--Fila de detalle de cada producto-->
             <tr>
-              <th><img src="{{$carritoProducto[$key]->img}}" alt="{{$carritoProducto[$key]->id_producto}}" sizes="" height="5%" srcset=""></th>
+              <th><img src="{{$carritoProducto[$key]->img}}" alt="{{$carritoProducto[$key]->id_producto}}" sizes="" width="20%" srcset=""></th>
               <th>{{$carritoProducto[$key]->nombre}}</th>
               <th>{{$item->cantidad}}</th>
               <th>{{$carritoProducto[$key]->precio}}</th>

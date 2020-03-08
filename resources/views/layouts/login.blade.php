@@ -283,7 +283,7 @@ foreach ($pagina as $key => $value) {
           <thead>
             <!--Fila de detalle de cada producto-->
             <tr>
-              <th class="text-center"><img src="{{$carritoProducto[$key]->img}}" alt="{{$carritoProducto[$key]->id_producto}}" sizes="" height="5%" srcset=""></th>
+              <th class="text-center"><img src="{{$carritoProducto[$key]->img}}" alt="{{$carritoProducto[$key]->id_producto}}" sizes="" width="20%" srcset=""></th>
               <th class="text-center">{{$carritoProducto[$key]->nombre}}</th>
               <th class="text-center">{{$item->cantidad}}</th>
               <th class="text-center">{{$carritoProducto[$key]->precio}}</th>
@@ -323,7 +323,7 @@ foreach ($pagina as $key => $value) {
 </div>
 <!-- Fin modal -->
 
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
 </body>
 
 

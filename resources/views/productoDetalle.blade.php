@@ -48,10 +48,10 @@
             </ul>
           </div>
           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12   primero-j img-zoom-container">
-            <a href="img/phone.jpg" title="Phone example" class="cuadro-max">
+            <a href="{{url($producto->img)}}" title="Phone example" class="cuadro-max d-block">
+                <div class="img-zoom-lens"></div>
               <img src="{{$producto->img}}"  width="100%" alt="Phone example" class="img-telefono" id="imgPrincipal"/>
             </a>
-            <div id="myresult" class="img-zoom-result"></div>
           </div>
         </div>
 
@@ -60,7 +60,7 @@
 <!---------------------------------------------------------->
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 " id="descProducto">
               <h2><?=$producto->nombre;?></h2>
-
+              <div id="myresult" class="img-zoom-result"></div>
               <form action="/productoDetalle" class="form-horizontal qtyFrm" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="control-group">

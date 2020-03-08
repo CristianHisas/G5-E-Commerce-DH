@@ -1,4 +1,15 @@
 window.onload = function(){
+    setTimeout(zoomMover(),1000);
+function zoomMover(){
+    document.getElementById("imgPrincipal").addEventListener("mouseover", imageZoom(document.getElementById("imgPrincipal").getAttribute("id"),document.getElementById("myresult").getAttribute("id")));
+
+}
+document.querySelector(".img-zoom-container").addEventListener("mouseout",function(){
+    console.log(document.querySelector(".cuadro-max"));
+    document.querySelector(".img-zoom-lens").style.visibility="hidden";
+    document.getElementById("myresult").style.visibility="hidden";
+  });
+
   var imgProducto = document.querySelectorAll(".cuadro-mini");
 
 
@@ -9,36 +20,36 @@ window.onload = function(){
 
       imgPrincipal.setAttribute("src", item.getAttribute("src"));
       item.setAttribute("src", imgA);
+      setTimeout(zoomMover(),1000);
     });
-  })
 
-  var imgPrincipal = document.getElementById("imgPrincipal");
-  console.log(imgPrincipal);
-  var myResult = document.getElementById("myresult");
 
-  imgPrincipal.addEventListener("mouseOver", imageZoom(imgPrincipal.getAttribute("id"), myResult.getAttribute("id")));
+
+  });
   function imageZoom(imgID, resultID) {
     var img, lens, result, cx, cy;
     img = document.getElementById(imgID);
+    console.log(img);
+    lens=document.querySelector(".img-zoom-lens");
     result = document.getElementById(resultID);
-    /* Create lens: */
-    lens = document.createElement("DIV");
-    lens.setAttribute("class", "img-zoom-lens");
-    /* Insert lens: */
-    img.parentElement.insertBefore(lens, img);
     /* Calculate the ratio between result DIV and lens: */
     cx = result.offsetWidth / lens.offsetWidth;
     cy = result.offsetHeight / lens.offsetHeight;
+
     /* Set background properties for the result DIV */
     result.style.backgroundImage = "url('" + img.src + "')";
     result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
     /* Execute a function when someone moves the cursor over the image, or the lens: */
+
     lens.addEventListener("mousemove", moveLens);
     img.addEventListener("mousemove", moveLens);
     /* And also for touch screens: */
     lens.addEventListener("touchmove", moveLens);
     img.addEventListener("touchmove", moveLens);
     function moveLens(e) {
+        result.style.visibility="visible";
+        document.querySelector(".img-zoom-lens").style.visibility="visible";
+
       var pos, x, y;
       /* Prevent any other actions that may occur when moving over the image */
       e.preventDefault();
