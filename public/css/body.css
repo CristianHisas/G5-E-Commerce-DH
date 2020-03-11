@@ -85,8 +85,9 @@ main{
   z-index: 10000;
 }
 #carga{
-  border: 15px solid #ccc;
-  border-top-color: #f4266A;
+  /*color: rgb(209, 220, 243);*/
+  border: 15px solid rgb(209, 220, 243);
+  border-top-color:  rgb(68, 66, 230);
   border-top-style: groove;
   height:100px;
   width: 100px;

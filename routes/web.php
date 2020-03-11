@@ -32,7 +32,7 @@ Route::get('/listaProductos', function(){
 */
 
 Route::get('/productoDetalle/{id}', "ProductoController@showDetails")->where('id', '[0-9]+');
-Route::post('/productoDetalle', "CarritoController@store");
+Route::post('/productoDetalle', "CarritoController@store")->middleware('auth')->middleware('verified')->middleware("role:user");
 
 Route::get('/faq', function(){
   return view('faq');

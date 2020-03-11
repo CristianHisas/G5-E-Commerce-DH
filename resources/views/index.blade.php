@@ -18,7 +18,7 @@ $pagina="Home";
                 <div class="img">
                     <img src="img/e-com1.png" alt="">
                 </div>
-                <div class="text">
+                <div class="text text-j">
                     <h1>
                         ¡Bienvenid@ a Order66!
                     </h1>
@@ -94,4 +94,5 @@ $pagina="Home";
 
        </div>
      </main>
+    <script src="/js/navegador.js" type="text/javascript"> </script>
     @endsection

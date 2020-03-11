@@ -137,32 +137,33 @@
                                 </div>
                             </li>
                         @endguest
+                        @guest
+                        <li class="nav-item">
+                          <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
+                            <span>Carrito</span>
+                            <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
+                          </a>
+                        </li>
+                        @else
+                        @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
+                         <li class="nav-item">
+                          <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
+                            <span>Carrito</span>
+                            <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
+                          </a>
+                        </li>
+                         @else
+                        <li class="nav-item">
+                          <a class="nav-link" href="/cuenta/admin" >
+                            <span>Panel de Administrador</span>
+                          </a>
+                        </li>
+                        @endif
+                        @endguest
                         <li class="nav-item">
                             <a class="nav-link" href="faq">Ayuda <img src="/img/pregunta.png" width="25" height="25" class="d-inline-block align-top ml-auto logo" alt=""></a>
                     </li>
-                    @guest
-                    <li class="nav-item">
-                      <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
-                        <span>Carrito</span>
-                        <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
-                      </a>
-                    </li>
-                    @else
-                    @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
-                     <li class="nav-item">
-                      <a class="nav-link" href="#summary" role="button" data-toggle="modal" data-target="#exampleModalScrollable">
-                        <span>Carrito</span>
-                        <img src="/img/car.png" width="20" height="20" class="d-inline-block align-top " alt="">
-                      </a>
-                    </li>
-                     @else
-                    <li class="nav-item">
-                      <a class="nav-link" href="/cuenta/admin" >
-                        <span>Panel de Administrador</span>
-                      </a>
-                    </li>
-                    @endif
-                    @endguest
+
                     </ul>
                 </div>
             </div>

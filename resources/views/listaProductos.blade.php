@@ -1,15 +1,4 @@
 <?php
-  session_start();
-  //include_once("../includes/funciones.php");
-  //include_once("../includes/baseDeDatos.php");
-  $pagina="Lista de Productos";
-  //$pagina_anterior=$_SERVER['HTTP_REFERER'];//pagina anterior
-  if(isset($_SESSION["activeUser"]) && !is_null($_SESSION["activeUser"])){
-    if($_SESSION["activeUser"]["fotoPerfil"]==""){
-      $_SESSION["activeUser"]["fotoPerfil"]=(isset($imagenUsuario))?$imagenUsuario:"img/perfil.png";
-    }
-    $activeUser=$_SESSION["activeUser"];
-  }
   $pagina="Datos de Usuario";
 
 ?>
@@ -41,6 +30,7 @@
 
                 </dl>
                 <dl>
+                    <hr>
                     <dt>
                         Marca
                     </dt>

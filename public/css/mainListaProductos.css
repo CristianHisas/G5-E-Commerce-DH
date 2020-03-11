@@ -2,7 +2,7 @@
 
 main
 .inner-main#lista-productos{
-    background-color: #eeeeee;
+    
     margin: 0 auto;
     max-width: 1184px;
     display: grid;
@@ -22,7 +22,9 @@ main
 main
 .inner-main#lista-productos
 aside{
-    /* background-color: lightcoral; */
+    background-color: #eeeeee;
+    border-radius: 10px;
+    padding: 2vh 2vw;
     margin-right: 1em;
     font-size: 0.9em;
 }
@@ -90,7 +92,7 @@ article{
     width: 15em;     */
     background-color: white;
     box-shadow: 0px 1px 3px #0002;
-    border-radius: 0.2em;
+    border-radius: 0.4em;
     cursor: pointer;
 }
 .inner-main#lista-productos
@@ -98,7 +100,7 @@ section
 article:hover{
     position: relative;
     top: 1px;
-    box-shadow:  0px 2px 3px #0004;
+    box-shadow:  0px 2px 3px #05161a;
 }
 .inner-main#lista-productos
 section
