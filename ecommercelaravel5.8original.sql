@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `e-commerce` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `e-commerce`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.29, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: e-commerce
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.8-MariaDB
+-- Server version	5.7.29-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -82,8 +80,8 @@ CREATE TABLE `detalle_de_productos` (
   `id_detalle_de_Producto` int(11) NOT NULL AUTO_INCREMENT,
   `idcarrito` int(11) NOT NULL,
   `idproducto` int(11) NOT NULL,
-  `id_estado_producto` int(11) NOT NULL DEFAULT 1,
-  `cantidad` int(11) NOT NULL DEFAULT 0,
+  `id_estado_producto` int(11) NOT NULL DEFAULT '1',
+  `cantidad` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_detalle_de_Producto`),
   UNIQUE KEY `id_detalle_de_Producto_UNIQUE` (`id_detalle_de_Producto`),
   KEY `idcarrito_idx` (`idcarrito`),
@@ -400,7 +398,7 @@ CREATE TABLE `productos` (
   `nombre` varchar(250) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `descripcion` varchar(1000) DEFAULT NULL,
-  `precio` float unsigned NOT NULL DEFAULT 0,
+  `precio` float unsigned NOT NULL DEFAULT '0',
   `img` varchar(10000) NOT NULL,
   `descuento` float DEFAULT NULL,
   PRIMARY KEY (`id_producto`),
@@ -436,7 +434,7 @@ CREATE TABLE `role_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -445,7 +443,7 @@ CREATE TABLE `role_user` (
 
 LOCK TABLES `role_user` WRITE;
 /*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
-INSERT INTO `role_user` VALUES (1,2,2,'2020-02-19 06:23:59','2020-02-19 06:23:59'),(2,2,1,'2020-02-19 06:39:58','2020-02-19 06:39:58'),(3,1,3,'2020-02-19 03:00:00','2020-02-19 03:00:00'),(4,2,4,'2020-02-20 15:29:42','2020-02-20 15:29:42'),(5,2,5,'2020-02-20 15:37:27','2020-02-20 15:37:27'),(6,2,6,'2020-02-20 23:26:30','2020-02-20 23:26:30'),(7,2,7,'2020-02-21 15:44:35','2020-02-21 15:44:35'),(8,2,8,'2020-02-22 03:56:39','2020-02-22 03:56:39');
+INSERT INTO `role_user` VALUES (1,2,2,'2020-02-19 06:23:59','2020-02-19 06:23:59'),(2,2,1,'2020-02-19 06:39:58','2020-02-19 06:39:58'),(3,1,3,'2020-02-19 03:00:00','2020-02-19 03:00:00'),(4,2,4,'2020-02-20 15:29:42','2020-02-20 15:29:42'),(5,2,5,'2020-02-20 15:37:27','2020-02-20 15:37:27'),(6,2,6,'2020-02-20 23:26:30','2020-02-20 23:26:30'),(7,2,7,'2020-02-21 15:44:35','2020-02-21 15:44:35'),(8,2,8,'2020-02-22 03:56:39','2020-02-22 03:56:39'),(9,2,9,'2020-03-16 19:11:30','2020-03-16 19:11:30');
 /*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -673,7 +671,7 @@ CREATE TABLE `users` (
   `user` varchar(45) NOT NULL,
   `email` varchar(100) NOT NULL,
   `img` varchar(10000) NOT NULL DEFAULT '/img/perfil.png',
-  `id_tipo_de_usuario` int(11) NOT NULL DEFAULT 2,
+  `id_tipo_de_usuario` int(11) NOT NULL DEFAULT '2',
   `id_sexo` int(11) DEFAULT NULL,
   `id_direccion` int(11) DEFAULT NULL,
   `id_tarjeta` int(11) DEFAULT NULL,
@@ -702,7 +700,7 @@ CREATE TABLE `users` (
   CONSTRAINT `id_sexo` FOREIGN KEY (`id_sexo`) REFERENCES `sexos` (`id_sexo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_tarjeta` FOREIGN KEY (`id_tarjeta`) REFERENCES `tarjetas` (`id_tarjeta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_tipo_de_usuario` FOREIGN KEY (`id_tipo_de_usuario`) REFERENCES `tipo_usuario` (`id_tipo_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -711,17 +709,9 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'lucas','Peres','12lucas','lucas@gmail.com','/img/usuario/lucas@gmail.com/lucas@gmail.com.png',2,1,1,1,1,1,'1990-06-13',NULL,'$2y$10$qxaLllyP4rw9.SUmxfaTsemPnh.kRQXOVEDiDGZrx6nlSb1eKqIwe',NULL,'2020-02-18 19:37:15','2020-02-21 03:03:22','1554563205'),(2,'lucas','peres','12pedro','pedro@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,2,NULL,NULL,NULL,'$2y$10$18jFS5CBHmOxEdnsTWhRKOTy6EIk25IMwcLKEcnE56mRzJdfZl0Oe',NULL,'2020-02-19 06:23:59','2020-02-20 04:52:14',NULL),(3,'pedro','feliz','admin','admin@gmail.com','/img/perfil.png',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$uFThq.EwtQzkxubBle7i2.bVx8wnFPtMwgM3kYvGw7bE/CecF1cra','u0KlUB0305vwlsxYPXBzkietZIMFOo6GoygwL8RwhjEuwZDxJG11tlcVbr4a','2020-02-19 06:39:58','2020-02-19 06:39:58',NULL),(4,'fede','fede','fede','fede@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,3,NULL,NULL,NULL,'$2y$10$eH7w4n4HXWJRz8hrAnYuU.sdWVn2eyNqHW8SB17LytiU47il5jLsq',NULL,'2020-02-20 15:29:41','2020-02-20 15:30:09',NULL),(5,'des','des','des','des@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,4,NULL,NULL,NULL,'$2y$10$dJ4xBy1vwdQ55AKwgTGIOOlmKm1y9bUiCAg/REgBzF.Us4XUoxyiy',NULL,'2020-02-20 15:37:27','2020-02-20 15:38:14',NULL),(6,'hola','hola','hola','damianboca21xd@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$hegUGe1Y6U.t/.tP4yXuUeczBhhfr7G0hXXap10Dzg7AQZzb8wCbO',NULL,'2020-02-20 23:26:30','2020-02-20 23:26:30',NULL),(7,'fer','fer','fer','fer@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$r9dyNkMjcPrxJQ1G18hy9.1lW9wpmilE3JH.JrY97sqEWyYCwEicq',NULL,'2020-02-21 15:44:35','2020-02-21 15:44:35',NULL),(8,'re','re','12rer','re@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,5,NULL,NULL,NULL,'$2y$10$odKZ5t5jIyXknBSewPPSXe4hTzY6yFGnDgFKZXC/fh66vEv5Cw31q',NULL,'2020-02-22 03:56:39','2020-02-22 03:57:03',NULL);
+INSERT INTO `users` VALUES (1,'lucas','Peres','12lucas','lucas@gmail.com','/img/usuario/lucas@gmail.com/lucas@gmail.com.png',2,1,1,1,1,1,'1990-06-13',NULL,'$2y$10$qxaLllyP4rw9.SUmxfaTsemPnh.kRQXOVEDiDGZrx6nlSb1eKqIwe',NULL,'2020-02-18 19:37:15','2020-02-21 03:03:22','1554563205'),(2,'lucas','peres','12pedro','pedro@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,2,NULL,NULL,NULL,'$2y$10$18jFS5CBHmOxEdnsTWhRKOTy6EIk25IMwcLKEcnE56mRzJdfZl0Oe',NULL,'2020-02-19 06:23:59','2020-02-20 04:52:14',NULL),(3,'pedro','feliz','admin','admin@gmail.com','/img/perfil.png',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$uFThq.EwtQzkxubBle7i2.bVx8wnFPtMwgM3kYvGw7bE/CecF1cra','u0KlUB0305vwlsxYPXBzkietZIMFOo6GoygwL8RwhjEuwZDxJG11tlcVbr4a','2020-02-19 06:39:58','2020-02-19 06:39:58',NULL),(4,'fede','fede','fede','fede@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,3,NULL,NULL,NULL,'$2y$10$eH7w4n4HXWJRz8hrAnYuU.sdWVn2eyNqHW8SB17LytiU47il5jLsq',NULL,'2020-02-20 15:29:41','2020-02-20 15:30:09',NULL),(5,'des','des','des','des@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,4,NULL,NULL,NULL,'$2y$10$dJ4xBy1vwdQ55AKwgTGIOOlmKm1y9bUiCAg/REgBzF.Us4XUoxyiy',NULL,'2020-02-20 15:37:27','2020-02-20 15:38:14',NULL),(6,'hola','hola','hola','damianboca21xd@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$hegUGe1Y6U.t/.tP4yXuUeczBhhfr7G0hXXap10Dzg7AQZzb8wCbO',NULL,'2020-02-20 23:26:30','2020-02-20 23:26:30',NULL),(7,'fer','fer','fer','fer@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$r9dyNkMjcPrxJQ1G18hy9.1lW9wpmilE3JH.JrY97sqEWyYCwEicq',NULL,'2020-02-21 15:44:35','2020-02-21 15:44:35',NULL),(8,'re','re','12rer','re@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,5,NULL,NULL,NULL,'$2y$10$odKZ5t5jIyXknBSewPPSXe4hTzY6yFGnDgFKZXC/fh66vEv5Cw31q',NULL,'2020-02-22 03:56:39','2020-02-22 03:57:03',NULL),(9,'Cristian','Hisas','elche','hcristian1611@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,NULL,NULL,NULL,'2020-03-16 19:11:55','$2y$10$OWZaRPHgoA72kU.PK6xLRuG..4ooYxknx0KWCqbAXuwnIK3ZiqaJe',NULL,'2020-03-16 19:11:30','2020-03-16 19:11:55',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'e-commerce'
---
-
---
--- Dumping routines for database 'e-commerce'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -732,4 +722,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-21 23:03:01
+-- Dump completed on 2020-03-16 13:20:49
