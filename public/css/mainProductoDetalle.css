@@ -75,7 +75,7 @@ main #mainContainer #seccionInfoProducto{
   }
   div.primero-j{
     order: 0;
-    text-align: center;
+    
     margin-bottom: .5rem !important;
   }
   div.segundo-j{
@@ -105,7 +105,7 @@ main #mainContainer #seccionInfoProducto{
   }
   div.primero-j{
     order: 0;
-    text-align: center;
+   
     margin-bottom: .5rem !important;
   }
   div.segundo-j{

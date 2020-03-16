@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Categoria;
+use App\Detalle_de_producto;
+use App\Detalle_productos_comprado;
+use App\Imagen;
 use App\Marca;
 use App\Producto;
 use Directory;
@@ -50,10 +53,13 @@ class ProductoController extends Controller
       "precio"=>array('required','numeric','regex:/(^0?|^[1-9]+[0-9]*)+([\.]([0-9])*)?$/','min:0.01'),
       "stock"=>"required|integer|min:0",
 
-      "descuento"=>array('nullable','numeric','regex:/(^0?|^[1-9]{1}+[0-9]{1})+([\.]([0-9]){1,2})?$/','between:0.00,99.99'),
+      "descuento"=>array('nullable','numeric','regex:/(^[0-9]?|^[1-9]{1}+[0-9]{1})+([\.]([0-9]){1,2})?$/','between:0.00,99.99'),
       "categoria"=>"required|integer|exists:categorias,id_categoria",
       "marca"=>"required|integer|exists:marcas,id_marca",
-      "img"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000",
+      "img"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000|dimensions:max_width=1000,max_height=1000",
+      "num1"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000|dimensions:max_width=1000,max_height=1000",
+      "num2"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000|dimensions:max_width=1000,max_height=1000",
+      "num3"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000|dimensions:max_width=1000,max_height=1000",
     ];
     //$msj=[];
     $this->validate($request,$reglas);
@@ -70,7 +76,7 @@ class ProductoController extends Controller
       $imagenNombre.=$file->getClientOriginalExtension();
       $request->img->move(public_path("img/productos/$request->nombre/"),$imagenNombre);
     }else{
-      $imagenNombre="/img/productos/phone.png";
+      $imagenNombre="/img/nod.png";
     }
 
     /**
@@ -92,6 +98,60 @@ class ProductoController extends Controller
       $msj[0]="success";
       $msj[1]="Producto se agregada correctamente.";
     }
+        /**
+     * otras
+     */
+    $imagen1="";
+    $imageno1=new Imagen;
+    if($request->file("num1")){
+      $file=$request->file("num1");
+      $imagen1="/img/productos/";
+      $imagen1.=$request->nombre."/";
+      $imagen1.=$request->nombre."-1";
+      $imagen1.=".";
+      $imagen1.=$file->getClientOriginalExtension();
+      $request->num1->move(public_path("/img/productos/$request->nombre/"),$imagen1);
+    }else{
+      $imagen1="/img/nod.png";
+    }
+    $imageno1->imagen=$imagen1;
+    $imageno1->id_producto_img=Producto::all('id_producto')->last()->id_producto;
+    $imageno1->save();
+    $imagen2="";
+    $imageno2=new Imagen;
+    if($request->file("num2")){
+      $file=$request->file("num2");
+      $imagen2="/img/productos/";
+      $imagen2.=$request->nombre."/";
+      $imagen2.=$request->nombre."-2";
+      $imagen2.=".";
+      $imagen2.=$file->getClientOriginalExtension();
+      $request->num2->move(public_path("/img/productos/$request->nombre/"),$imagen2);
+    }else{
+      $imagen2="/img/nod.png";
+    }
+    $imageno2->imagen=$imagen2;
+    $imageno2->id_producto_img=Producto::all('id_producto')->last()->id_producto;
+    $imageno2->save();
+    $imagen3="";
+    $imageno3=new Imagen;
+    if($request->file("num3")){
+      $file=$request->file("num3");
+      $imagen3="/img/productos/";
+      $imagen3.=$request->nombre."/";
+      $imagen3.=$request->nombre."-3";
+      $imagen3.=".";
+      $imagen3.=$file->getClientOriginalExtension();
+      $request->num3->move(public_path("/img/productos/$request->nombre/"),$imagen3);
+    }else{
+      $imagen3="/img/nod.png";
+    }
+    $imageno3->imagen=$imagen3;
+    $imageno3->id_producto_img=Producto::all('id_producto')->last()->id_producto;
+    $imageno3->save();
+    /**
+     * 
+     */
     $marcas = Marca::all();
     $categorias = Categoria::all();
     return view("agregarProducto")->with("msj",$msj)->with("marcas",$marcas)->with("categorias",$categorias);
@@ -153,13 +213,16 @@ class ProductoController extends Controller
       "precio"=>array('required','numeric','regex:/(^0?|^[1-9]+[0-9]*)+([\.]([0-9])*)?$/','min:0.01'),
       "stock"=>"required|integer|min:0",
 
-      "descuento"=>array('nullable','numeric','regex:/(^0?|^[1-9]{1}+[0-9]{1})+([\.]([0-9]){1,2})?$/','between:0.00,99.99'),
+      "descuento"=>array('nullable','numeric','regex:/(^[0-9]?|^[1-9]{1}+[0-9]{1})+([\.]([0-9]){1,2})?$/','between:0.00,99.99'),
       "categoria"=>"required|integer|exists:categorias,id_categoria",
       "marca"=>"required|integer|exists:marcas,id_marca",
-      "img"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000",
+      "img"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000|dimensions:max_width=1000,max_height=1000",
+      "num1"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000|dimensions:max_width=1000,max_height=1000",
+      "num2"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000|dimensions:max_width=1000,max_height=1000",
+      "num3"=>"nullable|image|mimes:jpeg,png,jpg|min:1|max:10000000|dimensions:max_width=1000,max_height=1000 ",
     ];
-    //$msj=[];
-    $this->validate($request,$reglas);
+    $msje=["dimensions"=>"El campo :attribute tiene dimensiones de imagen inválidas tiene que ser de menos 1000 de alto y ancho."];
+    $this->validate($request,$reglas,$msje);
     /**
     *
     */
@@ -183,7 +246,82 @@ class ProductoController extends Controller
       }
 
     }
+  /**
+     * otras
+     */
+    $imagenes=$producto->getImagenes;
+    if(isset($imagenes[0])){
+      $imageno1=$imagenes[0];
+      $imagen1=$imagenes[0]->imagen;
+      
+    }else{
+      $imagen1="/img/nod.png";
+      $imageno1=new Imagen;
+    }
+    if($request->file("num1")){
+        if(isset($imagenes[0]) && is_file(public_path($imagenes[0]->imagen))){
+          unlink(public_path($imagenes[0]->imagen));
+        }
 
+      
+      $file=$request->file("num1");
+      $imagen1="/img/productos/";
+      $imagen1.=$request->nombre."/";
+      $imagen1.=$request->nombre."-1";
+      $imagen1.=".";
+      $imagen1.=$file->getClientOriginalExtension();
+      $request->num1->move(public_path("img/productos/$request->nombre/"),$imagen1);
+    }
+    $imageno1->imagen=$imagen1;
+    $imageno1->id_producto_img=$producto->id_producto;
+    $imageno1->save();
+    if(isset($imagenes[1])){
+      $imageno2=$imagenes[1];
+      $imagen2=$imagenes[1]->imagen;
+    }else{
+      $imagen2="/img/nod.png";
+      $imageno2=new Imagen;
+    }
+    if($request->file("num2")){
+      if( isset($imagenes[1]) && is_file(public_path($imagenes[1]->imagen))){
+        unlink(public_path($imagenes[1]->imagen));
+      }
+      $file=$request->file("num2");
+      $imagen2="/img/productos/";
+      $imagen2.=$request->nombre."/";
+      $imagen2.=$request->nombre."-2";
+      $imagen2.=".";
+      $imagen2.=$file->getClientOriginalExtension();
+      $request->num2->move(public_path("img/productos/$request->nombre/"),$imagen2);
+    }
+    $imageno2->imagen=$imagen2;
+    $imageno2->id_producto_img=$producto->id_producto;
+    $imageno2->save();
+    if(isset($imagenes[2])){
+      $imageno3=$imagenes[2];
+      $imagen3=$imagenes[2]->imagen;
+    }else{
+      $imagen3="/img/nod.png";
+      $imageno3=new Imagen;
+    }
+    if($request->file("num3")){
+      if(isset($imagenes[2]) && is_file(public_path($imagenes[2]->imagen)) ){
+        unlink(public_path($imagenes[2]->imagen));
+      }
+      $file=$request->file("num3");
+      $imagen3="/img/productos/";
+      $imagen3.=$request->nombre."/";
+      $imagen3.=$request->nombre."-3";
+      $imagen3.=".";
+      $imagen3.=$file->getClientOriginalExtension();
+      $request->num3->move(public_path("img/productos/$request->nombre/"),$imagen3);
+    }
+    $imageno3->imagen=$imagen3;
+    $imageno3->id_producto_img=$producto->id_producto;
+    $imageno3->save();
+    /**
+     * 
+     */
 
     /**
     *
@@ -231,24 +369,43 @@ class ProductoController extends Controller
   public function destroy($id)
   {
     $producto=Producto::find($id);
-    if($producto){
-      //unlink(public_path($producto->img));
-
-      if(is_dir (public_path("img/productos/".$producto->nombre))){
-        unlink(public_path($producto->img));
-        rmdir (public_path("img/productos/".$producto->nombre));
-      }
+    if(isset($producto)){
 
       //Storage::deleteDirectory($directory->path);
+      $productoR1=Detalle_de_producto::all("idproducto")->where("idproducto","=",$id)->first();
+      $productoR2=(Detalle_productos_comprado::all("id_productodpc")->where("id_productodpc","=",$id)->first());
+      if( !isset($productoR1) && !isset($productoR2) ){
+              //unlink(public_path($producto->img));
+
+      if(is_dir (public_path("img/productos/".$producto->nombre))){
+        $archivo=glob(public_path("img/productos/".$producto->nombre."/*"));
+        
+        foreach ($archivo as $key => $value) {
+          unlink($value);
+        }
+       // dd(scandir(public_path("img/productos/".$producto->nombre)));
+        
+       // unlink(public_path($producto->img));
+        rmdir (public_path("img/productos/".$producto->nombre));
+      }
+      $imagenes=$producto->getImagenes;
+      foreach ($imagenes as $key => $value) {
+        $value->delete();
+      }
       $producto->delete();
       $msj[0]="success";
       $msj[1]="Eliminado Producto de ID: $id";
+      return view("borrarProducto")->with("msj",$msj);
 
-    }else{
+      }else{
       $msj[0]="danger";
       $msj[1]="Error en eliminado Producto de ID: $id";
     }
-    return view("borrarProducto")->with("msj",$msj);
+
+
+    }
+    return redirect("/error");
+    
   }
   /**
   * puca

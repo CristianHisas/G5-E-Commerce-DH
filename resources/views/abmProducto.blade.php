@@ -70,41 +70,11 @@
                       <div class="form-group mb-2 col-1">
 
                         <span class="form-control-plaintext text-center" >
-                          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
+                          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter<?=$value->id_producto;?>">
                             Ver
                           </button>
                         </span>
                       </div>
-                      <!--modal de descripcion -->
-                      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalCenterTitle">Descripcion</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <?php
-                                  $array=explode(PHP_EOL,$value->descripcion);
-                                  foreach ($array as $key => $caracteristica) {?>
-                                    <ul type="circle">
-                                      <li >
-                                        <?=$caracteristica;?>
-                                      </li>
-                                    </ul>
-                                  <?php
-                                  }
-                                  ?>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!--modal de descripcion -->
                       <div class="form-group mb-2 col-1">
 
                         <span class="form-control-plaintext text-center" >$ <?=$value->precio;?></span>
@@ -138,7 +108,45 @@
                         </button>
                       </form>
                       <div class="form-inline d-flex justify-content-between " action="" method="post">
-                        <!-- Modal -->
+
+                      </div>
+                      </div>
+
+                  </div>
+                </li>
+                <!--modal de descripcion -->
+                <div class="modal fade" id="exampleModalCenter<?=$value->id_producto;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter<?=$value->id_producto;?>Title" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenter<?=$value->id_producto;?>Title">Descripcion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <?php
+                            $array=explode(PHP_EOL,$value->descripcion);
+                            foreach ($array as $key => $caracteristica) {?>
+                              <ul type="circle">
+                                <li >
+                                  <?=$caracteristica;?>
+                                </li>
+                              </ul>
+                            <?php
+                            }
+                            ?>
+
+                      
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--modal de descripcion -->
+                        <!-- Modal eliminar-->
                         <div class="modal fade" id="eliminar<?=$value->id_producto;?>Modal" tabindex="-1" role="dialog" aria-labelledby="eliminar<?=$value->id_producto;?>ModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content text-center">
@@ -164,13 +172,7 @@
                             </div>
                           </div>
                         </div>
-
-                      </div>
-                      </div>
-
-                  </div>
-                </li>
-
+                        <!-- Modal eliminar-->
               <?php } ?>
             </ul>
           </div>

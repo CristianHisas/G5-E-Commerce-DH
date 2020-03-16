@@ -59,9 +59,9 @@
             ?>
             <a href="/productoDetalle/{{$value->id_producto}}" class="irDescripcion"><!--Saque el onclick por que pertenece a javascript--->
                 <article >
-                    <div class="img-container">
+                    <div class="img-container ">
                      <!--   <img src="img/phone.jpg" alt=""> -->
-                        <img src="<?=$value->img;?>" alt="" sizes="" width="80%" height="" class="zoom">
+                        <img src="<?=$value->img;?>" alt="" sizes="" width="80%" height="" class="zoom mt-1">
                     </div>
                     <div class="descripcion">
                         <div class="price">

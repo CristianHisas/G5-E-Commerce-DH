@@ -5,22 +5,34 @@
 @section('content')
     <main class="container">
         <h1> Actualizacion de una Categoria</h1>
-        <form action="{{url('cuenta/admin/modificarCategoria')}}" method="post">
+        <form action="{{url('cuenta/admin/modificarCategoria')}}" method="post" enctype="multipart/form-data">
         @csrf
-            Categoria:
-             <input type="hidden" name="id_categoria" value= {{$Categoria->id_categoria}}>
+        <div class="bg-white border rounded p-3">
+          Categoria:
+          <input type="hidden" name="id_categoria" value= {{$Categoria->id_categoria}}>
+         <br>
+         <input type="text" name="categoria" value= "{{$Categoria->categoria}}" class="form-control" required>
+         <div class="form-group text-center">
+          <label for="" class="text-left col-12">Imagen:</label>
+          <input type="text" name="imagenActual" value="{{old("img",$Categoria->img)}}" readonly hidden>
+          <img src="{{old("img",$Categoria->img)}}" alt="imagen categoria" sizes="" width="" class="" height="300px">
+          <label for="img" class="text-left col-12">Cambiar</label>
+          <input type="file" class="form-control-file" id="img" name="img" class="">
+        </div>
+         <ul style= color:red>
+           @foreach ($errors->all() as $error)
+             <li>
+               {{$error}}
+             </li>
+           @endforeach
+         </ul>
+        </div>
+
             <br>
-            <input type="text" name="categoria" value= {{$Categoria->categoria}} class="form-control" required>
-            <ul style= color:red>
-              @foreach ($errors->all() as $error)
-                <li>
-                  {{$error}}
-                </li>
-              @endforeach
-            </ul>
-            <br>
-            <input type="submit" value="Modificar Categoria" class="btn btn-secondary">
-            <a href="{{url('cuenta/admin/abmCategoria')}}" class="btn btn-light">Volver a admin de categorias</a>
+            <div class="row">
+              <input type="submit" value="Modificar Categoria" class="btn btn-secondary mr-auto  mb-2">
+              <a href="{{url('cuenta/admin/abmCategoria')}}" class="btn btn-light mx-sm-auto ml-auto  mb-2">Volver a admin de categorias</a>
+            </div>
 
         </form>
 

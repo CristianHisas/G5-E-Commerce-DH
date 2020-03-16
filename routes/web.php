@@ -63,8 +63,9 @@ Route::get('/cuenta/admin/formModificarMarca/{id}', "MarcaController@edit")->whe
 
 Route::post('/cuenta/admin/modificarMarca', "MarcaController@update")->middleware('auth')->middleware('verified')->middleware('adminControl');
 
-Route::get('cuenta/admin/abmMarca/{id}', "MarcaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
+//Route::get('cuenta/admin/abmMarca/{id}', "MarcaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
 
+Route::get('/cuenta/admin/abmMarca/eliminar/{id}',"MarcaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
 #------------Fin CRUD Marcas------------------------#
 
 #---------------CRUD Categorias------------------------#
@@ -79,7 +80,8 @@ Route::get('/cuenta/admin/formModificarCategoria/{id}', "CategoriaController@edi
 
 Route::post('/cuenta/admin/modificarCategoria', "CategoriaController@update")->middleware('auth')->middleware('verified')->middleware('adminControl');
 
-Route::get('/cuenta/admin/abmCategoria/{id}', "CategoriaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
+//Route::get('/cuenta/admin/abmCategoria/{id}', "CategoriaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
+Route::get('/cuenta/admin/abmCategoria/eliminar/{id}',"CategoriaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
 
 #------------Fin CRUD Categorias------------------------#
 #------------ CRUD Producto------------------------#

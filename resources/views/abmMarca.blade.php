@@ -55,7 +55,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a href="abmMarca/{{$marca->id_marca}}" class="btn btn-outline-secondary">
+                                <a href="/cuenta/admin/abmMarca/eliminar/{{$marca->id_marca}}" class="btn btn-outline-secondary">
                         eliminar
                     </a>
                               </div>

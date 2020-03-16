@@ -179,21 +179,85 @@
                     @endif
                     </small>
                 </div>
-                <div class="form-group text-center">
-                  <label for="" class="col-12">Imagen</label>
-                  <input type="text" name="imagenActual" value="{{old("img",$producto->img)}}" readonly hidden>
-                  <img src="{{old("img",$producto->img)}}" alt="" sizes="" width="" class="" height="300px">
-                  <label for="img" class="text-left col-12">Cambiar</label>
-                  <input type="file" class="form-control-file" id="img" name="img" class="">
-                                    <small class="text-danger">
-                    @if ($errors->has("img"))
-                        <ul class='text-decoration-none'>
-                        @foreach ($errors->get("img") as $mensaje)
-                        <li>{{$mensaje}}</li>
-                        @endforeach
+                <div class="row">
+                  <div class="form-group text-center col-6 mb-2">
+                    <div class="d-flex flex-row  justify-content-between cuadro-contenedor">
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 d-flex flex-column  align-items-stretch segundo-j">
+                        <ul class="col-12 d-flex flex-column justify-content-between">
+                          <li class="row">
+                            <img src="{{old("num1",(isset($producto->getImagenes[0])?$producto->getImagenes[0]->imagen:"/img/cargar/1.png"))}}" class="cuadro-mini img-thumbnail" width="80%" title="numero 1" alt="Phone example 1">
+                          </li>
+                          <li class="row">
+                            <img src="{{old("num2",(isset($producto->getImagenes[1])?$producto->getImagenes[1]->imagen:"/img/cargar/2.png"))}}" class="cuadro-mini img-thumbnail" width="80%" title="numero 2" alt="Phone example 1">
+                          </li>
+                          <li class="row">
+                            <img src="{{old("num3",(isset($producto->getImagenes[2])?$producto->getImagenes[2]->imagen:"/img/cargar/3.png"))}}" class="cuadro-mini img-thumbnail" width="80%" title="numero 3" alt="Phone example 1">
+                          </li>
                         </ul>
-                    @endif
-                    </small>
+                      </div>
+                      <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12   primero-j ">
+                          <img src="{{old("img",$producto->img)}}"  width="60%" alt="Principal" title="Principal" class="img-telefono" id="imgPrincipal"/>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group text-center col-6 mb-2">
+                        <ul class="col-12 d-flex flex-column justify-content-between">
+                          <li class="row py-2 text-left">
+                            <input type="text" name="imagenActual" value="{{old("img",$producto->img)}}" readonly hidden>
+                            <label for="img" class="col-12">Principal </label>
+                            <input type="file" class="form-control-file col-12  mb-1" id="img" name="img" >
+                            <small class="text-danger col-12  mb-1">
+            @if ($errors->has("img"))
+                <ul class='text-decoration-none'>
+                @foreach ($errors->get("img") as $mensaje)
+                <li>{{$mensaje}}</li>
+                @endforeach
+                </ul>
+            @endif
+            </small>
+                          </li>
+                          <li class="row py-2 text-left">
+                            <label for="num1" class="col-12">Numero 1 </label>
+                            <input type="file" name="num1" id="num1" class="col-12 mb-1">
+                            <small class="text-danger col-12  mb-1">
+                              @if ($errors->has("num1"))
+                                  <ul class='text-decoration-none'>
+                                  @foreach ($errors->get("num1") as $mensaje)
+                                  <li>{{$mensaje}}</li>
+                                  @endforeach
+                                  </ul>
+                              @endif
+                              </small>
+                          </li>
+                          <li class="row py-2 text-left">
+                            <label for="num2" class="col-12">Numero 2 </label>
+                            <input type="file" name="num2" id="num2" class="col-12 mb-1">
+                            <small class="text-danger col-12  mb-1">
+                              @if ($errors->has("num2"))
+                                  <ul class='text-decoration-none'>
+                                  @foreach ($errors->get("num2") as $mensaje)
+                                  <li>{{$mensaje}}</li>
+                                  @endforeach
+                                  </ul>
+                              @endif
+                              </small>
+                          </li>
+                          <li class="row py-2 text-left">
+                            <label for="num3" class="col-12">Numero 3</label>
+                            <input type="file" name="num3" id="num3" class="col-12 mb-1">
+                            <small class="text-danger col-12  mb-1">
+                              @if ($errors->has("num3"))
+                                  <ul class='text-decoration-none'>
+                                  @foreach ($errors->get("num3") as $mensaje)
+                                  <li>{{$mensaje}}</li>
+                                  @endforeach
+                                  </ul>
+                              @endif
+                              </small>
+                          </li>
+                        </ul>
+                  </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary mb-2" name="modificar_id" value="">Modificar</button>

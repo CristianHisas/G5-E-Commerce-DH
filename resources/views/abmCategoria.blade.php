@@ -55,7 +55,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a href="abmCategoria/{{$categoria->id_categoria}}" class="btn btn-outline-secondary">
+                                <a href="/cuenta/admin/abmCategoria/eliminar/{{$categoria->id_categoria}}" class="btn btn-outline-secondary">
                         eliminar
                     </a>
                               </div>
