@@ -10,6 +10,7 @@ use App\Marca;
 use App\Producto;
 use Directory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
@@ -163,9 +164,51 @@ class ProductoController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function show($id)
-  {
-    //
+  public function buscar(Request $request)
+  { 
+    $buscar=trim($request->buscar);
+    if(isset($buscar)){
+      define("Buscar",$buscar);
+      /*$productos=Producto::all()->where('nombre', 'like', '%'.$buscar.'%');
+      $productosC=Producto::WhereHas('getCategoria',function ($query) {
+        $query->where('categoria', 'like', '%'.Buscar.'%');
+      })->get();
+      $productosM=Producto::WhereHas('getMarca',function ($query) {
+      $query->where('marca', 'like', '%'.Buscar.'%');
+      })->get();
+      $productos=$productos->merge($productosC);
+      $productos=$productos->merge($productosM);
+      $cat=Categoria::all();
+      $mar=Marca::all();*/
+      $cat=Categoria::withCount(['getProductos'])
+      ->where('categoria', 'like', '%'.Buscar.'%')
+      ->get();
+  
+      $mar = Marca::withCount(['getProductos'])
+      ->where('marca', 'like', '%'.Buscar.'%')
+      ->get();
+  
+      $productos=Producto::
+      orWhere('nombre', 'like', '%'.$buscar.'%')
+      ->orWhere(function ($query) {
+        return $query->WhereHas('getMarca',function ($query) {
+          $query->where('marca', 'like', '%'.Buscar.'%');
+          });
+      })
+      ->orWhere(function ($query) {
+        return $query->WhereHas('getCategoria',function ($query) {
+          $query->where('categoria', 'like', '%'.Buscar.'%');
+        });
+      })
+      ->paginate(8);  
+    }else{
+      $cat=Categoria::withCount(['getProductos'])->get();
+      $mar=Marca::withCount(['getProductos'])->get();
+      $productos=Producto::all()->paginate(8);
+    }
+
+    $productos=$this->verificarProductos($productos);
+    return view('listaProductos')->with('marcas',$mar)->with('categorias',$cat)->with('productos',$productos);
   }
 
   /**
@@ -432,6 +475,7 @@ class ProductoController extends Controller
              ->get();
              $marcas = Marca::withCount(['getProductos'])
              ->get();
+             $productos=$this->verificarProductos($productos);
           return view("listaProductos")->with("productos",$productos)->with("categorias",$categorias)->with("marcas",$marcas);
         }
 
@@ -447,7 +491,7 @@ class ProductoController extends Controller
   }
 
   public function listaPorDescuento($cat)
-  {
+  {       define('cat',$cat);
         $productos=Producto::where("id_categoria","=",$cat)
         ->where(function($query){
         $query->where("descuento", ">", 0);
@@ -459,11 +503,38 @@ class ProductoController extends Controller
       }])
         ->where("id_categoria","<>",$cat)
         ->get();
-        $marcas = Marca::withCount(['getProductos'])
+        $marcas = Marca::withCount(['getProductos'=>function ($query) {
+          $query->where('descuento', '>', 0)->where("id_categoria","=",cat);}])
         ->get();
+        $productos=$this->verificarProductos($productos);
         return view("listaProductos")->with("productos",$productos)->with("categorias",$categorias)->with("marcas",$marcas);
   }
+  /**
+   * Verifica el stock de la lista de productos a mostrar segun usuario
+   * @return productos
+   */
+  private function verificarProductos($productos){
+    $usuario=Auth::user();
+    if(isset($usuario)){
+      $carritoId=Auth::user()->getUsuario->getCarrito;
+      if(isset($carritoId)){
+       $carritoId=$carritoId->id_carrito;
+        
+       foreach ($productos as $key => $value) {
+         
+         $productoAgregado=Detalle_de_producto::where('idcarrito','=',$carritoId)->where('idproducto','=',$value->id_producto)->first();
+         if(isset($productoAgregado)){
+           $value->cantidad-=$productoAgregado->cantidad;
+          
+           $productos[$key]=$value;
+         }
+       }
+       
+      }
 
+    }
+    return $productos;
+  }
   /**
   * Show the form for creating a new resource.
   *
@@ -474,9 +545,23 @@ class ProductoController extends Controller
   public function showDetails($id)
   {
      $producto=Producto::find($id);
-     if($producto){
+     if(isset($producto)){
         $marcas = Marca::find($producto->id_marca);
         $categorias = Categoria::find($producto->id_categoria);
+        $usuario=Auth::user();
+        if(isset($usuario)){
+          $carritoId=Auth::user()->getUsuario->getCarrito;
+          if(isset($carritoId)){
+          $carritoId=$carritoId->id_carrito;
+          $productoAgregado=Detalle_de_producto::where('idcarrito','=',$carritoId)->where('idproducto','=',$id)->first();
+          if(isset($productoAgregado)){
+            return view("productoDetalle")->with("producto",$producto)->with("marcas",$marcas)->with("categorias",$categorias)->with("menos",$productoAgregado->cantidad);
+          }else{
+            return view("productoDetalle")->with("producto",$producto)->with("marcas",$marcas)->with("categorias",$categorias);
+          }
+        }
+        }
+        
     return view("productoDetalle")->with("producto",$producto)->with("marcas",$marcas)->with("categorias",$categorias);
     }
 

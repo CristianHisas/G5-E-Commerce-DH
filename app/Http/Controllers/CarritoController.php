@@ -90,7 +90,7 @@ class CarritoController extends Controller
             }else{
                 $msj[0]="danger";
                 $msj[1]="No se agrego la cantidad al producto existente en el carrito";
-                return redirect("/productoDetalle/$id")->with("msj",$msj);
+                return view("agregadoCarrito")->with("msj",$msj)->with("id",$id);
             }
         }else{
             $detalleProducto=new Detalle_de_producto;
@@ -108,7 +108,7 @@ class CarritoController extends Controller
             }else{
                 $msj[0]="danger";
                 $msj[1]="No se agrego la cantidad al producto existente en el carrito";
-                return redirect("/productoDetalle/$id")->with("msj",$msj);
+                return view("agregadoCarrito")->with("msj",$msj)->with("id",$id);
             }
 
         }
@@ -122,7 +122,8 @@ class CarritoController extends Controller
         
         $usuariocarrito->save();
 
-        return redirect("/productoDetalle/$id")->with("msj",$msj);
+        return view("agregadocarrito")->with("msj",$msj)->with("id",$id);
+        /**return redirect("/productoDetalle/$id")->with("msj",$msj);*/
 
     }
 

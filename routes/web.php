@@ -41,7 +41,8 @@ Route::get('/faq', function(){
 Route::get('/contacto', function(){
   return view('contacto');
 });
-
+Route::post('/buscar','ProductoController@buscar');
+Route::get('/buscar','ProductoController@buscar');
 
 Route::post("/cuenta/modificarUsuario",'UsuarioController@store')->middleware("role:user");
 

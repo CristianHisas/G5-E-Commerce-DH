@@ -319,7 +319,7 @@ DROP TABLE IF EXISTS `imagenes`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `imagenes` (
   `id_imagen` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `imagen` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '/img/productos/phone.png',
+  `imagen` varchar(1000) DEFAULT '/img/nod.png',
   `id_producto_img` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_imagen`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
@@ -756,4 +756,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-16  1:01:51
+-- Dump completed on 2020-03-16 21:44:07
