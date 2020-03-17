@@ -87,9 +87,11 @@
             <?php
               }
             ?>
-
-            <span class="form-control-plaintext mx-auto d-linea">{{$productos->links()}}</span>
+            
             </section>
+        </div>
+        <div class=" d-flex justify-content-around flex-row col-12 mt-2 ">
+            <span class="form-control-plaintext mx-auto d-flex justify-content-around col-12 pt-2">{{$productos->links()}}</span>
         </div>
     </main>
     @endsection

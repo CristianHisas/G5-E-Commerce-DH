@@ -66,20 +66,20 @@
                 <div class="control-group">
                   <label class="control-label" name= "precio" ><span>Precio: <strong>$<?=$producto->precio;?></strong></span></label>
                   <input type="hidden" name="id_producto" value="{{$producto->id_producto}}">
-                  <label class="control-label" name= "precio" ><span>Stock: <strong><?=$producto->cantidad;?></strong></span></label>
+                  <label class="control-label" name= "precio" ><span>Stock: <strong><?=(isset($menos)?($producto->cantidad)-$menos:$producto->cantidad);?></strong></span></label>
                   <label class="control-label" name= "precio" ><span>Descuento: <strong><?=$producto->descuento;?></strong> %</span></label>
                   @if ($producto->descuento>0)
                   <label class="control-label" name= "precio" ><span>Precio Con Descuento: <strong>$<?=($producto->precio*((100-$producto->descuento)/100));?></strong></span></label>
                   @endif
                   <div class="control-group mb-1">
                     @guest
-                    <input class="cantidad px-0 col-5 mx-1" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
+                    <input class="cantidad px-0 col-5 mx-1" type="number" name="cantidad" value="{{old("cantidad",0)}}" min="0"
                       max="{{$producto->cantidad}}" placeholder="0" title="cantidad a comprar"/>
                       <button type="submit" class="btn btn-large btn-primary pull-right col-6"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
                     @else
                     @if(Auth::user()->getUsuario->id_tipo_de_usuario==2)
-                    <input class="cantidad px-0 col-5" type="number" name="cantidad" value="{{old("cantidad",1)}}" min="1"
-                      max="{{$producto->cantidad}}" placeholder="0" title="cantidad a comprar"/>
+                    <input class="cantidad px-0 col-5" type="number" name="cantidad" value="{{old("cantidad",0)}}" min="0"
+                      max="{{(isset($menos)?($producto->cantidad)-$menos:$producto->cantidad)}}" placeholder="0" title="cantidad a comprar"/>
                       <button type="submit" class="btn btn-large btn-primary pull-right col-6"> Add to cart  <i class="fas fa-shopping-cart"></i></button>
                       @endif
                     @endguest

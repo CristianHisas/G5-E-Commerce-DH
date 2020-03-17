@@ -56,11 +56,12 @@ foreach ($pagina as $key => $value) {
     </a>
 <!--Fin el nombre de la empresa-->
      <!--Comienza el buscador-->
-     <form class=" d-md-inline-block form-inline mx-auto  my-2 my-md-0">
+     <form class=" d-md-inline-block form-inline mx-auto  my-2 my-md-0" method="post" action="/buscar">
+      @csrf
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Buscar producto...." aria-label="Search" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" name="buscar" value="" placeholder="Buscar producto...." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
+          <button class="btn btn-primary" type="submit">
               <img src="/img/lupa.png" width="20" height="20" class="d-inline-block align-top" alt="">
           </button>
         </div>
