@@ -1,5 +1,8 @@
 window.addEventListener("load",function(){
-    var contenedor=document.getElementById('contenedor_carga');
+    $('#carga-git').fadeOut();
+    $('#caja-preloader').delay(350).css({'opacity':'0','visibility':'hidden'});
+    $('#caja-preloader').delay(350).fadeOut('slow');
+    /*var contenedor=document.getElementById('contenedor_carga');
     contenedor.style.visibility="hidden";
-    contenedor.style.opacity='0';
+    contenedor.style.opacity='0';*/
 });
