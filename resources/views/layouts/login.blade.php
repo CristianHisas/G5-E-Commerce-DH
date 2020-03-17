@@ -40,9 +40,12 @@ foreach ($pagina as $key => $value) {
 
 </head>
 <body class="main-perfil">
-    <div id="contenedor_carga">
-        <div id="carga"></div>
+  <div class="d-flex align-items-center justify-content-center" id="caja-preloader">
+    <div class="ring" id="carga-git">
+      Loading
+      <span id="punto"></span>
     </div>
+  </div>
   <div id="app">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark   shadow-sm">
           <div class="container">
