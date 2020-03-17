@@ -1,18 +1,9 @@
 <?php
-//require_once ('includes/pdo.php');
-//require_once 'clases/Conexion.php';
-//require_once "clases/Usuario.php";
-//require_once "clases/Administrador.php";
-
-
-//$administrador = new Administrador();
-
 $variable=$administrador->obtenerListaAdministradores();
-//var_dump($variable);
+
 if ($_POST) {
- // var_dump($_POST);
- // exit;
-if (isset($_POST["btnBorrar"])) {
+
+  if (isset($_POST["btnBorrar"])) {
     $id = $_POST["id"];
 
     $administrador->borrarAdministrador($id);
@@ -22,7 +13,7 @@ if (isset($_POST["btnBorrar"])) {
 ?>
 @extends('layouts.app')
 @section('csspersonal')
-"{{ asset('/css/styles.css') }}"
+  "{{ asset('/css/styles.css') }}"
 @endsection
 @section('content')
   <main>
@@ -43,23 +34,23 @@ if (isset($_POST["btnBorrar"])) {
             <ul class="list-group">
               <li class="list-group-item">
                 <div class="card-body form-inline d-flex justify-content-between px-0">
-                <div class="form-group mb-1 col-1 px-1" >
-                      <span  class="form-control-plaintext text-center">Id</span>
+                  <div class="form-group mb-1 col-1 px-1" >
+                    <span  class="form-control-plaintext text-center">Id</span>
                   </div>
                   <div class="form-group mb-1 col-2 px-1" >
-                      <span  class="form-control-plaintext text-center">Usuario</span>
+                    <span  class="form-control-plaintext text-center">Usuario</span>
                   </div>
                   <div class="form-group mb-1 col-2 px-1" >
-                      <span  class="form-control-plaintext text-center">Nombre</span>
+                    <span  class="form-control-plaintext text-center">Nombre</span>
                   </div>
                   <div class="form-group mb-1 col-2 " >
-                      <span  class="form-control-plaintext text-center">Apellido</span>
+                    <span  class="form-control-plaintext text-center">Apellido</span>
                   </div>
                   <div class="form-group mb-1 col-3 px-1" >
-                      <span  class="form-control-plaintext text-center">Email</span>
+                    <span  class="form-control-plaintext text-center">Email</span>
                   </div>
                   <div class="form-group mb-1 col-2 px-1" >
-                      <span  class="form-control-plaintext text-center">Estado</span>
+                    <span  class="form-control-plaintext text-center">Estado</span>
                   </div>
                 </div>
               </li>
@@ -96,7 +87,7 @@ if (isset($_POST["btnBorrar"])) {
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$value->getId();?>" data-toggle="modal" data-target="#eliminar<?=$value->getId();?>Modal">
-                            Eliminar
+                          Eliminar
                         </button>
 
                         <!-- Modal -->
@@ -112,19 +103,19 @@ if (isset($_POST["btnBorrar"])) {
                               <div class="modal-body d-flex  justify-content-between flex-wrap">
                                 <div class="form-group mb-2 col-2 px-1 d-block">
 
-                                <span  class="form-control-plaintext text-center " ><?=$value->getUsuario();?></span>
+                                  <span  class="form-control-plaintext text-center " ><?=$value->getUsuario();?></span>
                                 </div>
                                 <div class="form-group mb-2 col-2 px-1">
 
-                                <span class="form-control-plaintext text-center " >$ <?=$value->getNombre();?></span>
+                                  <span class="form-control-plaintext text-center " >$ <?=$value->getNombre();?></span>
                                 </div>
                                 <div class="form-group mb-2 col-2 px-1">
 
-                                <span class="form-control-plaintext text-center " ><?=$value->getApellido();?></span>
+                                  <span class="form-control-plaintext text-center " ><?=$value->getApellido();?></span>
                                 </div>
                                 <div class="form-group mb-2 col-4 px-1">
 
-                                <span class="form-control-plaintext text-center " ><?=$value->getEmail();?></span>
+                                  <span class="form-control-plaintext text-center " ><?=$value->getEmail();?></span>
                                 </div>
 
                               </div>
@@ -142,22 +133,21 @@ if (isset($_POST["btnBorrar"])) {
                   </div>
                 </li>
 
-              <?php } ?>
-            </ul>
+                <?php } ?>
+              </ul>
+            </div>
           </div>
         </div>
+
+
+
+
+
+
+
+
+
       </div>
 
-
-
-
-
-
-
-
-
-    </div>
-
-  </main>
+    </main>
   @endsection
-

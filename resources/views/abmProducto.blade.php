@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('csspersonal')
-"{{ asset('/css/styles.css') }}"
+  "{{ asset('/css/styles.css') }}"
 @endsection
 @section('content')
   <main>
@@ -22,38 +22,38 @@
               <li class="list-group-item">
                 <div class="card-body form-inline d-flex justify-content-between px-0">
                   <div class="form-group mb-1 col-1 px-1" >
-                      <span  class="form-control-plaintext text-center">Id</span>
+                    <span  class="form-control-plaintext text-center">Id</span>
                   </div>
                   <div class="form-group mb-1 col-2 px-1" >
-                      <span  class="form-control-plaintext text-center">Nombre</span>
+                    <span  class="form-control-plaintext text-center">Nombre</span>
                   </div>
                   <div class="form-group mb-1 col-1 px-0" >
-                      <span  class="form-control-plaintext text-center">Descripcion</span>
+                    <span  class="form-control-plaintext text-center">Descripcion</span>
                   </div>
                   <div class="form-group mb-1 col-1 " >
-                      <span  class="form-control-plaintext text-center">Precio</span>
+                    <span  class="form-control-plaintext text-center">Precio</span>
                   </div>
                   <div class="form-group mb-1 col-1 px-1" >
-                      <span  class="form-control-plaintext text-center">Stock</span>
+                    <span  class="form-control-plaintext text-center">Stock</span>
                   </div>
                   <div class="form-group mb-1 col-2 px-1" >
-                      <span  class="form-control-plaintext text-center">Marca</span>
+                    <span  class="form-control-plaintext text-center">Marca</span>
                   </div>
                   <div class="form-group mb-1 col-1 px-1" >
-                      <span  class="form-control-plaintext text-center">Categoria</span>
+                    <span  class="form-control-plaintext text-center">Categoria</span>
                   </div>
                   <div class="form-group mb-1 col-1 px-1" >
-                      <span  class="d-block form-control-plaintext text-center">Descuento</span>
+                    <span  class="d-block form-control-plaintext text-center">Descuento</span>
                   </div>
                   <div class="form-group mb-1 col-2 px-1" >
-                      <span  class="d-block text-center form-control-plaintext text-center ">Imagen</span>
+                    <span  class="d-block text-center form-control-plaintext text-center ">Imagen</span>
                   </div>
                 </div>
               </li>
               <?php
 
               foreach ($productos as $key => $value) {
-                
+
                 ?>
 
                 <li class="list-group-item">
@@ -104,13 +104,13 @@
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary mx-2 mb-1 " name="eliminar_l" value="<?=$value->id_producto;?>" data-toggle="modal" data-target="#eliminar<?=$value->id_producto;?>Modal">
-                            Eliminar
+                          Eliminar
                         </button>
                       </form>
                       <div class="form-inline d-flex justify-content-between " action="" method="post">
 
                       </div>
-                      </div>
+                    </div>
 
                   </div>
                 </li>
@@ -126,18 +126,18 @@
                       </div>
                       <div class="modal-body">
                         <?php
-                            $array=explode(PHP_EOL,$value->descripcion);
-                            foreach ($array as $key => $caracteristica) {?>
-                              <ul type="circle">
-                                <li >
-                                  <?=$caracteristica;?>
-                                </li>
-                              </ul>
-                            <?php
-                            }
-                            ?>
+                        $array=explode(PHP_EOL,$value->descripcion);
+                        foreach ($array as $key => $caracteristica) {?>
+                          <ul type="circle">
+                            <li >
+                              <?=$caracteristica;?>
+                            </li>
+                          </ul>
+                          <?php
+                        }
+                        ?>
 
-                      
+
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -146,40 +146,40 @@
                   </div>
                 </div>
                 <!--modal de descripcion -->
-                        <!-- Modal eliminar-->
-                        <div class="modal fade" id="eliminar<?=$value->id_producto;?>Modal" tabindex="-1" role="dialog" aria-labelledby="eliminar<?=$value->id_producto;?>ModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content text-center">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="eliminar<?=$value->id_producto;?>ModalLabel">Desea eliminar este producto?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body d-flex align-items-center justify-content-center flex-wrap">
-                                <div class="form-group mb-2 col-10 px-1 ">
-                                  <span  class="form-control-plaintext " ><?=$value->nombre;?></span>
-                                </div>
-                                <div class="form-group mb-2 col-5 text-center">
-                                  
-                                  <img src="{{asset($value->img)}}" alt="Foto Celular" sizes="" width="80%" class="">
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a class="btn btn-primary mx-2 mb-1 "  href="/cuenta/admin/producto/eliminar/{{$value->id_producto}}">Eliminar</a>
-                              </div>
-                            </div>
-                          </div>
+                <!-- Modal eliminar-->
+                <div class="modal fade" id="eliminar<?=$value->id_producto;?>Modal" tabindex="-1" role="dialog" aria-labelledby="eliminar<?=$value->id_producto;?>ModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content text-center">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="eliminar<?=$value->id_producto;?>ModalLabel">Desea eliminar este producto?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex align-items-center justify-content-center flex-wrap">
+                        <div class="form-group mb-2 col-10 px-1 ">
+                          <span  class="form-control-plaintext " ><?=$value->nombre;?></span>
                         </div>
-                        <!-- Modal eliminar-->
-              <?php } ?>
-            </ul>
+                        <div class="form-group mb-2 col-5 text-center">
+
+                          <img src="{{asset($value->img)}}" alt="Foto Celular" sizes="" width="80%" class="">
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <a class="btn btn-primary mx-2 mb-1 "  href="/cuenta/admin/producto/eliminar/{{$value->id_producto}}">Eliminar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal eliminar-->
+                <?php } ?>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <span class="form-control-plaintext mx-auto d-linea">{{$productos->links()}}</span>
-    
-  </main>
+      <span class="form-control-plaintext mx-auto d-linea">{{$productos->links()}}</span>
+
+    </main>
   @endsection

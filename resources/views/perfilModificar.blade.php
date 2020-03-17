@@ -1,11 +1,5 @@
 @extends('layouts.login')
 
-
-@php
-//dd($activeUser);  
-@endphp
-
-
 @section('contenido_login')
           <div class="col-12 col-sm-12 col-md-9  col-lg-9 usuario">
             <h1>Perfil</h1>
@@ -16,7 +10,7 @@
             @endphp
             @endif
             @isset($msj)
-          
+
             @if ($msj[0]=="success")
             <p class="btn alert alert-{{$msj[0]}} col-12" role="alert">
             {{$msj[1]}}
@@ -25,7 +19,7 @@
             <p class="btn alert alert-{{$msj[0]}} col-12" role="alert">
             {{$msj[1]}}
             @endif
-            </p>                  
+            </p>
             @endisset
             <div class=" col-lg-12 mb-4">
                 <h2>Datos:</h2>
@@ -240,8 +234,8 @@
                                                       <?=$value->sexo; ?>
                                                 </label>
                                                  <?php } ?>
-                                                
-                                                
+
+
                                               </div>
                                               <?php endforeach ?>
 
@@ -290,7 +284,7 @@
                                             <div class="row">
                                               <legend class="col-form-label col-sm-4 pt-0">Tipo de pago </legend>
                                               <div class="col-sm-10">
-                                                
+
                                                 <?php $valorTP=old("tipoDeTarjeta",(($activeUser->id_tarjeta)?$activeUser->getTarjeta->id_tipo_tarjeta:"")); ?>
                                                 <?php foreach ($arrayTiposDeTarjetas as $value): ?>
                                                 <div class="form-check col-4 form-check-inline">
@@ -299,16 +293,16 @@
                                                          <input class="form-check-input" type="radio" name="tipoDeTarjeta" id="<?=$value->id_tipo_tarjeta; ?>" value="<?=$value->id_tipo_tarjeta; ?>" checked {{(isset($input)?$input:"disabled")}} required>
                                                   <label class="form-check-label" for="<?=$value->tipo; ?>">
                                                       <img src="/img/<?=$value->tipo; ?>.png" alt="<?=$value->tipo; ?>" width="60">
-                  
+
                                                   </label>
                                                   <?php }else{ ?>
                                                     <input class="form-check-input" type="radio" name="tipoDeTarjeta" id="<?=$value->id_tipo_tarjeta; ?>" value="<?=$value->id_tipo_tarjeta; ?>" {{(isset($input)?$input:"disabled")}} required>
                                                   <label class="form-check-label" for="<?=$value->tipo; ?>">
                                                       <img src="/img/<?=$value->tipo; ?>.png" alt="<?=$value->tipo; ?>" width="60">
-                  
-                                                  </label>   
+
+                                                  </label>
                                                  <?php } ?>
-                                                 
+
                                                 </div>
                                                 <?php endforeach ?>
 
@@ -351,15 +345,15 @@
                   </small>
                                         </div>
                                         @if ((isset($input)))
-                                          <button type="submit" class="btn btn-secondary ml-md-auto boton-efecto my-2" name="editar" value="editar">guardar</button>      
+                                          <button type="submit" class="btn btn-secondary ml-md-auto boton-efecto my-2" name="editar" value="editar">guardar</button>
                                           <a href="/cuenta/perfil" class="btn btn-secondary ml-md-auto boton-efecto my-2" name="editar" value="editar">Volver atras</a>
                                         @else
                                         <a href="/cuenta/perfil/guardar/{{$activeUser->id}}" class="btn btn-secondary ml-md-auto boton-efecto my-2" name="editar" value="editar">Editar</a>
-  
+
                                         @endif
-                                      
+
                                     </form>
-                                    
+
                                     <!--Formulario-->
                 </div>
           </div>
