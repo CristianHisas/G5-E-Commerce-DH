@@ -47,7 +47,7 @@ $pagina="Home";
                     <div class="carousel-item active position-ab">
                       <a href="{{route('listaPorDescuento', ['cat' => $value->id_categoria])}}" class="">
                         <img class="d-block w-100 px-1 py-1" src="/img/carousel/{{$value->categoria}}.jpg" alt="{{$value->categoria}}">
-        
+
                       </a>
                       <img src="/img/carousel/des.png" alt="oferta" class="fixed-top" width="20%">
                     </div>
@@ -55,7 +55,7 @@ $pagina="Home";
                   <div class="carousel-item ">
                     <a href="{{route('listaPorDescuento', ['cat' => $value->id_categoria])}}">
                       <img class="d-block w-100 px-1 py-1" src="/img/carousel/{{$value->categoria}}.jpg" alt="{{$value->categoria}}">
-                      
+
                     </a>
                     <img src="/img/carousel/des.png" alt="oferta" class="fixed-top" width="20%">
                   </div>

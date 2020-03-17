@@ -37,20 +37,20 @@
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 d-flex flex-column  align-items-stretch segundo-j">
             <ul class="col-12 d-flex flex-column justify-content-between">
               <li class="row">
-              <img src="{{(isset($producto->getImagenes[0])?$producto->getImagenes[0]->imagen:'/img/nod.png')}}" class="cuadro-mini" width="100%" alt="Phone example 1">
+              <img src="{{(isset($producto->getImagenes[0])?$producto->getImagenes[0]->imagen:'/img/nod.png')}}" class="cuadro-mini" width="100%" alt="img 01">
               </li>
               <li class="row">
-                <img src="{{isset($producto->getImagenes[1])?$producto->getImagenes[1]->imagen:"/img/nod.png"}}" class="cuadro-mini" width="100%" alt="Phone example 1">
+                <img src="{{isset($producto->getImagenes[1])?$producto->getImagenes[1]->imagen:"/img/nod.png"}}" class="cuadro-mini" width="100%" alt="img 02">
               </li>
               <li class="row">
-                <img src="{{(isset($producto->getImagenes[2])?$producto->getImagenes[2]->imagen:"/img/nod.png")}}" class="cuadro-mini" width="100%" alt="Phone example 1">
+                <img src="{{(isset($producto->getImagenes[2])?$producto->getImagenes[2]->imagen:"/img/nod.png")}}" class="cuadro-mini" width="100%" alt="img 03">
               </li>
             </ul>
           </div>
           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12   primero-j img-zoom-container">
-            <a href="{{url($producto->img)}}" title="Phone example" class="cuadro-max d-inline-block">
+            <a href="{{url($producto->img)}}" class="cuadro-max d-inline-block">
                 <div class="img-zoom-lens"></div>
-              <img src="{{$producto->img}}"  width="100%" alt="Phone example" class="img-telefono" id="imgPrincipal"/>
+              <img src="{{$producto->img}}"  width="100%" alt="img 00" class="img-telefono" id="imgPrincipal"/>
             </a>
           </div>
         </div>
@@ -69,7 +69,7 @@
                   <label class="control-label" name= "precio" ><span>Stock: <strong><?=$producto->cantidad;?></strong></span></label>
                   <label class="control-label" name= "precio" ><span>Descuento: <strong><?=$producto->descuento;?></strong> %</span></label>
                   @if ($producto->descuento>0)
-                  <label class="control-label" name= "precio" ><span>Precio Con Descuento: <strong>$<?=($producto->precio*((100-$producto->descuento)/100));?></strong></span></label>  
+                  <label class="control-label" name= "precio" ><span>Precio Con Descuento: <strong>$<?=($producto->precio*((100-$producto->descuento)/100));?></strong></span></label>
                   @endif
                   <div class="control-group mb-1">
                     @guest
