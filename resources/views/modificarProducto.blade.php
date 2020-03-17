@@ -22,7 +22,7 @@
               @endphp
               @endif
               @isset($msj)
-            
+
               @if ($msj[0]=="success")
               <p class="btn alert alert-{{$msj[0]}}" role="alert">
               {{$msj[1]}}
@@ -31,9 +31,9 @@
               <p class="btn alert alert-{{$msj[0]}}" role="alert">
               {{$msj[1]}}
               @endif
-              </p>                  
+              </p>
               @endisset
-                  
+
               <a href="/cuenta/admin/producto/lista" class=" btn btn-primary ml-3 ">Volver a principal</a>
             </h5>
           </div>
@@ -185,19 +185,19 @@
                       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 d-flex flex-column  align-items-stretch segundo-j">
                         <ul class="col-12 d-flex flex-column justify-content-between">
                           <li class="row">
-                            <img src="{{old("num1",(isset($producto->getImagenes[0])?$producto->getImagenes[0]->imagen:"/img/cargar/1.png"))}}" class="cuadro-mini img-thumbnail" width="80%" title="numero 1" alt="Phone example 1">
+                            <img src="{{old("num1",(isset($producto->getImagenes[0])?$producto->getImagenes[0]->imagen:"/img/cargar/1.png"))}}" class="cuadro-mini img-thumbnail" width="80%" title="numero 1" alt="">
                           </li>
                           <li class="row">
-                            <img src="{{old("num2",(isset($producto->getImagenes[1])?$producto->getImagenes[1]->imagen:"/img/cargar/2.png"))}}" class="cuadro-mini img-thumbnail" width="80%" title="numero 2" alt="Phone example 1">
+                            <img src="{{old("num2",(isset($producto->getImagenes[1])?$producto->getImagenes[1]->imagen:"/img/cargar/2.png"))}}" class="cuadro-mini img-thumbnail" width="80%" title="numero 2" alt="">
                           </li>
                           <li class="row">
-                            <img src="{{old("num3",(isset($producto->getImagenes[2])?$producto->getImagenes[2]->imagen:"/img/cargar/3.png"))}}" class="cuadro-mini img-thumbnail" width="80%" title="numero 3" alt="Phone example 1">
+                            <img src="{{old("num3",(isset($producto->getImagenes[2])?$producto->getImagenes[2]->imagen:"/img/cargar/3.png"))}}" class="cuadro-mini img-thumbnail" width="80%" title="numero 3" alt="">
                           </li>
                         </ul>
                       </div>
                       <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12   primero-j ">
                           <img src="{{old("img",$producto->img)}}"  width="60%" alt="Principal" title="Principal" class="img-telefono" id="imgPrincipal"/>
-                        
+
                       </div>
                     </div>
                   </div>

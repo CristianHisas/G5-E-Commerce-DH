@@ -16,20 +16,6 @@ Route::get('/', 'ProductoController@listaCategorias');/*Lista de categorias en i
 Route::get('/home', function(){
   return view('home');
 });
-//Route::get('/index', function(){
-// return view('index');
-//});
-/*john
-Route::get('/listaProductos{marca?}', function($marca=""){
-
-  return view('listaProductos')->with("marca",$marca);
-}
-);
-*/
-/*
-Route::get('/listaProductos', function(){
-  return view('listaProductos');
-*/
 
 Route::get('/productoDetalle/{id}', "ProductoController@showDetails")->where('id', '[0-9]+');
 Route::post('/productoDetalle', "CarritoController@store")->middleware('auth')->middleware('verified')->middleware("role:user");
@@ -64,8 +50,6 @@ Route::get('/cuenta/admin/formModificarMarca/{id}', "MarcaController@edit")->whe
 
 Route::post('/cuenta/admin/modificarMarca', "MarcaController@update")->middleware('auth')->middleware('verified')->middleware('adminControl');
 
-//Route::get('cuenta/admin/abmMarca/{id}', "MarcaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
-
 Route::get('/cuenta/admin/abmMarca/eliminar/{id}',"MarcaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
 #------------Fin CRUD Marcas------------------------#
 
@@ -81,7 +65,6 @@ Route::get('/cuenta/admin/formModificarCategoria/{id}', "CategoriaController@edi
 
 Route::post('/cuenta/admin/modificarCategoria', "CategoriaController@update")->middleware('auth')->middleware('verified')->middleware('adminControl');
 
-//Route::get('/cuenta/admin/abmCategoria/{id}', "CategoriaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
 Route::get('/cuenta/admin/abmCategoria/eliminar/{id}',"CategoriaController@destroy")->where('id', '[0-9]+')->middleware('auth')->middleware('verified')->middleware('adminControl');
 
 #------------Fin CRUD Categorias------------------------#
@@ -118,7 +101,7 @@ Route::get("/listaProductos/descuentos/{cat?}","ProductoController@listaPorDescu
 Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
 
-#------------------Erros-----------------#
+#------------------Errores-----------------#
 Route::get('/error', function(){
   return response()->view("error.error")
     ->header('status', 404)
