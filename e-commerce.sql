@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `e-commerce` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `e-commerce`;
--- MySQL dump 10.13  Distrib 5.7.29, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
 -- Host: 127.0.0.1    Database: e-commerce
 -- ------------------------------------------------------
--- Server version	5.7.29-0ubuntu0.18.04.1
+-- Server version	5.5.5-10.4.8-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -82,8 +82,8 @@ CREATE TABLE `detalle_de_productos` (
   `id_detalle_de_Producto` int(11) NOT NULL AUTO_INCREMENT,
   `idcarrito` int(11) NOT NULL,
   `idproducto` int(11) NOT NULL,
-  `id_estado_producto` int(11) NOT NULL DEFAULT '1',
-  `cantidad` int(11) NOT NULL DEFAULT '0',
+  `id_estado_producto` int(11) NOT NULL DEFAULT 1,
+  `cantidad` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_detalle_de_Producto`),
   UNIQUE KEY `id_detalle_de_Producto_UNIQUE` (`id_detalle_de_Producto`),
   KEY `idcarrito_idx` (`idcarrito`),
@@ -322,7 +322,7 @@ CREATE TABLE `imagenes` (
   `imagen` varchar(1000) DEFAULT '/img/nod.png',
   `id_producto_img` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_imagen`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -331,7 +331,19 @@ CREATE TABLE `imagenes` (
 
 LOCK TABLES `imagenes` WRITE;
 /*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
-INSERT INTO `imagenes` VALUES (1,'/img/productos/Playstation Ps4/Playstation Ps4-1.png',31),(2,'/img/productos/Playstation Ps4/Playstation Ps4-2.jpg',31),(3,'/img/productos/Playstation Ps4/Playstation Ps4-3.jpg',31),(4,'/img/productos/Nokia 2.2/Nokia 2.2-1.jpg',32),(5,'/img/productos/Nokia 2.2/Nokia 2.2-2.jpg',32),(6,'/img/nod.png',32),(7,'/img/productos/Moto Z3 Play/Moto Z3 Play-1.jpg',33),(8,'/img/productos/Moto Z3 Play/Moto Z3 Play-2.jpg',33),(9,'/img/nod.png',33),(22,'/img/productos/Death Note Con Capucha/Death Note Con Capucha-1.jpg',37),(23,'/img/productos/Death Note Con Capucha/Death Note Con Capucha-2.jpg',37),(24,'/img/productos/Death Note Con Capucha/Death Note Con Capucha-3.jpg',37),(25,'/img/productos/Desarrollo de sistemas/Desarrollo de sistemas-1.jpg',38),(26,'/img/productos/Desarrollo de sistemas/Desarrollo de sistemas-2.png',38),(27,'/img/productos/Desarrollo de sistemas/Desarrollo de sistemas-3.png',38),(28,'/img/productos/Camiseta Death Note/Camiseta Death Note-1.jpg',39),(29,'/img/productos/Camiseta Death Note/Camiseta Death Note-2.jpg',39),(30,'/img/productos/Camiseta Death Note/Camiseta Death Note-3.jpg',39),(31,'/img/productos/Camiseta Naruto/Camiseta Naruto-1.jpg',40),(32,'/img/productos/Camiseta Naruto/Camiseta Naruto-2.jpg',40),(33,'/img/productos/Camiseta Naruto/Camiseta Naruto-3.jpg',40),(34,'/img/productos/Nokia 7.1/Nokia 7.1-1.jpg',1),(35,'/img/productos/Nokia 7.1/Nokia 7.1-2.jpg',1),(36,'/img/productos/Nokia 7.1/Nokia 7.1-3.jpg',1),(37,'/img/nod.png',8),(38,'/img/productos/Samsung Galaxy S10 Plus con Buds y Cover/Samsung Galaxy S10 Plus con Buds y Cover-2.jpg',8),(39,'/img/nod.png',8),(40,'/img/productos/iPhone Xs Max 64GB/iPhone Xs Max 64GB-1.jpg',9),(41,'/img/productos/iPhone Xs Max 64GB/iPhone Xs Max 64GB-2.jpg',9),(42,'/img/productos/iPhone Xs Max 64GB/iPhone Xs Max 64GB-3.jpg',9),(43,'/img/productos/LG Q60/LG Q60-1.jpg',11),(44,'/img/productos/LG Q60/LG Q60-2.jpg',11),(45,'/img/productos/LG Q60/LG Q60-3.jpg',11),(46,'/img/productos/Moto E5 Play/Moto E5 Play-1.jpg',16),(47,'/img/productos/Moto E5 Play/Moto E5 Play-2.jpg',16),(48,'/img/productos/Moto E5 Play/Moto E5 Play-3.jpg',16),(49,'/img/productos/Toga Himiko Boku No Hero Academia Sugoi/Toga Himiko Boku No Hero Academia Sugoi-1.jpg',29),(50,'/img/productos/Toga Himiko Boku No Hero Academia Sugoi/Toga Himiko Boku No Hero Academia Sugoi-2.jpg',29),(51,'/img/productos/Toga Himiko Boku No Hero Academia Sugoi/Toga Himiko Boku No Hero Academia Sugoi-3.jpg',29),(52,'/img/productos/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2-1.jpg',30),(53,'/img/productos/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2-2.jpg',30),(54,'/img/productos/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2-3.jpg',30);
+INSERT INTO `imagenes` VALUES (1,'/img/productos/Playstation Ps4/Playstation Ps4-1.png',31),(2,'/img/productos/Playstation Ps4/Playstation Ps4-2.jpg',31),(3,'/img/productos/Playstation Ps4/Playstation Ps4-3.jpg',31),(4,'/img/productos/Nokia 2.2/Nokia 2.2-1.jpg',32),(5,'/img/productos/Nokia 2.2/Nokia 2.2-2.jpg',32),(6,'/img/nod.png',32),(7,'/img/productos/Moto Z3 Play/Moto Z3 Play-1.jpg',33),(8,'/img/productos/Moto Z3 Play/Moto Z3 Play-2.jpg',33),(9,'/img/nod.png',33),
+(22, '/img/productos/Death Note Con Capucha/Death Note Con Capucha-1.jpg', 37),
+(23, '/img/productos/Death Note Con Capucha/Death Note Con Capucha-2.jpg', 37),
+(24, '/img/productos/Death Note Con Capucha/Death Note Con Capucha-3.jpg', 37),
+(25, '/img/productos/Desarrollo de sistemas/Desarrollo de sistemas-1.jpg', 38),
+(26, '/img/productos/Desarrollo de sistemas/Desarrollo de sistemas-2.png', 38),
+(27, '/img/productos/Desarrollo de sistemas/Desarrollo de sistemas-3.png', 38),
+(28, '/img/productos/Camiseta Death Note/Camiseta Death Note-1.jpg', 39),
+(29, '/img/productos/Camiseta Death Note/Camiseta Death Note-2.jpg', 39),
+(30, '/img/productos/Camiseta Death Note/Camiseta Death Note-3.jpg', 39),
+(31, '/img/productos/Camiseta Naruto/Camiseta Naruto-1.jpg', 40),
+(32, '/img/productos/Camiseta Naruto/Camiseta Naruto-2.jpg', 40),
+(33, '/img/productos/Camiseta Naruto/Camiseta Naruto-3.jpg', 40);
 /*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -348,7 +360,7 @@ CREATE TABLE `marcas` (
   PRIMARY KEY (`id_marca`),
   UNIQUE KEY `nombre_UNIQUE` (`marca`),
   UNIQUE KEY `id_marca_UNIQUE` (`id_marca`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -357,7 +369,7 @@ CREATE TABLE `marcas` (
 
 LOCK TABLES `marcas` WRITE;
 /*!40000 ALTER TABLE `marcas` DISABLE KEYS */;
-INSERT INTO `marcas` VALUES (1,'Apple'),(7,'ASUS'),(8,'iPhone'),(9,'LG'),(10,'Motorola'),(4,'Nokia'),(13,'Otras marcas'),(6,'Ropa Anime'),(5,'Samsung'),(11,'Sony');
+INSERT INTO `marcas` VALUES (1,'Apple'),(7,'ASUS'),(8,'iPhone'),(9,'LG'),(10,'Motorola'),(4,'Nokia'),(6,'Ropa Anime'),(5,'Samsung'),(11,'Sony'),(13, 'Otras marcas');
 /*!40000 ALTER TABLE `marcas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -424,7 +436,7 @@ CREATE TABLE `productos` (
   `nombre` varchar(250) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `descripcion` varchar(1000) DEFAULT NULL,
-  `precio` float unsigned NOT NULL DEFAULT '0',
+  `precio` float unsigned NOT NULL DEFAULT 0,
   `img` varchar(10000) NOT NULL,
   `descuento` float DEFAULT NULL,
   PRIMARY KEY (`id_producto`),
@@ -433,7 +445,7 @@ CREATE TABLE `productos` (
   KEY `id_categoria_idx` (`id_categoria`),
   CONSTRAINT `id_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_marca` FOREIGN KEY (`id_marca`) REFERENCES `marcas` (`id_marca`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -442,7 +454,11 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,1,4,'Nokia 7.1',23,'Cámara secundaria: 8 mpx\r\n    Sistema Operativo: Android 9.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 17, 28, 40.\r\n    Batería: 3060 mAh\r\n    Batería en modo Stand By: 408 h\r\n    Tiempo de conversación: 19 h\r\n    Memoria RAM: 4 GB\r\n    Memoria Interna: 64 GB | Disponibles 50 GB\r\n    Memoria Externa: MicroSD hasta 256 GB\r\n    Peso: 160 g\r\n    Dimensión del equipo: 149,7 x 71,2 x 8 mm\r\n    Bluetooth: Si\r\n    Marcación por Voz: Si\r\n    Llamadas por WiFi: Si',29000,'/img/productos/Nokia 7.1/Nokia 7.1.jpg',0),(8,1,5,'Samsung Galaxy S10 Plus con Buds y Cover',25,'Cámara secundaria: 10 mpx | Dual\r\n    Sistema Operativo: Android 9.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 13, 17, 18, 19, 20, 25, 26, 28, 32, 38, 39, 40, 41, 66.\r\n    Batería: 4000 mAh\r\n    Tiempo de conversación: 30 h\r\n    Memoria RAM: 8 GB\r\n    Memoria Interna: 128 GB | Disponibles 107.8 GB\r\n    Memoria Externa: MicroSD hasta 512 GB\r\n    Peso: 179 g\r\n    Dimensión del equipo: 158.6 x 74.1 x 7.9 mm\r\n    Llamadas por WiFi: Si',72999,'/img/productos/Samsung Galaxy S10 Plus con Buds y Cover/Samsung Galaxy S10 Plus con Buds y Cover.jpg',0),(9,1,8,'iPhone Xs Max 64GB',10,'Cámara secundaria: 7 mpx\r\n    Sistema Operativo: iOS 11\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700-2100/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 13, 17, 18, 19, 20, 25, 26, 28, 29, 30, 66.\r\n    Tiempo de conversación: 21 h\r\n    Memoria Interna: 64 GB\r\n    Peso: 174 g\r\n    Dimensión del equipo: 157,5 x 77,4 x 7,7 mm\r\n    Llamadas por WiFi: Si',130000,'/img/productos/iPhone Xs Max 64GB/iPhone Xs Max 64GB.jpg',25),(11,1,9,'LG Q60',50,'Cámara secundaria: 13 mpx\r\n    Sistema Operativo: Android 9.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 17, 28, 66.\r\n    Batería: 3500 mAh\r\n    Batería en modo Stand By: 318 h\r\n    Tiempo de conversación: 9 h\r\n    Memoria RAM: 3 GB\r\n    Memoria Interna: 64 GB | Disponibles 47 GB\r\n    Memoria Externa: MicroSD hasta 256 GB\r\n    Peso: 172 g\r\n    Dimensión del equipo: 161,3 x 77 x 8,75 mm\r\n    Llamadas por WiFi: Si',24000,'/img/productos/LG Q60/LG Q60.jpg',10),(16,1,5,'Moto E5 Play',20,'hola',9000,'/img/productos/Moto E5 Play/Moto E5 Play.jpg',25),(29,2,6,'Toga Himiko Boku No Hero Academia Sugoi',25,'Estilo: Unisex\r\nColor: Negro\r\nTalle: M',700,'/img/productos/Toga Himiko Boku No Hero Academia Sugoi/Toga Himiko Boku No Hero Academia Sugoi.png',0),(30,6,7,'Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2',30,'CARACTERISTICAS GENERALES\r\nSocket: AM4 Ryzen 3th Gen, AM4 APU 2th Gen\r\nChipsets Principal: AMD X570\r\nPlataforma: AMD\r\nCONECTIVIDAD\r\nSalidas HDMI : 1\r\nSalidas Display Ports: 1\r\nPlaca WiFi integrada:Sí\r\nPuertos SATA: 8\r\nCantidad de slot m2: 2\r\nCantidad de slot PCI-E 16X: 2\r\nCantidad de slot PCI-E 1X: 2\r\nTecnología multi GPU: Crossfire\r\nSistema de conexión RGB : ARGB Header, RGB Header\r\nPlaca de Red\r\nGigabit LAN 10/100/1000 Mb/s\r\nPuertos USB 2.0 traseros: 4\r\nPuertos USB 3.0 traseros: 2\r\nDIMENSIONES\r\nFactor: ATX\r\nENERGIA\r\nConector 24pines: 1\r\nConsumo: 35 w\r\nConectos CPU 4pines: 1\r\nConector CPU 4pines Plus: 1\r\nWatts máximos para CPU: 105\r\nMEMORIA\r\nCantidad de slot DDR4: 4',16100,'/img/productos/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2.jpg',0),(31,4,11,'Playstation Ps4',10,'Especificaciones generales\r\nCPU: AMD Jaguar x86-64 de baja potencia, 8 núcleos\r\nGPU:1,84 TFLOPS, tarjeta gráfica AMD basada en Radeon™ de próxima generación\r\nMemoria: GDDR5 de 8 GB\r\nHDD: Unidad de disco duro de 500 GB\r\nUnidad óptica (solo lectura): BD x 6 CAV; DVD x 8 CAV\r\nPuertos USB: 2,0\r\nConectividad de red\r\nTipo de conexión: Ethernet\r\nWi-Fi: IEEE 802.11 b/g/n\r\nTipo de Ethernet: 1 (10BASE-T, 100BASE-TX, 1000BASE-T)\r\nBluetooth®: Bluetooth® 2.1 (EDR)\r\nInterfaz\r\nHDMI®: Puerto de salida HDMI\r\n¿Qué incluye la caja?\r\n Sistema PlayStation®4; controlador inalámbrico DUALSHOCK® 4; auriculares mono; cable de alimentación de CA; cable HDMI; cable USB',50000,'/img/productos/Playstation Ps4/Playstation Ps4.png',25),(32,1,4,'Nokia 2.2',10,'Display: 5.71\'\' HD+\r\n    Procesador: Octa Core 2 GHz \r\n    Cámara principal:13 mpx con flash LED | Dual | Zoom digital 4x  \r\n    Cámara secundaria: 5 mpx\r\n    Sistema Operativo: Android 9.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1800/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 17, 28, 38, 40.\r\n    Batería: 3000 mAh\r\n    Batería en modo Stand By: 418 h\r\n    Tiempo de conversación: 21 h\r\n    Memoria RAM: 3 GB\r\n    Memoria Interna: 32 GB | Disponibles 20 GB\r\n    Memoria Externa: MicroSD hasta 256 GB\r\n    Peso: 153 g\r\n    Dimensión del equipo: 145,9 x 70,5 x 8,1 mm\r\n    Llamadas por WiFi: Si',14500,'/img/productos/Nokia 2.2/Nokia 2.2.jpg',0),(33,1,10,'Moto Z3 Play',20,'Display: 6\'\' Full HD\r\n    Procesador: Octa Core 1.8 GHz\r\n    Cámara principal:12 mpx con flash dual LED | Zoom digital 8x\r\n    Cámara secundaria: 5 mpx con flash\r\n    Sistema Operativo: Android 8.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 17, 28, 66.\r\n    Batería: 3000 mAh\r\n    Batería en modo Stand By: 24 h\r\n    Tiempo de conversación: 14 hs\r\n    Memoria RAM: 4 GB\r\n    Memoria Interna: 64 GB | Disponibles 45 GB\r\n    Memoria Externa: MicroSD hasta 128 GB\r\n    Peso: 155 g\r\n    Llamadas por WiFi: Si',30000,'/img/productos/Moto Z3 Play/Moto Z3 Play.jpg',0),(37,2,13,'Death Note Con Capucha',100,'Death Note Con Capucha\r\nAnime Death Note Con Capucha Sudadera Jersey Luz',1800,'/img/productos/Death Note Con Capucha/Death Note Con Capucha.png',NULL),(38,5,13,'Desarrollo de sistemas',10,'SOFTWARE A MEDIDA!\r\nDE APLICACIONES WEB\r\n* Software basado en web o en la nube.\r\n* Desarrollo de software basado en Web> \r\n* Accesible desde cualquier computadora o dispositivo con internet >\r\n* Robustos, confiables, eficientes. \r\n*Servidores dedicados de última generación y alta performance.\r\nUTILIZACIÓN DE LA MÁS MODERNA TECNOLOGÍA DISPONIBLE ACTUALMENTE',1111,'/img/productos/Desarrollo de sistemas/Desarrollo de sistemas.png',0.25),(39,2,13,'Camiseta Death Note',45,'Camiseta Death Note\r\n\r\nImpresión digital de alta durabilidad, con colores vivos e imágenes de alta resolución.\r\n\r\nEs posible ponerlo en una lavadora y planchar en caliente sobre la impresión hasta 40º c.',1568,'/img/productos/Camiseta Death Note/Camiseta Death Note.jpg',30),(40,2,13,'Camiseta Naruto',200,'Camiseta Naruto\r\n\r\nImpresión digital de alta durabilidad, con colores vivos e imágenes de alta resolución.\r\n\r\nEs posible ponerlo en una lavadora y planchar en caliente sobre la impresión hasta 40º c.',2000,'/img/productos/Camiseta Naruto/Camiseta Naruto.jpg',10);
+INSERT INTO `productos` VALUES (1,1,4,'Nokia 7.1',23,'Cámara secundaria: 8 mpx\r\n    Sistema Operativo: Android 9.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 17, 28, 40.\r\n    Batería: 3060 mAh\r\n    Batería en modo Stand By: 408 h\r\n    Tiempo de conversación: 19 h\r\n    Memoria RAM: 4 GB\r\n    Memoria Interna: 64 GB | Disponibles 50 GB\r\n    Memoria Externa: MicroSD hasta 256 GB\r\n    Peso: 160 g\r\n    Dimensión del equipo: 149,7 x 71,2 x 8 mm\r\n    Bluetooth: Si\r\n    Marcación por Voz: Si\r\n    Llamadas por WiFi: Si',29000,'/img/productos/Nokia 7.1/Nokia 7.1.jpg',0),(8,1,5,'Samsung Galaxy S10 Plus con Buds y Cover',25,'Cámara secundaria: 10 mpx | Dual\r\n    Sistema Operativo: Android 9.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 13, 17, 18, 19, 20, 25, 26, 28, 32, 38, 39, 40, 41, 66.\r\n    Batería: 4000 mAh\r\n    Tiempo de conversación: 30 h\r\n    Memoria RAM: 8 GB\r\n    Memoria Interna: 128 GB | Disponibles 107.8 GB\r\n    Memoria Externa: MicroSD hasta 512 GB\r\n    Peso: 179 g\r\n    Dimensión del equipo: 158.6 x 74.1 x 7.9 mm\r\n    Llamadas por WiFi: Si',72999,'/img/productos/Samsung Galaxy S10 Plus con Buds y Cover/Samsung Galaxy S10 Plus con Buds y Cover.jpg',0),(9,1,8,'iPhone Xs Max 64GB',10,'Cámara secundaria: 7 mpx\r\n    Sistema Operativo: iOS 11\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700-2100/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 13, 17, 18, 19, 20, 25, 26, 28, 29, 30, 66.\r\n    Tiempo de conversación: 21 h\r\n    Memoria Interna: 64 GB\r\n    Peso: 174 g\r\n    Dimensión del equipo: 157,5 x 77,4 x 7,7 mm\r\n    Llamadas por WiFi: Si',130000,'/img/productos/iPhone Xs Max 64GB/iPhone Xs Max 64GB.jpg',25),(11,1,9,'LG Q60',50,'Cámara secundaria: 13 mpx\r\n    Sistema Operativo: Android 9.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 17, 28, 66.\r\n    Batería: 3500 mAh\r\n    Batería en modo Stand By: 318 h\r\n    Tiempo de conversación: 9 h\r\n    Memoria RAM: 3 GB\r\n    Memoria Interna: 64 GB | Disponibles 47 GB\r\n    Memoria Externa: MicroSD hasta 256 GB\r\n    Peso: 172 g\r\n    Dimensión del equipo: 161,3 x 77 x 8,75 mm\r\n    Llamadas por WiFi: Si',24000,'/img/productos/LG Q60/LG Q60.jpg',10),(16,1,5,'Moto E5 Play',20,'hola',9000,'/img/productos/Moto E5 Play/Moto E5 Play.jpg',25),(29,2,6,'Toga Himiko Boku No Hero Academia Sugoi',25,'Estilo: Unisex\r\nColor: Negro\r\nTalle: M',700,'/img/productos/Toga Himiko Boku No Hero Academia Sugoi/Toga Himiko Boku No Hero Academia Sugoi.png',0),(30,6,7,'Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2',30,'CARACTERISTICAS GENERALES\r\nSocket: AM4 Ryzen 3th Gen, AM4 APU 2th Gen\r\nChipsets Principal: AMD X570\r\nPlataforma: AMD\r\nCONECTIVIDAD\r\nSalidas HDMI : 1\r\nSalidas Display Ports: 1\r\nPlaca WiFi integrada:Sí\r\nPuertos SATA: 8\r\nCantidad de slot m2: 2\r\nCantidad de slot PCI-E 16X: 2\r\nCantidad de slot PCI-E 1X: 2\r\nTecnología multi GPU: Crossfire\r\nSistema de conexión RGB : ARGB Header, RGB Header\r\nPlaca de Red\r\nGigabit LAN 10/100/1000 Mb/s\r\nPuertos USB 2.0 traseros: 4\r\nPuertos USB 3.0 traseros: 2\r\nDIMENSIONES\r\nFactor: ATX\r\nENERGIA\r\nConector 24pines: 1\r\nConsumo: 35 w\r\nConectos CPU 4pines: 1\r\nConector CPU 4pines Plus: 1\r\nWatts máximos para CPU: 105\r\nMEMORIA\r\nCantidad de slot DDR4: 4',16100,'/img/productos/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2/Mother ASUS TUF X570-PLUS GAMING WiFi AM4 PCIe 4.0 Dual M.2.jpg',0),(31,4,11,'Playstation Ps4',10,'Especificaciones generales\r\nCPU: AMD Jaguar x86-64 de baja potencia, 8 núcleos\r\nGPU:1,84 TFLOPS, tarjeta gráfica AMD basada en Radeon™ de próxima generación\r\nMemoria: GDDR5 de 8 GB\r\nHDD: Unidad de disco duro de 500 GB\r\nUnidad óptica (solo lectura): BD x 6 CAV; DVD x 8 CAV\r\nPuertos USB: 2,0\r\nConectividad de red\r\nTipo de conexión: Ethernet\r\nWi-Fi: IEEE 802.11 b/g/n\r\nTipo de Ethernet: 1 (10BASE-T, 100BASE-TX, 1000BASE-T)\r\nBluetooth®: Bluetooth® 2.1 (EDR)\r\nInterfaz\r\nHDMI®: Puerto de salida HDMI\r\n¿Qué incluye la caja?\r\n Sistema PlayStation®4; controlador inalámbrico DUALSHOCK® 4; auriculares mono; cable de alimentación de CA; cable HDMI; cable USB',50000,'/img/productos/Playstation Ps4/Playstation Ps4.png',25),(32,1,4,'Nokia 2.2',10,'Display: 5.71\'\' HD+\r\n    Procesador: Octa Core 2 GHz \r\n    Cámara principal:13 mpx con flash LED | Dual | Zoom digital 4x  \r\n    Cámara secundaria: 5 mpx\r\n    Sistema Operativo: Android 9.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1800/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 17, 28, 38, 40.\r\n    Batería: 3000 mAh\r\n    Batería en modo Stand By: 418 h\r\n    Tiempo de conversación: 21 h\r\n    Memoria RAM: 3 GB\r\n    Memoria Interna: 32 GB | Disponibles 20 GB\r\n    Memoria Externa: MicroSD hasta 256 GB\r\n    Peso: 153 g\r\n    Dimensión del equipo: 145,9 x 70,5 x 8,1 mm\r\n    Llamadas por WiFi: Si',14500,'/img/productos/Nokia 2.2/Nokia 2.2.jpg',0),(33,1,10,'Moto Z3 Play',20,'Display: 6\'\' Full HD\r\n    Procesador: Octa Core 1.8 GHz\r\n    Cámara principal:12 mpx con flash dual LED | Zoom digital 8x\r\n    Cámara secundaria: 5 mpx con flash\r\n    Sistema Operativo: Android 8.0\r\n    Tipo de SIM: Nano-SIM\r\n    Red: 2G, 3G, 4G\r\n    Frecuencia 2G: 850/900/1800/1900 MHz\r\n    Frecuencia 3G: 850/900/1700/1900/2100 MHz\r\n    Frecuencia 4G: Bandas 1, 2, 3, 4, 5, 7, 8, 12, 17, 28, 66.\r\n    Batería: 3000 mAh\r\n    Batería en modo Stand By: 24 h\r\n    Tiempo de conversación: 14 hs\r\n    Memoria RAM: 4 GB\r\n    Memoria Interna: 64 GB | Disponibles 45 GB\r\n    Memoria Externa: MicroSD hasta 128 GB\r\n    Peso: 155 g\r\n    Llamadas por WiFi: Si',30000,'/img/productos/Moto Z3 Play/Moto Z3 Play.jpg',0),
+(37, 2, 13, 'Death Note Con Capucha', 100, 'Death Note Con Capucha\r\nAnime Death Note Con Capucha Sudadera Jersey Luz', 1800, '/img/productos/Death Note Con Capucha/Death Note Con Capucha.png', 0),
+(38, 5, 13, 'Desarrollo de sistemas', 10, 'SOFTWARE A MEDIDA!\r\nDE APLICACIONES WEB\r\n* Software basado en web o en la nube.\r\n* Desarrollo de software basado en Web> \r\n* Accesible desde cualquier computadora o dispositivo con internet >\r\n* Robustos, confiables, eficientes. \r\n*Servidores dedicados de última generación y alta performance.\r\nUTILIZACIÓN DE LA MÁS MODERNA TECNOLOGÍA DISPONIBLE ACTUALMENTE', 1111, '/img/productos/Desarrollo de sistemas/Desarrollo de sistemas.png', 0.25),
+(39, 2, 13, 'Camiseta Death Note', 45, 'Camiseta Death Note\r\n\r\nImpresión digital de alta durabilidad, con colores vivos e imágenes de alta resolución.\r\n\r\nEs posible ponerlo en una lavadora y planchar en caliente sobre la impresión hasta 40º c.', 1568, '/img/productos/Camiseta Death Note/Camiseta Death Note.jpg', 30),
+(40, 2, 13, 'Camiseta Naruto', 200, 'Camiseta Naruto\r\n\r\nImpresión digital de alta durabilidad, con colores vivos e imágenes de alta resolución.\r\n\r\nEs posible ponerlo en una lavadora y planchar en caliente sobre la impresión hasta 40º c.', 2000, '/img/productos/Camiseta Naruto/Camiseta Naruto.jpg', 10);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -460,7 +476,7 @@ CREATE TABLE `role_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -469,7 +485,7 @@ CREATE TABLE `role_user` (
 
 LOCK TABLES `role_user` WRITE;
 /*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
-INSERT INTO `role_user` VALUES (1,2,2,'2020-02-19 06:23:59','2020-02-19 06:23:59'),(2,2,1,'2020-02-19 06:39:58','2020-02-19 06:39:58'),(3,1,3,'2020-02-19 03:00:00','2020-02-19 03:00:00'),(4,2,4,'2020-02-20 15:29:42','2020-02-20 15:29:42'),(5,2,5,'2020-02-20 15:37:27','2020-02-20 15:37:27'),(6,2,6,'2020-02-20 23:26:30','2020-02-20 23:26:30'),(7,2,7,'2020-02-21 15:44:35','2020-02-21 15:44:35'),(8,2,8,'2020-02-22 03:56:39','2020-02-22 03:56:39'),(9,2,9,'2020-03-18 00:19:27','2020-03-18 00:19:27'),(10,2,10,'2020-03-18 00:34:30','2020-03-18 00:34:30');
+INSERT INTO `role_user` VALUES (1,2,2,'2020-02-19 06:23:59','2020-02-19 06:23:59'),(2,2,1,'2020-02-19 06:39:58','2020-02-19 06:39:58'),(3,1,3,'2020-02-19 03:00:00','2020-02-19 03:00:00'),(4,2,4,'2020-02-20 15:29:42','2020-02-20 15:29:42'),(5,2,5,'2020-02-20 15:37:27','2020-02-20 15:37:27'),(6,2,6,'2020-02-20 23:26:30','2020-02-20 23:26:30'),(7,2,7,'2020-02-21 15:44:35','2020-02-21 15:44:35'),(8,2,8,'2020-02-22 03:56:39','2020-02-22 03:56:39');
 /*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -697,7 +713,7 @@ CREATE TABLE `users` (
   `user` varchar(45) NOT NULL,
   `email` varchar(100) NOT NULL,
   `img` varchar(10000) NOT NULL DEFAULT '/img/perfil.png',
-  `id_tipo_de_usuario` int(11) NOT NULL DEFAULT '2',
+  `id_tipo_de_usuario` int(11) NOT NULL DEFAULT 2,
   `id_sexo` int(11) DEFAULT NULL,
   `id_direccion` int(11) DEFAULT NULL,
   `id_tarjeta` int(11) DEFAULT NULL,
@@ -726,7 +742,7 @@ CREATE TABLE `users` (
   CONSTRAINT `id_sexo` FOREIGN KEY (`id_sexo`) REFERENCES `sexos` (`id_sexo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_tarjeta` FOREIGN KEY (`id_tarjeta`) REFERENCES `tarjetas` (`id_tarjeta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_tipo_de_usuario` FOREIGN KEY (`id_tipo_de_usuario`) REFERENCES `tipo_usuario` (`id_tipo_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -735,9 +751,17 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'lucas','Peres','12lucas','lucas@gmail.com','/img/usuario/lucas@gmail.com/lucas@gmail.com.png',2,1,1,1,1,1,'1990-06-13','2020-03-13 03:14:51','$2y$10$5k2aUzM6s6WLZQRI.VUsjeKSAK21pOzAHW0fUzzqG93s7KaiP7DJ6','usFMvrG9GN4hv6inzTLr6m0JEAapU3nDISGFHHFBgb9V0OEUE5seMi0mscnM','2020-02-18 19:37:15','2020-03-13 03:14:51','1554563205'),(2,'lucas','peres','12pedro','pedro@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,2,NULL,NULL,NULL,'$2y$10$18jFS5CBHmOxEdnsTWhRKOTy6EIk25IMwcLKEcnE56mRzJdfZl0Oe',NULL,'2020-02-19 06:23:59','2020-02-20 04:52:14',NULL),(3,'pedro','feliz','admin','admin@gmail.com','/img/perfil.png',1,NULL,NULL,NULL,NULL,NULL,NULL,'2020-03-13 02:26:59','$2y$10$uFThq.EwtQzkxubBle7i2.bVx8wnFPtMwgM3kYvGw7bE/CecF1cra',NULL,'2020-02-19 06:39:58','2020-03-13 02:26:59',NULL),(4,'fede','fede','fede','fede@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,3,NULL,NULL,NULL,'$2y$10$eH7w4n4HXWJRz8hrAnYuU.sdWVn2eyNqHW8SB17LytiU47il5jLsq',NULL,'2020-02-20 15:29:41','2020-02-20 15:30:09',NULL),(5,'des','des','des','des@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,4,NULL,NULL,NULL,'$2y$10$dJ4xBy1vwdQ55AKwgTGIOOlmKm1y9bUiCAg/REgBzF.Us4XUoxyiy',NULL,'2020-02-20 15:37:27','2020-02-20 15:38:14',NULL),(7,'fer','fer','fer','fer@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$r9dyNkMjcPrxJQ1G18hy9.1lW9wpmilE3JH.JrY97sqEWyYCwEicq',NULL,'2020-02-21 15:44:35','2020-02-21 15:44:35',NULL),(8,'re','re','12rer','re@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,5,NULL,NULL,NULL,'$2y$10$odKZ5t5jIyXknBSewPPSXe4hTzY6yFGnDgFKZXC/fh66vEv5Cw31q',NULL,'2020-02-22 03:56:39','2020-02-22 03:57:03',NULL),(9,'Cristian','Hisas','elche','hcristian1611@gmail.com','/img/perfil.png',1,NULL,NULL,NULL,NULL,NULL,NULL,'2020-03-18 00:20:17','$2y$10$DBLYF7yNR9b/NphRx.guXu2MqYzL3OLmUL/c9CVv.ntUKpawYV3EO',NULL,'2020-03-18 00:19:27','2020-03-18 00:20:17',NULL),(10,'Cris','Hisas','elche16','asd@asd.com','/img/perfil.png',2,NULL,NULL,NULL,NULL,NULL,NULL,'2020-03-18 00:34:52','$2y$10$kCTb9tvEVaPUKszndRiy9O7gvAX5f5dJPWq6IKq05gIPoYzpb.7.q',NULL,'2020-03-18 00:34:30','2020-03-18 00:34:52',NULL);
+INSERT INTO `users` VALUES (1,'lucas','Peres','12lucas','lucas@gmail.com','/img/usuario/lucas@gmail.com/lucas@gmail.com.png',2,1,1,1,1,1,'1990-06-13','2020-03-13 03:14:51','$2y$10$5k2aUzM6s6WLZQRI.VUsjeKSAK21pOzAHW0fUzzqG93s7KaiP7DJ6','usFMvrG9GN4hv6inzTLr6m0JEAapU3nDISGFHHFBgb9V0OEUE5seMi0mscnM','2020-02-18 19:37:15','2020-03-13 03:14:51','1554563205'),(2,'lucas','peres','12pedro','pedro@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,2,NULL,NULL,NULL,'$2y$10$18jFS5CBHmOxEdnsTWhRKOTy6EIk25IMwcLKEcnE56mRzJdfZl0Oe',NULL,'2020-02-19 06:23:59','2020-02-20 04:52:14',NULL),(3,'pedro','feliz','admin','admin@gmail.com','/img/perfil.png',1,NULL,NULL,NULL,NULL,NULL,NULL,'2020-03-13 02:26:59','$2y$10$uFThq.EwtQzkxubBle7i2.bVx8wnFPtMwgM3kYvGw7bE/CecF1cra',NULL,'2020-02-19 06:39:58','2020-03-13 02:26:59',NULL),(4,'fede','fede','fede','fede@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,3,NULL,NULL,NULL,'$2y$10$eH7w4n4HXWJRz8hrAnYuU.sdWVn2eyNqHW8SB17LytiU47il5jLsq',NULL,'2020-02-20 15:29:41','2020-02-20 15:30:09',NULL),(5,'des','des','des','des@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,4,NULL,NULL,NULL,'$2y$10$dJ4xBy1vwdQ55AKwgTGIOOlmKm1y9bUiCAg/REgBzF.Us4XUoxyiy',NULL,'2020-02-20 15:37:27','2020-02-20 15:38:14',NULL),(7,'fer','fer','fer','fer@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$r9dyNkMjcPrxJQ1G18hy9.1lW9wpmilE3JH.JrY97sqEWyYCwEicq',NULL,'2020-02-21 15:44:35','2020-02-21 15:44:35',NULL),(8,'re','re','12rer','re@gmail.com','/img/perfil.png',2,NULL,NULL,NULL,5,NULL,NULL,NULL,'$2y$10$odKZ5t5jIyXknBSewPPSXe4hTzY6yFGnDgFKZXC/fh66vEv5Cw31q',NULL,'2020-02-22 03:56:39','2020-02-22 03:57:03',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'e-commerce'
+--
+
+--
+-- Dumping routines for database 'e-commerce'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -748,4 +772,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-17 19:42:50
+-- Dump completed on 2020-03-16 21:44:07
